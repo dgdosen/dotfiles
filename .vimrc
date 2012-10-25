@@ -161,9 +161,9 @@ endif
 :set t_Co=256 " 256 colors
 " :set background=dark
 :set background=light
-" :color grb256
+:color grb256
 " :color autumnleaf
-:color solarized
+" :color solarized
 " :colorscheme twilight256
 " :colorscheme railscasts
 
