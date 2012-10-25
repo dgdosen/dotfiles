@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/ddosen/Development/doctors-tool-ruby'
+let g:netrw_dirhist_2='/Users/ddosen/Development/financials/app/models'
+let g:netrw_dirhist_3='/Users/ddosen/Development/ssi_scoreboardmigration/DataFiles/ProjectB/NewThirdPartyData/2011/emd04222011c'
+let g:netrw_dirhist_4='/Users/ddosen/Development/financials/app/models'
+let g:netrw_dirhist_5='/Users/ddosen/.rbenv'
+let g:netrw_dirhist_6='/Users/ddosen/.vim'
