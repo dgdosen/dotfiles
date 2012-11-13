@@ -4,3 +4,6 @@
 [submodule ".vim/bundle/vim-ack"]
 	path = .vim/bundle/vim-ack
 	url = git://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundle/vim-addon_mw-utils"]
+	path = .vim/bundle/vim-addon_mw-utils
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
