@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/vim-addon_mw-utils"]
 	path = .vim/bundle/vim-addon_mw-utils
 	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule ".vim/bundle/vim-blackboard"]
+	path = .vim/bundle/vim-blackboard
+	url = git://github.com/nelstrom/vim-blackboard.git
