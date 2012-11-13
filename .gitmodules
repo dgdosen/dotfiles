@@ -1,3 +1,6 @@
 [submodule ".vim/bundle/vim-bufexplorer"]
 	path = .vim/bundle/vim-bufexplorer
 	url = git://github.com/thisivan/vim-bufexplorer.git
+[submodule ".vim/bundle/vim-tlib_vim"]
+	path = .vim/bundle/vim-tlib_vim
+	url = git://github.com/tomtom/tlib_vim.git
