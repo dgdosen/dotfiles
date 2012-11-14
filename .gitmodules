@@ -52,3 +52,30 @@
 [submodule ".vim/bundle/vim-l9"]
 	path = .vim/bundle/vim-l9
 	url = git://github.com/vim-scripts/L9.git
+[submodule ".vim/bundle/vim-makegreen"]
+	path = .vim/bundle/vim-makegreen
+	url = git://github.com/reinh/vim-makegreen.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule ".vim/bundle/vim-matchit"]
+	path = .vim/bundle/vim-matchit
+	url = git://github.com/vim-scripts/ruby-matchit.git
+[submodule ".vim/bundle/vim-nerdtree"]
+	path = .vim/bundle/vim-nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/vim-ragtag"]
+	path = .vim/bundle/vim-ragtag
+	url = git://github.com/tpope/vim-ragtag.git
+[submodule ".vim/bundle/vim-rails"]
+	path = .vim/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule ".vim/bundle/vim-railscasts"]
+	path = .vim/bundle/vim-railscasts
+	url = git://github.com/rickharris/vim-railscasts.git
+[submodule ".vim/bundle/vim-rake"]
+	path = .vim/bundle/vim-rake
+	url = git://github.com/tpope/vim-rake.git
+[submodule ".vim/bundle/vim-rename"]
+	path = .vim/bundle/vim-rename
+	url = git://github.com/vim-scripts/Rename.git
