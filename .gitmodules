@@ -4,12 +4,12 @@
 [submodule ".vim/bundle/vim-ack"]
 	path = .vim/bundle/vim-ack
 	url = git://github.com/mileszs/ack.vim.git
-[submodule ".vim/bundle/vim-addon_mw-utils"]
-	path = .vim/bundle/vim-addon_mw-utils
-	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule ".vim/bundle/vim-blackboard"]
 	path = .vim/bundle/vim-blackboard
 	url = git://github.com/nelstrom/vim-blackboard.git
 [submodule ".vim/bundle/vim-coffee-script"]
 	path = .vim/bundle/vim-coffee-script
 	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule ".vim/bundle/vim-addon_mw-utils"]
+	path = .vim/bundle/vim-addon_mw-utils
+	url = git://github.com/MarcWeber/vim-addon-mw-utils.git
