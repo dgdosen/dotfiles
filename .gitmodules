@@ -103,6 +103,3 @@
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/tmux-config"]
-	path = bundle/tmux-config
-	url = git://github.com/pivotal/tmux-config.git
