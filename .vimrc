@@ -666,13 +666,44 @@ nmap K 10k
 nmap H 10h
 nmap L 10l
 
-" DGD: going for text bubbling - Not sure why I didn't do this before:
-" bubble single line
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+" " DGD: going for text bubbling - Not sure why I didn't do this before:
+" " bubble single line
+" nmap <C-Up> [e
+" nmap <C-Down> ]e
+" " bubble multiple lines
+" vmap <C-Up> [egv
+" vmap <C-Down> ]egv
+
+" DGD: compatible text bubbling
+"Bubble single lines (kicks butt)
+"http://vimcasts.org/episodes/bubbling-text/
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+nmap <C-Left> <<
+nmap <C-Right> >>
+
+"Horizontal bubbling
+vnoremap < <gv
+vnoremap > >gv
+
+"Keep selection
+nmap gV `[v`]
+
+"Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+vmap <C-Right> >gv
+vmap <C-Left> <gv
+
+if &term =~ '^screen'
+  " tmux will send xterm-style keys when its xterm-keys option is on
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
+
+
 
 " DGD: adding tabularize functionalty from tpope gist
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
@@ -743,3 +774,8 @@ autocmd BufNewFile,BufRead *.hbs set filetype=hbs.html
 " syn keyword myTodo contained DGD
 " hi def link myTodo Todo
 " autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\FIXME\DGD\BUG\HACK\)')
+"
+"DGD: ctag support
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+"
