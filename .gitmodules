@@ -109,3 +109,6 @@
 [submodule ".vim/bundle/vim-tlib"]
 	path = .vim/bundle/vim-tlib
 	url = git://github.com/tomtom/tlib_vim.git
+[submodule ".vim/bundle/vim-monakai"]
+	path = .vim/bundle/vim-monakai
+	url = git://github.com/sickill/vim-monokai.git
