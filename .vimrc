@@ -160,12 +160,12 @@ endif
 :let g:solarized_contrast = "high"
 :set t_Co=256 " 256 colors
 " :set background=dark
-:set background=light
+" :set background=light
 " :color grb256
 " :color autumnleaf
 " :color solarized
 " :colorscheme twilight256
-" :colorscheme railscasts
+:colorscheme railscasts
 
 " GRB: hide the toolbar in GUI mode
 if has("gui_running")
@@ -778,4 +778,7 @@ autocmd BufNewFile,BufRead *.hbs set filetype=hbs.html
 "DGD: ctag support
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" map rt :!bundle list --paths=true | xargs ctags --extra=+f --exclude=.git --exclude=log -R *
 "
+"DGD: axlsx files
+au BufNewFile,BufRead *.axlsx setlocal ft=ruby
