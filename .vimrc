@@ -782,3 +782,5 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "
 "DGD: axlsx files
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
+
+nmap <leader>v :e ~/.vimrc<CR>
