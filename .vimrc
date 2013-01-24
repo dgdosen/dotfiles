@@ -119,7 +119,7 @@ set showmatch
 set incsearch
 
 " GRB: wrap lines at 78 characters
-" set textwidth=78
+set textwidth=78
 
 " GRB: Highlight long lines
 " Turn long-line highlighting off when entering all files, then on when
@@ -155,10 +155,10 @@ endif
 
 " GRB: set the color scheme
 " solarized options 
-:let g:solarized_termcolors = 256
-:let g:solarized_visibility = "high"
-:let g:solarized_contrast = "high"
-:set t_Co=256 " 256 colors
+" :let g:solarized_termcolors = 256
+" :let g:solarized_visibility = "high"
+" :let g:solarized_contrast = "high"
+" :set t_Co=256 " 256 colors
 " :set background=dark
 " :set background=light
 :color grb256
@@ -378,7 +378,9 @@ map <leader>ss :setlocal spell!<cr>
 "shortcuts using <leader>
 map <leader>sn ]s
 map <leader>sp [s
+map <leader>sr zw
 map <leader>sa zg
+map <leader>su zuw
 map <leader>s? z=
 hi clear SpellBad
 hi SpellBad cterm=underline
@@ -488,22 +490,24 @@ function! ShowRoutes()
 endfunction
 
 :let g:CommandTMaxFiles = 20000
+:let g:CommandTMaxHeight = 10
 :set wildignore+=*.o,*.obj,.git,db/project_b_data/**
 
 map <leader>gR :call ShowRoutes()<cr>
 map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts/<cr>
 map <leader>jp :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/presenters/<cr>
-map <leader>jm :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/models/<cr>
+map <leader>jm :CommandTFlush<cr>\|:CommandT app/assets/javascripts/models<cr>
 map <leader>jc :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/collections/<cr>
 map <leader>jv :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/views/<cr>
 map <leader>jr :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/routers/<cr>
 map <leader>jt :CommandTFlush<cr>\|:CommandT app/assets/javascripts/templates/<cr>
 map <leader>js :CommandTFlush<cr>\|:CommandT spec/javascripts<cr>
 map <leader>jsp :CommandTFlush<cr>\|:CommandT spec/javascripts/app/presenters/<cr>
-map <leader>jsm :CommandTFlush<cr>\|:CommandT spec/javascripts/app/models/<cr>
+map <leader>jsm :CommandTFlush<cr>\|:CommandT spec/javascripts/models/<cr>
 map <leader>jsc :CommandTFlush<cr>\|:CommandT spec/javascripts/app/collections/<cr>
 map <leader>jsv :CommandTFlush<cr>\|:CommandT spec/javascripts/app/views/<cr>
 map <leader>jsr :CommandTFlush<cr>\|:CommandT spec/javascripts/app/routers/<cr>
+map <leader>gz :CommandTFlush<cr>\|:CommandT app/services<cr>
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
