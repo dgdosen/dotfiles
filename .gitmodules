@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/vim-monakai"]
 	path = .vim/bundle/vim-monakai
 	url = git://github.com/sickill/vim-monokai.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
