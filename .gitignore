@@ -1,6 +1,6 @@
 .DS_Store
 .pgadmin_histoqueries
-.bash-history
+.bash_history
 .zsh-update
 .zshrc
 .pgpass
