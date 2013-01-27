@@ -109,6 +109,6 @@
 [submodule ".oh-my-zsh"]
   path = .oh-my-zsh
   url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule ".vim/bundle/vim-ultisnip"]
-	path = .vim/bundle/vim-ultisnip
+[submodule ".vim/bundle/vim-ultisnips"]
+	path = .vim/bundle/vim-ultisnips
 	url = git@github.com:dgdosen/ultisnips.git
