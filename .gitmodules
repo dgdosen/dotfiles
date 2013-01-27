@@ -88,9 +88,6 @@
 [submodule ".vim/bundle/vim-ruby-minitest"]
 	path = .vim/bundle/vim-ruby-minitest
 	url = git://github.com/sunaku/vim-ruby-minitest.git
-[submodule ".vim/bundle/vim-snipmate-snippets"]
-	path = .vim/bundle/vim-snipmate-snippets
-	url = git://github.com/honza/snipmate-snippets.git
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
