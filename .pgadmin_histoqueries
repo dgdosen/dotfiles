@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<histoqueries>
+ <histoquery>select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is not null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  not null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+select * from watched_tracks
+select * from tracks</histoquery>
+ <histoquery>select * from starts 
+where program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is not null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  not null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+select * from watched_tracks
+select * from tracks</histoquery>
+ <histoquery>select * from starts 
+where program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is not null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  not null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+select * from watched_tracks
+select * from tracks</histoquery>
+ <histoquery>select * from starts 
+where program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is not null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  not null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+select * from watched_tracks
+select * from tracks</histoquery>
+ <histoquery>select * from starts 
+where program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is not null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  not null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+select * from watched_tracks
+select * from tracks</histoquery>
+ <histoquery>select * from starts 
+where program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is not null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  not null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+
+
+select * from watched_tracks
+select * from tracks</histoquery>
+ <histoquery>select * from starts 
+where program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is not null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  not null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+and etd_official_program_number is not null
+and post_position != 99
+limit 5
+
+
+
+select * from watched_tracks
+select * from tracks</histoquery>
+ <histoquery>select * from starts 
+where program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is not null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  not null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+and etd_official_program_number is not null
+limit 5
+
+
+
+select * from watched_tracks
+select * from tracks</histoquery>
+ <histoquery>select * from starts 
+where program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is not null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  null
+and etd_official_program_number is not null
+limit 5
+
+select id, race_id, post_position, program_number, etd_official_program_number from starts 
+where program_number is  not null
+and etd_official_program_number != program_number
+and post_position != 99
+limit 5
+
+select distinct date from races
+where id in 
+(
+  select race_id from starts 
+  where program_number is null
+  and etd_official_program_number is not null
+)
+
+
+select * from watched_tracks
+select * from tracks</histoquery>
+ <histoquery>select * from races limit 5</histoquery>
+</histoqueries>
