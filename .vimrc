@@ -27,7 +27,6 @@ set wildmenu
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
 set smartcase
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -190,29 +189,29 @@ set wildmode=longest,list
 " GRB: clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
-" Remap the tab key to do autocompletion or indentation depending on the
-" context (from http://www.vim.org/tips/tip.php?tip_id=102)
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
+" " Remap the tab key to do autocompletion or indentation depending on the
+" " context (from http://www.vim.org/tips/tip.php?tip_id=102)
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<tab>"
+"     else
+"         return "\<c-p>"
+"     enf
+" endfunction
+" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <s-tab> <c-n>
 
 " When hitting <;>, complete a snippet if there is one; else, insert an actual
 " <;>
-function! InsertSnippetWrapper()
-    let inserted = TriggerSnippet()
-    if inserted == "\<tab>"
-        return ";"
-    else
-        return inserted
-    endif
-endfunction
+" function! InsertSnippetWrapper()
+"     let inserted = TriggerSnippet()
+"     if inserted == "\<tab>"
+"         return ";"
+"     else
+"         return inserted
+"     endif
+" endfunction
 
 if version >= 700
     autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -339,7 +338,7 @@ set guioptions-=L
 set guioptions-=r
 
 " Use <c-h> for snippets
-let g:NERDSnippets_key = '<c-h>'
+" let g:NERDSnippets_key = '<c-h>'
 
 augroup myfiletypes
   "clear old autocmds in group
@@ -356,7 +355,7 @@ autocmd FileType htmldjango source ~/.vim/indent/html_grb.vim
 autocmd! BufRead,BufNewFile *.sass setfiletype sass
 
 " DGD: better erb snippet support
-autocmd BufNewFile,BufRead *.html.erb set filetype=html.eruby
+" autocmd BufNewFile,BufRead *.html.erb set filetype=html.eruby
 
 " Map ,e and ,v to open files in the same directory as the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -786,5 +785,13 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "
 "DGD: axlsx files
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
-
 nmap <leader>v :e ~/.vimrc<CR>
+
+" let g:UltiSnipsExpandTrigger='<tab>'
+" let g:UltiSnipsListSnippets='<c-tab>'
+
+let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-ultisnips/UltiSnips"
+let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
