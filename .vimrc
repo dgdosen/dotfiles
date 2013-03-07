@@ -158,7 +158,7 @@ endif
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
 " :set t_Co=256 " 256 colors
-" :set background=dark
+:set background=dark
 " :set background=light
 :color grb256
 " :color autumnleaf
@@ -646,7 +646,7 @@ inoremap <c-c> <esc>
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 
 " DGD: Triying out Flog
-:silent exe "g:flog_enable"
+" :silent exe "g:flog_enable"
 " :silent exe "let g:flog_low_color=#a5c261"
 " :silent exe "let g:flog_medium_color=#ffc66d"
 " :silent exe "let g:flog_high_color=#cc7833"
@@ -787,8 +787,8 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
 nmap <leader>v :e ~/.vimrc<CR>
 
-" let g:UltiSnipsExpandTrigger='<tab>'
-" let g:UltiSnipsListSnippets='<c-tab>'
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsListSnippets='<c-tab>'
 
 let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-ultisnips/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
