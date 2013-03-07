@@ -795,3 +795,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+" TODO: code folding:
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+
