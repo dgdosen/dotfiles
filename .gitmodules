@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/vim-ultisnipsdgd"]
 	path = .vim/bundle/vim-ultisnipsdgd
 	url = git@github.com:dgdosen/ultisnips.git
+[submodule ".vim/bundle/vim-bufexplorer"]
+	path = .vim/bundle/vim-bufexplorer
+	url = git://github.com/corntrace/bufexplorer.git
