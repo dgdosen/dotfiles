@@ -4,3 +4,4 @@
 .zsh-update
 .pgpass
 .vim/.netrwhist
+.vim/ruby/*
