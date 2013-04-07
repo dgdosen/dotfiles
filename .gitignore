@@ -2,6 +2,5 @@
 .pgadmin_histoqueries
 .bash_history
 .zsh-update
-.zshrc
 .pgpass
 .vim/.netrwhist
