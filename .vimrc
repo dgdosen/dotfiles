@@ -189,18 +189,18 @@ set wildmode=longest,list
 " GRB: clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
-" " Remap the tab key to do autocompletion or indentation depending on the
-" " context (from http://www.vim.org/tips/tip.php?tip_id=102)
-" function! InsertTabWrapper()
-"     let col = col('.') - 1
-"     if !col || getline('.')[col - 1] !~ '\k'
-"         return "\<tab>"
-"     else
-"         return "\<c-p>"
-"     enf
-" endfunction
-" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-" inoremap <s-tab> <c-n>
+" Remap the tab key to do autocompletion or indentation depending on the
+" context (from http://www.vim.org/tips/tip.php?tip_id=102)
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    enf
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
 
 " When hitting <;>, complete a snippet if there is one; else, insert an actual
 " <;>
@@ -212,11 +212,6 @@ set wildmode=longest,list
 "         return inserted
 "     endif
 " endfunction
-
-if version >= 700
-    autocmd FileType python set omnifunc=pythoncomplete#Complete
-    let Tlist_Ctags_Cmd='~/bin/ctags'
-endif
 
 function! RunTests(target, args)
     silent ! echo
