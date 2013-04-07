@@ -786,7 +786,7 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsListSnippets='<c-tab>'
 " let g:UltiSnipsListSnippets='<c-q>'
 
-let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-ultisnipsdgd/UltiSnips"
+let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-ultisnips/UltiSnips"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
