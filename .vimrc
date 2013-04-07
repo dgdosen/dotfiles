@@ -197,7 +197,7 @@ function! InsertTabWrapper()
         return "\<tab>"
     else
         return "\<c-p>"
-    enf
+    end
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
