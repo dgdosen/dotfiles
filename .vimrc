@@ -798,3 +798,8 @@ set nofoldenable
 set foldlevel=1
 nnoremap <Space> za
 vnoremap <Space> za
+
+" vim-rspec mappings
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
