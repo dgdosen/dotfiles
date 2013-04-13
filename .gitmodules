@@ -112,6 +112,3 @@
 [submodule ".vim/bundle/vim-ultisnips"]
 	path = .vim/bundle/vim-ultisnips
 	url = git://github.com/SirVer/ultisnips.git
-[submodule ".vim/bundle/vim-rspec"]
-	path = .vim/bundle/vim-rspec
-	url = git://github.com/thoughtbot/vim-rspec.git
