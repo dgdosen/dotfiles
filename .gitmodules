@@ -109,6 +109,9 @@
 [submodule ".vim/bundle/vim-ultisnips"]
 	path = .vim/bundle/vim-ultisnips
 	url = git://github.com/SirVer/ultisnips.git
-[submodule ".vim/bundle/vim-colors"]
-	path = .vim/bundle/vim-colors
-	url = git://github.com/dandorman/vim-colors.git
+[submodule ".vim/bundle/vim-railscasts-256"]
+	path = .vim/bundle/vim-railscasts-256
+	url = git://github.com/vim-scripts/Railscasts-Theme-GUIand256color.git
+[submodule ".vim/bundle/vim-zenburn"]
+	path = .vim/bundle/vim-zenburn
+	url = git://github.com/vim-scripts/Zenburn.git
