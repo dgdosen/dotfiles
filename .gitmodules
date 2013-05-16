@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/vim-zenburn"]
 	path = .vim/bundle/vim-zenburn
 	url = git://github.com/vim-scripts/Zenburn.git
+[submodule ".vim/bundle/vim-ctrlp"]
+	path = .vim/bundle/vim-ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
