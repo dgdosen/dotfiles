@@ -154,17 +154,30 @@ endif
 
 " GRB: set the color scheme
 " solarized options 
+syntax enable
+" :let g:solarized_termcolors
 " :let g:solarized_termcolors = 256
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
-" :set t_Co=256 " 256 colors
-" :set background=dark
+set t_Co=256 " 256 colors
+:set background=dark
 " :set background=light
 " :color grb256
 " :color autumnleaf
 " :color solarized
+" :color codeschool
+" :color zenburn
+" :color railscasts
+" :color github
+" :colorscheme railscasts_jpo
+" :colorscheme railscasts_dgd
+" :colorscheme railscasts
+:colorscheme solarized
 " :colorscheme twilight256
-:colorscheme railscasts
+" :colorscheme grb256
+" :colorscheme github
+" :colorscheme zenburn
+" :colorscheme Tomorrow-Night
 
 " GRB: hide the toolbar in GUI mode
 if has("gui_running")
@@ -483,38 +496,46 @@ function! ShowRoutes()
   :normal dd
 endfunction
 
-:let g:CommandTMaxFiles = 20000
-:let g:CommandTMaxHeight = 10
-:set wildignore+=*.o,*.obj,.git,db/project_b_data/**
+" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>f :CtrlP<cr>
+" let g:ctrlp_map = '<leader>ff'
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_map = '<leader> f'
 
-map <leader>gR :call ShowRoutes()<cr>
-map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts/<cr>
-map <leader>jp :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/presenters/<cr>
-map <leader>jm :CommandTFlush<cr>\|:CommandT app/assets/javascripts/models<cr>
-map <leader>jc :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/collections/<cr>
-map <leader>jv :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/views/<cr>
-map <leader>jr :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/routers/<cr>
-map <leader>jt :CommandTFlush<cr>\|:CommandT app/assets/javascripts/templates/<cr>
-map <leader>js :CommandTFlush<cr>\|:CommandT spec/javascripts<cr>
-map <leader>jsp :CommandTFlush<cr>\|:CommandT spec/javascripts/app/presenters/<cr>
-map <leader>jsm :CommandTFlush<cr>\|:CommandT spec/javascripts/models/<cr>
-map <leader>jsc :CommandTFlush<cr>\|:CommandT spec/javascripts/app/collections/<cr>
-map <leader>jsv :CommandTFlush<cr>\|:CommandT spec/javascripts/app/views/<cr>
-map <leader>jsr :CommandTFlush<cr>\|:CommandT spec/javascripts/app/routers/<cr>
-map <leader>gz :CommandTFlush<cr>\|:CommandT app/services<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
-map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
-map <leader>gg :topleft 100 :split Gemfile<cr>
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+" :let g:CommandTMaxFiles = 20000
+" :let g:CommandTMaxHeight = 10
+" :set wildignore+=*.o,*.obj,.git,db/project_b_data/**
 
-nnoremap <leader><leader> <c-^>
+" map <leader>gR :call ShowRoutes()<cr>
+" map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts/<cr>
+" map <leader>jp :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/presenters/<cr>
+" map <leader>jm :CommandTFlush<cr>\|:CommandT app/assets/javascripts/models<cr>
+" map <leader>jc :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/collections/<cr>
+" map <leader>jv :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/views/<cr>
+" map <leader>jr :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/routers/<cr>
+" map <leader>jt :CommandTFlush<cr>\|:CommandT app/assets/javascripts/templates/<cr>
+" map <leader>js :CommandTFlush<cr>\|:CommandT spec/javascripts<cr>
+" map <leader>jsp :CommandTFlush<cr>\|:CommandT spec/javascripts/app/presenters/<cr>
+" map <leader>jsm :CommandTFlush<cr>\|:CommandT spec/javascripts/models/<cr>
+" map <leader>jsc :CommandTFlush<cr>\|:CommandT spec/javascripts/app/collections/<cr>
+" map <leader>jsv :CommandTFlush<cr>\|:CommandT spec/javascripts/app/views/<cr>
+" map <leader>jsr :CommandTFlush<cr>\|:CommandT spec/javascripts/app/routers/<cr>
+" map <leader>gz :CommandTFlush<cr>\|:CommandT app/services<cr>
+" map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+" map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+" map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+" map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+" map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+" map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+" map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
+" map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
+" map <leader>gg :topleft 100 :split Gemfile<cr>
+" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
+" nnoremap <leader><leader> <c-^>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Running tests
@@ -734,9 +755,9 @@ map <C-l> <C-w>l
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 
 " DGD: support for easy-motion
-let g:EasyMotion_mapping_w = 'f'
-let g:EasyMotion_mapping_b = 'F'
-let g:EasyMotion_leader_key='<leader>m'
+" let g:EasyMotion_mapping_w = 'f'
+" let g:EasyMotion_mapping_b = 'F'
+" let g:EasyMotion_leader_key='<leader>m'
 
 set ttyfast
 
@@ -792,12 +813,16 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " TODO: code folding:
-set foldmethod=indent
-set foldnestmax=10
+" set foldmethod=indent
+map <leader>zi :setlocal foldmethod=indent<cr>
+map <leader>zs :setlocal foldmethod=syntax<cr>
+" set foldnestmax=10
 set nofoldenable
+" set foldlevelstart=0
 set foldlevel=1
 nnoremap <Space> za
 vnoremap <Space> za
+nnoremap zO zCzO
 
 " vim-rspec mappings
 " map <Leader>t :call RunCurrentSpecFile()<CR>
