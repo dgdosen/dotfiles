@@ -160,8 +160,8 @@ syntax enable
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
 set t_Co=256 " 256 colors
-:set background=dark
-" :set background=light
+" :set background=dark
+:set background=light
 " :color grb256
 " :color autumnleaf
 " :color solarized
