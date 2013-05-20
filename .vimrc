@@ -160,8 +160,8 @@ syntax enable
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
 set t_Co=256 " 256 colors
-" :set background=dark
-:set background=light
+:set background=dark
+" :set background=light
 " :color grb256
 " :color autumnleaf
 " :color solarized
@@ -498,6 +498,16 @@ endfunction
 
 " map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>f :CtrlP<cr>
+map <leader>gj :CtrlP app/assets/javascripts<cr>
+map <leader>gs :CtrlP app/assets/stylesheets<cr>
+map <leader>gm :CtrlP app/models<cr>
+map <leader>gc :CtrlP app/controllers<cr>
+map <leader>gv :CtrlP app/views<cr>
+map <leader>gs :CtrlP app/services<cr>
+map <leader>gk :CtrlP spec<cr>
+map <leader>gg :CtrlP config<cr>
+map <leader>gd :CtrlP config<cr>
+
 " let g:ctrlp_map = '<leader>ff'
 " let g:ctrlp_map = '<c-p>'
 " let g:ctrlp_cmd = 'CtrlP'
