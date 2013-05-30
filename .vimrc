@@ -499,7 +499,7 @@ endfunction
 " map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>f :CtrlP<cr>
 map <leader>gj :CtrlP app/assets/javascripts<cr>
-map <leader>gs :CtrlP app/assets/stylesheets<cr>
+map <leader>gy :CtrlP app/assets/stylesheets<cr>
 map <leader>gm :CtrlP app/models<cr>
 map <leader>gc :CtrlP app/controllers<cr>
 map <leader>gv :CtrlP app/views<cr>
