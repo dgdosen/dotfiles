@@ -117,8 +117,8 @@ set laststatus=2
 set showmatch
 set incsearch
 
-" GRB: wrap lines at 78 characters
-set textwidth=78
+set textwidth=80
+set wrapmargin=2
 
 " GRB: Highlight long lines
 " Turn long-line highlighting off when entering all files, then on when
@@ -160,8 +160,8 @@ syntax enable
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
 set t_Co=256 " 256 colors
-:set background=dark
-" :set background=light
+" :set background=dark
+:set background=light
 " :color grb256
 " :color autumnleaf
 " :color solarized
@@ -508,6 +508,8 @@ map <leader>gk :CtrlP spec<cr>
 map <leader>gg :CtrlP config<cr>
 map <leader>gd :CtrlP config<cr>
 
+let g:ctrlp_custom_ignore = "tmp"
+
 " let g:ctrlp_map = '<leader>ff'
 " let g:ctrlp_map = '<c-p>'
 " let g:ctrlp_cmd = 'CtrlP'
@@ -838,3 +840,7 @@ nnoremap zO zCzO
 " map <Leader>t :call RunCurrentSpecFile()<CR>
 " map <Leader>s :call RunNearestSpec()<CR>
 " map <Leader>l :call RunLastSpec()<CR>
+
+" column width stuff:
+:set cc=80
+" :hi ColorColumn ctermbg=green guibg=lightgrey
