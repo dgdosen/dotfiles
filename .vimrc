@@ -153,15 +153,15 @@ if has("gui_running")
 endif
 
 " GRB: set the color scheme
-" solarized options 
+" solarized options
 syntax enable
 " :let g:solarized_termcolors
 " :let g:solarized_termcolors = 256
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
 set t_Co=256 " 256 colors
-" :set background=dark
-:set background=light
+:set background=dark
+" :set background=light
 " :color grb256
 " :color autumnleaf
 " :color solarized
@@ -509,7 +509,7 @@ map <leader>gg :CtrlP config<cr>
 map <leader>gd :CtrlP config<cr>
 
 let g:ctrlp_custom_ignore = "tmp"
-
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*.log
 " let g:ctrlp_map = '<leader>ff'
 " let g:ctrlp_map = '<c-p>'
 " let g:ctrlp_cmd = 'CtrlP'
@@ -835,6 +835,11 @@ set foldlevel=1
 nnoremap <Space> za
 vnoremap <Space> za
 nnoremap zO zCzO
+
+nmap <c-w>[ :vertical res +20<cr>
+nmap <c-w>] :vertical res -20<cr>
+" nnoremap <c-[> <c-w>[
+" nnoremap <c-]> <c-w>]
 
 " vim-rspec mappings
 " map <Leader>t :call RunCurrentSpecFile()<CR>
