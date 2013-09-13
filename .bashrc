@@ -7,7 +7,7 @@ export PATH="~/bin:$PATH"
 export PATH="~/.rbenv/shims:$PATH"
 
 # Add postgres to the path
-export PATH="/usr/local/Cellar/python/2.7.3/bin:$PATH"
+# export PATH="/usr/local/Cellar/python/2.7.3/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
 # node support
