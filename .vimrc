@@ -3,7 +3,7 @@ runtime bundles/tplugin_vim/macros/tplugin.vim
 " runtime bundles/vim-tlib/macros/tplugin.vim
 call pathogen#infect()
 call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+" call pathogen#runtime_append_all_bundles()
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -153,15 +153,15 @@ if has("gui_running")
 endif
 
 " GRB: set the color scheme
-" solarized options 
+" solarized options
 syntax enable
 " :let g:solarized_termcolors
 " :let g:solarized_termcolors = 256
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
 set t_Co=256 " 256 colors
-" :set background=dark
-:set background=light
+:set background=dark
+" :set background=light
 " :color grb256
 " :color autumnleaf
 " :color solarized
@@ -499,7 +499,7 @@ endfunction
 " map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>f :CtrlP<cr>
 map <leader>gj :CtrlP app/assets/javascripts<cr>
-map <leader>gs :CtrlP app/assets/stylesheets<cr>
+map <leader>gy :CtrlP app/assets/stylesheets<cr>
 map <leader>gm :CtrlP app/models<cr>
 map <leader>gc :CtrlP app/controllers<cr>
 map <leader>gv :CtrlP app/views<cr>
@@ -509,7 +509,7 @@ map <leader>gg :CtrlP config<cr>
 map <leader>gd :CtrlP config<cr>
 
 let g:ctrlp_custom_ignore = "tmp"
-
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*.log
 " let g:ctrlp_map = '<leader>ff'
 " let g:ctrlp_map = '<c-p>'
 " let g:ctrlp_cmd = 'CtrlP'
@@ -835,6 +835,11 @@ set foldlevel=1
 nnoremap <Space> za
 vnoremap <Space> za
 nnoremap zO zCzO
+
+nmap <c-w>[ :vertical res +20<cr>
+nmap <c-w>] :vertical res -20<cr>
+" nnoremap <c-[> <c-w>[
+" nnoremap <c-]> <c-w>]
 
 " vim-rspec mappings
 " map <Leader>t :call RunCurrentSpecFile()<CR>
