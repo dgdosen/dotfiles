@@ -7,3 +7,5 @@ for f in $(command ls ~/.node-completion); do
   test -f "$f" && . "$f"
 done
 # }}}
+
+[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
