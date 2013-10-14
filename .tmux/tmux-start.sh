@@ -17,7 +17,7 @@ tmux send-keys 'guard' C-m
 
 tmux splitw -v
 tmux send-keys -t $1 "c $1" C-m
-tmux send-keys 'karma start spec/karma/config/unit.js' C-m
+tmux send-keys 'karma start spec/karma/config/karma.conf.js' C-m
 
 tmux select-pane -L
 tmux attach-session -d
