@@ -118,3 +118,15 @@
 [submodule ".vim/bundle/vim-ember-script"]
 	path = .vim/bundle/vim-ember-script
 	url = git://github.com/heartsentwined/vim-ember-script.git
+[submodule ".vim/bundle/vim-syntastic"]
+	path = .vim/bundle/vim-syntastic
+	url = git@github.com:scrooloose/syntastic.git
+[submodule ".vim/bundle/vim-haskellmode"]
+	path = .vim/bundle/vim-haskellmode
+	url = git@github.com:lukerandall/haskellmode-vim.git
+[submodule ".vim/bundle/vim-ghcmod"]
+	path = .vim/bundle/vim-ghcmod
+	url = git@github.com:eagletmt/ghcmod-vim.git
+[submodule ".vim/bundle/vim-neco-ghc"]
+	path = .vim/bundle/vim-neco-ghc
+	url = git@github.com:ujihisa/neco-ghc.git
