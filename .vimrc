@@ -164,7 +164,7 @@ set t_Co=256 " 256 colors
 " :set background=light
 " :color grb256
 " :color autumnleaf
-" :color solarized
+:color solarized
 " :color codeschool
 " :color zenburn
 " :color railscasts
@@ -172,7 +172,7 @@ set t_Co=256 " 256 colors
 " :colorscheme railscasts_jpo
 " :colorscheme railscasts_dgd
 " :colorscheme railscasts
-:colorscheme solarized
+" :colorscheme solarized
 " :colorscheme twilight256
 " :colorscheme grb256
 " :colorscheme github
@@ -835,6 +835,9 @@ set foldlevel=1
 nnoremap <Space> za
 vnoremap <Space> za
 nnoremap zO zCzO
+
+"DGD: trailing white space
+set listchars=trail:·,precedes:«,extends:»,eol:↲,tab:▸\ 
 
 nmap <c-w>[ :vertical res +20<cr>
 nmap <c-w>] :vertical res -20<cr>
