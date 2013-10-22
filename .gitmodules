@@ -136,3 +136,12 @@
 [submodule ".vim/bundle/vim-hspec"]
 	path = .vim/bundle/vim-hspec
 	url = git@github.com:hspec/hspec.vim.git
+[submodule ".vim/bundle/vim-haml"]
+	path = .vim/bundle/vim-haml
+	url = git@github.com:tpope/vim-haml.git
+[submodule ".vim/bundle/vim-jshint"]
+	path = .vim/bundle/vim-jshint
+	url = git@github.com:wookiehangover/jshint.vim.git
+[submodule ".vim/bundle/vim-vimproc"]
+	path = .vim/bundle/vim-vimproc
+	url = git@github.com:Shougo/vimproc.vim.git

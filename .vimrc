@@ -837,7 +837,12 @@ vnoremap <Space> za
 nnoremap zO zCzO
 
 "DGD: trailing white space
-set listchars=trail:·,precedes:«,extends:»,eol:↲,tab:▸\ 
+set listchars=trail:·,precedes:«,extends:»,eol:↲,tab:▸\
+
+"DGD: working with haskell
+" Configure browser for haskell_doc.vim
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
 
 nmap <c-w>[ :vertical res +20<cr>
 nmap <c-w>] :vertical res -20<cr>
