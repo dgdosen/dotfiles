@@ -133,15 +133,12 @@
 [submodule ".vim/bundle/vim-trailing-whitespace"]
 	path = .vim/bundle/vim-trailing-whitespace
 	url = git@github.com:bronson/vim-trailing-whitespace.git
-[submodule ".vim/bundle/vimproc"]
-	path = .vim/bundle/vimproc
-	url = git@github.com:Shougo/vimproc.vim.git
-[submodule ".vim/bundle/vim-rubocop"]
-	path = .vim/bundle/vim-rubocop
-	url = git@github.com:ngmy/vim-rubocop.git
 [submodule ".vim/bundle/vim-haml"]
 	path = .vim/bundle/vim-haml
 	url = git@github.com:tpope/vim-haml.git
 [submodule ".vim/bundle/vim-jshint"]
 	path = .vim/bundle/vim-jshint
 	url = git@github.com:wookiehangover/jshint.vim.git
+[submodule ".vim/bundle/vim-vimproc"]
+	path = .vim/bundle/vim-vimproc
+	url = git@github.com:Shougo/vimproc.vim.git
