@@ -854,6 +854,9 @@ nmap <c-w>] :vertical res -20<cr>
 " map <Leader>s :call RunNearestSpec()<CR>
 " map <Leader>l :call RunLastSpec()<CR>
 
+"clipboard
+set clipboard=unnamed
+
 " column width stuff:
 :set cc=80
 " :hi ColorColumn ctermbg=green guibg=lightgrey
