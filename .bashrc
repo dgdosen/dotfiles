@@ -3,15 +3,7 @@
 # Add paths that should have been there by default
 # export PATH=${PATH}:/usr/local/bin
 # export PATH="/usr/local/bin:$PATH"
-export PATH="~/bin:$PATH"
-export PATH="~/.rbenv/shims:$PATH"
-
-# Add postgres to the path
-# export PATH="/usr/local/Cellar/python/2.7.3/bin:$PATH"
-export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-
-# node support
-# export PATH:$HOME/local/node/bin
+# export PATH="~/bin:$PATH"
 
 # Unbreak broken, non-colored terminal
 export TERM='xterm-color'
@@ -66,11 +58,11 @@ activate_virtualenv() {
     fi
 }
 
-python_module_dir () {
-    echo "$(python -c "import os.path as _, ${1}; \
-        print _.dirname(_.realpath(${1}.__file__[:-1]))"
-        )"
-}
+# python_module_dir () {
+#     echo "$(python -c "import os.path as _, ${1}; \
+#         print _.dirname(_.realpath(${1}.__file__[:-1]))"
+#         )"
+# }
 
 source ~/bin/git-completion.bash
 
