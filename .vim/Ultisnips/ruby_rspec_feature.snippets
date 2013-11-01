@@ -1,0 +1,19 @@
+extends ruby
+
+snippet fea "rspec feature" b
+feature "${1:subject}" do
+  $0
+end
+endsnippet
+
+snippet sce "rspec scenario" b
+scenario "${1:subject}" do
+	$0
+end
+endsnippet
+
+snippet bac "rspec background" b
+background do
+	$0
+end
+endsnippet
