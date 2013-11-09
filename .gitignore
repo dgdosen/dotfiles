@@ -5,3 +5,5 @@
 .pgpass
 .vim/.netrwhist
 .vim/ruby/*
+tmux-client*
+tmux-server*
