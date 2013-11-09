@@ -157,3 +157,6 @@
 [submodule ".vim/bundle/vim-web-api"]
 	path = .vim/bundle/vim-web-api
 	url = git@github.com:mattn/webapi-vim.git
+[submodule ".vim/bundle/vim-ultisnips-dgdosen"]
+	path = .vim/bundle/vim-ultisnips-dgdosen
+	url = git@github.com:dgdosen/ultisnips.git
