@@ -1,4 +1,5 @@
 extends ruby
+# vim:ft=rspec.ruby
 
 snippet anr "and_raise" w
 and_raise(${1:exception})
@@ -39,7 +40,7 @@ end
 endsnippet
 
 snippet con "context"
-context "${1:context}" do
+context '${1:context}' do
   $0
 end
 endsnippet
@@ -53,13 +54,13 @@ end
 endsnippet
 
 snippet desrc "controller_context_RESTful"
-describe ${1:controller}, "${2:GET|POST|PUT|DELETE} ${3:/some/path}${4: with some parameters}" do
+describe ${1:controller}, '${2:GET|POST|PUT|DELETE} ${3:/some/path}${4: with some parameters}' do
   $0
 end
 endsnippet
 
 snippet des "Describe"
-describe "${1:subject}" do
+describe '${1:subject}' do
   $0
 end
 endsnippet
@@ -71,7 +72,7 @@ end
 endsnippet
 
 snippet dests "Describe_type_string"
-describe ${1:Type}, "${2:description}" do
+describe ${1:Type}, '${2:description}' do
   $0
 end
 endsnippet
@@ -83,13 +84,13 @@ endsnippet
 # TODO: the middle tabstop on these next two should be $0, but UltiSnips
 # doesn't handle this correctly yet
 snippet its "it should"
-it "should ${1:do something}"${2: do
+it 'should ${1:do something}'${2: do
   $3
 end}
 endsnippet
 
 snippet it "It"
-it "${1:does something}"${2: do
+it '${1:does something}'${2: do
   $3
 end}
 endsnippet
@@ -369,6 +370,10 @@ lambda { $1 }.should throw_symbol(:${2:symbol})
 $0
 endsnippet
 
+snippet dbl "double"
+double('${1:double}')
+endsnippet
+
 snippet stu "stub"
 ${1:double}.stub(:${2:message})$3
 endsnippet
@@ -399,9 +404,138 @@ subject { $1 }
 endsnippet
 
 snippet exp "expect to"
-expect do
+Gexpect do
   $1
 end.to ${2:change {${3:subject}}.${4:from($5).to($6)}}
 endsnippet
 
+# expectations
+# http://rubydoc.info/gems/rspec-expectations
 
+snippet xeq "expect to eq" -b
+expect(${1:actual}).to eq(${2:expected})
+endsnippet
+
+snippet xeql "expect to eql" -b
+expect(${1:actual}).to eql(${2:expected})
+endsnippet
+
+snippet xbe "expect to be" -b
+expect(${1:actual}).to be(${2:expected})
+endsnippet
+
+snippet xequal "expect to equal" -b
+expect(${1:actual}).to equal(${2:expected})
+endsnippet
+
+snippet xgt "expect to be greater than" -b
+expect(${1:actual}).to be >  ${2:expected}
+endsnippet
+
+snippet xge "expect to be greater than or equal" -b
+expect(${1:actual}).to be >=  ${2:expected}
+endsnippet
+
+snippet xle "expect to be less than or equal" -b
+expect(${1:actual}).to be <=  ${2:expected}
+endsnippet
+
+snippet xlt "expect to be less than" -b
+expect(${1:actual}).to be <  ${2:expected}
+endsnippet
+
+snippet xin "expect to be within" -b
+expect(${1:actual}).to be_within(${2:delta}).of(${3:expected})
+endsnippet
+
+snippet xmatch "expect to match" -b
+expect(${1:actual}).to match(/${2:expression}/)
+endsnippet
+
+snippet xaio "expect to be an instace of" -b
+expect(${1:actual}).to be_an_instance_of(${2:expected})
+endsnippet
+
+snippet xako "expect to be a kind of" -b
+expect(${1:actual}).to be_a_kind_of(${2:expected})
+endsnippet
+
+snippet xbt "expect to be true" -b
+expect(${1:actual}).to be_true
+endsnippet
+
+snippet xbf "expect to be false" -b
+expect(${1:actual}).to be_false
+endsnippet
+
+snippet xbn "expect to be nil" -b
+expect(${1:actual}).to be_nil
+endsnippet
+
+snippet xre "expect to raise_error" -b
+expect {${1:actual}}.to raise_error
+endsnippet
+
+snippet xrec "expect to raise_error class" -b
+expect {${1:actual}}.to raise_error(${2:class})
+endsnippet
+
+snippet xrem "expect to raise_error message" -b
+expect {${1:actual}}.to raise_error('${2:message}')
+endsnippet
+
+snippet xrecm "expect to raise_error class and message" -b
+expect {${1:actual}}.to raise_error(${2:class}, '${3:message}')
+endsnippet
+
+snippet xth "expect to throw" -b
+expect {${1:actual}}.to thow_symbol
+endsnippet
+
+snippet xths "expect to throw symbol" -b
+expect {${1:actual}}.to thow_symbol(${2:symbol})
+endsnippet
+
+snippet xthsv "expect to throw symbol and value" -b
+expect {${1:actual}}.to thow_symbol(${2:symbol},${3:value})
+endsnippet
+
+snippet xbyc "expect block to yeild control" -b
+expect { |${1:block}| ${2:statment}(&${1}) }.to yield_control
+endsnippet
+
+snippet xby "expect block to yeild if true" -b
+expect { |${1:block}| ${2:statment}(&${1}) }.to yield_with_no_args
+endsnippet
+
+snippet xbya "expect block to yeild with args" -b
+expect { |${1:block}| ${2:statment}(&${1}) }.to yield_with_args(${3:args})
+endsnippet
+
+snippet xbysa "expect block to yeild with successive args" -b
+expect { |${1:block}| ${2:eachable}.each(&${1}) }.to yield_successive_args(${3:args})
+endsnippet
+
+snippet xbx "expect to be xxx" -b
+expect {${1:actual}}.to be_(${2:xxx})
+endsnippet
+
+snippet xhx "expect to have xxx" -b
+expect {${1:actual}}.to have_(${2:xxx})
+endsnippet
+
+snippet xrc "expect range to cover" -b
+expect(${1:range}).to cover(${2:value})
+endsnippet
+
+snippet xi "expect to include" -b
+expect(${1:actual}).to include(${2:value})
+endsnippet
+
+snippet xsw "expect to start with" -b
+expect(${1:actual}).to start_with(${2:value})
+endsnippet
+
+snippet xew "expect to end with" -b
+expect(${1:actual}).to end_with(${2:value})
+endsnippet
