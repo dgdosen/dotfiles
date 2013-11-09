@@ -154,3 +154,9 @@
 [submodule ".vim/bundle/vim-clojure-static"]
 	path = .vim/bundle/vim-clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
+[submodule ".vim/bundle/vim-gist"]
+	path = .vim/bundle/vim-gist
+	url = git@github.com:mattn/gist-vim.git
+[submodule ".vim/bundle/vim-web-api"]
+	path = .vim/bundle/vim-web-api
+	url = git@github.com:mattn/webapi-vim.git
