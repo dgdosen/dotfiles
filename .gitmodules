@@ -103,9 +103,6 @@
 [submodule ".vim/bundle/vim-ragtag"]
 	path = .vim/bundle/vim-ragtag
 	url = git://github.com/tpope/vim-ragtag.git
-[submodule ".vim/bundle/vim-railscasts-256"]
-	path = .vim/bundle/vim-railscasts-256
-	url = git://github.com/vim-scripts/Railscasts-Theme-GUIand256color.git
 [submodule ".vim/bundle/vim-zenburn"]
 	path = .vim/bundle/vim-zenburn
 	url = git://github.com/vim-scripts/Zenburn.git
