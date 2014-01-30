@@ -159,7 +159,7 @@ syntax enable
 " :let g:solarized_termcolors = 256
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
-set t_Co=256 " 256 colors
+:set t_Co=256 " 256 colors
 :set background=dark
 " :set background=light
 " :color grb256
@@ -801,10 +801,14 @@ autocmd BufNewFile,BufRead *.hbs set filetype=hbs.html
 
 "DGD: adding dgd to keyword
 " highlight DGD ErrorMsg
+syn match   myTodo   contained   "\<\(TODO\|FIXME\|NOTE\):"
+hi def link myTodo Todo
+" syn match myTodo contained   "\<\(TODO\|FIXME\):"
+" syn keyword  myTodo contained   TODO FIXME NOTE
 " syn match myTodo contained "\<\(DGD\TODO\FIXME\):"
-" syn keyword myTodo contained DGD
+" syn keyword myTodo contained NOTE:
 " hi def link myTodo Todo
-" autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\FIXME\DGD\BUG\HACK\)')
+" autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\FIXME\NOTE\BUG\HACK\)')
 "
 "DGD: ctag support
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
@@ -825,13 +829,13 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " TODO: code folding:
-" set foldmethod=indent
+set foldmethod=indent
 map <leader>zi :setlocal foldmethod=indent<cr>
 map <leader>zs :setlocal foldmethod=syntax<cr>
 " set foldnestmax=10
 set nofoldenable
-" set foldlevelstart=0
-set foldlevel=1
+set foldlevelstart=99
+" set foldlevel=1
 nnoremap <Space> za
 vnoremap <Space> za
 nnoremap zO zCzO
