@@ -157,3 +157,15 @@
 [submodule ".vim/bundle/vim-ultisnips-dgdosen"]
 	path = .vim/bundle/vim-ultisnips-dgdosen
 	url = git@github.com:dgdosen/ultisnips.git
+[submodule ".vim/bundle/vim-railscasts"]
+	path = .vim/bundle/vim-railscasts
+	url = git@github.com:jgdavey/vim-railscasts.git
+[submodule ".vim/bundle/vim-javascript-syntax"]
+	path = .vim/bundle/vim-javascript-syntax
+	url = git@github.com:jelera/vim-javascript-syntax.git
+[submodule ".vim/bundle/vim-node"]
+	path = .vim/bundle/vim-node
+	url = git@github.com:moll/vim-node.git
+[submodule ".vim/bundlevim-fireplace"]
+	path = .vim/bundlevim-fireplace
+	url = git://github.com/tpope/vim-fireplace.git
