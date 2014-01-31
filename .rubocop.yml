@@ -1,5 +1,12 @@
+Documentation:
+  Enabled: false
+
 Encoding:
   Enabled: false
 
 LineLength:
   Max: 80
+
+AllCops:
+  Excludes:
+    - features/*.feature
