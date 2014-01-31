@@ -864,3 +864,11 @@ set clipboard=unnamed
 " column width stuff:
 :set cc=80
 " :hi ColorColumn ctermbg=green guibg=lightgrey
+"
+"DGD: rainbow parens for cloure
+" :RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+
+"DGD: clojure syntax
+" au VimEnter * ToggleClojureHighlightReferences
