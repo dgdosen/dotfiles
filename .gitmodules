@@ -169,3 +169,9 @@
 [submodule ".vim/bundlevim-fireplace"]
 	path = .vim/bundlevim-fireplace
 	url = git://github.com/tpope/vim-fireplace.git
+[submodule ".vim/bundle/vim-rainbow"]
+	path = .vim/bundle/vim-rainbow
+	url = git@github.com:kien/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/vim-clojure/highlight"]
+	path = .vim/bundle/vim-clojure/highlight
+	url = git@github.com:guns/vim-clojure-highlight.git
