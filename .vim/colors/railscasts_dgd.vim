@@ -9,7 +9,7 @@ hi clear
 if exists("syntax_on")
   syntax reset
 endif
-let g:colors_name = "railscasts"
+let g:colors_name = "railscasts_dgd"
 
 " Colors
 " Brown        #BC9357
@@ -19,7 +19,7 @@ let g:colors_name = "railscasts"
 " Light Blue   #CFCFFF
 " Light Green  #A5C160
 " Tan          #FFC66D
-" Red          #DA4938 
+" Red          #DA4938
 
 hi Normal     guifg=#E6E1DC guibg=#232323
 hi Cursor     guibg=#FFFFFF
