@@ -178,3 +178,6 @@
 [submodule ".vim/bundle/vim-ruby-refactoring"]
 	path = .vim/bundle/vim-ruby-refactoring
 	url = git@github.com:ecomba/vim-ruby-refactoring.git
+[submodule ".vim/bundle/vim-vundle"]
+	path = .vim/bundle/vim-vundle
+	url = https://github.com/gmarik/vundle.git
