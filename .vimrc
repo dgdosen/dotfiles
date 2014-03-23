@@ -397,6 +397,8 @@ map <leader>n :call RenameFile()<cr>
 set number
 set numberwidth=5
 
+:au WinEnter * :setlocal number
+:au WinLeave * :setlocal nonumber
 if has("gui_running")
     " source ~/proj/vim-complexity/repo/complexity.vim
 endif
@@ -497,6 +499,7 @@ function! ShowRoutes()
 endfunction
 
 " map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>t :CtrlPTag<cr>
 map <leader>f :CtrlP<cr>
 map <leader>gj :CtrlP app/assets/javascripts<cr>
 map <leader>gy :CtrlP app/assets/stylesheets<cr>
