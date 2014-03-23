@@ -184,3 +184,6 @@
 [submodule ".vim/bundle/vim-youcompleteme"]
 	path = .vim/bundle/vim-youcompleteme
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/vim-expand-region"]
+	path = .vim/bundle/vim-expand-region
+	url = git@github.com:terryma/vim-expand-region.git

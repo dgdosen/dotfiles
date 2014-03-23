@@ -350,7 +350,7 @@ function! InlineVariable()
     exec ':.s/\<' . @a . '\>/' . @b
 endfunction
 
-vnoremap <leader>rv :call ExtractVariable()<cr>
+nnoremap <leader>rv :call ExtractVariable()<cr>
 nnoremap <leader>ri :call InlineVariable()<cr>
 
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
@@ -402,6 +402,7 @@ map <leader>gk :CtrlP spec<cr>
 map <leader>gg :CtrlP config<cr>
 map <leader>gd :CtrlP config<cr>
 
+map <leader>w :w<cr>
 let g:ctrlp_custom_ignore = "tmp"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*.log
 " :let g:CommandTMaxFiles = 20000
@@ -718,3 +719,13 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 
 "DGD: clojure syntax
+"
+"DGD: vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" Make a simple "search" text object.
+vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+omap s :normal vs<CR>
+
