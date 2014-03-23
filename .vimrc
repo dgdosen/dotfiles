@@ -10,24 +10,6 @@ call vundle#rc()
 " let Vundle manage Vundle, required
 Bundle 'gmarik/vundle'
 
-" The following are examples of different formats supported.
-" Keep bundle commands between here and filetype plugin indent on.
-" scripts on GitHub repos
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'tpope/vim-rails.git'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" scripts from http://vim-scripts.org/vim/scripts.html
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
-" scripts not on GitHub
-" Bundle 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Bundle 'file:///home/gmarik/path/to/plugin'
-" ...
-
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -42,6 +24,7 @@ filetype plugin indent on     " required
 " NOTE: comments after Bundle commands are not allowed.
 " Put your stuff after this line
 set completeopt-=preview
+
 " end vundle...
 
 runtime bundles/tplugin_vim/macros/tplugin.vim
@@ -49,12 +32,6 @@ runtime bundles/tplugin_vim/macros/tplugin.vim
 " runtime bundles/vim-tlib/macros/tplugin.vim
 call pathogen#infect()
 call pathogen#helptags()
-" call pathogen#runtime_append_all_bundles()
-
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
 
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -195,7 +172,7 @@ if has("gui_running")
   :set columns=171
 
   " GRB: highlight current line"
-  :set cursorline
+  " :set cursorline
 endif
 
 " GRB: set the color scheme
@@ -209,21 +186,15 @@ syntax enable
 " :set background=dark
 " :set background=light
 " :color grb256
-" :color autumnleaf
 " :color solarized
 " :color codeschool
-" :color zenburn
 :color railscasts
 " :color github
 " :colorscheme railscasts_jpo
 " :colorscheme railscasts_dgd
 " :colorscheme railscasts
 " :colorscheme solarized
-" :colorscheme twilight256
 " :colorscheme grb256
-" :colorscheme github
-" :colorscheme zenburn
-" :colorscheme Tomorrow-Night
 
 " GRB: hide the toolbar in GUI mode
 if has("gui_running")
@@ -248,108 +219,6 @@ endfunction
 " GRB: clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
-" Remap the tab key to do autocompletion or indentation depending on the
-" context (from http://www.vim.org/tips/tip.php?tip_id=102)
-" function! InsertTabWrapper()
-"     let col = col('.') - 1
-"     if !col || getline('.')[col - 1] !~ '\k'
-"         return "\<tab>"
-"     else
-"         return "\<c-p>"
-"     end
-" endfunction
-" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-" inoremap <s-tab> <c-n>
-
-" When hitting <;>, complete a snippet if there is one; else, insert an actual
-" <;>
-" function! InsertSnippetWrapper()
-"     let inserted = TriggerSnippet()
-"     if inserted == "\<tab>"
-"         return ";"
-"     else
-"         return inserted
-"     endif
-" endfunction
-
-function! RunTests(target, args)
-    silent ! echo
-    exec 'silent ! echo -e "\033[1;36mRunning tests in ' . a:target . '\033[0m"'
-    silent w
-    exec "make " . a:target . " " . a:args
-endfunction
-
-function! ClassToFilename(class_name)
-    let understored_class_name = substitute(a:class_name, '\(.\)\(\u\)', '\1_\U\2', 'g')
-    let file_name = substitute(understored_class_name, '\(\u\)', '\L\1', 'g')
-    return file_name
-endfunction
-
-function! ModuleTestPath()
-    let file_path = @%
-    let components = split(file_path, '/')
-    let path_without_extension = substitute(file_path, '\.py$', '', '')
-    let test_path = 'tests/unit/' . path_without_extension
-    return test_path
-endfunction
-
-function! NameOfCurrentClass()
-    let save_cursor = getpos(".")
-    normal $<cr>
-    call PythonDec('class', -1)
-    let line = getline('.')
-    call setpos('.', save_cursor)
-    let match_result = matchlist(line, ' *class \+\(\w\+\)')
-    let class_name = ClassToFilename(match_result[1])
-    return class_name
-endfunction
-
-function! TestFileForCurrentClass()
-    let class_name = NameOfCurrentClass()
-    let test_file_name = ModuleTestPath() . '/test_' . class_name . '.py'
-    return test_file_name
-endfunction
-
-function! TestModuleForCurrentFile()
-    let test_path = ModuleTestPath()
-    let test_module = substitute(test_path, '/', '.', 'g')
-    return test_module
-endfunction
-
-function! RunTestsForFile(args)
-    if @% =~ 'test_'
-        call RunTests('%', a:args)
-    else
-        let test_file_name = TestModuleForCurrentFile()
-        call RunTests(test_file_name, a:args)
-    endif
-endfunction
-
-function! RunAllTests(args)
-    silent ! echo
-    silent ! echo -e "\033[1;36mRunning all unit tests\033[0m"
-    silent w
-    exec "make!" . a:args
-endfunction
-
-function! JumpToError()
-    if getqflist() != []
-        for error in getqflist()
-            if error['valid']
-                break
-            endif
-        endfor
-        let error_message = substitute(error['text'], '^ *', '', 'g')
-        silent cc!
-        exec ":sbuffer " . error['bufnr']
-        call RedBar()
-        echo error_message
-    else
-        call GreenBar()
-        echo "All tests passed"
-    endif
-endfunction
-
 function! RedBar()
     hi RedBar ctermfg=white ctermbg=red guibg=red
     echohl RedBar
@@ -370,21 +239,9 @@ endfunction
 
 let mapleader=","
 " let mapleader="\<Space>"
-" nnoremap <leader>m :call RunTestsForFile('--machine-out')<cr>:redraw<cr>:call JumpToError()<cr>
-" nnoremap <leader>M :call RunTestsForFile('')<cr>
-" nnoremap <leader>a :call RunAllTests('--machine-out')<cr>:redraw<cr>:call JumpToError()<cr>
-" nnoremap <leader>A :call RunAllTests('')<cr>
-
-" nnoremap <leader>a :call RunAllTests('')<cr>:redraw<cr>:call JumpToError()<cr>
-" nnoremap <leader>A :call RunAllTests('')<cr>
-
-" nnoremap <leader>t :call RunAllTests('')<cr>:redraw<cr>:call JumpToError()<cr>
-" nnoremap <leader>T :call RunAllTests('')<cr>
-
-" nnoremap <leader>t :call JumpToTestsForClass()<cr>
 
 " highlight current line
-set cursorline
+" set cursorline
 
 set cmdheight=2
 
@@ -493,19 +350,6 @@ endfunction
 
 vnoremap <leader>rv :call ExtractVariable()<cr>
 nnoremap <leader>ri :call InlineVariable()<cr>
-" " Find comment
-" map <leader>/# /^ *#<cr>
-" " Find function
-" map <leader>/f /^ *def\><cr>
-" " Find class
-" map <leader>/c /^ *class\><cr>
-" " Find if
-" map <leader>/i /^ *if\><cr>
-" " Delete function
-" " \%$ means 'end of file' in vim-regex-speak
-" map <leader>df d/\(^ *def\>\)\\|\%$<cr>
-" com! FindLastImport :execute'normal G<CR>' | :execute':normal ?^\(from\|import\)\><CR>'
-" map <leader>/m :FindLastImport<cr>
 
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
@@ -557,42 +401,9 @@ map <leader>gd :CtrlP config<cr>
 
 let g:ctrlp_custom_ignore = "tmp"
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*.log
-" let g:ctrlp_map = '<leader>ff'
-" let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_cmd = 'CtrlP'
-" let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_map = '<leader> f'
-
 " :let g:CommandTMaxFiles = 20000
 " :let g:CommandTMaxHeight = 10
 " :set wildignore+=*.o,*.obj,.git,db/project_b_data/**
-
-" map <leader>gR :call ShowRoutes()<cr>
-" map <leader>j :CommandTFlush<cr>\|:CommandT app/assets/javascripts/<cr>
-" map <leader>jp :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/presenters/<cr>
-" map <leader>jm :CommandTFlush<cr>\|:CommandT app/assets/javascripts/models<cr>
-" map <leader>jc :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/collections/<cr>
-" map <leader>jv :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/views/<cr>
-" map <leader>jr :CommandTFlush<cr>\|:CommandT app/assets/javascripts/app/routers/<cr>
-" map <leader>jt :CommandTFlush<cr>\|:CommandT app/assets/javascripts/templates/<cr>
-" map <leader>js :CommandTFlush<cr>\|:CommandT spec/javascripts<cr>
-" map <leader>jsp :CommandTFlush<cr>\|:CommandT spec/javascripts/app/presenters/<cr>
-" map <leader>jsm :CommandTFlush<cr>\|:CommandT spec/javascripts/models/<cr>
-" map <leader>jsc :CommandTFlush<cr>\|:CommandT spec/javascripts/app/collections/<cr>
-" map <leader>jsv :CommandTFlush<cr>\|:CommandT spec/javascripts/app/views/<cr>
-" map <leader>jsr :CommandTFlush<cr>\|:CommandT spec/javascripts/app/routers/<cr>
-" map <leader>gz :CommandTFlush<cr>\|:CommandT app/services<cr>
-" map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-" map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-" map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-" map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-" map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-" map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-" map <leader>gs :CommandTFlush<cr>\|:CommandT spec<cr>
-" map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
-" map <leader>gg :topleft 100 :split Gemfile<cr>
-" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-" map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 " nnoremap <leader><leader> <c-^>
 
@@ -744,14 +555,6 @@ nmap K 10k
 nmap H 10h
 nmap L 10l
 
-" " DGD: going for text bubbling - Not sure why I didn't do this before:
-" " bubble single line
-" nmap <C-Up> [e
-" nmap <C-Down> ]e
-" " bubble multiple lines
-" vmap <C-Up> [egv
-" vmap <C-Down> ]egv
-
 " DGD: compatible text bubbling
 "Bubble single lines (kicks butt)
 "http://vimcasts.org/episodes/bubbling-text/
@@ -780,7 +583,6 @@ if &term =~ '^screen'
   execute "set <xRight>=\e[1;*C"
   execute "set <xLeft>=\e[1;*D"
 endif
-
 
 
 " DGD: adding tabularize functionalty from tpope gist
@@ -850,19 +652,8 @@ autocmd BufNewFile,BufRead *.hbs set filetype=hbs.html
 " highlight DGD ErrorMsg
 syn match   myTodo   contained   "\<\(TODO\|FIXME\|NOTE\):"
 hi def link myTodo Todo
-" syn match myTodo contained   "\<\(TODO\|FIXME\):"
-" syn keyword  myTodo contained   TODO FIXME NOTE
-" syn match myTodo contained "\<\(DGD\TODO\FIXME\):"
-" syn keyword myTodo contained NOTE:
-" hi def link myTodo Todo
-" autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\FIXME\NOTE\BUG\HACK\)')
-"
-"DGD: ctag support - remove for youcompleteme?
-" map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-" map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-" map rt :!bundle list --paths=true | xargs ctags --extra=+f --exclude=.git --exclude=log -R *
-"
 "DGD: axlsx files
+
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
 nmap <leader>v :e ~/.vimrc<CR>
 
@@ -911,11 +702,6 @@ nmap <c-w>] :vertical res -20<cr>
 " nnoremap <c-[> <c-w>[
 " nnoremap <c-]> <c-w>]
 
-" vim-rspec mappings
-" map <Leader>t :call RunCurrentSpecFile()<CR>
-" map <Leader>s :call RunNearestSpec()<CR>
-" map <Leader>l :call RunLastSpec()<CR>
-
 "clipboard
 set clipboard=unnamed
 
@@ -929,4 +715,3 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 
 "DGD: clojure syntax
-" au VimEnter * ToggleClojureHighlightReferences
