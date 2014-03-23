@@ -181,3 +181,6 @@
 [submodule ".vim/bundle/vim-vundle"]
 	path = .vim/bundle/vim-vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule ".vim/bundle/vim-youcompleteme"]
+	path = .vim/bundle/vim-youcompleteme
+	url = git@github.com:Valloric/YouCompleteMe.git

@@ -1,3 +1,49 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vim-vundle/
+call vundle#rc()
+" alternatively, pass a path where Vundle should install bundles
+"let path = '~/some/path/here'
+
+" let Vundle manage Vundle, required
+Bundle 'gmarik/vundle'
+
+" The following are examples of different formats supported.
+" Keep bundle commands between here and filetype plugin indent on.
+" scripts on GitHub repos
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'tpope/vim-rails.git'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" scripts from http://vim-scripts.org/vim/scripts.html
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
+" scripts not on GitHub
+" Bundle 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Bundle 'file:///home/gmarik/path/to/plugin'
+" ...
+
+filetype plugin indent on     " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install (update) bundles
+" :BundleSearch(!) foo - search (or refresh cache first) for foo
+" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle commands are not allowed.
+" Put your stuff after this line
+set completeopt-=preview
+" end vundle...
+
 runtime bundles/tplugin_vim/macros/tplugin.vim
 " set TPlugin! tlib_vim 02tlib
 " runtime bundles/vim-tlib/macros/tplugin.vim
@@ -193,7 +239,7 @@ function! ShowPydoc(module, ...)
 endfunction
 
 " GRB: use emacs-style tab completion when selecting files, etc
-set wildmode=longest,list
+" set wildmode=longest,list
 
 " GRB: Put useful info in status line
 :set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
@@ -204,16 +250,16 @@ set wildmode=longest,list
 
 " Remap the tab key to do autocompletion or indentation depending on the
 " context (from http://www.vim.org/tips/tip.php?tip_id=102)
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    end
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<tab>"
+"     else
+"         return "\<c-p>"
+"     end
+" endfunction
+" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <s-tab> <c-n>
 
 " When hitting <;>, complete a snippet if there is one; else, insert an actual
 " <;>
@@ -323,6 +369,7 @@ endfunction
 " endfunction
 
 let mapleader=","
+" let mapleader="\<Space>"
 " nnoremap <leader>m :call RunTestsForFile('--machine-out')<cr>:redraw<cr>:call JumpToError()<cr>
 " nnoremap <leader>M :call RunTestsForFile('')<cr>
 " nnoremap <leader>a :call RunAllTests('--machine-out')<cr>:redraw<cr>:call JumpToError()<cr>
@@ -810,23 +857,34 @@ hi def link myTodo Todo
 " hi def link myTodo Todo
 " autocmd Syntax * call matchadd('Todo', '\W\zs\(TODO\FIXME\NOTE\BUG\HACK\)')
 "
-"DGD: ctag support
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+"DGD: ctag support - remove for youcompleteme?
+" map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " map rt :!bundle list --paths=true | xargs ctags --extra=+f --exclude=.git --exclude=log -R *
 "
 "DGD: axlsx files
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
 nmap <leader>v :e ~/.vimrc<CR>
 
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsListSnippets='<c-tab>'
-" let g:UltiSnipsListSnippets='<c-q>'
+"DGD: getting ultisnips and youcomplete me
+function! g:UltiSnips_Complete()
+    call UltiSnips_ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips_JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
 
-let g:UltiSnipsSnippetsDir="~/.vim/bundle/vim-ultisnips/UltiSnips"
-let g:UltiSnipsExpandTrigger="<tab>"
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets="<c-e>"
 
 " TODO: code folding:
 set foldmethod=indent
