@@ -187,3 +187,6 @@
 [submodule ".vim/bundle/vim-expand-region"]
 	path = .vim/bundle/vim-expand-region
 	url = git@github.com:terryma/vim-expand-region.git
+[submodule ".vim/bundle/vim-snippets"]
+	path = .vim/bundle/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
