@@ -8,7 +8,10 @@ call vundle#rc()
 "let path = '~/some/path/here'
 
 " let Vundle manage Vundle, required
-Bundle 'gmarik/vundle'
+" Bundle 'gmarik/vundle'
+Bundle '~/.dotify/.vim/bundle/vundle'
+Bundle '~/.dotify/.vim/bundle/vim-server-ultisnips'
+Bundle '~/.dotify/.vim/bundle/vim-snippets'
 
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
@@ -663,12 +666,12 @@ nmap <leader>v :e ~/.vimrc<CR>
 
 "DGD: getting ultisnips and youcomplete me
 function! g:UltiSnips_Complete()
-    call UltiSnips_ExpandSnippet()
+    call UltiSnips#ExpandSnippet()
     if g:ulti_expand_res == 0
         if pumvisible()
             return "\<C-n>"
         else
-            call UltiSnips_JumpForwards()
+            call UltiSnips#JumpForwards()
             if g:ulti_jump_forwards_res == 0
                return "\<TAB>"
             endif
@@ -677,9 +680,12 @@ function! g:UltiSnips_Complete()
     return ""
 endfunction
 
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-e>"
+" au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsListSnippets="<c-e>"
+let g:UltiSnipsExpandTrigger="<c-t>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " TODO: code folding:
 set foldmethod=indent
