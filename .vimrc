@@ -184,7 +184,7 @@ syntax enable
 " :let g:solarized_contrast = "high"
 :set t_Co=256 " 256 colors
 " :set background=dark
-" :set background=light
+:set background=light
 " :color grb256
 " :color solarized
 " :color codeschool
@@ -301,8 +301,8 @@ map <leader>n :call RenameFile()<cr>
 set number
 set numberwidth=5
 
-:au WinEnter * :setlocal number
-:au WinLeave * :setlocal nonumber
+" :au WinEnter * :setlocal number
+" :au WinLeave * :setlocal nonumber
 if has("gui_running")
     " source ~/proj/vim-complexity/repo/complexity.vim
 endif
