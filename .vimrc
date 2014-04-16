@@ -187,7 +187,7 @@ syntax enable
 " :let g:solarized_contrast = "high"
 :set t_Co=256 " 256 colors
 " :set background=dark
-:set background=light
+" :set background=light
 " :color grb256
 " :color solarized
 " :color codeschool
@@ -244,7 +244,7 @@ let mapleader=","
 " let mapleader="\<Space>"
 
 " highlight current line
-" set cursorline
+set cursorline
 
 set cmdheight=2
 
@@ -626,6 +626,27 @@ nmap <silent> <c-n> :NERDTreeToggle<CR>
 " let g:EasyMotion_mapping_w = 'f'
 " let g:EasyMotion_mapping_b = 'F'
 " let g:EasyMotion_leader_key='<leader>m'
+hi EasyMotionTarget ctermbg=none ctermfg=red
+hi EasyMotionShade  ctermbg=none ctermfg=green
+hi EasyMotionTarget2First ctermbg=none ctermfg=red
+hi EasyMotionTarget2Second ctermbg=none ctermfg=lightred
+
+" let g:EasyMotion_do_mapping " Disable default mappings
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+" nmap s <Plug>(easymotion-s2)
+
+" Turn on case sensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 set ttyfast
 
@@ -717,7 +738,7 @@ set clipboard=unnamed
 
 " column width stuff:
 :set cc=80
-" :hi ColorColumn ctermbg=green guibg=lightgrey
+:hi ColorColumn ctermbg=darkgrey guibg=lightgrey
 "
 "DGD: rainbow parens for cloure
 " :RainbowParenthesesToggle
@@ -735,3 +756,9 @@ vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
     \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
 omap s :normal vs<CR>
 
+"DGD: from 12 vim tips on reddit
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_use_caching = 0
+
+"DGD: tagbar
+nmap <F8> :TagbarToggle<CR>
