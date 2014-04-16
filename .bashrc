@@ -1,10 +1,5 @@
 . ~/bin/bash_colors.sh
 
-# Add paths that should have been there by default
-# export PATH=${PATH}:/usr/local/bin
-# export PATH="/usr/local/bin:$PATH"
-# export PATH="~/bin:$PATH"
-
 # Unbreak broken, non-colored terminal
 export TERM='xterm-color'
 alias ls='ls -G'
