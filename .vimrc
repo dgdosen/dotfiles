@@ -621,6 +621,7 @@ map <C-l> <C-w>l
 
 " DGD: support for NERDTree
 nmap <silent> <c-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " DGD: support for easy-motion
 " let g:EasyMotion_mapping_w = 'f'
@@ -759,6 +760,9 @@ omap s :normal vs<CR>
 "DGD: from 12 vim tips on reddit
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:ctrlp_use_caching = 0
-
+let g:ctrlp_show_hidden = 1
 "DGD: tagbar
 nmap <F8> :TagbarToggle<CR>
+
+"DGD: save on leaving insert
+autocmd InsertLeave * write
