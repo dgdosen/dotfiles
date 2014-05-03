@@ -9,9 +9,10 @@ call vundle#rc()
 
 " let Vundle manage Vundle, required
 " Bundle 'gmarik/vundle'
-Bundle '~/.dotify/.vim/bundle/vundle'
-Bundle '~/.dotify/.vim/bundle/vim-server-ultisnips'
-Bundle '~/.dotify/.vim/bundle/vim-snippets'
+Bundle '~/.vim/bundle/vundle'
+Bundle '~/.vim/bundle/vim-server-ultisnips'
+Bundle '~/.vim/bundle/vim-snippets'
+Bundle '~/.vim/bundle/vim-youcompleteme'
 
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
@@ -605,6 +606,12 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
 
 " DGD: adding a bit of autosave - this doesn't work in vim7+
 " :au FocusLost * :wa
