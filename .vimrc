@@ -495,7 +495,7 @@ endfunction
 
 command! -range Md5 :echo system('echo '.shellescape(join(getline(<line1>, <line2>), '\n')) . '| md5')
 
-imap <c-l> <space>=><space>
+" imap <c-l> <space>=><space>
 
 function! OpenChangedFiles()
   only " Close all windows, unless they're modified
@@ -773,3 +773,6 @@ nmap <F8> :TagbarToggle<CR>
 
 "DGD: save on leaving insert
 autocmd InsertLeave * write
+
+"DGD: youcompleteme
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/vim-youcompleteme/cpp/ycm/.ycm_extra_conf.py'
