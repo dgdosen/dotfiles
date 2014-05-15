@@ -192,10 +192,7 @@
 	url = git@github.com:SirVer/ultisnips.git
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline.git
-[submodule "vim-tagbar"]
-	path = vim-tagbar
-	url = https://github.com/majutsushi/tagbar.git
+	url = git@github.com:bling/vim-airline.git
 [submodule ".vim/bundle/vim-leiningen"]
 	path = .vim/bundle/vim-leiningen
 	url = git://github.com/tpope/vim-leiningen.git
