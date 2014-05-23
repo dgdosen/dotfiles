@@ -211,3 +211,6 @@
 [submodule ".vim/bundle/vim-liquid"]
 	path = .vim/bundle/vim-liquid
 	url = git@github.com:tpope/vim-liquid.git
+[submodule ".vim/bundle/vi-neocomplete"]
+	path = .vim/bundle/vi-neocomplete
+	url = git@github.com:Shougo/neocomplete.vim

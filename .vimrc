@@ -3,16 +3,16 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vim-vundle/
-call vundle#rc()
+call vundle#begin()
 " alternatively, pass a path where Vundle should install bundles
 "let path = '~/some/path/here'
 
 " let Vundle manage Vundle, required
-" Bundle 'gmarik/vundle'
-Bundle '~/.vim/bundle/vundle'
-Bundle '~/.vim/bundle/vim-server-ultisnips'
-Bundle '~/.vim/bundle/vim-snippets'
-Bundle '~/.vim/bundle/vim-youcompleteme'
+Plugin '~/.vim/bundle/vundle'
+Plugin '~/.vim/bundle/vim-server-ultisnips'
+Plugin '~/.vim/bundle/vim-snippets'
+Plugin '~/.vim/bundle/vim-youcompleteme'
+call vundle#end()
 
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
@@ -363,8 +363,8 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 set showtabline=2
 
 augroup mkd
-    autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
-    autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
+  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
+  autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
 augroup END
 
 set makeprg=python\ -m\ nose.core\ --machine-out
@@ -421,7 +421,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*.log
 
 " vim-makegreen binds itself to ,t unless something else is bound to its
 " function.
-map <leader>\dontstealmymapsmakegreen :w\|:call MakeGreen('spec')<cr>
+" map <leader>\dontstealmymapsmakegreen :w\|:call MakeGreen('spec')<cr>
 
 function! RunTests(filename)
     " Write the file and run tests for the given filename
@@ -775,4 +775,8 @@ nmap <F8> :TagbarToggle<CR>
 autocmd InsertLeave * write
 
 "DGD: youcompleteme
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/vim-youcompleteme/cpp/ycm/.ycm_extra_conf.py'
+" let g:ylet g:neocomplete#enable_at_startup = 1cm_global_ycm_extra_conf = '~/.vim/bundle/vim-youcompleteme/cpp/ycm/.ycm_extra_conf.py'
+"
+"DGD: neocomplete
+let g:neocomplete#enable_at_startup = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
