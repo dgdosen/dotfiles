@@ -205,3 +205,9 @@
 [submodule ".vim/bundle/vim-tmuxline"]
 	path = .vim/bundle/vim-tmuxline
 	url = git@github.com:edkolev/tmuxline.vim.git
+[submodule ".vim/bundle/vim-markdown-jekyll"]
+	path = .vim/bundle/vim-markdown-jekyll
+	url = git@github.com:PProvost/vim-markdown-jekyll.git
+[submodule ".vim/bundle/vim-liquid"]
+	path = .vim/bundle/vim-liquid
+	url = git@github.com:tpope/vim-liquid.git
