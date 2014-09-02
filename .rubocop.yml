@@ -8,5 +8,5 @@ LineLength:
   Max: 80
 
 AllCops:
-  Excludes:
+  Exclude:
     - features/*.feature
