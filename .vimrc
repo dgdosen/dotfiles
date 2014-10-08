@@ -736,8 +736,8 @@ set listchars=trail:·,precedes:«,extends:»,eol:↲,tab:▸\
 let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
 
-nmap <c-w>[ :vertical res +20<cr>
-nmap <c-w>] :vertical res -20<cr>
+nmap <c-w>- :vertical res +20<cr>
+nmap <c-w>+ :vertical res -20<cr>
 " nnoremap <c-[> <c-w>[
 " nnoremap <c-]> <c-w>]
 
@@ -759,10 +759,10 @@ au Syntax * RainbowParenthesesLoadRound
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-" Make a simple "search" text object.
-vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
-    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
-omap s :normal vs<CR>
+" " Make a simple "search" text object.
+" vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+"     \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+" omap s :normal vs<CR>
 
 "DGD: from 12 vim tips on reddit
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
