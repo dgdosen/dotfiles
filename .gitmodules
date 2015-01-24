@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/vim-ack"]
-	path = .vim/bundle/vim-ack
-	url = git://github.com/mileszs/ack.vim.git
 [submodule ".vim/bundle/vim-blackboard"]
 	path = .vim/bundle/vim-blackboard
 	url = git://github.com/nelstrom/vim-blackboard.git
@@ -205,3 +202,9 @@
 [submodule ".vim/bundle/vi-neocomplete"]
 	path = .vim/bundle/vi-neocomplete
 	url = git@github.com:Shougo/neocomplete.vim
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/bundle/vim-ag"]
+	path = .vim/bundle/vim-ag
+	url = https://github.com/rking/ag.vim.git
