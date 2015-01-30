@@ -208,3 +208,6 @@
 [submodule ".vim/bundle/vim-ag"]
 	path = .vim/bundle/vim-ag
 	url = https://github.com/rking/ag.vim.git
+[submodule ".vim/bundle/vim-swift"]
+	path = .vim/bundle/vim-swift
+	url = git@github.com:Keithbsmiley/swift.vim.git
