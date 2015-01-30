@@ -11,7 +11,6 @@ call vundle#begin()
 Plugin '~/.vim/bundle/vundle'
 Plugin '~/.vim/bundle/vim-server-ultisnips'
 Plugin '~/.vim/bundle/vim-snippets'
-Plugin '~/.vim/bundle/vim-youcompleteme'
 call vundle#end()
 
 filetype plugin indent on     " required
@@ -187,12 +186,12 @@ syntax enable
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
 :set t_Co=256 " 256 colors
-" :set background=dark
+:set background=dark
 " :set background=light
 " :color grb256
-" :color solarized
+:color solarized
 " :color codeschool
-:color railscasts
+" :color railscasts
 " :color github
 " :colorscheme railscasts_jpo
 " :colorscheme railscasts_dgd
@@ -694,21 +693,21 @@ hi def link myTodo Todo
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
 nmap <leader>v :e ~/.vimrc<CR>
 
-"DGD: getting ultisnips and youcomplete me
-function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
+" "DGD: getting ultisnips and youcomplete me
+" function! g:UltiSnips_Complete()
+"     call UltiSnips#ExpandSnippet()
+"     if g:ulti_expand_res == 0
+"         if pumvisible()
+"             return "\<C-n>"
+"         else
+"             call UltiSnips#JumpForwards()
+"             if g:ulti_jump_forwards_res == 0
+"                return "\<TAB>"
+"             endif
+"         endif
+"     endif
+"     return ""
+" endfunction
 
 " au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 " let g:UltiSnipsJumpForwardTrigger="<tab>"
@@ -780,10 +779,10 @@ autocmd InsertLeave * write
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " " Use smartcase.
-" let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_smart_case = 1
 " " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " " let g:neocomplete#enable_at_startup = 1
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
