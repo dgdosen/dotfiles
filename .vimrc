@@ -197,7 +197,7 @@ syntax enable
 " :colorscheme railscasts_dgd
 " :colorscheme railscasts
 " :colorscheme solarized
-" :colorscheme grb256
+:colorscheme grb256
 
 " GRB: hide the toolbar in GUI mode
 if has("gui_running")
