@@ -4,13 +4,14 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vim-vundle/
 call vundle#begin()
-" alternatively, pass a path where Vundle should install bundles
-"let path = '~/some/path/here'
 
 " let Vundle manage Vundle, required
-Plugin '~/.vim/bundle/vundle'
-Plugin '~/.vim/bundle/vim-server-ultisnips'
-Plugin '~/.vim/bundle/vim-snippets'
+" Plugin 'file:///home/.vim/bundle/vim-vundle'
+" Plugin 'file:///home/.vim/bundle/vim-fugitive'
+" Plugin 'file:///home/.vim/bundle/vim-l9'
+" Plugin 'file:///home/.vim/bundle/vim-server-ultisnips'
+" Plugin '~/.vim/bundle/vim-server-ultisnips'
+" Plugin '~/.vim/bundle/vim-snippets'
 call vundle#end()
 
 filetype plugin indent on     " required
@@ -35,10 +36,6 @@ runtime bundles/tplugin_vim/macros/tplugin.vim
 " runtime bundles/vim-tlib/macros/tplugin.vim
 call pathogen#infect()
 call pathogen#helptags()
-
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
