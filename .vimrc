@@ -404,8 +404,12 @@ map <leader>gg :CtrlP config<cr>
 map <leader>gd :CtrlP config<cr>
 
 map <leader>w :w<cr>
-let g:ctrlp_custom_ignore = "tmp"
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*.log
+let g:ctrlp_custom_ignore = "tmp, .idea"
+" let g:ctrlp_custom_ignore = {
+"     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
+"     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*.log,*./idea/*,*/.DS_Store
 " :let g:CommandTMaxFiles = 20000
 " :let g:CommandTMaxHeight = 10
 " :set wildignore+=*.o,*.obj,.git,db/project_b_data/**
@@ -762,7 +766,9 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " omap s :normal vs<CR>
 
 "DGD: from 12 vim tips on reddit
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+" NOTE: commenting this out - I want some ignored files searchable (app.yml)
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co', 'find %s -type f']
 let g:ctrlp_use_caching = 0
 let g:ctrlp_show_hidden = 1
 "DGD: tagbar
