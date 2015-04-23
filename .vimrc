@@ -300,7 +300,7 @@ map <leader>n :call RenameFile()<cr>
 
 set number
 set numberwidth=5
-set relativenumber
+" set relativenumber
 
 " :au WinEnter * :setlocal number
 " :au WinLeave * :setlocal nonumber
