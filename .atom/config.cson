@@ -8,7 +8,7 @@
   metrics:
     userId: "637c50e21c5f957f2d700e8ca5868a6e0cb50f02"
   editor:
-    fontSize: 12
+    fontSize: 11
     invisibles: {}
     fontFamily: "menlo"
   core:
@@ -19,5 +19,6 @@
     ]
     themes: [
       "atom-dark-ui"
-      "solarized-dark-syntax"
+      "railscast-theme"
     ]
+    audioBeep: false
