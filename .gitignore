@@ -7,3 +7,10 @@
 .vim/ruby/*
 tmux-client*
 tmux-server*
+compile-cache
+.node-gyp
+.node/**
+.apm
+storage
+merge-conflicts
+node_modules

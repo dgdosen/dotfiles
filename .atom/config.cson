@@ -1,0 +1,23 @@
+"*":
+  "exception-reporting":
+    userId: "d3234dd9-af44-a4f0-54be-2d39e58b32b0"
+  "release-notes":
+    viewedVersion: "0.85.0"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "637c50e21c5f957f2d700e8ca5868a6e0cb50f02"
+  editor:
+    fontSize: 12
+    invisibles: {}
+    fontFamily: "menlo"
+  core:
+    ignoredNames: [
+      ".git"
+      ".svn"
+      ".DS_Store"
+    ]
+    themes: [
+      "atom-dark-ui"
+      "solarized-dark-syntax"
+    ]
