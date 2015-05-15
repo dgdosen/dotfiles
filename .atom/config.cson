@@ -22,3 +22,6 @@
       "railscast-theme"
     ]
     audioBeep: false
+    disabledPackages: [
+      "vim-mode"
+    ]
