@@ -478,11 +478,6 @@ set winheight=10
 set winminheight=10
 set winheight=999
 
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-nnoremap <c-n> :let &wh = (&wh == 999 ? 10 : 999)<CR><C-W>=
 
 function! ShowColors()
   let num = 255
@@ -508,14 +503,6 @@ function! OpenChangedFiles()
   endfor
 endfunction
 command! OpenChangedFiles :call OpenChangedFiles()
-
-if &diff
-  nmap <c-h> :diffget 1<cr>
-  nmap <c-l> :diffget 3<cr>
-  nmap <c-k> [cz.
-  nmap <c-j> ]cz.
-  set nonumber
-endif
 
 " In these functions, we don't use the count argument, but the map referencing
 " v:count seems to make it work. I don't know why.
@@ -596,11 +583,11 @@ endif
 " vim-tmux navigator
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
-nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
 
 " DGD: adding tabularize functionalty from tpope gist
@@ -629,12 +616,6 @@ endif
 " DGD: makes it easier to move up and down lines
 nnoremap j gj
 nnoremap k gk
-
-" DGD: Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
 " DGD: support for NERDTree
 nmap <silent> <c-n> :NERDTreeToggle<CR>
