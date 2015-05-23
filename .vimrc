@@ -404,12 +404,12 @@ map <leader>gg :CtrlP config<cr>
 map <leader>gd :CtrlP config<cr>
 
 map <leader>w :w<cr>
-let g:ctrlp_custom_ignore = "tmp, .idea"
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tmp|.idea|DerivedData)$'
 " let g:ctrlp_custom_ignore = {
 "     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files$\|test$',
 "     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,tags,*.log,*./idea/*,*/.DS_Store
+" set wildignore+=*/tmp/*,*/.idea/*,*.so,*.swp,*.zip,tags,*.log,*/.idea/*,*/.DS_Store
 " :let g:CommandTMaxFiles = 20000
 " :let g:CommandTMaxHeight = 10
 " :set wildignore+=*.o,*.obj,.git,db/project_b_data/**
@@ -592,6 +592,15 @@ if &term =~ '^screen'
   execute "set <xRight>=\e[1;*C"
   execute "set <xLeft>=\e[1;*D"
 endif
+
+" vim-tmux navigator
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
+nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
+nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
+nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
+nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 
 " DGD: adding tabularize functionalty from tpope gist

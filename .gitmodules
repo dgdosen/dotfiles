@@ -76,9 +76,6 @@
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundle/vim-tmux-config"]
-	path = .vim/bundle/vim-tmux-config
-	url = git://github.com/pivotal/tmux-config.git
 [submodule ".vim/bundle/vim-tlib"]
 	path = .vim/bundle/vim-tlib
 	url = git://github.com/tomtom/tlib_vim.git
@@ -211,3 +208,6 @@
 [submodule ".vim/bundle/vim-swift"]
 	path = .vim/bundle/vim-swift
 	url = git@github.com:Keithbsmiley/swift.vim.git
+[submodule ".vim/bundle/vim-obsession"]
+	path = .vim/bundle/vim-obsession
+	url = git@github.com:tpope/vim-obsession.git
