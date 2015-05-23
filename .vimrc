@@ -798,3 +798,21 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " " let g:neocomplete#enable_at_startup = 1
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"airline
+" let g:airline_powerline_fonts = 1
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '>',
+    \ 'right' : '',
+    \ 'right_alt' : '<',
+    \ 'space' : ' '}
+"
+"tmuxline
+" let g:tmuxline_preset = 'tmux'
+" let g:tmuxline_preset = {
+"       \'a'    : '#S',
+"       \'win'  : ['#I', '#W'],
+"       \'cwin' : ['#I', '#W', '#F'],
+"       \'y'    : ['%R', '%a', '%Y'],
+"       \'z'    : '#H'}
