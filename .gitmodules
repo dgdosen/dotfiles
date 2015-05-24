@@ -211,3 +211,9 @@
 [submodule ".vim/bundle/vim-obsession"]
 	path = .vim/bundle/vim-obsession
 	url = git@github.com:tpope/vim-obsession.git
+[submodule ".vim/bundle/vim-tmux-navigator"]
+	path = .vim/bundle/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule ".vim/bundle/vim-obession"]
+	path = .vim/bundle/vim-obession
+	url = https://github.com/tpope/vim-obsession.git
