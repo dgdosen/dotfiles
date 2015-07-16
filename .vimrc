@@ -186,9 +186,9 @@ syntax enable
 :set background=dark
 " :set background=light
 " :color grb256
-:color solarized
+" :color solarized
 " :color codeschool
-" :color railscasts
+:color railscasts
 " :color github
 " :colorscheme railscasts_jpo
 " :colorscheme railscasts_dgd
