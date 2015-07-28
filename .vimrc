@@ -537,7 +537,7 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 :silent exe "let g:flog_high_limit=20"
 
 " DGD: additions
-imap jj <esc>
+imap jk <esc>
 
 " DGD: keep swap files off - do I need them?
 set noswapfile
