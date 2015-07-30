@@ -214,3 +214,6 @@
 [submodule ".vim/bundle/vim-obession"]
 	path = .vim/bundle/vim-obession
 	url = https://github.com/tpope/vim-obsession.git
+[submodule ".vim/bundle/vim-ctrlp-2"]
+	path = .vim/bundle/vim-ctrlp-2
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
