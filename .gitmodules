@@ -100,9 +100,6 @@
 [submodule ".vim/bundle/vim-zenburn"]
 	path = .vim/bundle/vim-zenburn
 	url = git://github.com/vim-scripts/Zenburn.git
-[submodule ".vim/bundle/vim-ctrlp"]
-	path = .vim/bundle/vim-ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
 [submodule ".vim/bundle/vim-ember-script"]
 	path = .vim/bundle/vim-ember-script
 	url = git://github.com/heartsentwined/vim-ember-script.git
