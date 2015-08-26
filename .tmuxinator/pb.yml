@@ -1,7 +1,7 @@
-# ~/.tmuxinator/2k.yml
+# ~/.tmuxinator/pb.yml
 
-name: 2k
-root: ~/Development/2kyoryoku_web
+name: pb
+root: ~/Development/project_b
 
 # Optional tmux socket
 # socket_name: foo
@@ -23,10 +23,12 @@ root: ~/Development/2kyoryoku_web
 
 windows:
   - editor:
-      layout: main-vertical
+      layout: 6d60,208x57,0,0{130x57,0,0,19,77x57,131,0[77x11,131,0,20,77x10,131,12,21,77x10,131,23,22,77x10,131,34,23,77x12,131,45,24]}
+      # layout: main-vertical
       panes:
         - vim
-        - tail -f log/development.log
-        - spring rails c
-        - guard -c
+        - zeus start
+        - bundle exec guard -c
+        - sleep 2 && zeus s
+        - sleep 2 && zeus c
         -
