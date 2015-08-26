@@ -392,16 +392,16 @@ endfunction
 
 " map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>t :CtrlPTag<cr>
-map <leader>f :CtrlP<cr>
-map <leader>gj :CtrlP app/assets/javascripts<cr>
-map <leader>gy :CtrlP app/assets/stylesheets<cr>
-map <leader>gm :CtrlP app/models<cr>
-map <leader>gc :CtrlP app/controllers<cr>
-map <leader>gv :CtrlP app/views<cr>
-map <leader>gs :CtrlP app/services<cr>
-map <leader>gk :CtrlP spec<cr>
-map <leader>gg :CtrlP config<cr>
-map <leader>gd :CtrlP config<cr>
+map <leader>f :FZF<cr>
+map <leader>gj :FZF app/assets/javascripts<cr>
+map <leader>gy :FZF app/assets/stylesheets<cr>
+map <leader>gm :FZF app/models<cr>
+map <leader>gc :FZF app/controllers<cr>
+map <leader>gv :FZF app/views<cr>
+map <leader>gs :FZF app/services<cr>
+map <leader>gk :FZF spec<cr>
+map <leader>gg :FZF config<cr>
+map <leader>gd :FZF config<cr>
 
 map <leader>w :w<cr>
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tmp|.idea|DerivedData)$'
@@ -781,7 +781,9 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "airline
-" let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 1
+let g:airline_powerline_fonts=1
 let g:tmuxline_separators = {
     \ 'left' : '',
     \ 'left_alt': '>',
@@ -790,10 +792,14 @@ let g:tmuxline_separators = {
     \ 'space' : ' '}
 "
 "tmuxline
-" let g:tmuxline_preset = 'tmux'
+let g:tmuxline_powerline_separators = 1
+let g:tmuxline_preset = 'tmux'
 " let g:tmuxline_preset = {
 "       \'a'    : '#S',
-"       \'win'  : ['#I', '#W'],
-"       \'cwin' : ['#I', '#W', '#F'],
-"       \'y'    : ['%R', '%a', '%Y'],
-"       \'z'    : '#H'}
+"       \'b'    : '#W',
+"       \'c'    : '#H',
+"       \'win'  : '#I #W',
+"       \'cwin' : '#I #W',
+"       \'x'    : '%a',
+"       \'y'    : '#W %R',
+"       \'z'    : '#H' }
