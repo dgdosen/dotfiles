@@ -237,8 +237,7 @@ endfunction
 "     exec 'e ' . TestFileForCurrentClass()
 " endfunction
 
-let mapleader=","
-" let mapleader="\<Space>"
+let mapleader="\<Space>"
 
 " highlight current line
 set cursorline
@@ -622,9 +621,6 @@ nmap <silent> <c-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " DGD: support for easy-motion
-" let g:EasyMotion_mapping_w = 'f'
-" let g:EasyMotion_mapping_b = 'F'
-" let g:EasyMotion_leader_key='<leader>m'
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=green
 hi EasyMotionTarget2First ctermbg=none ctermfg=red
@@ -712,11 +708,13 @@ set foldmethod=indent
 map <leader>zi :setlocal foldmethod=indent<cr>
 map <leader>zs :setlocal foldmethod=syntax<cr>
 " set foldnestmax=10
-set nofoldenable
+" set nofoldenable
 set foldlevelstart=99
 " set foldlevel=1
-nnoremap <Space> za
-vnoremap <Space> za
+" nnoremap <Leader>w :w<CR>
+
+nnoremap <Leader>, za
+vnoremap <Leader>, za
 nnoremap zO zCzO
 
 "DGD: trailing white space
