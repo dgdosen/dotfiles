@@ -85,9 +85,6 @@
 [submodule ".vim/bundle/vim-supertab"]
 	path = .vim/bundle/vim-supertab
 	url = git://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/vim-bufexplorer"]
-	path = .vim/bundle/vim-bufexplorer
-	url = git://github.com/corntrace/bufexplorer.git
 [submodule ".vim/bundle/vim-fuzzyfinder"]
 	path = .vim/bundle/vim-fuzzyfinder
 	url = git://github.com/vim-scripts/FuzzyFinder.git
