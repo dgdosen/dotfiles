@@ -223,3 +223,6 @@
 [submodule ".vim/bundle/vim-tmux-powerline"]
 	path = .vim/bundle/vim-tmux-powerline
 	url = git@github.com:erikw/tmux-powerline.git
+[submodule ".vim/bundle/vim-bufexplorer2"]
+	path = .vim/bundle/vim-bufexplorer2
+	url = git@github.com:jlanzarotta/bufexplorer.git
