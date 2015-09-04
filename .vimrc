@@ -803,3 +803,10 @@ let g:tmuxline_preset = 'tmux'
 "       \'x'    : '%a',
 "       \'y'    : '#W %R',
 "       \'z'    : '#H' }
+"       \'win'  : ['#I', '#W'],
+"       \'cwin' : ['#I', '#W', '#F'],
+"       \'y'    : ['%R', '%a', '%Y'],
+"       \'z'    : '#H'}
+
+" remapping most common keystrokes
+nnoremap <Leader>w :w<CR>
