@@ -226,3 +226,6 @@
 [submodule ".vim/bundle/vim-bufexplorer2"]
 	path = .vim/bundle/vim-bufexplorer2
 	url = git@github.com:jlanzarotta/bufexplorer.git
+[submodule ".vim/bundle/vim-go"]
+	path = .vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
