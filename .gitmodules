@@ -217,9 +217,6 @@
 [submodule ".vim/bundle/vim-fzf"]
 	path = .vim/bundle/vim-fzf
 	url = git@github.com:junegunn/fzf.git
-[submodule ".vim/bundle/vim-devicons"]
-	path = .vim/bundle/vim-devicons
-	url = git@github.com:ryanoasis/vim-devicons.git
 [submodule ".vim/bundle/vim-tmux-powerline"]
 	path = .vim/bundle/vim-tmux-powerline
 	url = git@github.com:erikw/tmux-powerline.git
