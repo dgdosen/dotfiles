@@ -535,14 +535,14 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 :silent exe "let g:flog_medium_limit=10"
 :silent exe "let g:flog_high_limit=20"
 
-" DGD: additions
+" DGD: remap escaped to jk to keep hands on home row
 imap jk <esc>
 
 " DGD: keep swap files off - do I need them?
 set noswapfile
 
-" DGD: whitespace removal (I hate that!)
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" DGD: automatic whitespace removal based on vimtips
+autocmd BufWritePre * :%s/\s\+$//e
 
 " DGD: moving more lines
 nmap J 10j
