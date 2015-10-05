@@ -573,23 +573,16 @@ call expand_region#custom_text_objects('ruby', {
 " DGD: compatible text bubbling
 "Bubble single lines (kicks butt)
 "http://vimcasts.org/episodes/bubbling-text/
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
-nmap <C-Left> <<
-nmap <C-Right> >>
+nmap <C-k> [e
+nmap <C-j> ]e
+
+"Bubble multiple lines
+vmap <C-k> [egv
+vmap <C-j> ]egv"
 
 "Horizontal bubbling
 vnoremap < <gv
 vnoremap > >gv
-
-"Keep selection
-nmap gV `[v`]
-
-"Bubble multiple lines
-vmap <C-Up> xkP`[V`]
-vmap <C-Down> xp`[V`]
-vmap <C-Right> >gv
-vmap <C-Left> <gv
 
 if &term =~ '^screen'
   " tmux will send xterm-style keys when its xterm-keys option is on
