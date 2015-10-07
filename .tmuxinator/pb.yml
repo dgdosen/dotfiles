@@ -27,8 +27,8 @@ windows:
       # layout: main-vertical
       panes:
         - vim
-        - zeus start
+        -
         - bundle exec guard -c
         - sleep 2 && zeus s
         - sleep 2 && zeus c
-        -
+        - zeus start
