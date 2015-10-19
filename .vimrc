@@ -29,74 +29,74 @@ set smartcase
 " map <Down> :echo "no!"<cr>
 
 
-" Keep more context when scrolling off the end of a buffer
-set scrolloff=3
+" " Keep more context when scrolling off the end of a buffer
+" set scrolloff=3
 
-" Store temporary files in a central spot
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+" " Store temporary files in a central spot
+" set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+" set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+" " allow backspacing over everything in insert mode
+" set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+" if has("vms")
+"   set nobackup		" do not keep a backup file, use versions instead
+" else
+"   set backup		" keep a backup file
+" endif
+" set ruler		" show the cursor position all the time
+" set showcmd		" display incomplete commands
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+" " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
+" " let &guioptions = substitute(&guioptions, "t", "", "g")
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+" " Don't use Ex mode, use Q for formatting
+" map Q gq
 
-" This is an alternative that also works in block mode, but the deleted
-" text is lost and it only works for putting the current register.
-" vnoremap p "_dp
+" " This is an alternative that also works in block mode, but the deleted
+" " text is lost and it only works for putting the current register.
+" " vnoremap p "_dp
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-  " set guifont=Monaco:h14
-  set guifont=Inconsolata-dz:h14
-endif
+" " Switch syntax highlighting on, when the terminal has colors
+" " Also switch on highlighting the last used search pattern.
+" if &t_Co > 2 || has("gui_running")
+"   syntax on
+"   set hlsearch
+"   " set guifont=Monaco:h14
+"   set guifont=Inconsolata-dz:h14
+" endif
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+" " Only do this part when compiled with support for autocommands.
+" if has("autocmd")
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+"   " Enable file type detection.
+"   " Use the default filetype settings, so that mail gets 'tw' set to 72,
+"   " 'cindent' is on in C files, etc.
+"   " Also load indent files, to automatically do language-dependent indenting.
+"   filetype plugin indent on
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
+"   " Put these in an autocmd group, so that we can delete them easily.
+"   augroup vimrcEx
+"   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
+"   " For all text files set 'textwidth' to 78 characters.
+"   autocmd FileType text setlocal textwidth=78
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+"   " When editing a file, always jump to the last known cursor position.
+"   " Don't do it when the position is invalid or when inside an event handler
+"   " (happens when dropping a file on gvim).
+"   autocmd BufReadPost *
+"     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"     \   exe "normal g`\"" |
+"     \ endif
 
-  augroup END
+"   augroup END
 
-else
+" else
 
-  set autoindent		" always set autoindenting on
+"   set autoindent		" always set autoindenting on
 
-endif " has("autocmd")
+" endif " has("autocmd")
 
 
 " GRB: sane editing configuration"
