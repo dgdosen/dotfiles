@@ -1,36 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vim-vundle/
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-" Plugin 'file:///home/.vim/bundle/vim-vundle'
-" Plugin 'file:///home/.vim/bundle/vim-fugitive'
-" Plugin 'file:///home/.vim/bundle/vim-l9'
-" Plugin 'file:///home/.vim/bundle/vim-server-ultisnips'
-" Plugin '~/.vim/bundle/vim-server-ultisnips'
-" Plugin '~/.vim/bundle/vim-snippets'
-call vundle#end()
-
-filetype plugin indent on     " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install (update) bundles
-" :BundleSearch(!) foo - search (or refresh cache first) for foo
-" :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle commands are not allowed.
-" Put your stuff after this line
-set completeopt-=preview
-
-" end vundle...
-
 runtime bundles/tplugin_vim/macros/tplugin.vim
 " set TPlugin! tlib_vim 02tlib
 " runtime bundles/vim-tlib/macros/tplugin.vim
