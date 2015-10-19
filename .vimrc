@@ -20,6 +20,7 @@ set wildmenu
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
 set smartcase
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -28,16 +29,15 @@ set smartcase
 " map <Up> :echo "no!"<cr>
 " map <Down> :echo "no!"<cr>
 
+" Keep more context when scrolling off the end of a buffer
+set scrolloff=3
 
-" " Keep more context when scrolling off the end of a buffer
-" set scrolloff=3
+" Store temporary files in a central spot
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" " Store temporary files in a central spot
-" set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-" set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" " allow backspacing over everything in insert mode
-" set backspace=indent,eol,start
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
 " if has("vms")
 "   set nobackup		" do not keep a backup file, use versions instead
