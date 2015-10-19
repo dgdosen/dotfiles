@@ -750,11 +750,6 @@ set clipboard=unnamed
 :set cc=80
 :hi ColorColumn ctermbg=darkgrey guibg=lightgrey
 "
-"DGD: rainbow parens for cloure
-" :RainbowParenthesesToggle
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-
 "DGD: clojure syntax
 "
 "DGD: vim-expand-region
