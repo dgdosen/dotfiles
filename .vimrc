@@ -21,6 +21,10 @@ set wildmenu
 set ignorecase
 set smartcase
 
+" vim performance hack for the regex engine../
+" per stackoverflow.com/questions/16902317
+set re=1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -627,6 +631,8 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 set ttyfast
+set ttyscroll=3
+set lazyredraw
 
 " DGD: getting vim-css-color to work with scss
 " au BufRead,BufNewFile *.scss set filetype=css
