@@ -273,7 +273,7 @@ map <leader>n :call RenameFile()<cr>
 
 set number
 set numberwidth=5
-" set relativenumber
+set relativenumber
 
 " :au WinEnter * :setlocal number
 " :au WinLeave * :setlocal nonumber
@@ -369,6 +369,7 @@ map <leader>f :FZF<cr>
 map <leader>gj :FZF app/assets/javascripts<cr>
 map <leader>gy :FZF app/assets/stylesheets<cr>
 map <leader>gm :FZF app/models<cr>
+map <leader>go :FZF app/objects<cr>
 map <leader>gc :FZF app/controllers<cr>
 map <leader>gv :FZF app/views<cr>
 map <leader>gs :FZF app/services<cr>
