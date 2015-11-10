@@ -102,6 +102,12 @@ set backspace=indent,eol,start
 
 " endif " has("autocmd")
 
+" line wrapping
+set breakindent
+set linebreak
+set showbreak=\ \
+" set breakat= " "
+
 
 " GRB: sane editing configuration"
 set expandtab
