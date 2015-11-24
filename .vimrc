@@ -77,7 +77,7 @@ set backspace=indent,eol,start
 "   " Use the default filetype settings, so that mail gets 'tw' set to 72,
 "   " 'cindent' is on in C files, etc.
 "   " Also load indent files, to automatically do language-dependent indenting.
-"   filetype plugin indent on
+  filetype plugin indent on
 
 "   " Put these in an autocmd group, so that we can delete them easily.
 "   augroup vimrcEx
@@ -143,17 +143,17 @@ set wrapmargin=2
 " GRB: highlighting search"
 set hls
 
-if has("gui_running")
-  " GRB: set font"
-  ":set nomacatsui anti enc=utf-8 gfn=Monaco:h12
+" if has("gui_running")
+"   " GRB: set font"
+"   ":set nomacatsui anti enc=utf-8 gfn=Monaco:h12
 
-  " GRB: set window size"
-  :set lines=100
-  :set columns=171
+"   " GRB: set window size"
+"   :set lines=100
+"   :set columns=171
 
-  " GRB: highlight current line"
-  " :set cursorline
-endif
+"   " GRB: highlight current line"
+"   " :set cursorline
+" endif
 
 " GRB: set the color scheme
 " solarized options
@@ -221,6 +221,8 @@ let mapleader="\<Space>"
 
 " highlight current line
 set cursorline
+" highlight current column
+" set cursorcolumn
 
 set cmdheight=2
 
