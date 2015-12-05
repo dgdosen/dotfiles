@@ -202,9 +202,6 @@
 [submodule ".tmux/plugins/tmux-sensible"]
 	path = .tmux/plugins/tmux-sensible
 	url = https://github.com/tmux-plugins/tmux-sensible.git
-[submodule ".tmux/plugins/tmux-contimuum"]
-	path = .tmux/plugins/tmux-contimuum
-	url = https://github.com/tmux-plugins/tmux-continuum.git
 [submodule ".tmux/plugins/tmux-scroll-copy-mode"]
 	path = .tmux/plugins/tmux-scroll-copy-mode
 	url = https://github.com/NHDaly/tmux-scroll-copy-mode.git
