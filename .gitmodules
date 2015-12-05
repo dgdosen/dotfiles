@@ -205,3 +205,6 @@
 [submodule ".tmux/plugins/tmux-scroll-copy-mode"]
 	path = .tmux/plugins/tmux-scroll-copy-mode
 	url = https://github.com/NHDaly/tmux-scroll-copy-mode.git
+[submodule ".tmux/plugins/tmux-continuum"]
+	path = .tmux/plugins/tmux-continuum
+	url = https://github.com/tmux-plugins/tmux-continuum.git
