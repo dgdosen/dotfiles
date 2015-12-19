@@ -23,7 +23,7 @@ set smartcase
 
 " vim performance hack for the regex engine../
 " per stackoverflow.com/questions/16902317
-set re=1
+set re=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
@@ -528,10 +528,10 @@ set noswapfile
 autocmd BufWritePre * :%s/\s\+$//e
 
 " DGD: moving more lines
-nmap J 10j
-nmap K 10k
-nmap H 10h
-nmap L 10l
+nmap J 5j
+nmap K 5k
+nmap H 5h
+nmap L 5l
 
 " expanding regions
 set iskeyword-=_
