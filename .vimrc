@@ -456,8 +456,8 @@ set winwidth=60
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
-set winheight=10
-set winminheight=10
+set winheight=30
+set winminheight=30
 set winheight=999
 
 
