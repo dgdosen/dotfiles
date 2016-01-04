@@ -9,6 +9,7 @@ tmux-client*
 tmux-server*
 compile-cache
 .node-gyp
+.atom/**
 .node/**
 .apm
 storage
