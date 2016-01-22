@@ -168,11 +168,14 @@ syntax enable
 " :color grb256
 " :color solarized
 " :color codeschool
-:color railscasts
+" :color railscasts
 " :color github
+" :colorscheme apprentice
 " :colorscheme railscasts_jpo
 " :colorscheme railscasts_dgd
 " :colorscheme railscasts
+" :colorscheme base16
+:colorscheme base16-railscasts
 " :colorscheme solarized
 " :colorscheme grb256
 
@@ -772,6 +775,7 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "airline
+" let g:airline_theme='tomorrow'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline_powerline_fonts=1
