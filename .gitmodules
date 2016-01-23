@@ -211,3 +211,9 @@
 [submodule ".vim/bundle/vim-base16"]
 	path = .vim/bundle/vim-base16
 	url = git@github.com:chriskempson/base16-vim.git
+[submodule ".vim/bundle/vim-apprentice"]
+	path = .vim/bundle/vim-apprentice
+	url = git@github.com:romainl/Apprentice.git
+[submodule ".vim/colors/vim-sorcerer"]
+	path = .vim/colors/vim-sorcerer
+	url = git@github.com:vim-scripts/Sorcerer.git

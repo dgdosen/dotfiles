@@ -170,6 +170,7 @@ syntax enable
 " :color codeschool
 " :color railscasts
 " :color github
+" :colorscheme sorcerer
 " :colorscheme apprentice
 " :colorscheme railscasts_jpo
 " :colorscheme railscasts_dgd
@@ -202,19 +203,19 @@ endfunction
 " GRB: clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
-function! RedBar()
-    hi RedBar ctermfg=white ctermbg=red guibg=red
-    echohl RedBar
-    echon repeat(" ",&columns - 1)
-    echohl
-endfunction
+" function! RedBar()
+"     hi RedBar ctermfg=white ctermbg=red guibg=red
+"     echohl RedBar
+"     echon repeat(" ",&columns - 1)
+"     echohl
+" endfunction
 
-function! GreenBar()
-    hi GreenBar ctermfg=white ctermbg=green guibg=green
-    echohl GreenBar
-    echon repeat(" ",&columns - 1)
-    echohl
-endfunction
+" function! GreenBar()
+"     hi GreenBar ctermfg=white ctermbg=green guibg=green
+"     echohl GreenBar
+"     echon repeat(" ",&columns - 1)
+"     echohl
+" endfunction
 
 " function! JumpToTestsForClass()
 "     exec 'e ' . TestFileForCurrentClass()
@@ -223,7 +224,9 @@ endfunction
 let mapleader="\<Space>"
 
 " highlight current line
-set cursorline
+:hi CursorLine ctermbg=yellow guibg=yellow
+:hi Visual ctermbg=yellow guibg=green
+:set cursorline
 " highlight current column
 " set cursorcolumn
 
@@ -621,7 +624,7 @@ let NERDTreeShowHidden=1
 
 " DGD: support for easy-motion
 hi EasyMotionTarget ctermbg=none ctermfg=red
-hi EasyMotionShade  ctermbg=none ctermfg=green
+hi EasyMotionShade  ctermbg=none ctermfg=lightred
 hi EasyMotionTarget2First ctermbg=none ctermfg=red
 hi EasyMotionTarget2Second ctermbg=none ctermfg=lightred
 
@@ -736,7 +739,7 @@ set clipboard=unnamed
 
 " column width stuff:
 :set cc=80
-:hi ColorColumn ctermbg=darkgrey guibg=lightgrey
+:hi ColorColumn ctermbg=yellow guibg=lightgrey
 "
 "DGD: clojure syntax
 "
