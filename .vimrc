@@ -170,13 +170,14 @@ syntax enable
 " :color codeschool
 " :color railscasts
 " :color github
+" :colorscheme  alduin
 " :colorscheme sorcerer
 " :colorscheme apprentice
 " :colorscheme railscasts_jpo
 " :colorscheme railscasts_dgd
-" :colorscheme railscasts
+:colorscheme railscasts
 " :colorscheme base16
-:colorscheme base16-railscasts
+" :colorscheme base16-railscasts
 " :colorscheme solarized
 " :colorscheme grb256
 
@@ -223,12 +224,15 @@ endfunction
 
 let mapleader="\<Space>"
 
+:hi Visual ctermbg=darkgray guibg=black
+
 " highlight current line
-:hi CursorLine ctermbg=yellow guibg=yellow
-:hi Visual ctermbg=yellow guibg=green
 :set cursorline
+:hi CursorLine ctermbg=darkgray guibg=black
+
 " highlight current column
-" set cursorcolumn
+:set cc=80
+:hi ColorColumn ctermbg=darkgrey guibg=lightgrey
 
 set cmdheight=2
 
@@ -648,8 +652,8 @@ let g:EasyMotion_smartcase = 1
 map  <Leader><Leader>f <Plug>(easymotion-bd-w)
 
 " <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
+" map  <Leader>f <Plug>(easymotion-bd-f)
+" nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-overwin-f2)
@@ -756,10 +760,6 @@ nmap <c-w>+ :vertical res -20<cr>
 "clipboard
 set clipboard=unnamed
 
-" column width stuff:
-:set cc=80
-:hi ColorColumn ctermbg=yellow guibg=lightgrey
-"
 "DGD: clojure syntax
 "
 "DGD: vim-expand-region
