@@ -228,11 +228,11 @@ let mapleader="\<Space>"
 
 " highlight current line
 :set cursorline
-:hi CursorLine ctermbg=darkgray guibg=black
+" :hi CursorLine ctermbg=darkgrey guibg=black
 
 " highlight current column
 :set cc=80
-:hi ColorColumn ctermbg=darkgrey guibg=lightgrey
+:hi ColorColumn ctermbg=darkgrey
 
 set cmdheight=2
 
