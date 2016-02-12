@@ -175,10 +175,10 @@ syntax enable
 " :colorscheme apprentice
 " :colorscheme railscasts_jpo
 " :colorscheme railscasts_dgd
-:colorscheme railscasts
+" :colorscheme railscasts
 " :colorscheme base16
 " :colorscheme base16-railscasts
-" :colorscheme solarized
+:colorscheme solarized
 " :colorscheme grb256
 
 " GRB: hide the toolbar in GUI mode
