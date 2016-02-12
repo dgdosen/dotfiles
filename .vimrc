@@ -23,7 +23,7 @@ set smartcase
 
 " vim performance hack for the regex engine../
 " per stackoverflow.com/questions/16902317
-set re=2
+set re=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
@@ -226,6 +226,9 @@ let mapleader="\<Space>"
 
 :hi Visual ctermbg=darkgray guibg=black
 
+highlight SignColumn ctermbg=black
+highlight LineNr ctermfg=green ctermbg=darkgray
+highlight VertSplit ctermfg=white ctermbg=darkgreen
 " highlight current line
 :set cursorline
 " :hi CursorLine ctermbg=darkgrey guibg=black
