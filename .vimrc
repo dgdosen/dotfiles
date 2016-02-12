@@ -701,8 +701,8 @@ autocmd BufNewFile,BufRead *.hbs set filetype=hbs.html
 " let g:snipMate.scope_aliases['jst.hbs'] = 'html'
 
 "DGD: adding dgd to keyword
-" highlight DGD ErrorMsg
-syn match   myTodo   contained   "\<\(TODO\|FIXME\|NOTE\):"
+syn keyword myTodo HACK BUG REVIEW FIXME TODO DGD NOTE
+" syn match   myTodo   contained   "\<\(TODO\|FIXME\|NOTE\):"
 hi def link myTodo Todo
 "DGD: axlsx files
 
