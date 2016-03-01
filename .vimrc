@@ -227,7 +227,7 @@ let mapleader="\<Space>"
 :hi Visual ctermbg=darkgray guibg=black
 
 highlight SignColumn ctermbg=black
-highlight LineNr ctermfg=green ctermbg=darkgray
+highlight LineNr ctermfg=darkgreen ctermbg=black
 highlight VertSplit ctermfg=white ctermbg=darkgreen
 " highlight current line
 :set cursorline
@@ -705,7 +705,7 @@ autocmd BufNewFile,BufRead *.hbs set filetype=hbs.html
 
 "DGD: adding dgd to keyword
 syn keyword myTodo HACK BUG REVIEW FIXME TODO DGD NOTE
-" syn match   myTodo   contained   "\<\(TODO\|FIXME\|NOTE\):"
+" syn match   myTodo   contained   "\<\(todo\|fixme\|note\):"
 hi def link myTodo Todo
 "DGD: axlsx files
 
