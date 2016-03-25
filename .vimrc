@@ -163,8 +163,8 @@ syntax enable
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
 :set t_Co=256 " 256 colors
-:set background=dark
-" :set background=light
+" :set background=dark
+:set background=light
 " :color grb256
 " :color solarized
 " :color codeschool
@@ -226,8 +226,8 @@ let mapleader="\<Space>"
 
 :hi Visual ctermbg=darkgray guibg=black
 
-highlight SignColumn ctermbg=black
-highlight LineNr ctermfg=darkgreen ctermbg=black
+" highlight SignColumn ctermbg=lightgrey
+" highlight LineNr ctermfg=darkgreen ctermbg=lightgrey
 highlight VertSplit ctermfg=white ctermbg=darkgreen
 " highlight current line
 :set cursorline
@@ -235,7 +235,7 @@ highlight VertSplit ctermfg=white ctermbg=darkgreen
 
 " highlight current column
 :set cc=80
-:hi ColorColumn ctermbg=darkgrey
+:hi ColorColumn ctermbg=lightgrey
 
 set cmdheight=2
 
