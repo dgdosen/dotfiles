@@ -163,8 +163,8 @@ syntax enable
 " :let g:solarized_visibility = "high"
 " :let g:solarized_contrast = "high"
 :set t_Co=256 " 256 colors
-" :set background=dark
-:set background=light
+:set background=dark
+" :set background=light
 " :color grb256
 " :color solarized
 " :color codeschool
@@ -235,7 +235,7 @@ highlight VertSplit ctermfg=white ctermbg=darkgreen
 
 " highlight current column
 :set cc=80
-:hi ColorColumn ctermbg=lightgrey
+" :hi ColorColumn
 
 set cmdheight=2
 
@@ -387,6 +387,7 @@ endfunction
 " map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>t :CtrlPTag<cr>
 map <leader>f :FZF<cr>
+map <leader>ga :FZF app/assets<cr>
 map <leader>gj :FZF app/assets/javascripts<cr>
 map <leader>gy :FZF app/assets/stylesheets<cr>
 map <leader>gm :FZF app/models<cr>
@@ -394,7 +395,8 @@ map <leader>go :FZF app/objects<cr>
 map <leader>gc :FZF app/controllers<cr>
 map <leader>gv :FZF app/views<cr>
 map <leader>gs :FZF app/services<cr>
-map <leader>gk :FZF spec<cr>
+map <leader>gx :FZF spec<cr>
+map <leader>gz :FZF app/serializers<cr>
 map <leader>gg :FZF config<cr>
 map <leader>gd :FZF config<cr>
 
@@ -703,10 +705,17 @@ autocmd BufNewFile,BufRead *.hbs set filetype=hbs.html
 " let g:snipMate.scope_aliases = {}
 " let g:snipMate.scope_aliases['jst.hbs'] = 'html'
 
-"DGD: adding dgd to keyword
-syn keyword myTodo HACK BUG REVIEW FIXME TODO DGD NOTE
+"DGD: adding dgd to keywora
+" todo: TODO: XXX DGD FIXME: FOO
+" syntax keyword myTodo contained BUG REVIEW FIXME FOO TODO DGD NOTE FIXME: DGD:
+" syntax keyword potionKeyword FOO DGD NOTE FIXME: DGD:
+" autocmd syntax keyword DGD
 " syn match   myTodo   contained   "\<\(todo\|fixme\|note\):"
-hi def link myTodo Todo
+" hi def link myTodo yellow
+syn match  coffeeTodo contained   "\<\(FOO\|DGD\):"
+" hi def link myTodo Todo
+
+
 "DGD: axlsx files
 
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
@@ -830,3 +839,9 @@ let g:tmuxline_preset = 'tmux'
 
 " remapping most common keystrokes
 nnoremap <Leader>w :w<CR>
+
+" vim-schlepp
+" vmap <unique> <up>    <Plug>SchleppUp
+" vmap <unique> <down>  <Plug>SchleppDown
+" vmap <unique> <left>  <Plug>SchleppLeft
+" vmap <unique> <right> <Plug>SchleppRight
