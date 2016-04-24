@@ -223,3 +223,6 @@
 [submodule ".vim/bundle/vim-gruvbox"]
 	path = .vim/bundle/vim-gruvbox
 	url = git@github.com:morhetz/gruvbox.git
+[submodule ".vim/bundle/vim-lucius-2"]
+	path = .vim/bundle/vim-lucius-2
+	url = git@github.com:jonathanfilip/vim-lucius.git
