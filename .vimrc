@@ -17,6 +17,9 @@ set history=10000
 " Make tab completion for files/buffers act like bash
 set wildmenu
 
+" new vim color support
+set guicolors
+
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
 set smartcase
@@ -28,10 +31,10 @@ set re=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map <Left> :echo "no!"<cr>
-" map <Right> :echo "no!"<cr>
-" map <Up> :echo "no!"<cr>
-" map <Down> :echo "no!"<cr>
+map <Left> :echo "no!"<cr>
+map <Right> :echo "no!"<cr>
+map <Up> :echo "no!"<cr>
+map <Down> :echo "no!"<cr>
 
 " Keep more context when scrolling off the end of a buffer
 set scrolloff=3
@@ -43,64 +46,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" if has("vms")
-"   set nobackup		" do not keep a backup file, use versions instead
-" else
-"   set backup		" keep a backup file
-" endif
-" set ruler		" show the cursor position all the time
-" set showcmd		" display incomplete commands
-
-" " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" " let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" " Don't use Ex mode, use Q for formatting
-" map Q gq
-
-" " This is an alternative that also works in block mode, but the deleted
-" " text is lost and it only works for putting the current register.
-" " vnoremap p "_dp
-
-" " Switch syntax highlighting on, when the terminal has colors
-" " Also switch on highlighting the last used search pattern.
-" if &t_Co > 2 || has("gui_running")
-"   syntax on
-"   set hlsearch
-"   " set guifont=Monaco:h14
-"   set guifont=Inconsolata-dz:h14
-" endif
-
-" " Only do this part when compiled with support for autocommands.
-" if has("autocmd")
-
-"   " Enable file type detection.
-"   " Use the default filetype settings, so that mail gets 'tw' set to 72,
-"   " 'cindent' is on in C files, etc.
-"   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-"   " Put these in an autocmd group, so that we can delete them easily.
-"   augroup vimrcEx
-"   au!
-
-"   " For all text files set 'textwidth' to 78 characters.
-"   autocmd FileType text setlocal textwidth=78
-
-"   " When editing a file, always jump to the last known cursor position.
-"   " Don't do it when the position is invalid or when inside an event handler
-"   " (happens when dropping a file on gvim).
-"   autocmd BufReadPost *
-"     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-"     \   exe "normal g`\"" |
-"     \ endif
-
-"   augroup END
-
-" else
-
-"   set autoindent		" always set autoindenting on
-
-" endif " has("autocmd")
+filetype plugin indent on
 
 " line wrapping
 set breakindent
@@ -123,76 +69,26 @@ set incsearch
 set textwidth=80
 set wrapmargin=2
 
-" GRB: Highlight long lines
-" Turn long-line highlighting off when entering all files, then on when
-" entering certain files. I don't understand why :match is so stupid that
-" setting highlighting when entering a .rb file will cause e.g. a quickfix
-" window opened later to have the same match. There doesn't seem to be any way
-" to localize it to a file type.
-" function! HighlightLongLines()
-"   hi LongLine guifg=NONE guibg=NONE gui=undercurl ctermfg=white ctermbg=red cterm=NONE guisp=#FF6C60 " undercurl color
-" endfunction
-" function! StopHighlightingLongLines()
-"   hi LongLine guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE guisp=NONE
-" endfunction
-" autocmd TabEnter,WinEnter,BufWinEnter * call StopHighlightingLongLines()
-" autocmd TabEnter,WinEnter,BufWinEnter *.rb,*.py call HighlightLongLines()
-" hi LongLine guifg=NONE
-" match LongLine '\%>78v.\+'
-
-" GRB: highlighting search"
+"highlighting search"
 set hls
 
-" if has("gui_running")
-"   " GRB: set font"
-"   ":set nomacatsui anti enc=utf-8 gfn=Monaco:h12
-
-"   " GRB: set window size"
-"   :set lines=100
-"   :set columns=171
-
-"   " GRB: highlight current line"
-"   " :set cursorline
-" endif
-
-" GRB: set the color scheme
-" solarized options
 syntax enable
-" :let g:solarized_termcolors
-" :let g:solarized_termcolors = 256
-" :let g:solarized_visibility = "high"
-" :let g:solarized_contrast = "high"
 :set t_Co=256 " 256 colors
 :set background=dark
 " :set background=light
 " :color grb256
-" :color solarized
-" :color codeschool
-" :color railscasts
-" :color github
 " :colorscheme  alduin
 " :colorscheme sorcerer
 " :colorscheme apprentice
-" :colorscheme railscasts_jpo
 " :colorscheme railscasts_dgd
 " :colorscheme railscasts
 " :colorscheme base16
 " :colorscheme base16-railscasts
-:colorscheme solarized
+" :colorscheme solarized
 " :colorscheme grb256
+:colorscheme gruvbox
 
-" GRB: hide the toolbar in GUI mode
-if has("gui_running")
-    set go-=T
-end
-
-" GRB: add pydoc command
-:command! -nargs=+ Pydoc :call ShowPydoc("<args>")
-function! ShowPydoc(module, ...)
-    let fPath = "/tmp/pyHelp_" . a:module . ".pydoc"
-    :execute ":!pydoc " . a:module . " > " . fPath
-    :execute ":sp ".fPath
-endfunction
+let g:gruvbox_contrast_dark="soft"
 
 " GRB: use emacs-style tab completion when selecting files, etc
 " set wildmode=longest,list
@@ -203,25 +99,6 @@ endfunction
 
 " GRB: clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
-
-" function! RedBar()
-"     hi RedBar ctermfg=white ctermbg=red guibg=red
-"     echohl RedBar
-"     echon repeat(" ",&columns - 1)
-"     echohl
-" endfunction
-
-" function! GreenBar()
-"     hi GreenBar ctermfg=white ctermbg=green guibg=green
-"     echohl GreenBar
-"     echon repeat(" ",&columns - 1)
-"     echohl
-" endfunction
-
-" function! JumpToTestsForClass()
-"     exec 'e ' . TestFileForCurrentClass()
-" endfunction
-
 let mapleader="\<Space>"
 
 :hi Visual ctermbg=darkgray guibg=black
@@ -490,31 +367,31 @@ command! -range Md5 :echo system('echo '.shellescape(join(getline(<line1>, <line
 
 " imap <c-l> <space>=><space>
 
-function! OpenChangedFiles()
-  only " Close all windows, unless they're modified
-  let status = system('git status -s | grep "^ \?\(M\|A\)" | cut -d " " -f 3')
-  let filenames = split(status, "\n")
-  exec "edit " . filenames[0]
-  for filename in filenames[1:]
-    exec "sp " . filename
-  endfor
-endfunction
-command! OpenChangedFiles :call OpenChangedFiles()
+" function! OpenChangedFiles()
+"   only " Close all windows, unless they're modified
+"   let status = system('git status -s | grep "^ \?\(M\|A\)" | cut -d " " -f 3')
+"   let filenames = split(status, "\n")
+"   exec "edit " . filenames[0]
+"   for filename in filenames[1:]
+"     exec "sp " . filename
+"   endfor
+" endfunction
+" command! OpenChangedFiles :call OpenChangedFiles()
 
-" In these functions, we don't use the count argument, but the map referencing
-" v:count seems to make it work. I don't know why.
-function! ScrollOtherWindowDown(count)
-  normal! 
-  normal! 
-  normal! 
-endfunction
-function! ScrollOtherWindowUp(count)
-  normal! 
-  normal! 
-  normal! 
-endfunction
-nnoremap g<c-y> :call ScrollOtherWindowUp(v:count)<cr>
-nnoremap g<c-e> :call ScrollOtherWindowDown(v:count)<cr>
+" " In these functions, we don't use the count argument, but the map referencing
+" " v:count seems to make it work. I don't know why.
+" function! ScrollOtherWindowDown(count)
+"   normal! 
+"   normal! 
+"   normal! 
+" endfunction
+" function! ScrollOtherWindowUp(count)
+"   normal! 
+"   normal! 
+"   normal! 
+" endfunction
+" nnoremap g<c-y> :call ScrollOtherWindowUp(v:count)<cr>
+" nnoremap g<c-e> :call ScrollOtherWindowDown(v:count)<cr>
 
 set shell=bash
 
@@ -698,7 +575,7 @@ map <D-r> x
 "DGD: long lines
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
-highlight Search ctermbg=red ctermfg=black
+highlight Search ctermbg=red ctermfg=lightgrey
 
 autocmd BufNewFile,BufRead *.hbs set filetype=hbs.html
 " let g:snipMate = {}
@@ -840,8 +717,5 @@ let g:tmuxline_preset = 'tmux'
 " remapping most common keystrokes
 nnoremap <Leader>w :w<CR>
 
-" vim-schlepp
-" vmap <unique> <up>    <Plug>SchleppUp
-" vmap <unique> <down>  <Plug>SchleppDown
-" vmap <unique> <left>  <Plug>SchleppLeft
-" vmap <unique> <right> <Plug>SchleppRight
+" set timeout for escape length
+set timeoutlen=1000 ttimeoutlen=0
