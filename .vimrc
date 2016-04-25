@@ -18,7 +18,8 @@ set history=10000
 set wildmenu
 
 " new vim color support
-set guicolors
+" set guicolors
+" set term=xterm-256color
 
 " Make searches case-sensitive only if they contain upper-case characters
 set ignorecase
@@ -72,6 +73,7 @@ set wrapmargin=2
 "highlighting search"
 set hls
 
+
 syntax enable
 :set t_Co=256 " 256 colors
 :set background=dark
@@ -87,8 +89,9 @@ syntax enable
 " :colorscheme solarized
 " :colorscheme grb256
 :colorscheme gruvbox
+" :colorscheme lucius
 
-let g:gruvbox_contrast_dark="soft"
+let g:gruvbox_contrast_dark="medium"
 
 " GRB: use emacs-style tab completion when selecting files, etc
 " set wildmode=longest,list
@@ -349,7 +352,7 @@ set winwidth=60
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
 set winheight=10
-set winminheight=10
+" set winminheight=10
 set winheight=999
 
 
