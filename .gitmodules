@@ -226,3 +226,6 @@
 [submodule ".vim/bundle/vim-lucius-2"]
 	path = .vim/bundle/vim-lucius-2
 	url = git@github.com:jonathanfilip/vim-lucius.git
+[submodule ".vim/bundle/vim-jdaddy"]
+	path = .vim/bundle/vim-jdaddy
+	url = git@github.com:tpope/vim-jdaddy.git
