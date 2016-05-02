@@ -352,7 +352,7 @@ set winwidth=60
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
 set winheight=10
-" set winminheight=10
+set winminheight=10
 set winheight=999
 
 
@@ -729,4 +729,5 @@ iab <expr> ddate strftime("%Y-%B-%d - %a:")
 " automatic spell checking
 iabbrev teh the
 
-
+nmap <silent> <c-t> :TagbarToggle<CR>
+" nmap <leader>8 :TagbarToggle<CR>
