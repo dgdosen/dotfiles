@@ -229,3 +229,6 @@
 [submodule ".vim/bundle/vim-jdaddy"]
 	path = .vim/bundle/vim-jdaddy
 	url = git@github.com:tpope/vim-jdaddy.git
+[submodule ".zsh_customizations/plugins/zsh-syntax-highlighting"]
+	path = .zsh_customizations/plugins/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
