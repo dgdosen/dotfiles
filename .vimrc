@@ -415,6 +415,7 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 
 " DGD: remap escaped to jk to keep hands on home row
 imap jk <esc>
+imap kj <C-w>
 
 " DGD: keep swap files off - do I need them?
 set noswapfile

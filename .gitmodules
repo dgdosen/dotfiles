@@ -232,3 +232,18 @@
 [submodule ".zsh_customizations/plugins/zsh-syntax-highlighting"]
 	path = .zsh_customizations/plugins/zsh-syntax-highlighting
 	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+[submodule ".vim/bundle/vim-sort-motion"]
+	path = .vim/bundle/vim-sort-motion
+	url = git@github.com:christoomey/vim-sort-motion.git
+[submodule ".vim/bundle/vim-textobj-rubyblock"]
+	path = .vim/bundle/vim-textobj-rubyblock
+	url = git@github.com:nelstrom/vim-textobj-rubyblock.git
+[submodule ".vim/bundle/vim-textobj-user"]
+	path = .vim/bundle/vim-textobj-user
+	url = git@github.com:kana/vim-textobj-user.git
+[submodule ".vim/bundle/vim-textobj-indent"]
+	path = .vim/bundle/vim-textobj-indent
+	url = git@github.com:kana/vim-textobj-indent.git
+[submodule ".vim/bundle/vim-textobj-line"]
+	path = .vim/bundle/vim-textobj-line
+	url = git@github.com:kana/vim-textobj-line.git
