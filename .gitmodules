@@ -247,3 +247,6 @@
 [submodule ".vim/bundle/vim-textobj-line"]
 	path = .vim/bundle/vim-textobj-line
 	url = git@github.com:kana/vim-textobj-line.git
+[submodule ".vim/bundle/vim-camelcasemotion"]
+	path = .vim/bundle/vim-camelcasemotion
+	url = git@github.com:vim-scripts/camelcasemotion.git
