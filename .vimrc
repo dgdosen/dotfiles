@@ -430,7 +430,7 @@ nmap H 5h
 nmap L 5l
 
 " expanding regions
-set iskeyword-=_
+" set iskeyword-=_
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 let g:expand_region_text_objects = {
@@ -732,14 +732,3 @@ iabbrev teh the
 
 nmap <silent> <c-t> :TagbarToggle<CR>
 " nmap <leader>8 :TagbarToggle<CR>
-
-" call camelcasemotion#CreateMotionMappings('<Leader>')
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-map <silent> be <Plug>CamelCaseMotion_e
-" map  <Leader>W <Plug>(easymotion-bd-w)
-sunmap w
-sunmap b
-sunmap e
-sunmap be
