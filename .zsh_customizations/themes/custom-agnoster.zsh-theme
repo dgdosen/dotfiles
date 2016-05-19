@@ -269,7 +269,10 @@ function prompt_grb_scm_time_since_commit() {
           fi
           local SINCE_LAST_COMMIT="${TIME}${UNIT}$pc"
         fi
-        prompt_segment  $COLOR black  $SINCE_LAST_COMMIT
+        # prompt_segment $COLOR black  $SINCE_LAST_COMMIT
+        # local gray = "\033[48;5;250"
+        prompt_segment black $COLOR  $SINCE_LAST_COMMIT
+
     fi
 }
 
