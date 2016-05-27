@@ -247,3 +247,6 @@
 [submodule ".vim/bundle/vim-textobj-line"]
 	path = .vim/bundle/vim-textobj-line
 	url = git@github.com:kana/vim-textobj-line.git
+[submodule ".zsh_customizations/themes/powerlevel9k"]
+	path = .zsh_customizations/themes/powerlevel9k
+	url = https://github.com/bhilburn/powerlevel9k.git
