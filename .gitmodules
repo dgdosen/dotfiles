@@ -250,3 +250,6 @@
 [submodule ".zsh_customizations/themes/powerlevel9k"]
 	path = .zsh_customizations/themes/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
+[submodule ".vim/bundle/vim-jsx"]
+	path = .vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
