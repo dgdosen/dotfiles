@@ -732,3 +732,6 @@ iabbrev teh the
 
 nmap <silent> <c-t> :TagbarToggle<CR>
 " nmap <leader>8 :TagbarToggle<CR>
+
+:iabbrev </ </<C-X><C-O>
+imap <C-Space> <C-X><C-O>
