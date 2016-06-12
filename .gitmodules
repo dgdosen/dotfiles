@@ -256,3 +256,6 @@
 [submodule ".vim/bundle/vim-devicons"]
 	path = .vim/bundle/vim-devicons
 	url = git@github.com:ryanoasis/vim-devicons.git
+[submodule ".vim/bundle/vim-dockerfile"]
+	path = .vim/bundle/vim-dockerfile
+	url = git@github.com:ekalinin/Dockerfile.vim.git
