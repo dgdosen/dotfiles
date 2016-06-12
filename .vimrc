@@ -691,20 +691,21 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 "airline
 " let g:airline_theme='tomorrow'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 1
-let g:airline_powerline_fonts=1
-let g:tmuxline_separators = {
-    \ 'left' : '',
-    \ 'left_alt': '>',
-    \ 'right' : '',
-    \ 'right_alt' : '<',
-    \ 'space' : ' '}
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tmuxline#enabled = 0
+" let g:airline#extensions#tmuxline#enabled = 1
+" let g:airline_powerline_fonts=1
+" let g:tmuxline_separators = {
+"     \ 'left' : '',
+"     \ 'left_alt': '>',
+"     \ 'right' : '',
+"     \ 'right_alt' : '<',
+"     \ 'space' : ' '}
 "
 "tmuxline
-let g:tmuxline_powerline_separators = 1
-let g:tmuxline_preset = 'tmux'
-" let g:tmuxline_preset = {
+" let g:tmuxline_powerline_separators = 1
+" let g:tmuxline_preset = 'tmux'
+" " let g:tmuxline_preset = {
 "       \'a'    : '#S',
 "       \'b'    : '#W',
 "       \'c'    : '#H',
@@ -735,3 +736,7 @@ nmap <silent> <c-t> :TagbarToggle<CR>
 
 :iabbrev </ </<C-X><C-O>
 imap <C-Space> <C-X><C-O>
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
