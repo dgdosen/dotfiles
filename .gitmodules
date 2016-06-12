@@ -139,9 +139,6 @@
 [submodule ".vim/bundle/vim-dispatch"]
 	path = .vim/bundle/vim-dispatch
 	url = git://github.com/tpope/vim-dispatch.git
-[submodule ".vim/bundle/vim-tmuxline"]
-	path = .vim/bundle/vim-tmuxline
-	url = git@github.com:edkolev/tmuxline.vim.git
 [submodule ".vim/bundle/vim-markdown-jekyll"]
 	path = .vim/bundle/vim-markdown-jekyll
 	url = git@github.com:PProvost/vim-markdown-jekyll.git
@@ -172,9 +169,6 @@
 [submodule ".vim/bundle/vim-fzf"]
 	path = .vim/bundle/vim-fzf
 	url = git@github.com:junegunn/fzf.git
-[submodule ".vim/bundle/vim-tmux-powerline"]
-	path = .vim/bundle/vim-tmux-powerline
-	url = git@github.com:erikw/tmux-powerline.git
 [submodule ".vim/bundle/vim-bufexplorer2"]
 	path = .vim/bundle/vim-bufexplorer2
 	url = git@github.com:jlanzarotta/bufexplorer.git
