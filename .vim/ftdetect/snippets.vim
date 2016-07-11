@@ -1,1 +1,0 @@
-ftdetect/snippets.vim
