@@ -253,3 +253,6 @@
 [submodule ".vim/bundle/vim-dockerfile"]
 	path = .vim/bundle/vim-dockerfile
 	url = git@github.com:ekalinin/Dockerfile.vim.git
+[submodule ".vim/bundle/vim-gist"]
+	path = .vim/bundle/vim-gist
+	url = https://github.com/mattn/gist-vim.git
