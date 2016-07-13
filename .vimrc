@@ -138,6 +138,7 @@ set switchbuf=useopen
 
 autocmd BufRead,BufNewFile *.html source ~/.vim/indent/html_grb.vim
 autocmd FileType htmldjango source ~/.vim/indent/html_grb.vim
+
 autocmd! BufRead,BufNewFile *.sass setfiletype sass
 
 " DGD: better erb snippet support
@@ -473,7 +474,6 @@ endif
 
 " vim-tmux navigator
 let g:tmux_navigator_no_mappings = 1
-
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
@@ -621,7 +621,7 @@ nmap <leader>v :e ~/.vimrc<CR>
 " au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 let g:UltiSnipsExpandTrigger="<c-t>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpBackwardTrigger="<c-t>"
 
 " TODO: code folding:
 set foldmethod=indent
