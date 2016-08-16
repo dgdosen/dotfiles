@@ -76,8 +76,8 @@ set hls
 
 syntax enable
 :set t_Co=256 " 256 colors
-:set background=dark
-" :set background=light
+" :set background=dark
+:set background=light
 " :color grb256
 " :colorscheme  alduin
 " :colorscheme sorcerer
@@ -557,7 +557,7 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 set ttyfast
-set ttyscroll=3
+" set ttyscroll=3
 set lazyredraw
 
 " DGD: getting vim-css-color to work with scss
@@ -685,6 +685,7 @@ let g:neocomplete#enable_smart_case = 1
 " " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " " let g:neocomplete#enable_at_startup = 1
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
