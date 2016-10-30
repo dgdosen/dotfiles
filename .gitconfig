@@ -47,3 +47,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/
