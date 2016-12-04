@@ -7,6 +7,8 @@ alias ll='ls -lG'
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
 
+export PYTHONPATH="/usr/local/lib/python:/usr/local/Cellar/python/2.7.2/lib/python2.7/site-packages"
+
 # Erase duplicates in history
 export HISTCONTROL=erasedups
 # Store 10k history entries
