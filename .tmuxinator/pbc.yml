@@ -1,0 +1,33 @@
+# ~/.tmuxinator/pbc.yml
+
+name: pbc
+root: ~/dev/project_b_cli
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+windows:
+  - editor:
+      # layout: 6d60,208x57,0,0{130x57,0,0,19,77x57,131,0[77x11,131,0,20,77x10,131,12,21,77x10,131,23,22,77x10,131,34,23,77x12,131,45,24]}
+      layout: eeac,318x95,0,0{216x95,0,0,82,101x95,217,0[101x14,217,0,83,101x21,217,15,84,101x48,217,37,86,101x9,217,86,87]}
+      panes:
+        - vim
+        -
+        - bundle exec pry
+        - autotest
+        -
