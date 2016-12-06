@@ -1,7 +1,7 @@
 # ~/.tmuxinator/pb.yml
 
 name: accountingtrack
-root: ~/Development/accountingtrak_hchoa
+root: ~/dev/accountingtrak_hchoa
 
 # Optional tmux socket
 # socket_name: foo

@@ -23,7 +23,7 @@ root: ~/
 
 windows:
   - editor:
-      root: ~/Development/go_workspace
+      root: ~/dev/go_workspace
       # layout: main-vertical
       layout: d922,254x75,0,0{165x75,0,0,174,88x75,166,0[88x18,166,0,176,88x18,166,19,177,88x18,166,38,178,88x18,166,57,179]}
       panes:

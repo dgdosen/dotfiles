@@ -1,7 +1,7 @@
 # ~/.tmuxinator/pb.yml
 
 name: pb
-root: ~/Development/project_b
+root: ~/dev/project_b
 
 # Optional tmux socket
 # socket_name: foo

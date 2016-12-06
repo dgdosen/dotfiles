@@ -23,7 +23,7 @@ root: ~/
 
 windows:
   - server:
-      root: ~/Development/sessuru_web
+      root: ~/dev/sessuru_web
       # layout: main-vertical
       layout: d922,254x75,0,0{165x75,0,0,174,88x75,166,0[88x18,166,0,176,88x18,166,19,177,88x18,166,38,178,88x18,166,57,179]}
       panes:
@@ -33,7 +33,7 @@ windows:
         - guard -c
         -
   - client:
-      root: ~/Development/sessuru_ember
+      root: ~/dev/sessuru_ember
       # layout: main-vertical
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:

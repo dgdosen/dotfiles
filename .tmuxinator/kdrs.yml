@@ -1,7 +1,7 @@
 # ~/.tmuxinator/kdrs.yml
 
 name: kdrs
-root: ~/Development/kdrs/kdrs_r5
+root: ~/dev/kdrs/kdrs_r5
 
 # Optional tmux socket
 # socket_name: foo
