@@ -40,8 +40,9 @@ Plug 'Shougo/deoplete.nvim'
 " " Plugin options
 " Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-" " Plugin outside ~/.vim/plugged with post-update hook
+" Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
 " " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
@@ -49,8 +50,12 @@ Plug 'Shougo/deoplete.nvim'
 " Add plugins to &runtimepath
 call plug#end()
 
+" FORKED STUFF
+"
+let g:fzf_nvim_statusline = 0
+set tags=./tags,.tags
 
-
+" END FORKED
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers

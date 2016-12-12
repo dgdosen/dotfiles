@@ -37,15 +37,19 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
 " " Plugin outside ~/.vim/plugged with post-update hook
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" fzf via homebrew
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
-" " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
 " Add plugins to &runtimepath
 call plug#end()
 
+" Forked content
+set tags=./tags,.tags
 
 
+" End Forked
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
@@ -305,8 +309,6 @@ function! ShowRoutes()
   :normal dd
 endfunction
 
-" map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>t :CtrlPTag<cr>
 map <leader>f :FZF<cr>
 map <leader>ga :FZF app/assets<cr>
 map <leader>gj :FZF app/assets/javascripts<cr>
