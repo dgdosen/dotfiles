@@ -166,9 +166,6 @@
 [submodule ".vim/bundle/vim-obession"]
 	path = .vim/bundle/vim-obession
 	url = https://github.com/tpope/vim-obsession.git
-[submodule ".vim/bundle/vim-fzf"]
-	path = .vim/bundle/vim-fzf
-	url = git@github.com:junegunn/fzf.git
 [submodule ".vim/bundle/vim-bufexplorer2"]
 	path = .vim/bundle/vim-bufexplorer2
 	url = git@github.com:jlanzarotta/bufexplorer.git
