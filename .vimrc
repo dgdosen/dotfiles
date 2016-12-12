@@ -48,6 +48,23 @@ call plug#end()
 " Forked content
 set tags=./tags,.tags
 
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+let g:fzf_layout = { 'down': '25%' }
+
 
 " End Forked
 
@@ -444,7 +461,6 @@ set shell=bash
 " Can't be bothered to understand the difference between ESC and <c-c> in
 " insert mode
 inoremap <c-c> <esc>
-
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 
 " DGD: Triying out Flog
@@ -711,9 +727,9 @@ vmap <C-v> <Plug>(expand_region_shrink)
 "DGD: from 12 vim tips on reddit
 " NOTE: commenting this out - I want some ignored files searchable (app.yml)
 " let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co', 'find %s -type f']
-let g:ctrlp_use_caching = 0
-let g:ctrlp_show_hidden = 1
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co', 'find %s -type f']
+" let g:ctrlp_use_caching = 0
+" let g:ctrlp_show_hidden = 1
 "DGD: tagbar
 nmap <F8> :TagbarToggle<CR>
 
@@ -741,8 +757,7 @@ nnoremap <Leader>w :w<CR>
 set timeoutlen=1000 ttimeoutlen=0
 
 " evaluate expressions - a macro
-iab <expr> ddate strftime("%Y-%B-%d - %a:")
-
+iab <expr> idate strftime("%Y-%B-%d - %a:")
 " automatic spell checking
 iabbrev teh the
 
