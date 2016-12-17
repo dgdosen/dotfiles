@@ -1,4 +1,5 @@
 .DS_Store
+.project_b_cli_config.yml
 .pgadmin_histoqueries
 .bash_history
 .zsh-update
