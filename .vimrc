@@ -614,9 +614,10 @@ nmap <Leader>W <Plug>(easymotion-overwin-w)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-set ttyfast
+" set ttyfast
 " set ttyscroll=3
-set lazyredraw
+" set lazyredraw
+set mouse=a
 
 " DGD: getting vim-css-color to work with scss
 " au BufRead,BufNewFile *.scss set filetype=css
