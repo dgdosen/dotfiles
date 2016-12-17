@@ -735,7 +735,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 nmap <F8> :TagbarToggle<CR>
 
 "DGD: save on leaving insert
-autocmd InsertLeave * write
+" autocmd InsertLeave * write
 
 "DGD: neocomplete
 " let g:acp_enableAtStartup = 0
