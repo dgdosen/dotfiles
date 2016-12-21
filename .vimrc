@@ -10,8 +10,9 @@ call pathogen#helptags()
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
-Plug 'Shougo/deoplete.vim'
+" Plug 'Shougo/deoplete.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'rhysd/vim-crystal'
 
 " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'

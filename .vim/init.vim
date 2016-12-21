@@ -17,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 "git@github.com:Shougo/deoplete.nvim.git
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'Shougo/deoplete.nvim'
+Plug 'rhysd/vim-crystal'
 
 " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'
