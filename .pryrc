@@ -2,6 +2,13 @@
 Pry.config.should_load_plugins = false
 Pry.plugins["doc"].activate!
 
+if defined?(PryByebug)
+  Pry.commands.alias_command 'c', 'continue'
+  Pry.commands.alias_command 's', 'step'
+  Pry.commands.alias_command 'n', 'next'
+  Pry.commands.alias_command 'f', 'finish'
+end
+
 # alias 'q' for 'exit'
 Pry.config.commands.alias_command "q", "exit-all"
 
