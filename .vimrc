@@ -786,3 +786,6 @@ let g:tmuxline_separators = {
 " python powerline_setup()
 " python del powerline_setup
   set rtp+=/usr/local/opt/fzf
+
+" jsx in javascript
+let g:jsx_ext_required = 0
