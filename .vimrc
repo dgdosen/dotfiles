@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'Shougo/deoplete.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'rhysd/vim-crystal'
+Plug 'mtscout6/syntastic-local-eslint.vim'
 
 " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'
@@ -475,7 +476,8 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 
 " DGD: remap escaped to jk to keep hands on home row
 imap jk <esc>
-imap kj <C-w>
+imap kj <esc>
+" imap kj <C-w>
 
 " DGD: keep swap files off - do I need them?
 set noswapfile
@@ -785,7 +787,36 @@ let g:tmuxline_separators = {
 " python from powerline.vim import setup as powerline_setup
 " python powerline_setup()
 " python del powerline_setup
-  set rtp+=/usr/local/opt/fzf
+  set rtp+=/usr/local/bin/fzf
 
 " jsx in javascript
 let g:jsx_ext_required = 0
+
+" let g:syntastic_javascript_checkers = ['eslint', 'jshint']
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['jshint']
+
+" let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+" " let g:syntastic_error_symbol = '❌'
+" let g:syntastic_error_symbol = '!'
+" let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '?'
+" let g:syntastic_warning_symbol = '⚠️'
+" let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
