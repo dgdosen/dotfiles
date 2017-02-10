@@ -13,7 +13,11 @@ call plug#begin('~/.vim/plugged')
 " Plug 'Shougo/deoplete.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'rhysd/vim-crystal'
-Plug 'mtscout6/syntastic-local-eslint.vim'
+
+" react development
+" Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'
@@ -797,6 +801,9 @@ let g:jsx_ext_required = 0
 " let g:syntastic_javascript_checkers = ['jshint']
 
 " let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+
+" keep jshint off by default
+" :JSHintToggle
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}

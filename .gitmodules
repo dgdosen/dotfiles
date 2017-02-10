@@ -88,9 +88,6 @@
 [submodule ".vim/bundle/vim-haml"]
 	path = .vim/bundle/vim-haml
 	url = git@github.com:tpope/vim-haml.git
-[submodule ".vim/bundle/vim-jshint"]
-	path = .vim/bundle/vim-jshint
-	url = git@github.com:wookiehangover/jshint.vim.git
 [submodule ".vim/bundle/vim-fireplace"]
 	path = .vim/bundle/vim-fireplace
 	url = git://github.com/tpope/vim-fireplace.git
@@ -106,9 +103,6 @@
 [submodule ".vim/bundle/vim-railscasts"]
 	path = .vim/bundle/vim-railscasts
 	url = git@github.com:jgdavey/vim-railscasts.git
-[submodule ".vim/bundle/vim-javascript-syntax"]
-	path = .vim/bundle/vim-javascript-syntax
-	url = git@github.com:jelera/vim-javascript-syntax.git
 [submodule ".vim/bundle/vim-node"]
 	path = .vim/bundle/vim-node
 	url = git@github.com:moll/vim-node.git
@@ -241,9 +235,6 @@
 [submodule ".zsh_customizations/themes/powerlevel9k"]
 	path = .zsh_customizations/themes/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
-[submodule ".vim/bundle/vim-jsx"]
-	path = .vim/bundle/vim-jsx
-	url = git@github.com:mxw/vim-jsx.git
 [submodule ".vim/bundle/vim-devicons"]
 	path = .vim/bundle/vim-devicons
 	url = git@github.com:ryanoasis/vim-devicons.git
@@ -256,6 +247,3 @@
 [submodule ".vim/bundle/vim-elixir"]
 	path = .vim/bundle/vim-elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
-[submodule ".vim/bundle/vim-javascript"]
-	path = .vim/bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
