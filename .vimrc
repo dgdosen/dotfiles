@@ -11,11 +11,16 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 " Plug 'Shougo/deoplete.vim'
+Plug 'vim-syntastic/syntastic'
+
+Plug 'mustache/vim-mustache-handlebars'
+
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'rhysd/vim-crystal'
-
+Plug 'othree/html5.vim'
 " react development
-" Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'isagalaev/highlight.js'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
@@ -50,7 +55,6 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
-
 " Forked content
 set tags=./tags,.tags
 
@@ -140,7 +144,7 @@ set wrapmargin=2
 "highlighting search"
 set hls
 
-
+syntax on
 syntax enable
 :set t_Co=256 " 256 colors
 :set background=dark
@@ -187,8 +191,8 @@ highlight VertSplit ctermfg=white ctermbg=darkgreen
 set cmdheight=2
 
 " Don't show scroll bars in the GUI
-set guioptions-=L
-set guioptions-=r
+" set guioptions-=L
+" set guioptions-=r
 
 " Use <c-h> for snippets
 " let g:NERDSnippets_key = '<c-h>'
@@ -775,6 +779,9 @@ nmap <silent> <c-t> :TagbarToggle<CR>
 :iabbrev </ </<C-X><C-O>
 imap <C-Space> <C-X><C-O>
 
+"handlebars
+au BufRead,BufNewFile *.hbs setfiletype mustache
+
 "airline or popwerline?
 let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
@@ -819,7 +826,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 " " let g:syntastic_error_symbol = '❌'
 " let g:syntastic_error_symbol = '!'
 " let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '?'
+" let g:syntastic_warning_symbol = '?'
 " let g:syntastic_warning_symbol = '⚠️'
 " let g:syntastic_style_warning_symbol = '💩'
 
