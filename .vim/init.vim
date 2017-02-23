@@ -18,7 +18,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'Shougo/deoplete.nvim'
 Plug 'rhysd/vim-crystal'
+Plug 'neomake/neomake'
 
+" react development
+" Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'
 
@@ -51,6 +56,10 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " Add plugins to &runtimepath
 call plug#end()
 
+" NVIM specific
+autocmd! BufWritePost * Neomake
+
+"""""""""""""""""""""""""""""""""""""""
 " FORKED STUFF
 "
 let g:fzf_nvim_statusline = 0
@@ -669,7 +678,7 @@ syn match  coffeeTodo contained   "\<\(FOO\|DGD\):"
 "DGD: axlsx files
 
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
-nmap <leader>v :e ~/.vimrc<CR>
+nmap <leader>v :e ~/.vim/init.vim<CR>
 
 " "DGD: getting ultisnips and youcomplete me
 " function! g:UltiSnips_Complete()
