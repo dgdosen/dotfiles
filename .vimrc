@@ -10,8 +10,8 @@ call pathogen#helptags()
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
-" Plug 'Shougo/deoplete.vim'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 
 Plug 'mustache/vim-mustache-handlebars'
 
@@ -19,10 +19,10 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'rhysd/vim-crystal'
 Plug 'othree/html5.vim'
 " react development
-Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'isagalaev/highlight.js'
-Plug 'pangloss/vim-javascript'
+" Plug 'mtscout6/syntastic-local-eslint.vim'
+" Plug 'isagalaev/highlight.js'
 Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
 
 " " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plug 'junegunn/vim-easy-align'
@@ -813,24 +813,35 @@ let g:jsx_ext_required = 0
 " :JSHintToggle
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_loc_list_height = 5
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = ['jscs']
+" if has("autocmd")
+"   " use google/jshint for js "
+"   autocmd FileType javascript.js let g:syntastic_javascript_checkers = ['gjslint','jshint']
+"   " use eslint for jsx "
+"   autocmd FileType javascript.jsx let g:syntastic_javascript_checkers = ['eslint']
+" else
+"   " if an older version of vim without autocmd just use google/jshint "
+"   let g:syntastic_javascript_checkers = ['gjslint','jshint']
+" endif
 
-" " let g:syntastic_error_symbol = '❌'
+" " " let g:syntastic_error_symbol = '❌'
 " let g:syntastic_error_symbol = '!'
 " let g:syntastic_style_error_symbol = '⁉️'
 " let g:syntastic_warning_symbol = '?'
-" let g:syntastic_warning_symbol = '⚠️'
+" " let g:syntastic_warning_symbol = '⚠️'
 " let g:syntastic_style_warning_symbol = '💩'
 
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+" highlight link SyntasticErrorSign SignColumn
+" highlight link SyntasticWarningSign SignColumn
+" highlight link SyntasticStyleErrorSign SignColumn
+" highlight link SyntasticStyleWarningSign SignColumn
