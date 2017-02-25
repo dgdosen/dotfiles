@@ -16,5 +16,5 @@ compile-cache
 storage
 merge-conflicts
 node_modules
-.vim/plugged/*
+*/plugged/*
 .tmux/resurrect/*

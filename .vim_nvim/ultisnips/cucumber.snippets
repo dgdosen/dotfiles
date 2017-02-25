@@ -1,0 +1,49 @@
+snippet a "a"
+And
+endsnippet
+
+snippet b "b"
+Background:
+  ${1}
+endsnippet
+
+snippet e "e"
+Examples:
+  ${1}
+endsnippet
+
+snippet fea "fea"
+Feature: ${1:[feature name eg. "Manage some thing ..."]}
+	In order to ${2:[goal]}
+	As a ${3:[stakeholder]}
+	I want ${4:[behavior]}
+endsnippet
+
+snippet sce "sce"
+Scenario: ${1:[scenario name eg. "Manage some thing ..."]}
+	Given ${2:[put the system in a known state]}
+	When ${3:[describe the key action the user performs]}
+	Then ${4:[observe outcomes. The observations should be related to the business value/benefit in your feature description.]}
+endsnippet
+
+snippet g "g"
+Given
+endsnippet
+
+snippet s "s"
+Scenario:
+endsnippet
+
+snippet so "so"
+Scenario Outline:
+endsnippet
+
+snippet t "t"
+Then
+endsnippet
+
+snippet w "w"
+When
+endsnippet
+
+# vim:ft=snippets:

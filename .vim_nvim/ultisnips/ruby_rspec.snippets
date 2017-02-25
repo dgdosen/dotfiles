@@ -1,0 +1,554 @@
+extends ruby
+# vim:ft=rspec.ruby
+
+#
+# spec helper snippets
+#
+
+snippet cnf "configure" -b
+RSpec.configure do |config|
+  config.${0:option}
+end
+endsnippet
+
+#
+# general spec snippets
+#
+
+snippet reqs "Require spec_helper"
+require 'spec_helper'
+
+endsnippet
+
+snippet desc "controller_context" -b
+require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
+
+describe ${1:controller} do
+  $0
+end
+endsnippet
+
+snippet con "context" -b
+context '${1:context}' do
+  $0
+end
+endsnippet
+
+snippet desrc "controller_context_RESTful" -b
+describe ${1:controller}, "${2:GET|POST|PUT|DELETE} ${3:/some/path}${4: with some parameters}" do
+  $0
+end
+endsnippet
+
+snippet des "Describe" -b
+describe '${1:subject}' do
+  $0
+end
+endsnippet
+
+snippet dest "Describe Type" -b
+describe ${1:Type} do
+  $0
+end
+endsnippet
+
+snippet dests "Describe Type string" -b
+describe ${1:Type}, "${2:description}" do
+  $0
+end
+endsnippet
+
+snippet conn "Set Controller for Spec"
+controller_name :${1:controller}
+endsnippet
+
+snippet let "let"
+let(:${1:symbol}) { $2 }
+endsnippet
+
+snippet letb "let block"
+let :${1:symbol} do
+  $2
+end
+$0
+endsnippet
+
+snippet subj "subject"
+subject { $1 }
+endsnippet
+
+snippet bef "setup"
+before(${1::each}) do
+  $0
+end
+endsnippet
+
+snippet aft "teardown"
+after(${1::each}) do
+  $0
+end
+endsnippet
+
+snippet its "it should" -b
+it 'should ${1:do something}'${2: do
+	$3
+end}
+endsnippet
+
+snippet it "It" -b
+it '${1:does something}'${2: do
+	$3
+end}
+endsnippet
+
+#
+# inline snippets
+#
+
+snippet anr "and_raise" w
+and_raise(${1:exception})
+endsnippet
+
+snippet anrb "and_return_block" w
+and_return { $1 }
+endsnippet
+
+snippet andra "and_return_value" w
+and_return(${1:value})
+endsnippet
+
+snippet ant "and_throw" w
+and_throw(${1:sym})
+endsnippet
+
+snippet any "and_yield" w
+and_yield(${1:values})
+endsnippet
+
+snippet annot "any_number_of_times" w
+any_number_of_times
+endsnippet
+
+snippet atl "at_least" w
+at_least(${1:n}).times
+endsnippet
+
+snippet atm "at_most" w
+at_most(${1:n}).times
+endsnipp => et
+
+snippet ex "exactly" w
+exactly(${1:n}).times
+endsnippet
+
+snippet on "once" w
+once
+endsnippet
+
+snippet tw "twice" w
+twice
+endsnippet
+
+#
+# matchers
+#
+
+snippet matc "Matcher (Custom)"
+class ${1:ReverseTo}
+  def initialize($3)
+    @$3 = $3
+  end
+
+  def matches?(actual)
+    @actual = actual
+    # Satisfy expectation here. Return false or raise an error if it's not met.
+    ${0:@actual.reverse.should == @$3}
+    true
+  end
+
+  def failure_message_for_should
+    "expected #{@actual.inspect} to $2 #{@$3.inspect}, but it didn't"
+  end
+
+  def failure_message_for_should_not
+    "expected #{@actual.inspect} not to $2 #{@$3.inspect}, but it did"
+  end
+end
+
+def ${2:reverse_to}(${3:expected})
+  $1.new($3)
+end
+endsnippet
+
+snippet mat "Matcher (DSL)"
+RSpec::Matchers.define :${1:name} do |${2:expected}|
+  match do |${3:actual}|
+    $3.$1?($2)
+  end
+end
+
+endsnippet
+
+#
+# doubles
+#
+
+snippet moc "mock"
+${1:var} = mock("${2:mock_name}"${3:, :null_object => true})
+$0
+endsnippet
+
+snippet mm "mock_model"
+mock_model(${1:model})$0
+endsnippet
+
+snippet mocw "mock_with"
+RSpec::Runner.configure do |config|
+	config.mock_with :${0:mocha|flexmock|rr}
+end
+endsnippet
+
+snippet dbl "double"
+double('${1:double}')
+endsnippet
+
+snippet stu "stub"
+${1:double}.stub(:${2:message})$3
+endsnippet
+
+#
+# responses
+#
+
+snippet shbs "response_should_be_success"
+response.should be_success
+$0
+endsnippet
+
+snippet shnbs "response_should_not_be_success"
+response.should_not be_success
+$0
+endsnippet
+
+#
+# should syntax
+#
+
+snippet shb "should_be" -b
+${1:target}.should be(${2:result})
+endsnippet
+
+snippet sh= "should ==" -b
+${1:target}.should == ${2:value}
+endsnippet
+
+snippet she "should eql" -b
+${1:target}.should eql(${2:value})
+endsnippet
+
+snippet shq "should_equal" -b
+${1:target}.should equal(${2:value})
+endsnippet
+
+snippet shm "should_match" -b
+${1:target}.should match(/${2:regexp}/)
+endsnippet
+
+snippet sh~ "should be similar" -b
+${1:target}.should =~ /${2:regexp}/
+endsnippet
+
+snippet shbko "should_be_a_kind_of" -b
+${1:target}.should be_a_kind_of(${2:klass})
+endsnippet
+
+snippet shbio "should_be_an_instance_of" -b
+${1:target}.should be_instance_of(${2:klass})
+endsnippet
+
+snippet shgt "should be greater than" -b
+${1:target}.should be > (${2:result})
+endsnippet
+
+snippet shge "should be greater than or equal" -b
+${1:target}.should be >= (${2:result})
+endsnippet
+
+snippet shlt "should be less than" -b
+${1:target}.should be < (${2:result})
+endsnippet
+
+snippet shle "should be less than or equal" -b
+${1:target}.should be <= (${2:result})
+endsnippet
+
+snippet shbc "should_be_close"
+${1:target}.should be_close(${2:result}, ${3:tolerance})
+endsnippet
+
+snippet shh "should_have"
+${1:target}.should have(${2:num}).${3:things}
+endsnippet
+
+snippet shhal "should_have_at_least"
+${1:target}.should have_at_least(${2:num}).${3:things}
+endsnippet
+
+snippet shham "should_have_at_most"
+${1:target}.should have_at_most(${2:num}).${3:things}
+endsnippet
+
+snippet shhr "should_have_records"
+${1:target}.should have(${2:x}).records
+endsnippet
+
+snippet shn= "should_not =="
+${1:target}.should_not == ${2:value}
+endsnippet
+
+snippet shnm "should_not =~"
+${1:target}.should_not =~ /${2:regexp}/
+endsnippet
+
+snippet shne "should_not eql"
+${1:target}.should_not eql(${2:value})
+endsnippet
+
+snippet shnb "should_not_be"
+${1:target}.should_not be(${2:result})
+endsnippet
+
+snippet shkof "should_not_be_a_kind_of"
+${1:target}.should_not be_a_kind_of(${2:klass})
+endsnippet
+
+snippet shbio "should_not_be_an_instance_of"
+${1:target}.should_not be_instance_of(${2:klass})
+endsnippet
+
+snippet shnbc "should_not_be_close"
+${1:target}.should_not be_close(${2:result}, ${3:tolerance})
+endsnippet
+
+snippet shnbr "should_not_be_redirect"
+response.should_not be_redirect
+endsnippet
+
+snippet shne "should_not_equal"
+${1:target}.should_not equal(${2:value})
+endsnippet
+
+snippet shnm "should_not_match"
+${1:target}.should_not match(/${2:regexp}/)
+endsnippet
+
+snippet shnp "should_not_predicate"
+${1:target}.should_not ${2:be_${3:predicate}} $4
+endsnippet
+
+snippet shnre "should_not_raise"
+lambda { $1 }.should_not raise_error(${2:error})
+$0
+endsnippet
+
+snippet shnr "should_not_receive"
+${1:mock}.should_not_receive(:${2:message})$3
+endsnippet
+
+snippet shnrt "should_not_respond_to"
+${1:target}.should_not respond_to(:${2:sym})
+endsnippet
+
+snippet shns "should_not_satisfy"
+${1:target}.should_not satisfy { |obj| $2 }
+endsnippet
+
+snippet shnt "should_not_throw"
+lambda { $1 }.should_not throw_symbol(:${2:symbol})
+endsnippet
+
+snippet shp "should_predicate"
+${1:target}.should ${2:be_${3:predicate}} $4
+endsnippet
+
+snippet shre "should_raise"
+lambda { $1 }.should raise_error(${2:error})
+endsnippet
+
+snippet shr "should_receive"
+${1:mock}.should_receive(:${2:message})$3
+endsnippet
+
+snippet wia "should_receive_with_args"
+with(${1})$2
+endsnippet
+
+snippet shrt "should_redirect_to"
+response.should redirect_to(${1:url})
+endsnippet
+
+snippet shrt "should_render"
+response.should render_template(:${1:template})
+endsnippet
+
+snippet shrt "should_respond_to"
+${1:target}.should respond_to(:${2:sym})
+endsnippet
+
+snippet shs "should_satisfy"
+${1:target}.should satisfy { |obj| $2 }
+endsnippet
+
+snippet sht "should_throw"
+lambda { $1 }.should throw_symbol(:${2:symbol})
+endsnippet
+
+snippet exp "expect to"
+expect do
+  $1
+end.to ${2:change {${3:subject}}.${4:from($5).to($6)}}
+endsnippet
+
+#
+# expectations syntax
+#
+
+snippet xb "expect to be" -b
+expect(${1:target}).to be(${2:expectation})
+endsnippet
+
+snippet x= "expect to eq" -b
+expect(${1:target}).to eq(${2:expectation})
+endsnippet
+
+snippet xe "expect to eql" -b
+expect(${1:target}).to eql(${2:expectation})
+endsnippet
+
+snippet xq "expect to equal" -b
+expect(${1:target}).to equal(${2:expectation})
+endsnippet
+
+snippet xm "expect to match" -b
+expect(${1:target}).to match(/${2:regexp}/)
+endsnippet
+
+snippet x~ "expect to be similar" -b
+expect(${1:target}).to be =~ (/${2:regexp}/)
+endsnippet
+
+snippet xbko "expect to be a kind of" -b
+expect(${1:target}).to be_a_kind_of(${2:klass})
+endsnippet
+
+snippet xbio "expect to be an instace of" -b
+expect(${1:target}).to be_an_instance_of(${2:klass})
+endsnippet
+
+snippet xgt "expect to be greater than" -b
+expect(${1:target}).to be > ${2:expectation}
+endsnippet
+
+snippet xge "expect to be greater than or equal" -b
+expect(${1:target}).to be >= ${2:expectation}
+endsnippet
+
+snippet xlt "expect to be less than" -b
+expect(${1:target}).to be < ${2:expectation}
+endsnippet
+
+snippet xle "expect to be less than or equal" -b
+expect(${1:target}).to be <= ${2:expectation}
+endsnippet
+
+snippet xin "expect to be within" -b
+expect(${1:target}).to be_within(${2:delta}).of(${3:expectation})
+endsnippet
+
+snippet xbt "expect to be true" -b
+expect(${1:target}).to be_true
+endsnippet
+
+snippet xbf "expect to be false" -b
+expect(${1:target}).to be_false
+endsnippet
+
+snippet xbn "expect to be nil" -b
+expect(${1:target}).to be_nil
+endsnippet
+
+snippet xre "expect to raise_error" -b
+expect {${1:target}}.to raise_error
+endsnippet
+
+snippet xrec "expect to raise_error class" -b
+expect {${1:target}}.to raise_error(${2:class})
+endsnippet
+
+snippet xrem "expect to raise_error message" -b
+expect {${1:target}}.to raise_error('${2:message}')
+endsnippet
+
+snippet xrecm "expect to raise_error class and message" -b
+expect {${1:target}}.to raise_error(${2:class}, '${3:message}')
+endsnippet
+
+snippet xth "expect to throw" -b
+expect {${1:target}}.to thow_symbol
+endsnippet
+
+snippet xths "expect to throw symbol" -b
+expect {${1:target}}.to thow_symbol(${2:symbol})
+endsnippet
+
+snippet xthsv "expect to throw symbol and value" -b
+expect {${1:target}}.to thow_symbol(${2:symbol},${3:value})
+endsnippet
+
+snippet xbyc "expect block to yeild control" -b
+expect { |${1:block}| ${2:statment}(&${1}) }.to yield_control
+endsnippet
+
+snippet xby "expect block to yeild if true" -b
+expect { |${1:block}| ${2:statment}(&${1}) }.to yield_with_no_args
+endsnippet
+
+snippet xbya "expect block to yeild with args" -b
+expect { |${1:block}| ${2:statment}(&${1}) }.to yield_with_args(${3:args})
+endsnippet
+
+snippet xbysa "expect block to yeild with successive args" -b
+expect { |${1:block}| ${2:eachable}.each(&${1}) }.to yield_successive_args(${3:args})
+endsnippet
+
+snippet xbx "expect to be xxx" -b
+expect {${1:target}}.to be_(${2:xxx})
+endsnippet
+
+snippet xhx "expect to have xxx" -b
+expect {${1:target}}.to have_(${2:xxx})
+endsnippet
+
+snippet xrc "expect range to cover" -b
+expect(${1:range}).to cover(${2:value})
+endsnippet
+
+snippet xi "expect to include" -b
+expect(${1:target}).to include(${2:value})
+endsnippet
+
+snippet xsw "expect to start with" -b
+expect(${1:target}).to start_with(${2:value})
+endsnippet
+
+snippet xew "expect to end with" -b
+expect(${1:target}).to end_with(${2:value})
+endsnippet
+
+# TODO: Move these
+
+snippet shbr "should_be_redirect"
+response.should be_redirect
+endsnippet
+
+
