@@ -4,7 +4,8 @@ let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
-let deoplete#tag#cache_limit_size = 5000000
+
+let deoplete#tag#cache_limit_size = 20000000
 let g:deoplete#sources = {}
 let g:deoplete#sources._ = ['buffer', 'tag']
 
