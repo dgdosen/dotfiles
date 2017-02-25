@@ -4,57 +4,9 @@ filetype off                  " required
 runtime bundles/tplugin_vim/macros/tplugin.vim
 " set TPlugin! tlib_vim 02tlib
 " runtime bundles/vim-tlib/macros/tplugin.vim
-call pathogen#infect()
-call pathogen#helptags()
 
-call plug#begin('~/.vim/plugged')
+source $HOME/.vim/config/init.vimrc
 
-" Make sure you use single quotes
-" Plug 'vim-syntastic/syntastic'
-Plug 'w0rp/ale'
-
-Plug 'mustache/vim-mustache-handlebars'
-
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-Plug 'rhysd/vim-crystal'
-Plug 'othree/html5.vim'
-" react development
-" Plug 'mtscout6/syntastic-local-eslint.vim'
-" Plug 'isagalaev/highlight.js'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-
-" " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-" Plug 'junegunn/vim-easy-align'
-
-" " Any valid git URL is allowed
-" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" " Group dependencies, vim-snippets depends on ultisnips
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" " On-demand loading
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" " Using a non-master branch
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-" Plug 'fatih/vim-go', { 'tag': '*' }
-
-" " Plugin options
-" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" " Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" fzf via homebrew
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-
-" Plug '~/my-prototype-plugin'
-
-" Add plugins to &runtimepath
-call plug#end()
 " Forked content
 set tags=./tags,.tags
 
