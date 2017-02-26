@@ -58,7 +58,9 @@ Plug 'terryma/vim-expand-region'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'NHDaly/tmux-scroll-copy-mode'
 Plug 'haya14busa/incsearch.vim'
-
+Plug 'junegunn/vim-easy-align'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'elzr/vim-json'
 "" languages
 Plug 'tpope/vim-haml'
 " clojure
@@ -75,13 +77,16 @@ Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'elixir-lang/vim-elixir'
 " html
 Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-ragtag'
 " javascript
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-jdaddy'
+Plug 'isRuslan/vim-es6'
 " Plug 'mtscout6/syntastic-local-eslint.vim'
 " Plug 'isagalaev/highlight.js'
 Plug 'mxw/vim-jsx'
