@@ -24,6 +24,16 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
+" neomake
+let g:neomake_open_list=0
+let g:jsx_ext_required = 0
+" let g:neomake_list_height = 2
+" let g:neomake_open_list = 2
+" let g:neomake_verbose = 3
+let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_javascript_eslint_exe = './node_modules/.bin/eslint'
+let g:neomake_javascript_enabled_makers = ['eslint']
+autocmd! BufWritePost *.js silent! Neomake
 
 """""""""""""""""""""""""""""""""""""""
 " FORKED STUFF
