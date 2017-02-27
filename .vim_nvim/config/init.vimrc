@@ -2,7 +2,9 @@ call plug#begin('~/.vim_nvim/plugged')
 
 " nvim specific
 Plug 'Shougo/deoplete.nvim'
+" Plug 'roxma/nvim-completion-manager'
 Plug 'neomake/neomake'
+Plug 'xolox/vim-easytags'
 
 " colorschemes
 Plug 'romainl/Apprentice'
