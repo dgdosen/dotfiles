@@ -62,7 +62,7 @@ Plug 'NHDaly/tmux-scroll-copy-mode'
 Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'elzr/vim-json'
+" Plug 'elzr/vim-json'
 "" languages
 Plug 'tpope/vim-haml'
 " clojure

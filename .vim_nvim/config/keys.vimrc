@@ -7,9 +7,11 @@ map <leader>sp [s
 map <leader>sr zw
 map <leader>sa zg
 map <leader>su zuw
+map <leader>s= 1z=
 map <leader>s? z=
 hi clear SpellBad
-hi SpellBad cterm=underline
+hi SpellBad ctermbg=red
+" hi SpellBad cterm=underline
 
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
@@ -69,6 +71,8 @@ vnoremap > >gv
 " DGD: makes it easier to move up and down lines
 nnoremap j gj
 nnoremap k gk
+
+nnoremap ; :
 
 " TODO: code folding:
 set foldmethod=indent

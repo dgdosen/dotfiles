@@ -30,8 +30,8 @@ highlight VertSplit ctermfg=white ctermbg=darkgreen
 " :hi CursorLine ctermbg=darkgrey guibg=black
 
 " highlight current column
-:set cc=80
-
+" :set cc=80
+call matchadd('ColorColumn', '\%81v', '100')
 " :hi ColorColumn
 
 function! ShowColors()

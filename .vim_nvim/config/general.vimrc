@@ -72,7 +72,7 @@ set wrapmargin=2
 " :hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
 
 " " GRB: clear the search buffer when hitting return
-" :nnoremap <CR> :nohlsearch<cr>
+:nnoremap <CR> :nohlsearch<cr>
 
 let mapleader="\<Space>"
 
