@@ -29,7 +29,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'airblade/vim-gitgutter'
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-obsession'
 
 " linting
