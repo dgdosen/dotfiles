@@ -1,6 +1,7 @@
 "highlighting search"
 set hls
 
+" test change
 syntax enable
 :set t_Co=256 " 256 colors
 " :set background=dark
