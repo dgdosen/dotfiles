@@ -112,11 +112,15 @@ nmap <silent> <c-t> :TagbarToggle<CR>
 :iabbrev </ </<C-X><C-O>
 imap <C-Space> <C-X><C-O>
 
-
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 
 syn match  coffeeTodo contained   "\<\(FOO\|DGD\):"
 
-
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
 nmap <leader>v :e ~/.vim/init.vim<CR>
+
+" set light/dark colors
+nmap <leader>cl :so $NVIM_DAY<cr>
+nmap <leader>cn :so $NVIM_NIGHT<cr>
+
+
