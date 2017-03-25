@@ -117,7 +117,9 @@ command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 syn match  coffeeTodo contained   "\<\(FOO\|DGD\):"
 
 au BufNewFile,BufRead *.axlsx setlocal ft=ruby
-nmap <leader>v :e ~/.vim/init.vim<CR>
+
+" edit vim file
+nmap <leader>v :e ~/.vim_nvim/init.vim<CR>
 
 " set light/dark colors
 nmap <leader>cl :so $NVIM_DAY<cr>
