@@ -36,8 +36,8 @@ map <leader>gd :FZF config<cr>
 map <leader>w :w<cr>
 
 " DGD: remap escaped to jk to keep hands on home row
-imap jk <esc>
-imap kj <C-w>
+inoremap jk <esc>
+inoremap kj <esc>
 
 " DGD: keep swap files off - do I need them?
 set noswapfile
