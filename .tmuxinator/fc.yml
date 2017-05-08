@@ -27,20 +27,27 @@ windows:
       # layout: 6d60,208x57,0,0{130x57,0,0,19,77x57,131,0[77x11,131,0,20,77x10,131,12,21,77x10,131,23,22,77x10,131,34,23,77x12,131,45,24]}
       layout: eeac,318x95,0,0{216x95,0,0,82,101x95,217,0[101x14,217,0,83,101x21,217,15,84,101x48,217,37,86,101x9,217,86,87]}
       panes:
-        - vim
-        -
-        - bundle exec guard -c
-        - sleep 2 && zeus c
-        - zeus start
+        - dev:
+          - nvim
+        - engine:
+          - cd engine
+          - export FLASK_APP=~/dev/forecasting_root/engine/src/forecasting.py
+          - flask run
+        - inline:
+          - bundle exec guard -c
+        - server:
+          - cd api
+          - export ENGINE_URL=http://localhost:5000
+          - spring rails s
   - client:
-      root: ~/dev/project_b_charting
+      root: ~/dev/forecasting_root/client
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
-        - vim
-        - npm run dev
+        - nvim
+        - npm run dev_lo
         -
   - cloud:
-      root: ~/dev/project_b
+      root: ~/dev/forecasting_root
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         -
