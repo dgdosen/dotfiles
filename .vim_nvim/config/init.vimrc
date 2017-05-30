@@ -105,7 +105,8 @@ Plug 'ecomba/vim-ruby-refactoring'
 Plug 'rust-lang/rust.vim'
 "swift
 Plug 'Keithbsmiley/swift.vim'
-
+" elm
+Plug 'ElmCast/elm-vim'
 " testing
 Plug 'tpope/vim-cucumber'
 Plug 'sunaku/vim-ruby-minitest'
