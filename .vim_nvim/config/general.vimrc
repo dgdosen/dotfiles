@@ -137,3 +137,6 @@ nnoremap <Leader>w :w<CR>
 " set timeout for escape length
 set timeoutlen=1000 ttimeoutlen=0
 
+" mouse support
+set mouse=a
+
