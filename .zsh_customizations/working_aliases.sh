@@ -11,3 +11,11 @@ ssha () {
 sshr () {
   ssh registrar@registry.agidevelopment.com
 }
+
+sshh () {
+  ssh ddosen@dinesh.danieldosen.org -p 5523
+}
+
+sshw () {
+  ssh deployer@forecasting.workers.cloud
+}
