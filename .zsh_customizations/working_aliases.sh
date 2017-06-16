@@ -16,6 +16,6 @@ sshh () {
   ssh ddosen@dinesh.danieldosen.org -p 5523
 }
 
-sshw () {
+sshf () {
   ssh deployer@forecasting.workers.cloud
 }
