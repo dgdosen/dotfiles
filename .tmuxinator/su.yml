@@ -40,3 +40,10 @@ windows:
         - nvim
         - ember server
         -
+  - iosclient:
+      root: ~/dev/sessuru_ios
+      # layout: main-vertical
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        - nvim
+        -
