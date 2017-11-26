@@ -40,6 +40,13 @@ windows:
         - nvim
         - npm run dev_lo
         -
+  - matching:
+      root: ~/dev/project_b_matching
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        - nvim
+        -
+        -
   - cloud:
       root: ~/dev/project_b
       layout: 9de3,318x90,0,0{159x90,0,0,2,158x90,160,0,13}
