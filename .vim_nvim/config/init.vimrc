@@ -85,6 +85,7 @@ Plug 'tpope/vim-ragtag'
 " javascript
 " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'prettier/vim-prettier'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'nono/vim-handlebars'
@@ -108,6 +109,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'Keithbsmiley/swift.vim'
 " elm
 Plug 'ElmCast/elm-vim'
+" sql
+Plug 'ivalkeen/vim-simpledb'
 " testing
 Plug 'tpope/vim-cucumber'
 Plug 'sunaku/vim-ruby-minitest'
