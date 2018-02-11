@@ -11,6 +11,7 @@ source $HOME/.config/nvim/config/keys.vimrc
 source $HOME/.config/nvim/config/misc.vimrc
 source $HOME/.config/nvim/config/plugins.vimrc
 source $HOME/.config/nvim/config/term.vimrc
+source $HOME/.config/nvim/config/terminal.vimrc
 
 " NVIM specific
 " "DGD: getting ultisnips and youcomplete me
