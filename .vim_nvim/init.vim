@@ -15,6 +15,6 @@ source $HOME/.config/nvim/config/terminal.vimrc
 
 " NVIM specific
 " "DGD: getting ultisnips and youcomplete me
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 
 
