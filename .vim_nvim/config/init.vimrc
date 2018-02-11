@@ -109,6 +109,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'Keithbsmiley/swift.vim'
 " elm
 Plug 'ElmCast/elm-vim'
+" graphql
+Plug 'jparise/vim-graphql'
 " sql
 Plug 'ivalkeen/vim-simpledb'
 " testing
