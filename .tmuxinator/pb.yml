@@ -33,12 +33,19 @@ windows:
         - bundle exec guard -c
         - sleep 2 && zeus c
         - zeus start
-  - client:
+  - matching:
+      root: ~/dev/project_b_matching
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        - nvim
+        -
+        -
+  - charting:
       root: ~/dev/project_b_charting
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         - nvim
-        - npm run dev_lo
+        -
         -
   - matching:
       root: ~/dev/project_b_matching
