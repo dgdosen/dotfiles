@@ -30,7 +30,7 @@ windows:
       panes:
         - nvim
         -
-        - bundle exec guard -c
+        - xbundle exec guard -c
         - sleep 2 && zeus c
         - zeus start
   - matching:
