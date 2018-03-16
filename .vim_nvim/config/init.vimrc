@@ -39,6 +39,7 @@ Plug 'tpope/vim-dispatch'
 
 "os/git manageemnt
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-eunuch'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'moll/vim-node'
