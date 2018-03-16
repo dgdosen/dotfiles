@@ -13,6 +13,8 @@ autocmd FileType htmldjango source ~/.vim/indent/html_grb.vim
 
 autocmd! BufRead,BufNewFile *.sass setfiletype sass
 
+map <leader>o :only <cr>
+
 " Map ,e and ,v to open files in the same directory as the current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
