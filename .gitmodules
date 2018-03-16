@@ -31,3 +31,6 @@
 [submodule ".tmux/plugins/tmux-yank"]
 	path = .tmux/plugins/tmux-yank
 	url = https://github.com/docwhat/tmux-yank.git
+[submodule ".zsh_customizations/plugins/zsh-autosuggestions"]
+	path = .zsh_customizations/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
