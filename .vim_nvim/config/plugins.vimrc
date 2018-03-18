@@ -203,3 +203,7 @@ let g:tmuxline_separators = {
 " python powerline_setup()
 " python del powerline_setup
   set rtp+=/usr/local/opt/fzf
+
+let g:python_host_prog = '/usr/local/bin/python2'
+let g:python2_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
