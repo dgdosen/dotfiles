@@ -15,8 +15,8 @@ syntax enable
 " :colorscheme base16
 " :colorscheme base16-railscasts
 " :colorscheme solarized
-" :colorscheme grb256
-:colorscheme gruvbox
+:colorscheme grb256
+" :colorscheme gruvbox
 " :colorscheme lucius
 
 let g:gruvbox_contrast_dark="medium"
