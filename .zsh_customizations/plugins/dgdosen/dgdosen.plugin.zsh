@@ -3,6 +3,11 @@ _c() { _files -W ~/dev -/; }
 
 compdef _c c
 
+cg() { cd $GOPATH/src/github.com/dgdosen/$1; }
+_cg() { _files -W $GOPATH/src/github.com/dgdosen -/; }
+
+compdef _cg cg
+
 time_files() { cd ~/pdropbox/_my.documents/data.business/dosen_financial/time/$1; }
 _time_files() { _files -W ~/pdropbox/_my.documents/data.business/dosen_financial/time -/; }
 
