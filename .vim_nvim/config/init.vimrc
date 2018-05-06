@@ -121,4 +121,8 @@ Plug 'tpope/vim-cucumber'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'claco/jasmine.vim'
 
+" ethereum
+Plug 'tomlion/vim-solidity'
+
+
 call plug#end()
