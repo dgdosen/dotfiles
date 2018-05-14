@@ -15,7 +15,7 @@ Plug 'quanganhdo/grb256'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'jgdavey/vim-railscasts'
 Plug 'altercation/vim-colors-solarized'
-Plug 'vim-scripts/Sorcerer'
+" Plug 'vim-scripts/Sorcerer'
 
 " general
 Plug 'tpope/vim-repeat'
