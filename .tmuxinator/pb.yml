@@ -30,11 +30,11 @@ windows:
       panes:
         - nvim
         -
-        - xbundle exec guard -c
+        - xxxbundle exec guards -c
         - sleep 2 && zeus c
         - zeus start
-  - matching:
-      root: ~/dev/project_b_matching
+  - debut:
+      root: ~/dev/project_b_debut
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         - nvim
