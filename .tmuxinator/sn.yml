@@ -1,0 +1,46 @@
+# ~/.tmuxinator/sn.yml
+
+name: sn
+root: ~/dev/sessuru_node
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+windows:
+  - server:
+      root: ~/dev/sessuru_node
+      # layout: main-vertical
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        - nvim
+        -
+        -
+  - client_apollo:
+      root: ~/dev/sessuru_react_apollo
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        - nvim
+        -
+        -
+  - client_mobx:
+      root: ~/dev/sessuru_react_mobx_apollo
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        - nvim
+        -
+        -
