@@ -82,6 +82,7 @@ Plug 'fatih/vim-go', { 'tag': '*' }
 " elixir
 Plug 'elixir-lang/vim-elixir'
 " html
+Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-ragtag'
@@ -120,6 +121,8 @@ Plug 'ivalkeen/vim-simpledb'
 Plug 'tpope/vim-cucumber'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'claco/jasmine.vim'
+" vue js
+Plug 'posva/vim-vue'
 
 " ethereum
 Plug 'tomlion/vim-solidity'
