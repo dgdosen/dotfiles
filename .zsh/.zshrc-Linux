@@ -6,6 +6,8 @@ eval "$(rbenv init - )"
 # export PATH="/usr/local/opt/rbenv/bin:$PATH"
 # export PATH="/usr/local/opt/rbenv/shims:$PATH"
 
+export PATH="$HOME/.nodenv/bin:$PATH"
+
 # # google cloud sdk
 # source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 # source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
