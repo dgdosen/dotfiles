@@ -6,7 +6,7 @@ eval "$(rbenv init - )"
 # export PATH="/usr/local/opt/rbenv/bin:$PATH"
 # export PATH="/usr/local/opt/rbenv/shims:$PATH"
 
-source /Users/ddosen/.iterm2_shell_integration.zsh
+source $HOME/.iterm2_shell_integration.zsh
 
 # google cloud sdk
 
