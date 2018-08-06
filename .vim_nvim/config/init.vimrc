@@ -1,7 +1,13 @@
 call plug#begin('~/.vim_nvim/plugged')
 
 " nvim specific
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 " Plug 'Shougo/deoplete.nvim'
 " Plug 'roxma/nvim-completion-manager'
 Plug 'neomake/neomake'
