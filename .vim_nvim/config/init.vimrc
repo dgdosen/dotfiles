@@ -56,7 +56,8 @@ Plug 'moll/vim-node'
 " " Group dependencies, vim-snippets depends on ultisnips
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+" Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-sort-motion'

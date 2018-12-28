@@ -1,19 +1,15 @@
 # homebrew rbenv support
-# if which rbenv > /dev/null; then eval "$(rbenv init-)"; fi
 export RBENV_ROOT=/usr/local/var/rbenv
-eval "$(rbenv init - )"
-# Add rbenv
-# export PATH="/usr/local/opt/rbenv/bin:$PATH"
-# export PATH="/usr/local/opt/rbenv/shims:$PATH"
+eval "$(rbenv init -)"
 
 source $HOME/.iterm2_shell_integration.zsh
 
 # google cloud sdk
-
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 
 source /usr/local/opt/asdf/asdf.sh
+
 
 export GOROOT="/usr/local/opt/go/libexec"
 
@@ -26,21 +22,13 @@ export PATH=$PATH:/usr/local/sbin
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-# export PATH="/Users/ddosen/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export PATH="/Library/Haskell/bin:$PATH"
 
 # ruby performance
-# /usr/local/var/rbenv/versions/2.1.1/bin/ruby: warning: RUBY_FREE_MIN is obsolete. Use RUBY_GC_HEAP_FREE_SLOTS instead.
-# /usr/local/var/rbenv/versions/2.1.1/bin/ruby: warning: RUBY_HEAP_MIN_SLOTS is obsolete. Use RUBY_GC_HEAP_INIT_SLOTS
 # export RUBY_GC_MALLOC_LIMIT=1000000000
 # export RUBY_FREE_MIN=500000
 # export RUBY_HEAP_MIN_SLOTS=40000
 
 alias config='/usr/bin/git --git-dir=/Users/ddosen/.cfg/ --work-tree=/Users/ddosen'
 
-# removed when noting cloud sdk is installed via homebre
-# # The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/ddosen/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ddosen/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# # The next line enables shell command completion for gcloud.
-# if [ -f '/Users/ddosen/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ddosen/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
