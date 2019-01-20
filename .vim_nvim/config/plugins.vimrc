@@ -207,3 +207,6 @@ let g:tmuxline_separators = {
 let g:python_host_prog = '/usr/local/bin/python2'
 let g:python2_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
+
+" vim-coffee-script
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
