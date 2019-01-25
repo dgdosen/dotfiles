@@ -7,6 +7,10 @@ pl () {
   pomo list --all
 }
 
+pb5 () {
+  pomo break 5
+}
+
 pb () {
   pomo break $@
 }
@@ -19,3 +23,6 @@ ps () {
   pomo start $@
 }
 
+pc () {
+  pomo clear
+}
