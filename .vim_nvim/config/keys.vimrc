@@ -125,4 +125,6 @@ nmap <leader>v :e ~/.vim_nvim/init.vim<CR>
 nmap <leader>cl :so $NVIM_DAY<cr>
 nmap <leader>cn :so $NVIM_NIGHT<cr>
 
+"denite
+nnoremap <leader>/ :<C-u>Denite grep:. -mode=normal<CR>
 

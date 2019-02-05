@@ -99,7 +99,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'styled-components/vim-styled-components'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-ragtag'
 " javascript
 " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
