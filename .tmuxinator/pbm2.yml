@@ -1,6 +1,6 @@
-# ~/.tmuxinator/pb1.yml
+# ~/.tmuxinator/pbm2.yml
 
-name: pb1
+name: pbm2
 root: ~/dev/project_b
 
 # Optional tmux socket
