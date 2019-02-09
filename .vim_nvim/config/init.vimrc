@@ -111,6 +111,9 @@ Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-jdaddy'
 Plug 'isRuslan/vim-es6'
 Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
 Plug 'Quramy/vim-dtsm'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'Quramy/tsuquyomi'
