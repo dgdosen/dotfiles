@@ -19,6 +19,9 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'neomake/neomake'
 " Plug 'xolox/vim-easytags'
 
+" tags
+Plug 'ludovicchabant/vim-gutentags'
+
 " colorschemes
 Plug 'romainl/Apprentice'
 Plug 'chriskempson/base16-vim'
