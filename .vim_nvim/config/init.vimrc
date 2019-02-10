@@ -10,8 +10,14 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
+
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 
 " Plug 'Shougo/deoplete.nvim'
@@ -51,7 +57,7 @@ Plug 'tpope/vim-obsession'
 
 " linting
 " Plug 'vim-syntastic/syntastic'
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-dispatch'
 
 "os/git manageemnt
@@ -114,7 +120,7 @@ Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-jdaddy'
 Plug 'isRuslan/vim-es6'
 Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 Plug 'Quramy/vim-dtsm'

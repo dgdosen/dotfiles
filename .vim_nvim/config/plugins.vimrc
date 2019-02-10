@@ -210,3 +210,29 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 " vim-coffee-script
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+"coc vim
+"coc-prettier
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+let g:prettier#config#single_quote = 'true'
+
+" language servers
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ 'typescript': ['/usr/local/bin/javascript-typescript-stdio'],
+    \ }
+
+
+let g:LanguageClient_serverCommands = {}
+if executable('javascript-typescript-stdio')
+  let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+  " Use LanguageServer for omnifunc completion
+  autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+else
+  echo "javascript-typescript-stdio not installed!\n"
+  :cq
+endif
+
+
