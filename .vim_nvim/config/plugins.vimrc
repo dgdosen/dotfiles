@@ -106,7 +106,7 @@ endif
 
 " DGD: support for NERDTree
 nmap <silent> <c-n> :NERDTreeToggle<CR>
-nnoremap <silent> <c-l> :NERDTREEWinSize=50<CR>
+" nnoremap <silent> <c-l> :NERDTREEWinSize=50<CR>
 " nmap <silent> <c-m> :NERDTreeWinSize=50<CR>
 let NERDTreeShowHidden=1
 
