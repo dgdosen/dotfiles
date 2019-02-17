@@ -92,8 +92,8 @@ nnoremap zO zCzO
 set listchars=trail:·,precedes:«,extends:»,eol:↲,tab:▸\
 
 
-nmap <c-w>- :vertical res +20<cr>
-nmap <c-w>+ :vertical res -20<cr>
+nnoremap <c-w>= :vertical res +20<cr>
+nnoremap <c-w>- :vertical res -20<cr>
 " nnoremap <c-[> <c-w>[
 " nnoremap <c-]> <c-w>]
 
