@@ -26,7 +26,7 @@ Plug 'neomake/neomake'
 " Plug 'xolox/vim-easytags'
 
 " tags
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " colorschemes
 Plug 'romainl/Apprentice'
