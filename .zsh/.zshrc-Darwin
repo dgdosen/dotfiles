@@ -1,6 +1,7 @@
 # homebrew rbenv support
 export RBENV_ROOT=/usr/local/var/rbenv
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"
 
 source $HOME/.iterm2_shell_integration.zsh
 
