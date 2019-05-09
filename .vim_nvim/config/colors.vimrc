@@ -19,7 +19,7 @@ syntax enable
 :colorscheme gruvbox
 " :colorscheme lucius
 
-let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_contrast_dark = "soft"
 let g:gruvbox_contrast_light = "medium"
 
 :hi Visual ctermbg=darkgray guibg=black
