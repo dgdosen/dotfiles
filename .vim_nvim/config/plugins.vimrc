@@ -23,6 +23,7 @@ let deoplete#tag#cache_limit_size = 20000000
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 
 " neomake
 let g:neomake_open_list=0
@@ -237,4 +238,17 @@ else
   :cq
 endif
 
-
+"w0rp ale
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'tslint'],
+\   'vue': ['eslint']
+\}
+let g:ale_fixers = {
+\    'javascript': ['eslint'],
+\    'typescript': ['prettier'],
+\    'vue': ['eslint'],
+\    'scss': ['prettier'],
+\    'html': ['prettier']
+\}
+let g:ale_fix_on_save = 1

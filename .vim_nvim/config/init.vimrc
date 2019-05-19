@@ -120,6 +120,8 @@ Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-jdaddy'
 Plug 'isRuslan/vim-es6'
 Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+
 " Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
@@ -133,6 +135,7 @@ Plug 'pangloss/vim-javascript'
 " ruby
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/ruby-matchit'
