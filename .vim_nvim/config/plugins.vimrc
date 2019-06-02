@@ -252,3 +252,8 @@ let g:ale_fixers = {
 \    'html': ['prettier']
 \}
 let g:ale_fix_on_save = 1
+
+" ack.vim using the_silver_searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
