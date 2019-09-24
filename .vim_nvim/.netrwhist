@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/ddosen/dev/project_b/app/models'
+let g:netrw_dirhist_2='/Users/ddosen/dev/project_b/app/assets/javascripts/pars/views/intervals'
+let g:netrw_dirhist_3='/Users/ddosen/dev/project_b'
+let g:netrw_dirhist_4='/Users/ddosen/dev/project_b/app/models'
+let g:netrw_dirhist_5='/Users/ddosen/dev/project_b'

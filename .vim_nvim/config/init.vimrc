@@ -91,7 +91,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'elzr/vim-json'
 "" languages
 Plug 'tpope/vim-haml'
-Plug 'jerrymarino/SwiftPlayground.vim'
+" Plug 'jerrymarino/SwiftPlayground.vim'
 " clojure
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-classpath', { 'for': 'clojure' }
