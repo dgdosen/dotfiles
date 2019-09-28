@@ -156,6 +156,8 @@ Plug 'sunaku/vim-ruby-minitest'
 Plug 'claco/jasmine.vim'
 " vue js
 Plug 'posva/vim-vue'
+" java - yes java
+Plug 'artur-shaik/vim-javacomplete2'
 
 " ethereum
 Plug 'tomlion/vim-solidity'
