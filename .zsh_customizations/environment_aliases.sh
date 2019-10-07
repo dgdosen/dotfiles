@@ -1,8 +1,12 @@
 # clean up dotfile submodules
-cdot() {
+dotup() {
   cd ~/.dotify
   gsm
   gsp
+}
+
+cdot() {
+  cd ~/.dotify
 }
 
 
