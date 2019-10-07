@@ -9,3 +9,12 @@ pbd () {
   # done
 
 }
+
+cpb() {
+  cd ~/dev/project_b
+}
+
+
+cpb() {
+  cd ~/dev/project_b_data
+}
