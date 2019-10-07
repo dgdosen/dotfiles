@@ -18,3 +18,9 @@ cpb() {
 cpb() {
   cd ~/dev/project_b_data
 }
+
+pbrestore() {
+  sh ~/postgres_project_b_dw_reset.sh
+  sh ~/postgres_project_b_reset.sh
+}
+
