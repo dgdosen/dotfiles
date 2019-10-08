@@ -9,6 +9,10 @@ cdot() {
   cd ~/.dotify
 }
 
+touchfoo() {
+  touch ~/foozsh.txt
+}
+
 
 # homebrew upgrade
 brewup() {
