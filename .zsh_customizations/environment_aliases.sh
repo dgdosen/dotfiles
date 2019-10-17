@@ -4,6 +4,7 @@ dotup() {
   gsm
   gsp
   nvim +'PlugInstall --sync' +qa
+  nvim +'PlugUpdate --sync' +qa
   nvim +'UpdateRemotePlugins' +qa
 }
 
