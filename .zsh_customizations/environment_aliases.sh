@@ -3,6 +3,8 @@ dotup() {
   cd ~/.dotify
   gsm
   gsp
+  nvim +'PlugInstall --sync' +qa
+  nvim +'UpdateRemotePlugins' +qa
 }
 
 cdot() {
