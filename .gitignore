@@ -13,6 +13,7 @@ compile-cache
 .atom/**
 .node/**
 .apm
+.exercism.json
 storage
 merge-conflicts
 node_modules
