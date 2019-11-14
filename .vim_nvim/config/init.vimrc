@@ -157,8 +157,8 @@ Plug 'tomlion/vim-solidity'
 " typescript tslint linting
 " Plug 'vim-syntastic/syntastic'
 "
-Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'w0rp/ale'
+" Plug 'mtscout6/syntastic-local-eslint.vim'
+" Plug 'w0rp/ale'
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 " Plug 'HerringtonDarkholme/yats.vim'
