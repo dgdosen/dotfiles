@@ -55,9 +55,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-obsession'
 
-" linting
-" Plug 'vim-syntastic/syntastic'
-Plug 'w0rp/ale'
 Plug 'tpope/vim-dispatch'
 
 "os/git manageemnt
@@ -119,14 +116,9 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-jdaddy'
 Plug 'isRuslan/vim-es6'
-Plug 'leafgarland/typescript-vim'
-Plug 'ianks/vim-tsx'
 
-" Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 Plug 'Quramy/vim-dtsm'
-Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'Quramy/tsuquyomi'
 
 " Plug 'isagalaev/highlight.js'
@@ -162,5 +154,16 @@ Plug 'artur-shaik/vim-javacomplete2'
 " ethereum
 Plug 'tomlion/vim-solidity'
 
+" typescript tslint linting
+" Plug 'vim-syntastic/syntastic'
+"
+Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'w0rp/ale'
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+" Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neomake/neomake'
 
 call plug#end()
