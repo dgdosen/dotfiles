@@ -1,6 +1,6 @@
 # clean up dotfile submodules
 dotup() {
-  cd ~/.dotify
+  # cd ~/.dotify
   gsm
   gsp
   nvim +'PlugInstall --sync' +qa

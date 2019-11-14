@@ -8,5 +8,9 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ ]
 
+" coc influence:
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
 
-
+" TODO: will nobackup mean these are obsolete?
