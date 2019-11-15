@@ -163,7 +163,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 " Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neomake/neomake'
 
 call plug#end()
