@@ -1,30 +1,6 @@
 call plug#begin('~/.vim_nvim/plugged')
 
-" nvim specific
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-
-
-" Plug 'Shougo/deoplete.nvim'
-" Plug 'roxma/nvim-completion-manager'
-Plug 'neomake/neomake'
 " Plug 'xolox/vim-easytags'
-
 " tags
 " Plug 'ludovicchabant/vim-gutentags'
 
@@ -110,7 +86,26 @@ Plug 'tpope/vim-ragtag'
 " javascript
 " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+    \ 'javascript',
+    \ 'typescript',
+    \ 'css',
+    \ 'less',
+    \ 'scss',
+    \ 'json',
+    \ 'graphql',
+    \ 'markdown',
+    \ 'vue',
+    \ 'lua',
+    \ 'php',
+    \ 'python',
+    \ 'ruby',
+    \ 'html',
+    \ 'swift' ] }
+
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'nono/vim-handlebars'
@@ -166,4 +161,32 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neomake/neomake'
 
+" Language Server Protocol:
+
+" CONFIG for LanugageServer and Depolote
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" CONFIG for coc
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" END Language Server Protocol:
+
 call plug#end()
+
+" CONFIG for LanugageServer and Depolote
+source $HOME/.config/nvim/config/language.vimrc
+
+" CONFIG for coc
+" source $HOME/.config/nvim/config/coc.vimrc
+
