@@ -164,29 +164,29 @@ Plug 'neomake/neomake'
 " Language Server Protocol:
 
 " CONFIG for LanugageServer and Depolote
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 " CONFIG for coc
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " END Language Server Protocol:
 
 call plug#end()
 
 " CONFIG for LanugageServer and Depolote
-source $HOME/.config/nvim/config/language.vimrc
+" source $HOME/.config/nvim/config/language.vimrc
 
 " CONFIG for coc
-" source $HOME/.config/nvim/config/coc.vimrc
+source $HOME/.config/nvim/config/coc.vimrc
 
