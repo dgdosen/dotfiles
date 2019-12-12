@@ -16,15 +16,12 @@
                 },
                 "rules": [
                     {
-                        "description": "Change right_command+hjkl to arrow keys",
+                        "description": "Change caps_lock to control if pressed with other keys, to delete_or_backspace if pressed alone.",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "caps_lock",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "right_command"
-                                        ],
                                         "optional": [
                                             "any"
                                         ]
@@ -32,110 +29,12 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_arrow"
+                                        "key_code": "left_control"
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_command"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
+                                "to_if_alone": [
                                     {
-                                        "key_code": "down_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_command"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "right_command"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Numeric Keypad Mode Trigger + right_option to keypad_period",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "numeric_keypad_mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "right_option"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "keypad_period"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Numeric Keypad Mode Trigger + right_control to keypad_period",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "numeric_keypad_mode",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "right_control"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "keypad_period"
+                                        "key_code": "delete_or_backspace"
                                     }
                                 ],
                                 "type": "basic"
@@ -144,21 +43,7 @@
                     }
                 ]
             },
-            "devices": [
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 24672,
-                        "vendor_id": 65261
-                    },
-                    "ignore": true,
-                    "manipulate_caps_lock_led": false,
-                    "simple_modifications": []
-                }
-            ],
+            "devices": [],
             "fn_function_keys": [
                 {
                     "from": {
@@ -258,20 +143,8 @@
                 }
             ],
             "name": "Default profile",
-            "parameters": {
-                "delay_milliseconds_before_open_device": 1000
-            },
             "selected": true,
-            "simple_modifications": [
-                {
-                    "from": {
-                        "key_code": "caps_lock"
-                    },
-                    "to": {
-                        "key_code": "left_control"
-                    }
-                }
-            ],
+            "simple_modifications": [],
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "mouse_key_xy_scale": 100
