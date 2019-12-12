@@ -12,7 +12,7 @@ ln -sv ~/.dotfiles/.zshrc ~/.zshrc
 ln -sv ~/.dotfiles/.zsh_customizations ~/.zsh_customizations
 
 ln -sv ~/.dotfiles/.vimrc ~/.vimrc
-ln -sv ~/.dotfiles/.vim_nvim~/.vim_nvim
+ln -sv ~/.dotfiles/.vim_nvim ~/.vim_nvim
 ln -sv ~/.dotfiles/.vim ~/.vim
 
 ln -sv ~/.dotfiles/.tmux ~/.tmux
@@ -20,7 +20,7 @@ ln -sv ~/.dotfiles/.tmuxinator ~/.tmuxinator
 ln -sv ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -sv ~/.dotfiles/.tmux-theme-gruvbox.conf ~/.tmux-theme-gruvbox.conf
 
-ln -sv ~/.dotfiles/.rbuy-version ~/.ruby-version
+ln -sv ~/.dotfiles/.ruby-version ~/.ruby-version
 ln -sv ~/.dotfiles/.gemrc ~/.gemrc
 ln -sv ~/.dotfiles/.pryrc ~/.pryrc
 ln -sv ~/.dotfiles/.prettierrc ~/.prettierrc
