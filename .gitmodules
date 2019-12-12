@@ -27,7 +27,7 @@
 	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
 [submodule ".zsh_customizations/themes/powerlevel9k"]
 	path = .zsh_customizations/themes/powerlevel9k
-	url = https://github.com/bhilburn/powerlevel9k.git
+	url = https://github.com/Powerlevel9k/powerlevel9k.git
 [submodule ".tmux/plugins/tmux-yank"]
 	path = .tmux/plugins/tmux-yank
 	url = https://github.com/docwhat/tmux-yank.git
