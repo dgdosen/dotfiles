@@ -45,6 +45,7 @@ Plug 'moll/vim-node'
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-commentary'
