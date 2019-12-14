@@ -208,9 +208,9 @@ let g:tmuxline_separators = {
 " python del powerline_setup
   set rtp+=/usr/local/opt/fzf
 
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python2_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '$HOME/.pyenv/shims/python2'
+let g:python2_host_prog = '$HOME/.pyenv/shims/python2'
+let g:python3_host_prog = '$HOME/.pyenv/shims/python3'
 
 " vim-coffee-script
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab

@@ -3,6 +3,10 @@ export RBENV_ROOT=/usr/local/var/rbenv
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 source $HOME/.iterm2_shell_integration.zsh
 
 # google cloud sdk
