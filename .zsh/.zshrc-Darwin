@@ -1,8 +1,12 @@
+#homebrew nodenv
+export PATH="$HOME/.nodenv/shims:$PATH"
+eval "$(nodenv init -)"
+
 # homebrew rbenv support
 export RBENV_ROOT=/usr/local/var/rbenv
 eval "$(rbenv init -)"
-eval "$(nodenv init -)"
 
+# homebrew pyenv support
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"

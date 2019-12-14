@@ -1,13 +1,10 @@
-# homebrew rbenv support
-# if which rbenv > /dev/null; then eval "$(rbenv init-)"; fi
-export PATH="$HOME/.rbenv/bin:$PATH"
-# export RBENV_ROOT=/usr/local/var/rbenv
-eval "$(rbenv init -)"
+#homebrew nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
-# Add rbenv
-# export PATH="/usr/local/opt/rbenv/bin:$PATH"
-# export PATH="/usr/local/opt/rbenv/shims:$PATH"
+# homebrew rbenv support
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
