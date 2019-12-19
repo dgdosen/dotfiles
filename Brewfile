@@ -68,7 +68,4 @@ brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vulgo/repo/webdriver.sh"
 cask "chromedriver"
 cask "google-cloud-sdk"
-cask "java8"
 cask "karabiner-elements"
-cask "minikube"
-cask "oni"
