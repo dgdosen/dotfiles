@@ -34,3 +34,9 @@
 [submodule ".zsh_customizations/plugins/zsh-autosuggestions"]
 	path = .zsh_customizations/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "tmux-gruvbox"]
+	path = tmux-gruvbox
+	url = https://github.com/egel/tmux-gruvbox.git
+[submodule ".tmux/plugins/tmux-gruvbox"]
+	path = .tmux/plugins/tmux-gruvbox
+	url = https://github.com/egel/tmux-gruvbox.git
