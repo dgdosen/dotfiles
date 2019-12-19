@@ -23,10 +23,11 @@ ln -sv ~/.dotfiles/.gemrc ~/.gemrc
 ln -sv ~/.dotfiles/.pryrc ~/.pryrc
 ln -sv ~/.dotfiles/.prettierrc ~/.prettierrc
 
-ln -sv ~/.dotfiles/.gitconfg ~/.gitconfig
+ln -sv ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sv ~/.dotfiles/.bin ~/.bin
 
 ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
 
 # project b dropbox
 ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
+
