@@ -29,4 +29,4 @@ ln -sv ~/.dotfiles/.bin ~/.bin
 ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
 
 # project b dropbox
-ln -sv ~/Dropbox (makerboarding) ~/dropboxm
+ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
