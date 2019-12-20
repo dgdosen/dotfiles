@@ -27,6 +27,7 @@ ln -sv ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sv ~/.dotfiles/.bin ~/.bin
 
 ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
+ln -sv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 
 # project b dropbox
 ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
