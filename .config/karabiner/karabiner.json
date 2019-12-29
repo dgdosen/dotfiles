@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Change caps_lock to control if pressed with other keys, to delete_or_backspace if pressed alone.",
+                        "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
                         "manipulators": [
                             {
                                 "from": {
@@ -34,7 +34,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "delete_or_backspace"
+                                        "key_code": "escape"
                                     }
                                 ],
                                 "type": "basic"
