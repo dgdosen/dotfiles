@@ -1,5 +1,27 @@
 call plug#begin('~/.vim_nvim/plugged')
 
+" Language Server Protocol:
+
+" CONFIG for LanugageServer and Depolote
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
+
+" CONFIG for coc
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" END Language Server Protocol:
+
+
 " Plug 'xolox/vim-easytags'
 " tags
 " Plug 'ludovicchabant/vim-gutentags'
@@ -159,34 +181,13 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 " Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neomake/neomake'
 
-" Language Server Protocol:
-
-" CONFIG for LanugageServer and Depolote
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-
-" CONFIG for coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" END Language Server Protocol:
 
 call plug#end()
 
 " CONFIG for LanugageServer and Depolote
-" source $HOME/.config/nvim/config/language.vimrc
+source $HOME/.config/nvim/config/language.vimrc
 
 " CONFIG for coc
 source $HOME/.config/nvim/config/coc.vimrc
