@@ -3,22 +3,22 @@ call plug#begin('~/.vim_nvim/plugged')
 " Language Server Protocol:
 
 " CONFIG for LanugageServer and Depolote
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " CONFIG for coc
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " END Language Server Protocol:
 
 
@@ -89,11 +89,11 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-haml'
 " Plug 'jerrymarino/SwiftPlayground.vim'
 " clojure
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-classpath', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
+" Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+" Plug 'tpope/vim-classpath', { 'for': 'clojure' }
+" Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+" Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+" Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
 " crystal
 Plug 'rhysd/vim-crystal'
 " go
@@ -190,5 +190,5 @@ call plug#end()
 source $HOME/.config/nvim/config/language.vimrc
 
 " CONFIG for coc
-source $HOME/.config/nvim/config/coc.vimrc
+" source $HOME/.config/nvim/config/coc.vimrc
 
