@@ -33,8 +33,15 @@ windows:
         - xxxbundle exec guards -c
         - sleep 2 && zeus c
         - zeus start
-  - debut:
-      root: ~/dev/project_b_debut
+  - racing_form:
+      root: ~/dev/project_b_racing_form
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        - nvim
+        -
+        -
+  - variants:
+      root: ~/dev/project_b_variants
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         - nvim
