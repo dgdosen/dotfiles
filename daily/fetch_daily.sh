@@ -5,5 +5,5 @@ git fetch
 cd ~/dev/project_b_data
 git fetch
 
-cd ~/dev/static.danieldosen.org
+cd ~/dev/project_b_racing_form
 git fetch
