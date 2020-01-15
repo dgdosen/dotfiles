@@ -1,11 +1,14 @@
 # clean up dotfile submodules
 dotup() {
-  # cd ~/.dotify
+  FOO=$PWD
+  cd ~/.dotify
+  echo in dotfiles
   gsm
   gsp
   nvim +'PlugInstall --sync' +qa
   nvim +'PlugUpdate --sync' +qa
   nvim +'UpdateRemotePlugins' +qa
+  cd $FOO
 }
 
 cdot() {
