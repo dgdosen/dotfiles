@@ -1,3 +1,4 @@
+FOO=$PWD
 
 cd ~/dev/project_b
 git fetch
@@ -7,3 +8,5 @@ git fetch
 
 cd ~/dev/project_b_racing_form
 git fetch
+
+cd $FOO
