@@ -11,6 +11,8 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+let g:deoplete#enable_at_startup = 1
+
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -177,9 +179,9 @@ Plug 'tomlion/vim-solidity'
 "
 " Plug 'mtscout6/syntastic-local-eslint.vim'
 " Plug 'w0rp/ale'
-Plug 'leafgarland/typescript-vim'
-Plug 'ianks/vim-tsx'
-" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'ianks/vim-tsx'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'neomake/neomake'
 
