@@ -92,6 +92,3 @@ if executable('ocaml-language-server')
 endif
 
 let g:LanguageClient_diagnosticsList='Location'
-
-let g:python3_host_prog = "/Users/ddosen/.pyenv/shims/python"
-let g:deoplete#enable_at_startup = 1

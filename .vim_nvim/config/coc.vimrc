@@ -1,9 +1,7 @@
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json',
   \ ]
@@ -13,4 +11,5 @@ let g:coc_global_extensions = [
 set nobackup
 set nowritebackup
 
-" TODO: will nobackup mean these are obsolete?
+autocmd FileType json syntax match Comment +\/\/.\+$+
+ " TODO: will nobackup mean these are obsolete?

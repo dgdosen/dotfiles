@@ -3,23 +3,44 @@ call plug#begin('~/.vim_nvim/plugged')
 " Language Server Protocol:
 
 " CONFIG for LanugageServer and Depolote
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'Shougo/denite.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" let g:python3_host_prog = "/Users/ddosen/.pyenv/shims/python3"
+" let g:deoplete#enable_at_startup = 1
 
-let g:deoplete#enable_at_startup = 1
-
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install',
+"   \ 'branch': 'release/1.x',
+"   \ 'for': [
+"     \ 'javascript',
+"     \ 'typescript',
+"     \ 'css',
+"     \ 'less',
+"     \ 'scss',
+"     \ 'json',
+"     \ 'graphql',
+"     \ 'markdown',
+"     \ 'vue',
+"     \ 'lua',
+"     \ 'php',
+"     \ 'python',
+"     \ 'ruby',
+"     \ 'html',
+"     \ 'swift' ] }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 " CONFIG for coc
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-denite'
 " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " END Language Server Protocol:
 
@@ -71,7 +92,6 @@ Plug 'moll/vim-node'
 " Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'Shougo/denite.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-sort-motion'
@@ -81,7 +101,7 @@ Plug 'godlygeek/tabular'
 Plug 'tpope/vim-unimpaired'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'terryma/vim-expand-region'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'NHDaly/tmux-scroll-copy-mode'
 Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/vim-easy-align'
@@ -111,25 +131,6 @@ Plug 'tpope/vim-ragtag'
 " javascript
 " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/1.x',
-  \ 'for': [
-    \ 'javascript',
-    \ 'typescript',
-    \ 'css',
-    \ 'less',
-    \ 'scss',
-    \ 'json',
-    \ 'graphql',
-    \ 'markdown',
-    \ 'vue',
-    \ 'lua',
-    \ 'php',
-    \ 'python',
-    \ 'ruby',
-    \ 'html',
-    \ 'swift' ] }
 
 Plug 'kchmck/vim-coffee-script'
 Plug 'mustache/vim-mustache-handlebars'
@@ -142,8 +143,8 @@ Plug 'Quramy/vim-dtsm'
 Plug 'Quramy/tsuquyomi'
 
 " Plug 'isagalaev/highlight.js'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript'
 " ruby
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
@@ -181,16 +182,16 @@ Plug 'tomlion/vim-solidity'
 " Plug 'w0rp/ale'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'ianks/vim-tsx'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'neomake/neomake'
 
 
 call plug#end()
 
 " CONFIG for LanugageServer and Depolote
-source $HOME/.config/nvim/config/language.vimrc
+" source $HOME/.config/nvim/config/language.vimrc
 
 " CONFIG for coc
-" source $HOME/.config/nvim/config/coc.vimrc
+source $HOME/.config/nvim/config/coc.vimrc
 
