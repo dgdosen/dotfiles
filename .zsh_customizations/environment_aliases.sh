@@ -25,7 +25,7 @@ cdot() {
 }
 
 touchfoo() {
-  touch ~/foozsh.txt
+  touch ~/cron_supportfoobar.txt
 }
 
 
