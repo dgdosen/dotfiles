@@ -43,8 +43,12 @@ ln -sv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabine
 ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
 
 # project b database utils
-ln -sv ~/.dotfiles/postgres_project_b_reset.sh ~/.postgres_project_b_reset.sh
-ln -sv ~/.dotfiles/postgres_project_b_dw_reset.sh ~/.postgres_project_b_dw_reset.sh
+mkdir ~/.postgres
+ln -sv ~/.dotfiles/.postgres/postgres_project_b_reset.sh ~/.postgres/postgres_project_b_reset.sh
+ln -sv ~/.dotfiles/.postgres/postgres_project_b_dw_reset.sh ~/.postgres/postgres_project_b_dw_reset.sh
+ln -sv ~/.dotfiles/.postgres/postgrestunnel_ssi.pl ~/.postgres/postgrestunnel_ssi.pl
+ln -sv ~/.dotfiles/.postgres/postgrestunnel_hendricks.pl ~/.postgres/postgrestunnel_hendricks.pl
+
 
 # TODO: project b config files
 # TODO: is there a way to automate VSCode setup?
