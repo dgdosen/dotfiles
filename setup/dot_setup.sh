@@ -6,11 +6,18 @@
 ln -sv ~/.dotfiles/.bin ~/.bin
 
 # dotfiles
+ln -sv ~/.dotfiles/.ackrc  ~/.ackrc
+ln -sv ~/.dotfiles/.agignore  ~/.agignore
+ln -sv ~/.dotfiles/.androidrc  ~/.androidrc
+ln -sv ~/.dotfiles/.bash_profile  ~/.bash_profile
+ln -sv ~/.dotfiles/.bashrc  ~/.bashrc
 ln -sv ~/.dotfiles/.dotrc ~/.dotrc
 ln -sv ~/.dotfiles/.gemrc ~/.gemrc
 ln -sv ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -sv ~/.dotfiles/.pomorc ~/.pomorc
 ln -sv ~/.dotfiles/.prettierrc ~/.prettierrc
 ln -sv ~/.dotfiles/.pryrc ~/.pryrc
+ln -sv ~/.dotfiles/.rubocop.yml ~/.rubocop.yml
 ln -sv ~/.dotfiles/.ruby-version ~/.ruby-version
 
 # tmux
@@ -38,6 +45,7 @@ mkdir ~/.config
 mkdir ~/.config/karabiner
 ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
 ln -sv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
 
 # project b dropbox
 ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
