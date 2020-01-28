@@ -141,7 +141,6 @@ Plug 'isRuslan/vim-es6'
 
 Plug 'Quramy/vim-dtsm'
 Plug 'Quramy/tsuquyomi'
-
 " Plug 'isagalaev/highlight.js'
 " Plug 'mxw/vim-jsx'
 " Plug 'pangloss/vim-javascript'
@@ -176,12 +175,12 @@ Plug 'artur-shaik/vim-javacomplete2'
 Plug 'tomlion/vim-solidity'
 
 " typescript tslint linting
-" Plug 'vim-syntastic/syntastic'
-"
+" Plug 'vim-syntastic/syntastic'1a
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+
 " Plug 'mtscout6/syntastic-local-eslint.vim'
 " Plug 'w0rp/ale'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'ianks/vim-tsx'
 " Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'neomake/neomake'

@@ -4,6 +4,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-json',
+  \ 'coc-emmet',
+  \ 'coc-tslint'
   \ ]
 
 " coc influence:

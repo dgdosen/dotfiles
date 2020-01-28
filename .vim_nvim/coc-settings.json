@@ -3,10 +3,12 @@
   /* "coc.preferences.enableFloatHighlight": false, */
   "diagnostic.messageTarget": "echo",
   "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": ["go", "javascript", "typescript", "json", "jsonc"],
+  "coc.preferences.formatOnSaveFiletypes": ["go", "javascript", "typescript", "typescriptreact", "json", "jsonc"],
   "coc.source.file.ignoreHidden": false,
   "prettier.printWidth": 160,
   "prettier.singleQuote": true,
+  "prettier.eslintIntegration": false,
+  "prettier.tslintIntegration": true,
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
