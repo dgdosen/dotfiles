@@ -78,6 +78,36 @@ elseif s:ts_lsp != []
   let s:js_lsp=s:ts_lsp
 endif
 
+" let g:LanguageClient_serverCommands = {
+"     \ 'javascript': ['/usr/local/bin/javascript-typescript-stdio'],
+"     \ 'typescript': ['/usr/local/bin/javascript-typescript-stdio'],
+"     \ }
+
+let g:LanguageClient_serverCommands = {}
+if executable('javascript-typescript-stdio')
+  let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+  " Use LanguageServer for omnifunc completion
+  autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
+else
+  echo "javascript-typescript-stdio not installed!\n"
+  " :cq
+endif
+
+"w0rp ale
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'tslint'],
+\   'vue': ['eslint']
+\}
+let g:ale_fixers = {
+\    'javascript': ['eslint'],
+\    'typescript': ['prettier'],
+\    'vue': ['eslint'],
+\    'scss': ['prettier'],
+\    'html': ['prettier']
+\}
+let g:ale_fix_on_save = 1
+
 if exists('s:js_lsp')
   for s:js_filetype in s:js_filetypes
     let g:LanguageClient_rootMarkers[s:js_filetype] = ['tsconfig.json', '.flowconfig', 'package.json']
