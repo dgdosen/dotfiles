@@ -1,4 +1,5 @@
 {
+  /* this is a test */
   /* "coc.preferences.hoverTarget": "echo", */
   /* "coc.preferences.enableFloatHighlight": false, */
   "diagnostic.messageTarget": "echo",
