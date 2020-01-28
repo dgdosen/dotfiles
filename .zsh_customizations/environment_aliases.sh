@@ -2,13 +2,6 @@
 dotup() {
 
   FOO=$PWD
-  cd ~/.dotify
-  echo in dotfiles
-  gsm
-  gsp
-  nvim +'PlugInstall --sync' +qa
-  nvim +'PlugUpdate --sync' +qa
-  nvim +'UpdateRemotePlugins' +qa
   cd ~/.dotfiles
   echo in dotfiles
   gsm

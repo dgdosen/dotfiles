@@ -9,6 +9,6 @@ echo - updating project b data
 PGDATA=$HOME/Library/Application\ Support/Postgres/var-11 pg_ctl stop
 PGDATA=$HOME/Library/Application\ Support/Postgres/var-11 pg_ctl start
 echo - updating project b dw
-$HOME/.dotfiles/postgres_project_b_dw_reset.sh
+$HOME/.dotfiles/.postgres/postgres_project_b_dw_reset.sh
 echo - updating project b db
-$HOME/.dotfiles/postgres_project_b_reset.sh
+$HOME/.dotfiles/.postgres/postgres_project_b_reset.sh
