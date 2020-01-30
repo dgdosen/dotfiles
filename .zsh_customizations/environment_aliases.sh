@@ -18,7 +18,8 @@ cdot() {
 }
 
 touchfoo() {
-  touch ~/cron_supportfoobar.txt
+  mkdir ~/.cron_support
+  touch ~/.cron_support/foobar.txt
 }
 
 
