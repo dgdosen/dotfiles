@@ -1,0 +1,11 @@
+chromedriver
+crosspack-avr
+dotnet-sdk
+google-cloud-sdk
+julia
+karabiner-elements
+minikube
+minishift
+oni
+opensim
+xquartz
