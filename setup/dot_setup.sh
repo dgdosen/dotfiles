@@ -21,37 +21,36 @@ ln -sv ~/.dotfiles/.rubocop.yml ~/.rubocop.yml
 ln -sv ~/.dotfiles/.ruby-version ~/.ruby-version
 
 # tmux
-ln -sv ~/.dotfiles/.tmux ~/.tmux
+[ ! -L "$HOME/.tmux" ] && ln -sv ~/.dotfiles/.tmux ~/.tmux
 ln -sv ~/.dotfiles/.tmux-theme-gruvbox.conf ~/.tmux-theme-gruvbox.conf
 ln -sv ~/.dotfiles/.tmux.conf ~/.tmux.conf
-ln -sv ~/.dotfiles/.tmuxinator ~/.tmuxinator
+[ ! -L "$HOME/.tmuxinator" ] && ln -sv ~/.dotfiles/.tmuxinator ~/.tmuxinator
 
 # vim/nvim
-ln -sv ~/.dotfiles/.vim ~/.vim
-ln -sv ~/.dotfiles/.vim_nvim ~/.vim_nvim
+[ ! -L "$HOME/.vim" ] && ln -sv ~/.dotfiles/.vim ~/.vim
+[ ! -L "$HOME/.vim_nvim" ] && ln -sv ~/.dotfiles/.vim_nvim ~/.vim_nvim
 ln -sv ~/.dotfiles/.vimrc ~/.vimrc
 
 # zsh
-ln -sv ~/.dotfiles/.zsh ~/.zsh
-ln -sv ~/.dotfiles/.zsh_customizations ~/.zsh_customizations
+[ ! -L "$HOME/.zsh" ] && ln -sv ~/.dotfiles/.zsh ~/.zsh
+[ ! -L "$HOME/.zsh_customizations" ] && ln -sv ~/.dotfiles/.zsh_customizations ~/.zsh_customizations/
 ln -sv ~/.dotfiles/.zshrc ~/.zshrc
 
 # testing
-mkdir ~/cron_support
-ln -sv ~/.dotfiles/foobar.txt ~/cron_support/foobar.txt
+[ ! -d "$HOME/.cron_support" ] && mkdir ~/.cron_support
+ln -sv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 
 # config files
-mkdir ~/.config
-mkdir ~/.config/karabiner
-ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
+[ ! -d "$HOME/.config" ] && mkdir ~/.config
+[ ! -d "$HOME/.config/karabiner" ] && mkdir ~/.config/karabiner
+[ ! -L "$HOME/.config/nvim" ] && ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
 ln -sv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
 
 # project b dropbox
-ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
+[ ! -L "$HOME/dropboxm" ] && ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
 
 # project b database utils
-mkdir ~/.postgres
+[ ! -d "$HOME/.postgres" ] && mkdir ~/.postgres
 ln -sv ~/.dotfiles/.postgres/postgres_project_b_reset.sh ~/.postgres/postgres_project_b_reset.sh
 ln -sv ~/.dotfiles/.postgres/postgres_project_b_dw_reset.sh ~/.postgres/postgres_project_b_dw_reset.sh
 ln -sv ~/.dotfiles/.postgres/postgrestunnel_ssi.pl ~/.postgres/postgrestunnel_ssi.pl
