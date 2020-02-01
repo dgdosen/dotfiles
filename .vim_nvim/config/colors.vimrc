@@ -1,8 +1,9 @@
 "highlighting search"
 set hls
 
-" test change
+" set hi colors
 syntax enable
+set termguicolors
 :set t_Co=256 " 256 colors
 " :set background=dark
 :set background=light
