@@ -5,7 +5,9 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-emmet',
-  \ 'coc-tslint'
+  \ 'coc-tslint',
+  \ 'coc-tags',
+  \ 'coc-ultisnips'
   \ ]
 
 " coc influence:
