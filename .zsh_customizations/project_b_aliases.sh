@@ -20,7 +20,11 @@ cpb() {
 }
 
 pbrestore() {
-  sh ~/.postgres/postgres_project_b_dw_reset.sh
-  sh ~/.postgres/postgres_project_b_reset.sh
+  sh ~/.dotfiles/.postgres/postgres_project_b_dw_reset.sh
+  sh ~/.dotfiles/.postgres/postgres_project_b_reset.sh
+}
+
+pb_new_data() {
+  sh ~/.dotfiles/.postgres/sp_data.sh
 }
 
