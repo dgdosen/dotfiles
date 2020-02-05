@@ -4,30 +4,9 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
-[submodule ".tmux/plugins/tmux-copycat"]
-	path = .tmux/plugins/tmux-copycat
-	url = https://github.com/tmux-plugins/tmux-copycat.git
-[submodule ".tmux/plugins/tmux-open"]
-	path = .tmux/plugins/tmux-open
-	url = https://github.com/tmux-plugins/tmux-open.git
-[submodule ".tmux/plugins/tmux-resurrect"]
-	path = .tmux/plugins/tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect.git
-[submodule ".tmux/plugins/tmux-sensible"]
-	path = .tmux/plugins/tmux-sensible
-	url = https://github.com/tmux-plugins/tmux-sensible
-[submodule ".tmux/plugins/tmux-scroll-copy-mode"]
-	path = .tmux/plugins/tmux-scroll-copy-mode
-	url = https://github.com/NHDaly/tmux-scroll-copy-mode.git
-[submodule ".tmux/plugins/tmux-continuum"]
-	path = .tmux/plugins/tmux-continuum
-	url = https://github.com/tmux-plugins/tmux-continuum
 [submodule ".zsh_customizations/plugins/zsh-syntax-highlighting"]
 	path = .zsh_customizations/plugins/zsh-syntax-highlighting
 	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
-[submodule ".zsh_customizations/themes/powerlevel9k"]
-	path = .zsh_customizations/themes/powerlevel9k
-	url = https://github.com/Powerlevel9k/powerlevel9k.git
 [submodule ".tmux/plugins/tmux-yank"]
 	path = .tmux/plugins/tmux-yank
 	url = https://github.com/docwhat/tmux-yank.git
