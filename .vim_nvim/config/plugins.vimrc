@@ -162,10 +162,11 @@ map <Leader>k <Plug>(easymotion-k)
 "
 autocmd BufNewFile,BufRead *.hbs set filetype=hbs.html
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-t>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
+" ultisnips
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-t>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" look at coc-snippets in coc.vimrc
 
 "DGD: working with haskell
 " Configure browser for haskell_doc.vim
