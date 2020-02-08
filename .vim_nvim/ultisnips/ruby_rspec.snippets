@@ -1,6 +1,14 @@
 extends ruby
 # vim:ft=rspec.ruby
 
+snippet xxx "omg i'm writing snippets" -b
+it 'should ${1:do something}' do
+	${2: 'how?'}
+	${3: 'and then?'}
+	${4: 'how?'}
+end
+endsnippet
+
 #
 # spec helper snippets
 #
@@ -90,15 +98,15 @@ end
 endsnippet
 
 snippet its "it should" -b
-it 'should ${1:do something}'${2: do
-	$3
-end}
+it 'should ${1:do something}' do
+	$2
+end
 endsnippet
 
 snippet it "It" -b
-it '${1:does something}'${2: do
-	$3
-end}
+it '${1:does something}' do
+	$2
+end
 endsnippet
 
 #
