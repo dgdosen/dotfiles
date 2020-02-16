@@ -3,7 +3,7 @@
 # - link files based on folders and environment!
 
 # bin (for tmuxinator?)
-ln -sv ~/.dotfiles/.bin ~/.bin
+[ ! -L "$HOME/.bin"] && ln -sv ~/.dotfiles/.bin ~/.bin
 
 # dotfiles
 ln -sv ~/.dotfiles/.ackrc  ~/.ackrc
