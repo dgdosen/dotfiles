@@ -7,6 +7,7 @@
 .vim/.netrwhist
 .vim/ruby/*
 .vim_nvim/.netrwhist
+foobar.txt
 tmux-client*
 tmux-server*
 compile-cache
