@@ -6,6 +6,7 @@
 .pgpass
 .vim/.netrwhist
 .vim/ruby/*
+.vim_nvim/.netrwhist
 tmux-client*
 tmux-server*
 compile-cache
@@ -19,4 +20,5 @@ merge-conflicts
 node_modules
 */plugged/*
 .tmux/resurrect/*
+.tmux/plugins
 .rbenv
