@@ -8,6 +8,10 @@ fetchthegits() {
   git fetch
   cd ~/dev/project_b_data
   git fetch
+  cd ~/dev/project_b_start_query
+  git fetch
+  cd ~/dev/project_b_query
+  git fetch
   cd ~/dev/project_b_racing_form
   git fetch
   cd ~/dev/project_b_debut
