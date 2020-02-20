@@ -1,4 +1,5 @@
 #!/usr/local/bin/zsh
 source ~/.zshrc
-touchfoo
+touch ~/.cron_support/crontouch.txt
+# touchfoo
 
