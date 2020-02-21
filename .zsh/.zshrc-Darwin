@@ -8,6 +8,9 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="/Library/Haskell/bin:$PATH"
 
+# - note these should be different on linux
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # homebrew nodenv support
 export PATH="$HOME/.nodenv/shims:$PATH"
 eval "$(nodenv init -)"
