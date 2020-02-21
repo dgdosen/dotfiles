@@ -12,6 +12,7 @@ export PATH="/Library/Haskell/bin:$PATH"
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # homebrew nodenv support
+export NODE_BUILD_DEFINITIONS=$(brew --prefix node-build-update-defs)/share/node-build
 export PATH="$HOME/.nodenv/shims:$PATH"
 eval "$(nodenv init -)"
 
