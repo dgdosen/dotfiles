@@ -5,8 +5,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-emmet',
-  \ 'coc-tslint',
-  \ 'coc-tags',
+  \ 'coc-eslint',
   \ 'coc-snippets',
   \ ]
 
@@ -42,6 +41,6 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " endfunction
 
 " let g:coc_snippet_next = '<tab>'
-
+autocmd BufEnter *.tsx set filetype=typescriptreact
 autocmd FileType json syntax match Comment +\/\/.\+$+
  " TODO: will nobackup mean these are obsolete?
