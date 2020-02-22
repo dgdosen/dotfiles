@@ -29,3 +29,10 @@ brewup() {
   brew upgrade
   brew cleanup
 }
+
+# TODO: put this in zshrc?
+# Use C-x C-e to edit the current command line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
