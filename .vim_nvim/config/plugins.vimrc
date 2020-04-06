@@ -232,3 +232,6 @@ endif
 
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
+
+"dadbod ui
+let g:db_ui_save_location = '~/dev/project_b/db/sql'

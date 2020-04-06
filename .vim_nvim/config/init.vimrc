@@ -60,6 +60,10 @@ Plug 'jgdavey/vim-railscasts'
 Plug 'altercation/vim-colors-solarized'
 " Plug 'vim-scripts/Sorcerer'
 
+" env
+Plug 'tpope/vim-dotenv'
+
+
 " general
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/L9'
@@ -163,6 +167,8 @@ Plug 'ElmCast/elm-vim'
 Plug 'jparise/vim-graphql'
 " sql
 Plug 'ivalkeen/vim-simpledb'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 " testing
 Plug 'tpope/vim-cucumber'
 Plug 'sunaku/vim-ruby-minitest'
