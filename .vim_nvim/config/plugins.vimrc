@@ -117,11 +117,11 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-" DGD: support for easy-motion
-hi EasyMotionTarget ctermbg=none ctermfg=red
-hi EasyMotionShade  ctermbg=none ctermfg=lightred
-hi EasyMotionTarget2First ctermbg=none ctermfg=red
-hi EasyMotionTarget2Second ctermbg=none ctermfg=lightred
+" " DGD: support for easy-motion
+" hi EasyMotionTarget ctermbg=none ctermfg=red
+" hi EasyMotionShade  ctermbg=none ctermfg=lightred
+" hi EasyMotionTarget2First ctermbg=none ctermfg=red
+" hi EasyMotionTarget2Second ctermbg=none ctermfg=lightred
 
 " let g:EasyMotion_do_mapping " Disable default mappings
 " Bi-directional find motion
