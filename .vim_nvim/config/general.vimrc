@@ -99,6 +99,7 @@ set winheight=10
 set winminheight=10
 set winheight=999
 
+set previewheight=20
 
 set ttyfast
 " set ttyscroll=3
