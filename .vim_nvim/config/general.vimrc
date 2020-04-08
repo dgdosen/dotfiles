@@ -85,19 +85,11 @@ set guioptions-=r
 map <leader>n :call RenameFile()<cr>
 
 set number
-set numberwidth=5
+set numberwidth=4
 set relativenumber
 
 " Always show tab bar
 set showtabline=2
-
-set winwidth=60
-" We have to have a winheight bigger than we want to set winminheight. But if
-" we set winheight to be huge before winminheight, the winminheight set will
-" fail.
-set winheight=10
-set winminheight=10
-set winheight=999
 
 set previewheight=20
 
@@ -133,6 +125,7 @@ highlight Search ctermbg=red ctermfg=lightgrey
 autocmd InsertLeave * write
 
 " remapping most common keystrokes
+nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 
 " set timeout for escape length
