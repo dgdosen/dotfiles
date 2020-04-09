@@ -32,8 +32,8 @@
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
-  "eslint.enable": false,
-  "eslint.autoFixOnSave": false,
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
   "eslint.filetypes": [
     "javascript",
     "typescript",
