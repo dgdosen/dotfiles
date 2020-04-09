@@ -192,7 +192,7 @@ let g:ctrlp_show_hidden = 1
 nmap <F8> :TagbarToggle<CR>
 
 "airline or popwerline?
-let g:airline_theme='gruvbox'
+" let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#tmuxline#enabled = 1

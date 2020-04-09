@@ -17,12 +17,15 @@ set termguicolors
 " :colorscheme base16-railscasts
 " :colorscheme solarized
 " :colorscheme grb256
-" :colorscheme gruvbox
-:colorscheme gruvbox8_soft
+:colorscheme gruvbox
+" :colorscheme gruvbox8_soft
 " :colorscheme lucius
 
-let g:gruvbox_contrast_dark = "soft"
-let g:gruvbox_contrast_light = "medium"
+" let g:airline_theme='solarized'
+" let g:airline_theme='base_16_gruvbox_dark_hard'
+
+" let g:gruvbox_contrast_dark = "soft"
+" let g:gruvbox_contrast_light = "medium"
 
 :hi Visual ctermbg=darkgray guibg=black
 
