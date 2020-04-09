@@ -30,8 +30,8 @@ windows:
       panes:
         - nvim
         -
-        - bundle exec guard -c
-        - sleep 2 && zeus c
+        -
+        - zeus c
         - zeus start
   - racing_form:
       root: ~/dev/project_b_racing_form

@@ -30,10 +30,17 @@ windows:
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         - nvim
-        -
+        - bundle exec guard -c
         - zeus c
-  - debut:
-      root: ~/dev/project_b_debut
+  - racing_form:
+      root: ~/dev/project_b_racing_form
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        - nvim
+        -
+        -
+  - query:
+      root: ~/dev/project_b_query
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         - nvim
