@@ -13,7 +13,7 @@ hi clear SpellBad
 hi SpellBad ctermbg=red
 " hi SpellBad cterm=underline
 
-nnoremap <Leader>g :PlugUpdate<cr>
+" nnoremap <Leader>g :PlugUpdate<cr>
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
