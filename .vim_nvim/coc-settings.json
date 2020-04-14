@@ -22,10 +22,6 @@
   "git.addGBlameToVirtualText": true,
   "signature.target": "echo",
   "suggest.asciiCharactersOnly": true,
-  "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "typescript": ["javascript"]
-  },
   "list.normalMappings": {
     "<C-c>": "do:exit"
   },
