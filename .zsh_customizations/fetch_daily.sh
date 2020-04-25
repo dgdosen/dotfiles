@@ -16,6 +16,8 @@ fetchthegits() {
   git fetch
   cd ~/dev/project_b_debut
   git fetch
+  cd ~/dev/project_b_hooks
+  git fetch
   cd ~/dev/project_b_pars
   git fetch
   cd ~/dev/project_b_generic_matching
