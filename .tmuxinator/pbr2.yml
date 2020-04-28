@@ -31,8 +31,8 @@ windows:
       layout: b17e,238x55,0,0{99x55,0,0,53,138x55,100,0[138x42,100,0,61,138x12,100,43,72]}
       panes:
         - bundle exec guard -c
-        - zeus c
-        - nvim
+        - zeus s -b 0.0.0.0 -p 3000
+        -
   - racing_form:
       root: ~/dev/project_b_racing_form
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
