@@ -34,7 +34,7 @@ ln -sv ~/.dotfiles/.vimrc ~/.vimrc
 
 # zsh
 [ ! -L "$HOME/.zsh" ] && ln -sv ~/.dotfiles/.zsh ~/.zsh
-[ ! -L "$HOME/.zsh_customizations" ] && ln -sv ~/.dotfiles/.zsh_customizations ~/.zsh_customizations/
+[ ! -L "$HOME/.zsh_customizations" ] && ln -sv ~/.dotfiles/.zsh_customizations ~/.zsh_customizations
 ln -sv ~/.dotfiles/.zshrc ~/.zshrc
 
 # testing
