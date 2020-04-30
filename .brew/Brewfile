@@ -8,7 +8,6 @@ tap "nodenv/nodenv"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "prisma/prisma"
-tap "sambadevi/powerlevel9k"
 tap "universal-ctags/universal-ctags"
 tap "vapor/tap"
 tap "vulgo/repo"
@@ -80,7 +79,7 @@ brew "nodenv/nodenv/node-build-update-defs"
 brew "osx-cross/arm/arm-gcc-bin@8", link: true
 brew "osx-cross/avr/avr-gcc@8", link: true
 brew "prisma/prisma/prisma"
-brew "sambadevi/powerlevel9k/powerlevel9k"
+brew "romkatv/powerlevel10k/powerlevel10k"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vapor/tap/vapor"
 brew "vulgo/repo/webdriver.sh"
