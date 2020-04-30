@@ -44,8 +44,10 @@ ln -sv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 # config files
 [ ! -d "$HOME/.config" ] && mkdir ~/.config
 [ ! -d "$HOME/.config/karabiner" ] && mkdir ~/.config/karabiner
+[ ! -d "$HOME/.config/alacritty" ] && mkdir ~/.config/alacritty
 [ ! -L "$HOME/.config/nvim" ] && ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
 ln -sv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -sv ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 # project b dropbox
 [ ! -L "$HOME/dropboxm" ] && ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
