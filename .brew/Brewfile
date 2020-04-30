@@ -83,6 +83,7 @@ brew "romkatv/powerlevel10k/powerlevel10k"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vapor/tap/vapor"
 brew "vulgo/repo/webdriver.sh"
+cask "font-source-code-pro"
 cask "iterm"
 cask "chromedriver"
 cask "google-cloud-sdk"
