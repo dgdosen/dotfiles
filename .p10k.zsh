@@ -55,7 +55,7 @@
     nvm                     # node.js version from nvm (https://github.com/nvm-sh/nvm)
     nodeenv                 # node.js environment (https://github.com/ekalinin/nodeenv)
     # node_version          # node.js version
-    # go_version            # go version (https://golang.org)
+    go_version            # go version (https://golang.org)
     # rust_version          # rustc version (https://www.rust-lang.org)
     # dotnet_version        # .NET version (https://dotnet.microsoft.com)
     # php_version           # php version (https://www.php.net/)
@@ -581,6 +581,8 @@
   # Ruby version from asdf.
   typeset -g POWERLEVEL9K_ASDF_RUBY_FOREGROUND=0
   typeset -g POWERLEVEL9K_ASDF_RUBY_BACKGROUND=9
+  typeset -g POWERLEVEL9K_RBENV_FOREGROUND=0
+  typeset -g POWERLEVEL9K_RBENV_BACKGROUND=5
   # typeset -g POWERLEVEL9K_ASDF_RUBY_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_RUBY_SHOW_ON_UPGLOB='*.foo|*.bar'
 
@@ -597,8 +599,12 @@
   # typeset -g POWERLEVEL9K_ASDF_GOLANG_SHOW_ON_UPGLOB='*.foo|*.bar'
 
   # Node.js version from asdf.
-  typeset -g POWERLEVEL9K_ASDF_NODEJS_FOREGROUND=0
-  typeset -g POWERLEVEL9K_ASDF_NODEJS_BACKGROUND=2
+  # typeset -g POWERLEVEL10K_NODE_VERSION_FOREGROUND=0
+  # typeset -g POWERLEVEL10K_NODE_VERSION_BACKGROUND=2
+  typeset -g POWERLEVEL9K_NODENV_FOREGROUND=0
+  typeset -g POWERLEVEL9K_NODENV_BACKGROUND=2
+  # typeset -g POWERLEVEL9K_ASDF_NODEJS_FOREGROUND=0
+  # typeset -g POWERLEVEL9K_ASDF_NODEJS_BACKGROUND=2
   # typeset -g POWERLEVEL9K_ASDF_NODEJS_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.foo|*.bar'
 
@@ -958,8 +964,8 @@
 
   #######################[ go_version: go version (https://golang.org) ]########################
   # Go version color.
-  # typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=255
-  # typeset -g POWERLEVEL9K_GO_VERSION_BACKGROUND=2
+  typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=0
+  typeset -g POWERLEVEL9K_GO_VERSION_BACKGROUND=4
   # Show go version only when in a go project subdirectory.
   typeset -g POWERLEVEL9K_GO_VERSION_PROJECT_ONLY=true
   # Custom icon.
