@@ -14,9 +14,11 @@ git clone git@github.com:makerboarding/project_b_pars.git $HOME/dev/project_b_pa
 git clone git@github.com:makerboarding/project_b_generic_matching.git $HOME/dev/project_b_generic_matching
 git clone git@github.com:makerboarding/project_b_matching.git $HOME/dev/project_b_matching
 
-git clone git@github.com:sessuru-admin/sessuru_material.git $HOME/sessuru_material
-git clone git@github.com:sessuru-admin/sessuru_server.git $HOME/sessuru_server
-git clone git@github.com:sessuru-admin/sessuru_client.git $HOME/sessuru_client
+git clone git@github.com:sessuru-admin/sessuru_material.git $HOME/dev/sessuru_material
+git clone git@github.com:sessuru-admin/sessuru_server.git $HOME/dev/sessuru_server
+git clone git@github.com:sessuru-admin/sessuru_client.git $HOME/dev/sessuru_client
+git clone git@bitbucket.org:sessuru/sessuru_web.git $HOME/dev/sessuru_web
+git clone git@bitbucket.org:sessuru/sessuru_ios.git $HOME/dev/sessuru_ios
 
 [ ! -d "$HOME/dev/exercism" ] && mkdir "$HOME/dev/exercism"
 
