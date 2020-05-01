@@ -10,9 +10,6 @@
 [submodule ".zsh_customizations/plugins/zsh-autosuggestions"]
 	path = .zsh_customizations/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule ".zsh_customizations/themes/powerlevel9k"]
-	path = .zsh_customizations/themes/powerlevel9k
-	url = https://github.com/bhilburn/powerlevel9k.git
 [submodule "zsh-autosuggestions"]
 	path = zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
