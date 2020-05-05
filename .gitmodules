@@ -10,6 +10,3 @@
 [submodule ".zsh_customizations/plugins/zsh-autosuggestions"]
 	path = .zsh_customizations/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "zsh-autosuggestions"]
-	path = zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
