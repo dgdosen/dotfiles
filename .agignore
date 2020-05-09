@@ -3,4 +3,5 @@ tags
 .swp
 tags.*
 DerivedData/*
+node_modules/*
 
