@@ -1,4 +1,4 @@
-" csv viles
+" csv files
 if exists("did_load_csvfiletype")
   finish
 endif

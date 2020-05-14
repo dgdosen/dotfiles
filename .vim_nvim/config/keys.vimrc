@@ -49,8 +49,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 " DGD: moving more lines
 nmap J 5j
 nmap K 5k
-nmap H 5h
-nmap L 5l
+" nmap H 5h
+" nmap L 5l
 
 " DGD: compatible text bubbling
 "Bubble single lines (kicks butt)
@@ -106,12 +106,6 @@ iab <expr> ddate strftime("%Y-%B-%d - %a:")
 
 " automatic spell checking
 iabbrev teh the
-
-" nmap <silent> <c-t> :TagbarToggle<CR>
-" nmap <leader>8 :TagbarToggle<CR>
-
-:iabbrev </ </<C-X><C-O>
-imap <C-Space> <C-X><C-O>
 
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 
