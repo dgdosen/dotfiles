@@ -14,3 +14,18 @@ covid-update() {
   cd $FOO
 
 }
+
+covid-post() {
+
+  keybase chat send los_gatos "(From Dan's Bot:) Greetings from the ether.... Hey boomer, check out the daily updates to WA Covid data at https://covid.agidevelopment.com.  Feel free to suggest improvments!" --channel automated
+
+}
+
+
+covid-postx() {
+
+  keybase chat send danielgdosen "(From Dan's Bot:) Greetings from the ether.... Hey boomer, check out the daily updates to WA Covid data at https://covid.agidevelopment.com.  Feel free to suggest improvments!"
+
+}
+
+
