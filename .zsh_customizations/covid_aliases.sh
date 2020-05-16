@@ -17,7 +17,7 @@ covid-update() {
 
 covid-post() {
 
-  keybase chat send los_gatos "(From Dan's Bot:) Greetings from the ether.... Hey boomer, check out the daily updates to WA Covid data at https://covid.agidevelopment.com.  Feel free to suggest improvments!" --channel automated
+  keybase chat send los_gatos "(From Dan's Bot:) Greetings from the ether.... Hey boomer, check out the daily updates to WA Covid data at https://covid.agidevelopment.com.  Feel free to suggest improvments!"
 
 }
 
