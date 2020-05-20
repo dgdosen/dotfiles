@@ -8,8 +8,7 @@ if exists("did\_load\_filetypes")
  finish
 endif
 
-let did_load_csv
-filetype=1
+let did_load_csvfiletype=1
 augroup markdown
 
     au! BufRead,BufNewFile *.mkd   setfiletype mkd
