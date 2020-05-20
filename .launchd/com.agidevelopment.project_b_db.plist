@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.agidevelopment.project_b_db</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>/Users/dgdosen/.dotfiles/daily/cron_project_b.sh</string>
+      </array>
+      <key>StartCalendarInterval</key>
+      <dict>
+        <key>Hour</key>
+        <integer>1</integer>
+        <key>Minute</key>
+        <integer>14</integer>
+      </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/Public/project_b_db.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/Public/project_b_db.err</string>
+    <key>SessionCreate</key>
+    <true/>
+  </dict>
+</plist>
