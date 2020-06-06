@@ -1,5 +1,5 @@
 "highlighting search"
-set hls
+" set hls
 
 " set hi colors
 syntax enable
@@ -24,7 +24,8 @@ set termguicolors
 " let g:airline_theme='solarized'
 " let g:airline_theme='base_16_gruvbox_dark_hard'
 
-" let g:gruvbox_contrast_dark = "soft"
+let g:gruvbox_invert_selection=0
+let g:gruvbox_contrast_dark = "soft"
 " let g:gruvbox_contrast_light = "medium"
 
 :hi Visual ctermbg=darkgray guibg=black
@@ -35,6 +36,9 @@ highlight VertSplit ctermfg=white ctermbg=darkgreen
 " highlight current line
 :set cursorline
 " :hi CursorLine ctermbg=darkgrey guibg=black
+
+highlight HighlightedyankRegion cterm=reverse gui=reverse
+let g:highlightedyank_highlight_duration = 300
 
 " highlight current column
 " :set cc=80

@@ -64,6 +64,8 @@ Plug 'morhetz/gruvbox'
 " env
 Plug 'tpope/vim-dotenv'
 
+" visual mode yank
+Plug 'machakann/vim-highlightedyank'
 
 " general
 Plug 'tpope/vim-repeat'
