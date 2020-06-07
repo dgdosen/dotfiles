@@ -2,6 +2,7 @@
 
 name: pbr
 root: ~/dev/project_b
+pre_window: rbenv shell 2.3.8
 
 # Optional tmux socket
 # socket_name: foo
@@ -31,8 +32,8 @@ windows:
         - nvim
         -
         -
-        - zeus c
-        - zeus start
+        - spring rails c
+        -
   - racing_form:
       root: ~/dev/project_b_racing_form
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
