@@ -86,7 +86,8 @@ windows:
   - data:
       root: ~/dev/project_b_data
       # layout: even-vertical
-      layout: 9de3,318x90,0,0{159x90,0,0,3,158x90,160,0,12}
+      layout: 5027,418x100,0,0[418x65,0,0,139,418x34,0,66,140]
+      # layout: 9de3,318x90,0,0{159x90,0,0,3,158x90,160,0,12}
       panes:
         -
         -
