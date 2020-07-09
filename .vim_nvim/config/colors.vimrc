@@ -18,6 +18,7 @@ set termguicolors
 " :colorscheme solarized
 " :colorscheme grb256
 :colorscheme gruvbox
+" :colorscheme embark
 " :colorscheme gruvbox8_soft
 " :colorscheme lucius
 
