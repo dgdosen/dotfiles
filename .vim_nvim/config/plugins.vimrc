@@ -237,3 +237,5 @@ nnoremap <Leader>a :Ack!<Space>
 let g:db_ui_save_location = '~/dev/project_b/db/sql'
 let g:db_ui_use_nerd_fonts = 1
 let g:db_ui_win_position = 'right'
+let g:db_ui_execute_on_save = 0
+" nnoremap <Leader><Leader>S <Plug>(DBUI_ExecuteQuery)
