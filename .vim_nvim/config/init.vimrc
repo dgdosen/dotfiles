@@ -100,8 +100,11 @@ Plug 'moll/vim-node'
 " Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf'
+Plug 'vimwiki/vimwiki'
+" Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'michal-h21/vim-zettel'
 Plug 'tpope/vim-commentary'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-sort-motion'

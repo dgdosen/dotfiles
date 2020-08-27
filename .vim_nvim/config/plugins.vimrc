@@ -207,7 +207,7 @@ let g:tmuxline_separators = {
 " python from powerline.vim import setup as powerline_setup
 " python powerline_setup()
 " python del powerline_setup
-  set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/opt/fzf
 
 let g:python_host_prog = '$HOME/.pyenv/shims/python2'
 let g:python2_host_prog = '$HOME/.pyenv/shims/python2'
@@ -239,3 +239,6 @@ let g:db_ui_use_nerd_fonts = 1
 let g:db_ui_win_position = 'right'
 let g:db_ui_execute_on_save = 0
 " nnoremap <Leader><Leader>S <Plug>(DBUI_ExecuteQuery)
+"
+" vim wiki
+let g:vimwiki_list = [{'path': '~/dev/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
