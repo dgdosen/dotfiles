@@ -241,4 +241,7 @@ let g:db_ui_execute_on_save = 0
 " nnoremap <Leader><Leader>S <Plug>(DBUI_ExecuteQuery)
 "
 " vim wiki
-let g:vimwiki_list = [{'path': '~/dev/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/dev/vimwiki/', 'syntax': 'markdown', 'ext': '.md', 'auto_tags': 1, 'auto_toc': 1}]
+let g:zettel_options = [{'front_matter': {'tags': ''}}]
+let g:zettel_format= "%Y-%m-%d:%H:%M-%title"
+
