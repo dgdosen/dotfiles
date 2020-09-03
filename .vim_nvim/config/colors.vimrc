@@ -25,11 +25,9 @@ set termguicolors
 " let g:airline_theme='solarized'
 " let g:airline_theme='base_16_gruvbox_dark_hard'
 
-let g:gruvbox_invert_selection=0
-let g:gruvbox_contrast_dark = "soft"
-" let g:gruvbox_contrast_light = "medium"
+let g:gruvbox_invert_selection=1
 
-:hi Visual ctermbg=darkgray guibg=black
+" :hi Visual ctermbg=darkgray guibg=black
 
 " highlight SignColumn ctermbg=lightgrey
 " highlight LineNr ctermfg=darkgreen ctermbg=lightgrey

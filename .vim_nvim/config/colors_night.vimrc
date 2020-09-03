@@ -1,3 +1,4 @@
 "highlighting search"
 :set background=dark
-" :set background=light
+let g:gruvbox_invert_selection=0
+let g:gruvbox_contrast_dark = "soft"
