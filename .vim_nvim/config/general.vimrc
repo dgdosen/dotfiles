@@ -155,6 +155,7 @@ let g:clipboard = {
 noremap! <expr> ,t strftime("%H:%M")
 noremap! <expr> ,d strftime("%Y-%m-%d")
 noremap! <expr> ,l strftime("%Y-%m-%d %H:%M")
+
 noremap! <expr> ,L strftime("%Y-%m-%d %I:%M %p")
 noremap! <expr> ,T strftime("%H:%M:%S")
 
