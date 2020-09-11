@@ -245,3 +245,7 @@ let g:vimwiki_list = [{'path': '~/dev/zettel/', 'syntax': 'markdown', 'ext': '.m
 let g:zettel_options = [{'front_matter': {'tags': ''}}]
 let g:zettel_format= "%Y-%m-%d:%H:%M-%title"
 
+" ocaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+

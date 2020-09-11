@@ -150,7 +150,8 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-jdaddy'
 Plug 'isRuslan/vim-es6'
-
+" ocaml
+Plug 'let-def/ocp-indent-vim'
 
 Plug 'Quramy/vim-dtsm'
 Plug 'Quramy/tsuquyomi'
