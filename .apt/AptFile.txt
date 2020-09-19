@@ -1,0 +1,5 @@
+tmux
+tmuxinator
+nodejs
+rbenv
+ruby-build

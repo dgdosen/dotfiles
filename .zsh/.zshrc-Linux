@@ -46,3 +46,5 @@ eval "$(pyenv virtualenv-init -)"
 
 # # The next line enables shell command completion for gcloud.
 # if [ -f '/Users/ddosen/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ddosen/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+echo 'zsh startup on Linux'
