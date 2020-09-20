@@ -1,3 +1,10 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# powerlevel10k
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
 #homebrew nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
@@ -47,5 +54,4 @@ eval "$(pyenv virtualenv-init -)"
 
 # # The next line enables shell command completion for gcloud.
 # if [ -f '/Users/ddosen/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ddosen/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 echo 'zsh startup on Linux'
