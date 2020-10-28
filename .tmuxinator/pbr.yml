@@ -2,8 +2,10 @@
 
 name: pbr
 root: ~/dev/project_b
-pre_window: rbenv shell 2.3.8
-
+# pre_window: rbenv shell 2.3.8
+pre:
+  - export RBENV_DIR=
+  - export RBENV_VERSION=
 # Optional tmux socket
 # socket_name: foo
 
