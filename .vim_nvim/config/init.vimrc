@@ -40,7 +40,7 @@ call plug#begin('~/.vim_nvim/plugged')
 
 " CONFIG for coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-denite'
+" Plug 'neoclide/coc-denite'
 " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " END Language Server Protocol:
 
