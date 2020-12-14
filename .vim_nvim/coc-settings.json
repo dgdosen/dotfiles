@@ -12,6 +12,11 @@
     "json",
     "jsonc"
   ],
+  "tsserver.enableJavascript": true,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.preferences.quoteStyle": "double",
+  "typescript.referencesCodeLens.enable": false,
   "coc.source.file.ignoreHidden": false,
   "prettier.printWidth": 160,
   "prettier.singleQuote": true,

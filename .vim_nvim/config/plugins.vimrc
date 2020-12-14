@@ -216,15 +216,6 @@ let g:python3_host_prog = '$HOME/.pyenv/shims/python3'
 " vim-coffee-script
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
-"coc vim
-"coc-prettier
-" command! -nargs=0 Prettier :CocCommand prettier.formatFile
-let g:prettier#config#single_quote = 'true'
-
-" language servers
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-
-
 " ack.vim using the_silver_searcher
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'

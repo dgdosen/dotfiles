@@ -32,7 +32,7 @@ map <leader>gs :FZF app/services<cr>
 map <leader>gx :FZF spec<cr>
 map <leader>gz :FZF app/serializers<cr>
 map <leader>gg :FZF config<cr>
-map <leader>gd :FZF config<cr>
+" map <leader>gd :FZF config<cr>
 
 map <leader>w :w<cr>
 

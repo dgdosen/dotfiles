@@ -122,3 +122,8 @@ if executable('ocaml-language-server')
 endif
 
 let g:LanguageClient_diagnosticsList='Location'
+
+" language servers
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
+
