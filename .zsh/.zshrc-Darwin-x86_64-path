@@ -1,0 +1,5 @@
+echo 'path update darwin x86_64 zsh'
+
+# change path to point to arm homebrew
+export PATH="/usr/local/bin:$PATH"
+
