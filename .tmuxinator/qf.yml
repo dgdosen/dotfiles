@@ -32,15 +32,8 @@ windows:
         -
         -
         -
-  - client_cli:
-      root: ~/dev/pomo-server
-      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
-      panes:
-        -
-        -
-        -
   - client_web:
-      root: ~/dev/pomo-server
+      root: ~/dev/pomo-web
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         -
