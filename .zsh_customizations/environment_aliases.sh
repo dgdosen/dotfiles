@@ -1,3 +1,16 @@
+# clean up nvim
+nvimup() {
+
+  FOO=$PWD
+  cd ~/.dotfiles
+  echo in dotfiles
+  nvim +'PlugInstall --sync' +qa
+  nvim +'PlugUpdate --sync' +qa
+  nvim +'UpdateRemotePlugins' +qa
+
+  cd $FOO
+}
+
 # clean up dotfile submodules
 dotup() {
 
@@ -6,9 +19,6 @@ dotup() {
   echo in dotfiles
   gsm
   gsp
-  nvim +'PlugInstall --sync' +qa
-  nvim +'PlugUpdate --sync' +qa
-  nvim +'UpdateRemotePlugins' +qa
 
   cd $FOO
 }

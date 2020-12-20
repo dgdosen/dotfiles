@@ -1,4 +1,6 @@
 #!/usr/local/bin/zsh
+echo - updating nvim components
+nvimup
 echo - updating zsh components
 dotup
 echo - updating brew components
