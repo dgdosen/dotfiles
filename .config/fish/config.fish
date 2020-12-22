@@ -1,18 +1,19 @@
 # path
 set -gx PATH /Users/dgdosen/.bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
-set -gx PATH (brew --prefix)/var/rbenv/shims $PATH
+set -gx PATH /usr/local/var/rbenv/shims $PATH
+# set -gx PATH (brew --prefix)/var/rbenv/shims $PATH
 
 # alias
-alias c='clear'
+alias cc='clear'
 alias gh='github'
 
 # cd
-function xd
+function c
   cd $argv
 end
 
-complete --command xd --arguments '(__fish_complete_directories ~/dev/)'
+complete --command c --arguments '(__fish_complete_directories ~/dev/)'
 
 # set -gx RBENV_ROOT /opt/homebrew/var/rbenv/
 set -gx RBENV_ROOT /usr/local/var/rbenv/
