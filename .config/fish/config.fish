@@ -2,6 +2,7 @@
 set -gx PATH /Users/dgdosen/.bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH /usr/local/var/rbenv/shims $PATH
+set -gx PATH $PATH /Applications/Postgres.app/Contents/Versions/latest/bin
 # set -gx PATH (brew --prefix)/var/rbenv/shims $PATH
 
 # alias
