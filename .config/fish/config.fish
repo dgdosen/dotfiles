@@ -5,6 +5,10 @@ set -gx PATH /usr/local/var/rbenv/shims $PATH
 set -gx PATH $PATH /Applications/Postgres.app/Contents/Versions/latest/bin
 # set -gx PATH (brew --prefix)/var/rbenv/shims $PATH
 
+# nodenv
+set -Ux fish_user_paths $HOME/.nodenv/bin $fish_user_paths
+set -gx PATH $HOME/.nodenv/shims $PATH
+
 # alias
 alias cc='clear'
 alias gh='github'
