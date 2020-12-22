@@ -1,3 +1,7 @@
+cc() {
+  clear
+}
+
 # clean up nvim
 nvimup() {
 
