@@ -11,6 +11,10 @@ nvimup() {
   cd $FOO
 }
 
+gh() {
+  github
+}
+
 # clean up dotfile submodules
 dotup() {
 
