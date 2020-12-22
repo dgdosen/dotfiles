@@ -3,7 +3,7 @@ set -gx PATH /Users/dgdosen/.bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 
 # alias
-# alias c='clear'
+alias c='clear'
 alias gh='github'
 
 # cd
@@ -33,3 +33,4 @@ set -x fish_color_command green --bold
 set -x fish_color_autosuggestion white
 set -x fish_color_ruby blue
 
+echo "using dotfiles fish config"
