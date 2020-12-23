@@ -38,8 +38,4 @@ set -g theme_nerd_fonts yes
 # set -g theme_powerline_fonts yes
 # set -g theme_color_scheme solarized
 
-set -x fish_color_command green --bold
-set -x fish_color_autosuggestion white
-set -x fish_color_ruby blue
-
 echo "using dotfiles fish config"
