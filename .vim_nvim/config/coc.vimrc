@@ -1,7 +1,6 @@
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
-  \ 'coc-tslint',
   \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-emmet',
