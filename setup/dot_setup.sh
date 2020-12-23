@@ -50,6 +50,7 @@ ln -sv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 ln -sv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ln -sv ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -sv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+ln -sv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 
 # project b dropbox
 [ ! -L "$HOME/dropboxm" ] && ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
