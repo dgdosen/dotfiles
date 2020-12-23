@@ -44,12 +44,14 @@ ln -sv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 # config files
 [ ! -d "$HOME/.config" ] && mkdir ~/.config
 [ ! -d "$HOME/.config/fish" ] && mkdir ~/.config/fish
+[ ! -d "$HOME/.config/fish/functions" ] && mkdir ~/.config/fish/functions
 [ ! -d "$HOME/.config/karabiner" ] && mkdir ~/.config/karabiner
 [ ! -d "$HOME/.config/alacritty" ] && mkdir ~/.config/alacritty
 [ ! -L "$HOME/.config/nvim" ] && ln -sv ~/.dotfiles/.vim_nvim ~/.config/nvim
 ln -sv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ln -sv ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -sv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+ln -sv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config/fish/functions/fish_user_key_bindings.fish
 ln -sv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 
 # project b dropbox
