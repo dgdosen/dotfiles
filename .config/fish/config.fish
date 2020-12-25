@@ -20,8 +20,17 @@ end
 
 complete --command c --arguments '(__fish_complete_directories ~/dev/)'
 
-# set -gx RBENV_ROOT /opt/homebrew/var/rbenv/
-set -gx RBENV_ROOT /usr/local/var/rbenv/
+switch (uname -m)
+  case arm64
+    echo 'on arm64'
+    set -gx RBENV_ROOT /opt/homebrew/var/rbenv/
+  case x86_64
+    echo 'on x86_64'
+    set -gx RBENV_ROOT /usr/local/var/rbenv/
+  case '*'
+    echo 'on dunno'
+end
+
 set fish_key_bindings fish_user_key_bindings
 # set fish_plugins autojump vi-mode
 
