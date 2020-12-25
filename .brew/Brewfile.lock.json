@@ -24,9 +24,6 @@
       },
       "universal-ctags/universal-ctags": {
         "revision": "a63986ba838043d651d09e3ab6de70388eeaf876"
-      },
-      "vulgo/repo": {
-        "revision": "831bbc31d7c668c49338d46c8fc532a4d7f67e88"
       }
     },
     "brew": {
@@ -1224,12 +1221,9 @@
       "prisma/prisma/prisma": null,
       "universal-ctags/universal-ctags/universal-ctags": {
         "options": {
-          "args": [
-            "HEAD"
-          ]
+          "args": ["HEAD"]
         }
-      },
-      "vulgo/repo/webdriver.sh": null
+      }
     },
     "cask": {
       "chromedriver": {
@@ -1259,3 +1253,4 @@
     }
   }
 }
+

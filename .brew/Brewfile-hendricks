@@ -83,7 +83,6 @@ brew "prisma/prisma/prisma"
 brew "sambadevi/powerlevel9k/powerlevel9k"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 brew "vapor/tap/vapor"
-brew "vulgo/repo/webdriver.sh"
 cask "iterm"
 cask "chromedriver"
 cask "google-cloud-sdk"
