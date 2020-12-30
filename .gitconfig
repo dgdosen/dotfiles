@@ -52,3 +52,5 @@
 	insteadOf = https://bitbucket.org/
 [pull]
 	rebase = true
+[init]
+	defaltBranch = main
