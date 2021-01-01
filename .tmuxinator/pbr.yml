@@ -1,7 +1,7 @@
 # ~/.tmuxinator/pb.yml
 
 name: pbr
-root: ~/dev/project_b
+root: ~/dev/project_b_server
 # pre_window: rbenv shell 2.3.8
 on_project_start: export RBENV_DIR=;export RBENV_VERSION=
 
@@ -25,7 +25,7 @@ on_project_start: export RBENV_DIR=;export RBENV_VERSION=
 
 windows:
   - server:
-      root: ~/dev/project_b
+      root: ~/dev/project_b_server
       # layout: 6d60,208x57,0,0{130x57,0,0,19,77x57,131,0[77x11,131,0,20,77x10,131,12,21,77x10,131,23,22,77x10,131,34,23,77x12,131,45,24]}
       # layout: eeac,318x95,0,0{216x95,0,0,82,101x95,217,0[101x14,217,0,83,101x21,217,15,84,101x48,217,37,86,101x9,217,86,87]}
       # layout: 9530,318x90,0,0{200x90,0,0,0,117x90,201,0[117x16,201,0,4,117x11,201,17,5,117x51,201,29,6,117x9,201,81,7]}
@@ -78,7 +78,7 @@ windows:
         -
         -
   - cloud:
-      root: ~/dev/project_b
+      root: ~/dev/project_b_server
       layout: 9de3,318x90,0,0{159x90,0,0,2,158x90,160,0,13}
       # layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
