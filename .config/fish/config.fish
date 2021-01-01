@@ -2,16 +2,23 @@
 set -gx PATH /Users/dgdosen/.bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH /usr/local/var/rbenv/shims $PATH
+set -g fish_user_paths "/opt/homebrew/sbin" $fish_user_paths
 set -gx PATH $PATH /Applications/Postgres.app/Contents/Versions/latest/bin
 # set -gx PATH (brew --prefix)/var/rbenv/shims $PATH
+
+# rust - cargo
+set -gx PATH "$HOME/.cargo/bin" $PATH
 
 # nodenv
 set -gx fish_user_paths $HOME/.nodenv/bin $fish_user_paths
 set -gx PATH $HOME/.nodenv/shims $PATH
 
 # alias
-alias cc='clear'
-alias gh='github'
+alias cc clear
+alias gh github
+alias tkss 'tmux kill-session -t'
+# why isn't this alias loaded in comletions?
+alias mux tmuxinator
 
 # cd
 function c
@@ -22,10 +29,10 @@ complete --command c --arguments '(__fish_complete_directories ~/dev/)'
 
 switch (uname -m)
   case arm64
-    echo 'on arm64'
+    echo 'fish config uname: arm64'
     set -gx RBENV_ROOT /opt/homebrew/var/rbenv/
   case x86_64
-    echo 'on x86_64'
+    echo 'fish config uname: x86_64'
     set -gx RBENV_ROOT /usr/local/var/rbenv/
   case '*'
     echo 'on dunno'
