@@ -1,4 +1,3 @@
-
 #!/usr/local/bin/zsh
 source ~/.zshrc
 bear-backlink-update

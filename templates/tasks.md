@@ -30,6 +30,9 @@
 - [ ] pomo
 - [ ] pomo
 - [ ] pomo
+- [ ] pomo
+
+- [ ] peronal pomo
 
 ## project_b
 
