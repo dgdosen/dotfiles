@@ -3,10 +3,10 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.agidevelopment.bear_create_daily</string>
+    <string>com.agidevelopment.bear_weekly_create</string>
       <key>ProgramArguments</key>
       <array>
-        <string>/Users/dgdosen/.dotfiles/daily/bear_create_daily.sh</string>
+        <string>/Users/dgdosen/.dotfiles/daily/bear_weekly_create.sh</string>
       </array>
       <key>StartCalendarInterval</key>
       <dict>
@@ -14,11 +14,13 @@
         <integer>5</integer>
         <key>Minute</key>
         <integer>15</integer>
+        <key>Weekday</key>
+        <integer>0</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/Public/bear_create_daily.out</string>
+    <string>/Users/dgdosen/Public/bear_weekly_create.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/Public/bear_create_daily.err</string>
+    <string>/Users/dgdosen/Public/bear_weekly_create.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>

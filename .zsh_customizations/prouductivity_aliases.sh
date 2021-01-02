@@ -1,4 +1,4 @@
-bear-backlink-update() {
+bear_backlink_update() {
   CURRENT_DIR=$PWD
   echo updating bear backlinks
   cd ~/dev/bear_markdown_export
@@ -13,24 +13,52 @@ bear-backlink-update() {
 
 }
 
-bear-create-daily() {
+bear_daily_update() {
+  TEMPLATE_DATE=$(date +"%Y-%m-%d")
+  JOURNAL_FILE_NAME="${TEMPLATE_DATE} journal.md"
+  TASKS_FILE_NAME="${TEMPLATE_DATE} tasks.md"
 
-  CURRENT_DATE=$(date +"%Y-%m-%d")
-  JOURNAL_FILE_NAME="${CURRENT_DATE} journal.md"
-  TASKS_FILE_NAME="${CURRENT_DATE} tasks.md"
-
+  gsed -i "s/updated prep/updated ${TEMPLATE_DATE}/" ~/dropboxm/Apps/bearapp/sync/${JOURNAL_FILE_NAME}
+  gsed -i "s/updated prep/updated ${TEMPLATE_DATE}/" ~/dropboxm/Apps/bearapp/sync/${TASKS_FILE_NAME}
   # use the day:
   # create a couple of new files in bear, using template,
   # cp ~/.dotfiles/templates/journal.md ~/dropboxm/Apps/bearapp/sync/${JOURNAL_FILE_NAME}
 
-  echo "# ${CURRENT_DATE} journal" > /tmp/newfile
-  cat ~/.dotfiles/templates/journal.md >> /tmp/newfile
-  cp /tmp/newfile ~/dropboxm/Apps/bearapp/sync/${JOURNAL_FILE_NAME}
+  # echo "# ${CURRENT_DATE} journal" > /tmp/newfile
+  # cat ~/.dotfiles/templates/journal.md >> /tmp/newfile
+  # cp /tmp/newfile ~/dropboxm/Apps/bearapp/sync/${JOURNAL_FILE_NAME}
 
-  echo "# ${CURRENT_DATE} tasks" > /tmp/newfile
-  cat ~/.dotfiles/templates/tasks.md >> /tmp/newfile
-  cp /tmp/newfile ~/dropboxm/Apps/bearapp/sync/${TASKS_FILE_NAME}
+  # echo "# ${CURRENT_DATE} tasks" > /tmp/newfile
+  # cat ~/.dotfiles/templates/tasks.md >> /tmp/newfile
+  # cp /tmp/newfile ~/dropboxm/Apps/bearapp/sync/${TASKS_FILE_NAME}
 
-  bear-backlink-update
+}
+
+
+bear_weekly_create() {
+
+  counter=0
+  while [ $counter -le 6 ]
+  do
+    TEMPLATE_DATE=$(date -v +${counter}d +"%Y-%m-%d")
+    JOURNAL_FILE_NAME="${TEMPLATE_DATE} journal.md"
+    TASKS_FILE_NAME="${TEMPLATE_DATE} tasks.md"
+    echo "# ${TEMPLATE_DATE} journal" > /tmp/newfile
+    cat ~/.dotfiles/templates/journal.md >> /tmp/newfile
+    cp /tmp/newfile ~/dropboxm/Apps/bearapp/sync/${JOURNAL_FILE_NAME}
+
+    echo "# ${TEMPLATE_DATE} tasks" > /tmp/newfile
+    cat ~/.dotfiles/templates/tasks.md >> /tmp/newfile
+    cp /tmp/newfile ~/dropboxm/Apps/bearapp/sync/${TASKS_FILE_NAME}
+
+    # FORMATTED_DATE=$(${TEMPLATE_DATE} + "%Y-%m-%d")
+    # CURRENT_DATE=$(date +%Y-%m-%d -d "$DATE + $i day")
+    # echo "# ${CURRENT_DATE} journal" > /tmp/newfile
+    # cat ~/.dotfiles/templates/journal.md >> /tmp/newfile
+    # cp /tmp/newfile ~/dropboxm/Apps/bearapp/sync/${JOURNAL_FILE_NAME}
+    ((counter ++))
+  done
+
+  bear_backlink_update
 
 }
