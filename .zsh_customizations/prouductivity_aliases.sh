@@ -20,17 +20,8 @@ bear_daily_update() {
 
   gsed -i "s/updated prep/updated ${TEMPLATE_DATE}/" ~/dropboxm/Apps/bearapp/sync/${JOURNAL_FILE_NAME}
   gsed -i "s/updated prep/updated ${TEMPLATE_DATE}/" ~/dropboxm/Apps/bearapp/sync/${TASKS_FILE_NAME}
-  # use the day:
-  # create a couple of new files in bear, using template,
-  # cp ~/.dotfiles/templates/journal.md ~/dropboxm/Apps/bearapp/sync/${JOURNAL_FILE_NAME}
 
-  # echo "# ${CURRENT_DATE} journal" > /tmp/newfile
-  # cat ~/.dotfiles/templates/journal.md >> /tmp/newfile
-  # cp /tmp/newfile ~/dropboxm/Apps/bearapp/sync/${JOURNAL_FILE_NAME}
-
-  # echo "# ${CURRENT_DATE} tasks" > /tmp/newfile
-  # cat ~/.dotfiles/templates/tasks.md >> /tmp/newfile
-  # cp /tmp/newfile ~/dropboxm/Apps/bearapp/sync/${TASKS_FILE_NAME}
+  python3 ~/dev/bear_markdown_export/bear_export_sync.py --out ~/dropboxm/Apps/bearapp/sync --backup ~/dropboxm/Apps/bearapp/backup
 
 }
 

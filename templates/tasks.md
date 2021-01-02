@@ -1,5 +1,5 @@
 ## today's focus
-- [ ] did you log time today?
+- [ ] did you log time yesterday?
 - [ ] did you take a long term view?
 
 ## winning
@@ -32,7 +32,7 @@
 - [ ] pomo
 - [ ] pomo
 
-- [ ] peronal pomo
+- [ ] personal pomo
 
 ## project_b
 
