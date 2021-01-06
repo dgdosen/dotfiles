@@ -1,7 +1,7 @@
 # ~/.tmuxinator/pbs1.yml
 
 name: pbs1
-root: ~/dev/project_b_server
+root: ~/dev/project_b_api
 
 # Optional tmux socket
 # socket_name: foo
@@ -23,7 +23,7 @@ root: ~/dev/project_b_server
 
 windows:
   - server:
-      root: ~/dev/project_b_server
+      root: ~/dev/project_b_api
       # layout: 6d60,208x57,0,0{130x57,0,0,19,77x57,131,0[77x11,131,0,20,77x10,131,12,21,77x10,131,23,22,77x10,131,34,23,77x12,131,45,24]}
       # layout: eeac,318x95,0,0{216x95,0,0,82,101x95,217,0[101x14,217,0,83,101x21,217,15,84,101x48,217,37,86,101x9,217,86,87]}
       # layout: 9530,318x90,0,0{200x90,0,0,0,117x90,201,0[117x16,201,0,4,117x11,201,17,5,117x51,201,29,6,117x9,201,81,7]}
