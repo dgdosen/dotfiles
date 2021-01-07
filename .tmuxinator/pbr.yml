@@ -35,15 +35,16 @@ windows:
         -
         -
         - spring rails c
-  - racing_form:
-      root: ~/dev/project_b_racing_form
-      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+  - db:
+      root: ~/dev/project_b_api
+      # layout: even-vertical
+      layout: 5027,418x100,0,0[418x65,0,0,139,418x34,0,66,140]
+      # layout: 9de3,318x90,0,0{159x90,0,0,3,158x90,160,0,12}
       panes:
         -
         -
-        -
-  - variants:
-      root: ~/dev/project_b_variants
+  - racing_form:
+      root: ~/dev/project_b_racing_form
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         -
