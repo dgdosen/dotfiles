@@ -225,7 +225,7 @@ cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
 "dadbod ui
-let g:db_ui_save_location = '~/dev/project_b/db/sql'
+let g:db_ui_save_location = '~/dev/project_b_api/db/sql'
 let g:db_ui_use_nerd_fonts = 1
 let g:db_ui_win_position = 'right'
 let g:db_ui_execute_on_save = 0
