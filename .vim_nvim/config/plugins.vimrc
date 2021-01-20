@@ -88,6 +88,9 @@ nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 " DGD: adding tabularize functionalty from tpope gist
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
+" easy algin
+xmap ga <Plug>(EasyAlign)
+
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
