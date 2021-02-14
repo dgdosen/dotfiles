@@ -38,9 +38,11 @@ Pry.config.print = Proc.new { |output, value| }
 
 # Launch Pry with access to the entire Rails stack
 rails = File.join(Dir.getwd, 'config', 'environment.rb')
+Rails.application.eager_load!
 
 if File.exist?(rails) && ENV['SKIP_RAILS'].nil?
   require rails
+
 
   if Rails.version[0..0] == "2"
     require 'console_app'
