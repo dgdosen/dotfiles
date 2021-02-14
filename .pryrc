@@ -21,17 +21,17 @@ begin
 rescue LoadError => err
 end
 
-# Load 'hirb'
-begin
-  require 'hirb'
+# # Load 'hirb'
+# begin
+#   require 'hirb'
 
-  Pry.config.print = proc do |output, value|
-    Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value)
-  end
+#   Pry.config.print = proc do |output, value|
+#     Hirb::View.view_or_page_output(value) || Pry::DEFAULT_PRINT.call(output, value)
+#   end
 
-  Hirb.enable
-rescue LoadError => err
-end
+#   Hirb.enable
+# rescue LoadError => err
+# end
 
 # supress return values
 Pry.config.print = Proc.new { |output, value| }
@@ -65,12 +65,12 @@ if File.exist?(rails) && ENV['SKIP_RAILS'].nil?
       "[#{env.upcase}]"
     end
 
-  prompt = '%s %s %s:%s'
-  Pry.config.prompt = Pry::Prompt.new(
-    "custom",
-    [ proc { |obj, nest_level, *| "#{prompt}> " % [rails_root, rails_env_prompt, obj, nest_level] },
-      proc { |obj, nest_level, *| "#{prompt}* " % [rails_root, rails_env_prompt, obj, nest_level] } ]
-  )
+  # prompt = '%s %s %s:%s'
+  # Pry.config.prompt = Pry::Prompt.new(
+  #   "custom",
+  #   [ proc { |obj, nest_level, *| "#{prompt}> " % [rails_root, rails_env_prompt, obj, nest_level] },
+  #     proc { |obj, nest_level, *| "#{prompt}* " % [rails_root, rails_env_prompt, obj, nest_level] } ]
+  # )
 
   # [] acts as find()
   ActiveRecord::Base.instance_eval { alias :[] :find } if defined?(ActiveRecord)
