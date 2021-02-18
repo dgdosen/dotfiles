@@ -10,7 +10,7 @@ FILE_NAME="project_b_7x-${FILE_DATE}.backup"
 DW_DB_FILE=$HOME/dropboxm/joined_shares/project_b_share/pg_dw_database_staging_backup/$FILE_NAME_DW
 pg_dump --host=localhost --format=c --username=postgres --file=$DW_DB_FILE project_b_dw_development
 
-DB_FILE=$HOME/dropboxm/joined_shares/project_b_share/pg1_database_staging_backup/$FILE_NAME
+DB_FILE=$HOME/dropboxm/joined_shares/project_b_share/pg_database_staging_backup/$FILE_NAME
 pg_dump --host=localhost --format=c --username=postgres --file=$DB_FILE project_b_development
 
 # file=$HOME/dropboxm/joined_shares/project_b_share/pg_database_staging_backup/$FILE_NAME
