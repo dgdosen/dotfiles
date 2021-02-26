@@ -10,12 +10,12 @@
 - [ ] tea
 - [ ] meditate
 
-### abstract 5 Sh's
-- [ ] ower
-- [ ] ave
-- [ ] oot
-- [ ] ovel
-- [ ] ape
+### abstract 5 things
+- [ ] shower
+- [ ] shave
+- [ ] shoot(vitamins)
+- [ ] shovel(eat)
+- [ ] shape(workout)
 
 ### empirical
 #### today
@@ -36,9 +36,9 @@
 
 ## project_b
 
-### Agenda-ish
+## Agenda-ish
 
-### Idea-ish
+## Idea-ish
 
 updated prep
 ---
