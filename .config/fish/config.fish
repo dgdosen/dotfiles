@@ -12,7 +12,7 @@ set -gx PATH "$HOME/.cargo/bin" $PATH
 # nodenv
 set -gx fish_user_paths $HOME/.nodenv/bin $fish_user_paths
 set -gx PATH $HOME/.nodenv/shims $PATH
-
+set -gx EDITOR nvim
 # alias
 alias cc clear
 alias gh github
@@ -37,8 +37,9 @@ switch (uname -m)
   case '*'
     echo 'on dunno'
 end
+status --is-interactive; and source (rbenv init -|psub)
 
-set fish_key_bindings fish_user_key_bindings
+# set fish_key_bindings fish_user_key_bindings
 # set fish_plugins autojump vi-mode
 
 set -g theme_nerd_fonts yes
@@ -55,3 +56,6 @@ set -g theme_nerd_fonts yes
 # set -g theme_color_scheme solarized
 
 echo "using dotfiles fish config"
+
+# opam configuration
+source /Users/dgdosen/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
