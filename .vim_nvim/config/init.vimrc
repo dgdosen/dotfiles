@@ -53,7 +53,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'romainl/Apprentice'
 " Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'skbolton/embark'
 " Plug 'lifepillar/vim-gruvbox8'
 " Plug 'quanganhdo/grb256'
