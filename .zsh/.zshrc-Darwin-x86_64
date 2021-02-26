@@ -4,6 +4,8 @@ export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 
+source /usr/local/opt/asdf/asdf.sh
+
 # RUBY specific settigns  (need to use RBENV in /opt/homebrew
 # change rbenv root to point to /opt...
 export RBENV_ROOT=/usr/local/var/rbenv
