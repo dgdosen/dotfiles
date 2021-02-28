@@ -26,11 +26,11 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="/Library/Haskell/bin:$PATH"
 
-# powerlevel10k
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-# source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
-
 # NOTE brew should already be in the proper path to get brew --prefix
+
+# powerlevel10k
+# source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 
 # homebrew pyenv support

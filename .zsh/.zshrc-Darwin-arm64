@@ -6,6 +6,11 @@ export PATH="/opt/homebrew/opt/gettext/bin:$PATH"
 
 source /opt/homebrew/opt/asdf/asdf.sh
 
+# powerlevel10k
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+
 # RUBY specific settigns  (need to use RBENV in /opt/homebrew
 # change rbenv root to point to /opt...
 export RBENV_ROOT=/opt/homebrew/var/rbenv
