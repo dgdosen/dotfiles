@@ -28,8 +28,8 @@ bear_daily_update() {
 
 bear_weekly_create() {
 
-  counter=0
-  while [ $counter -le 6 ]
+  counter=1
+  while [ $counter -le 7 ]
   do
     TEMPLATE_DATE=$(date -v +${counter}d +"%Y-%m-%d")
     JOURNAL_FILE_NAME="${TEMPLATE_DATE} journal.md"
