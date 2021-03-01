@@ -17,12 +17,12 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 # ~/.zsh/.zshrc-Darwin_arm64 or ~ ~/.zsh/.zshrc-Darwin_x8664
 source "${HOME}/.zsh/.zshrc-`uname`-`uname -m`"
 
-# Leaving python off until you reinstall:
+# TODO: need to determine if env/brew should be x86 or arm
 # export PATH=$PATH:/usr/local/share/python
-export PATH=$PATH:/usr/local/sbin
+# export PATH=$PATH:/usr/local/sbin
+# export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="/Library/Haskell/bin:$PATH"
 
@@ -30,7 +30,7 @@ export PATH="/Library/Haskell/bin:$PATH"
 
 # powerlevel10k
 # source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+# source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 
 # homebrew pyenv support
@@ -67,7 +67,7 @@ alias config='/usr/bin/git --git-dir=/Users/ddosen/.cfg/ --work-tree=/Users/ddos
 # homebrew nodenv support
 # de
 #
-export NODE_BUILD_DEFINITIONS=$(brew --prefix node-build-update-defs)/share/node-build
+# export NODE_BUILD_DEFINITIONS=$(brew --prefix node-build-update-defs)/share/node-build
 export PATH="$HOME/.nodenv/shims:$PATH"
 eval "$(nodenv init -)"
 

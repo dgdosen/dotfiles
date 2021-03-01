@@ -48,6 +48,11 @@ brewup() {
   brew cleanup
 }
 
+armify() {
+  export PATH=/opt/homebrew/bin:$PATH
+  export PATH=/opt/homebrew/sbin:$PATH
+}
+
 fzffd() {
  local dir
  dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d \
