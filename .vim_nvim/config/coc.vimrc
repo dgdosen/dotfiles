@@ -1,9 +1,11 @@
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
+  \ 'coc-pairs',
+  \ 'coc-snippets',
   \ 'coc-prettier',
+  \ 'coc-eslint',
   \ 'coc-json',
-  \ 'coc-emmet',
   \ ]
 
 " coc influence:
