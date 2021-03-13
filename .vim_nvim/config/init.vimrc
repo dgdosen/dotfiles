@@ -85,7 +85,6 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-obsession'
-
 Plug 'tpope/vim-dispatch'
 
 "os/git manageemnt

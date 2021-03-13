@@ -9,12 +9,14 @@ source /opt/homebrew/opt/asdf/asdf.sh
 # powerlevel10k
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
-# source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# RUBY specific settigns  (need to use RBENV in /opt/homebrew
-# change rbenv root to point to /opt...
 export RBENV_ROOT=/opt/homebrew/var/rbenv
 
 # GO specific settings
-export GOROOT="/opt/homebrew/bin/go"
+# export GOROOT="/opt/homebrew/bin/go"
 # export PATH="/usr/local/go/pkg/tool/darwin_arm64:$PATH"
+
+# NOTE: this is for puppeteer support used in react/node
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+# /opt/homebrew/opt/fzf/install

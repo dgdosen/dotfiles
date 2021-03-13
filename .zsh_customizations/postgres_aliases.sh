@@ -15,3 +15,6 @@ local_pg_backup() {
   pg_dump --file=$filename --format=c --port=5432 --username=postgres dosen_financial
 }
 
+postgres_stop_pg_ctl() {
+  
+}

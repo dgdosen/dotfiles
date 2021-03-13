@@ -218,7 +218,7 @@ command! -range Md5 :echo system('echo '.shellescape(join(getline(<line1>, <line
 inoremap <c-c> <esc>
 
 " expanding regions
-" set iskeyword-=_
+set iskeyword-=_
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 let g:expand_region_text_objects = {
