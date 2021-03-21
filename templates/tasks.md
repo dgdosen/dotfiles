@@ -1,6 +1,8 @@
-## today's focus
+## prep
 - [ ] did you log time yesterday?
+- [ ] did you prep your schedule for today?
 - [ ] did you take a long term view?
+- [ ] win the day early
 
 ## winning
 ### abstract 5 things
@@ -17,28 +19,12 @@
 - [ ] shovel(eat)
 - [ ] shape(workout)
 
-### empirical
-#### today
-- [ ] checkin
-- [ ] checkin
-- [ ] checkin
-- [ ] checkin
-- [ ] checkin
-
-- [ ] pomo
-- [ ] pomo
-- [ ] pomo
-- [ ] pomo
-- [ ] pomo
-- [ ] pomo
-
-- [ ] personal pomo
-
 ## project_b
 
 ## Agenda-ish
 
 ## Idea-ish
+
 
 updated prep
 ---
