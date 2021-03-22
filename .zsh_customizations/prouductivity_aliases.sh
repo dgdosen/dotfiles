@@ -30,7 +30,7 @@ bear_weekly_create() {
   while [ $counter -le 7 ]
   do
     TEMPLATE_DATE=$(date -v +${counter}d +"%Y-%m-%d")
-    TASKS_FILE_NAME="${TEMPLATE_DATE}"
+    TASKS_FILE_NAME="${TEMPLATE_DATE}.md"
 
     echo "# ${TEMPLATE_DATE}" > /tmp/newfile
     cat ~/.dotfiles/templates/tasks.md >> /tmp/newfile
