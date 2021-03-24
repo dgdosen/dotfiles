@@ -11,7 +11,7 @@ pbd () {
 }
 
 cpb() {
-  cd ~/dev/project_b
+  cd ~/dev/project_b_api
 }
 
 
@@ -28,3 +28,6 @@ pb_new_data() {
   sh ~/.dotfiles/.postgres/sp_data.sh
 }
 
+pbs() {
+  spring rails s -b 0.0.0.0
+}
