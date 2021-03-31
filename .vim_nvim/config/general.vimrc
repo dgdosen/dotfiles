@@ -118,6 +118,14 @@ map <D-r> x
 " match OverLength /\%81v.\+/
 highlight Search ctermbg=red ctermfg=lightgrey
 
+augroup todo
+  autocmd!
+  autocmd Syntax * call matchadd(
+              \ 'Search',
+              \ '\v\W\zs<(NOTE|INFO|TODO|FIXME|REFACTOR|CHANGED|BUG|HACK|XXX|DGD)>'
+              \ )
+augroup END
+
 "DGD: adding dgd to keywora
 " todo: TODO: XXX DGD FIXME: FOO
 " syntax keyword myTodo contained BUG REVIEW FIXME FOO TODO DGD NOTE FIXME: DGD:
@@ -151,6 +159,7 @@ let g:clipboard = {
   \ },
   \ 'cache_enabled': 0,
   \ }
+
 
 noremap! <expr> ,t strftime("%H:%M")
 noremap! <expr> ,d strftime("%Y-%m-%d")
