@@ -3,6 +3,8 @@ echo 'on darwin and arm64 zsh'
 export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
 export PATH="/opt/homebrew/opt/libiconv/bin:$PATH"
 export PATH="/opt/homebrew/opt/gettext/bin:$PATH"
+# adding usr/local/sbin for manual crystal install
+export PATH="/usr/local/bin:$PATH"
 
 source /opt/homebrew/opt/asdf/asdf.sh
 
