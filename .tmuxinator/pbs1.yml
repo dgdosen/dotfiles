@@ -29,7 +29,7 @@ windows:
       # layout: 9530,318x90,0,0{200x90,0,0,0,117x90,201,0[117x16,201,0,4,117x11,201,17,5,117x51,201,29,6,117x9,201,81,7]}
       layout: b330,254x71,0,0{164x71,0,0,28,89x71,165,0[89x23,165,0,29,89x33,165,24,30,89x13,165,58,31]}
       panes:
-        - sleep 2 && zeus c
+        - sleep 2 && spring rails c
         -
         - bundle exec guard -c
-        - zeus start
+        - spring rails s -b 0.0.0.0
