@@ -15,7 +15,16 @@ bear_backlink_update() {
 
 bear_daily_update() {
   TEMPLATE_DATE=$(date +"%Y-%m-%d")
+  # NOTE: this is macos only, linux is different
+  TEMPLATE_YESTERDAY=$(date -j -v -1d +"%Y-%m-%d")
   TASKS_FILE_NAME="${TEMPLATE_DATE}.md"
+
+  # for file in `find  ~/dropboxm/Apps/bearapp/sync -maxdepth 1 -type f -name "${TEMPLATE_YESTERDAY}*"`
+  # do
+  #   REPLACEMENT="${file}/${TEMPLATE_DATE}/${TEMPLATE_YESTERDAY}"
+  #   echo "${TEMPLATE_DATE} - ${TEMPLATE_YESTERDAY} - ${REPLACEMENT}"
+  #   echo cp "$file" "${REPLACEMENT}"
+  # done
 
   gsed -i "s/updated prep/updated ${TEMPLATE_DATE}/" ~/dropboxm/Apps/bearapp/sync/${TASKS_FILE_NAME}
 
