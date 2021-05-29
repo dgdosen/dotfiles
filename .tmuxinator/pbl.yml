@@ -1,0 +1,105 @@
+# ~/.tmuxinator/pb.yml
+
+name: pbl
+root: ~/dev/project_b_api
+# pre_window: rbenv shell 2.3.8
+on_project_start: export RBENV_DIR=;export RBENV_VERSION=
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+windows:
+  - api:
+      root: ~/dev/project_b_api
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      # layout: de4b,253x71,0,0[253x51,0,0,0,253x19,0,52,24]
+      panes:
+        -
+        - spring rails c
+  - dev:
+      root: ~/dev/project_b_api
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      # layout: de4b,253x71,0,0[253x51,0,0,0,253x19,0,52,24]
+      panes:
+        - bundle exec guard -c
+        - spring rails s - b 0.0.0.0
+  - db:
+      root: ~/dev/project_b_api
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      panes:
+        -
+        -
+  - cloud:
+      root: ~/dev/project_b_api
+      layout: 9de3,318x90,0,0{159x90,0,0,2,158x90,160,0,13}
+      # layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        -
+        -
+  - data:
+      root: ~/dev/project_b_data
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      panes:
+        -
+        -
+  - racing_form:
+      root: ~/dev/project_b_racing_form
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      # layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        -
+        -
+  - pars:
+      root: ~/dev/project_b_pars
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      # layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        -
+        -
+  - variants:
+      root: ~/dev/project_b_variants
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      # layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        -
+        -
+  - drf:
+      root: ~/dev/project_b_drf_scrape_cli
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      panes:
+        -
+        -
+  - twinspires:
+      root: ~/dev/project_b_twinspires_scrape_cli
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      # layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        -
+        -
+  - gmax:
+      root: ~/dev/project_b_gmax_scrape_cli
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      panes:
+        -
+        -
+  - tnp:
+      root: ~/dev/project_b_trip_note_pros_scrape_cli
+      layout: 7fcb,253x71,0,0[253x56,0,0,1,253x14,0,57,11]
+      panes:
+        -
+        -
