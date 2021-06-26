@@ -11,7 +11,7 @@ $local_port  = "5433";
 $remote_ip   = "127.0.0.1";
 $remote_port = "5432";
 $remote_user = "deployer";
-$remote_host = "makerboarding.com";
+$remote_host = "hosted.makerboarding.com";
 
 $a = shift;
 $a =~ s/^\s+//;
