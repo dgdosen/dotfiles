@@ -13,6 +13,9 @@ if exists('##TextYankPost')
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank('Substitute', 300)
 endif
 
+" disable pyython2
+let g:loaded_python_provider = 0
+
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
 set hidden

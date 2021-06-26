@@ -210,7 +210,8 @@ let g:tmuxline_separators = {
 " python from powerline.vim import setup as powerline_setup
 " python powerline_setup()
 " python del powerline_setup
-set rtp+=/usr/local/opt/fzf
+" set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 " let g:python_host_prog = '$HOME/.pyenv/shims/python2'
 " let g:python2_host_prog = '$HOME/.pyenv/shims/python2'
