@@ -34,6 +34,7 @@ set smartcase
 " per stackoverflow.com/questions/16902317
 set re=1
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -41,6 +42,11 @@ set re=1
 " map <Right> :echo "no!"<cr>
 " map <Up> :echo "no!"<cr>
 " map <Down> :echo "no!"<cr>
+
+" nnoremap <Up>    <C-w>+
+" nnoremap <Down>  <C-w>-
+" nnoremap <Left>  <C-w>>
+" nnoremap <Right> <C-w><
 
 " Keep more context when scrolling off the end of a buffer
 set scrolloff=3

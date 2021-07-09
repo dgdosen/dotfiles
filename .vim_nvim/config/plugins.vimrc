@@ -111,9 +111,13 @@ endif
 " DGD: support for NERDTree
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 " nnoremap <silent> <c-l> :NERDTREEWinSize=50<CR>
-" nmap <silent> <c-m> :NERDTreeWinSize=50<CR>
 let NERDTreeShowHidden=1
 map <leader>r :NERDTreeFind<cr>
+let g:NERDTreeWinPos = "right"
+
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
 
 " DGD: incserch
 map /  <Plug>(incsearch-forward)
