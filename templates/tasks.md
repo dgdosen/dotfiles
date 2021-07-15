@@ -12,7 +12,7 @@
 - [ ] tea
 - [ ] meditate
 
-### abstract 5 things
+### concrete 5 things
 - [ ] shower
 - [ ] shave
 - [ ] shoot(vitamins)
