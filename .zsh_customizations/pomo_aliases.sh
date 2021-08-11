@@ -1,28 +1,28 @@
-# Short for docker-machine
-pi () {
-  pomo incomplete $@
-}
+# # Short for docker-machine
+# pi () {
+#   pomo incomplete $@
+# }
 
-pl () {
-  pomo list --all
-}
+# pl () {
+#   pomo list --all
+# }
 
-pb5 () {
-  pomo break 5
-}
+# pb5 () {
+#   pomo break 5
+# }
 
-pb () {
-  pomo break $@
-}
+# pb () {
+#   pomo break $@
+# }
 
-pa () {
-  pomo add $@
-}
+# pa () {
+#   pomo add $@
+# }
 
-ps () {
-  pomo start $@
-}
+# ps () {
+#   pomo start $@
+# }
 
-pc () {
-  pomo clear
-}
+# pc () {
+#   pomo clear
+# }
