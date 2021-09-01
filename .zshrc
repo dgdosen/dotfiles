@@ -28,6 +28,17 @@ alias zshconfig="vim ~/.zshrc"
 export NVIM_DAY="$HOME/.vim_nvim/config/colors_day.vimrc"
 export NVIM_NIGHT="$HOME/.vim_nvim/config/colors_night.vimrc"
 
+export APPEARANCE='dark'
+
+if [[ "$APPEARANCE" == "dark" ]]
+then
+  echo 'appearance defaults to dark'
+  appearance_dark
+else
+  echo 'appearance set to light'
+  appearance_light
+fi
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -56,8 +67,6 @@ unsetopt correct_all
 export EDITOR='vi'
 
 export CI=false
-
-export APPEARANCE='dark'
 
 # SSI data:
 export PROJECT_B_BRIS_LOGIN="22schwaeglpe"

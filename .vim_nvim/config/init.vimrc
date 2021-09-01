@@ -103,6 +103,8 @@ Plug 'vimwiki/vimwiki'
 " Plug 'junegunn/fzf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'michal-h21/vim-zettel'
 Plug 'tpope/vim-commentary'
 Plug 'Lokaltog/vim-easymotion'
@@ -137,7 +139,7 @@ Plug 'elixir-lang/vim-elixir'
 " html
 Plug 'mattn/emmet-vim'
 Plug 'othree/html5.vim'
-Plug 'hail2u/vim-css3-syntax'
+" Plug 'hail2u/vim-css3-syntax'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'tpope/vim-ragtag'
 " javascript
@@ -164,7 +166,6 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/ruby-matchit'
-Plug 'ecomba/vim-ruby-refactoring'
 " rust
 Plug 'rust-lang/rust.vim'
 "swift

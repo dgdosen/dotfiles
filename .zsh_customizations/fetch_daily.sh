@@ -4,7 +4,7 @@ fetchthegits() {
 
   cd ~/.dotfiles
   git fetch
-  cd ~/dev/project_b
+  cd ~/dev/project_b_api
   git fetch
   cd ~/dev/project_b_data
   git fetch

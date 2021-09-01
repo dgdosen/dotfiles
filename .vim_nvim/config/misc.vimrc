@@ -247,3 +247,7 @@ if &term =~ '^screen'
   execute "set <xLeft>=\e[1;*D"
 endif
 
+
+" junegunn stuff
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!`
