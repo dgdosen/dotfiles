@@ -186,7 +186,8 @@ Plug 'claco/jasmine.vim'
 Plug 'posva/vim-vue'
 " java - yes java
 Plug 'artur-shaik/vim-javacomplete2'
-
+" zig
+Plug 'ziglang/zig.vim'
 " ethereum
 Plug 'tomlion/vim-solidity'
 
