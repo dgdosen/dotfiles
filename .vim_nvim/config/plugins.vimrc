@@ -120,9 +120,9 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
     \ quit | endif
 
 " DGD: incserch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+" map /  <Plug>(incsearch-forward)
+" map ?  <Plug>(incsearch-backward)
+" map g/ <Plug>(incsearch-stay)
 
 " " DGD: support for easy-motion
 " hi EasyMotionTarget ctermbg=none ctermfg=red

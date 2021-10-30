@@ -76,7 +76,8 @@ set autoindent
 " set smartindent
 set laststatus=2
 set showmatch
-set incsearch
+" set incsearch
+set regexpengine=0
 
 set textwidth=80
 set wrapmargin=2
