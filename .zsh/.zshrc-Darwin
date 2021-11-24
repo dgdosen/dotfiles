@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # postgres app (assuming used on all darwin instances)
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+# export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 # vscode (assuming used in all darwin instances)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

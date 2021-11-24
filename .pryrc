@@ -1,6 +1,6 @@
 # Load plugins (only those I whitelist)
 Pry.config.should_load_plugins = false
-Pry.plugins["doc"].activate!
+# Pry.plugins["doc"].activate!
 
 if defined?(PryByebug)
   Pry.commands.alias_command 'c', 'continue'

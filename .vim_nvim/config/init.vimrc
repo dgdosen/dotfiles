@@ -65,6 +65,10 @@ Plug 'skbolton/embark'
 " env
 Plug 'tpope/vim-dotenv'
 
+" coplilot
+" Plug 'github.com', {'branch': 'release'}
+Plug 'github/copilot.vim', {'branch': 'release'}
+
 " visual mode yank
 Plug 'machakann/vim-highlightedyank'
 
@@ -117,7 +121,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'terryma/vim-expand-region'
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'NHDaly/tmux-scroll-copy-mode'
-Plug 'haya14busa/incsearch.vim'
+" Plug 'haya14busa/incsearch.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'elzr/vim-json'
