@@ -1,5 +1,6 @@
 "highlighting search"
 " set hls
+source $HOME/.config/nvim/config/grb24bit.vimrc
 
 " set hi colors
 syntax enable
@@ -17,7 +18,8 @@ set termguicolors
 " :colorscheme base16-railscasts
 " :colorscheme solarized
 " :colorscheme grb256
-:colorscheme gruvbox
+" :colorscheme gruvbox
+" :colorscheme neg
 " :colorscheme embark
 " :colorscheme gruvbox8_soft
 " :colorscheme lucius
