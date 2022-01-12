@@ -59,8 +59,8 @@ windows:
         -
         -
         -
-  - drf:
-      root: ~/dev/project_b_drf_scrape_cli
+  - brisnet:
+      root: ~/dev/project_b_brisnet_scrape_cli
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         -
@@ -83,6 +83,13 @@ windows:
         -
   - pars:
       root: ~/dev/project_b_pars
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        -
+        -
+        -
+  - drf:
+      root: ~/dev/project_b_drf_scrape_cli
       layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
       panes:
         -
