@@ -17,6 +17,7 @@ begin
   require 'awesome_print'
   require 'awesome_print/ext/active_record'
   require 'awesome_print/ext/active_support'
+  require 'table_print'
   AwesomePrint.pry!
 rescue LoadError => err
 end
