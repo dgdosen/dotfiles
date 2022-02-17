@@ -181,3 +181,12 @@ noremap! <expr> ,l strftime("%Y-%m-%d %H:%M")
 noremap! <expr> ,L strftime("%Y-%m-%d %I:%M %p")
 noremap! <expr> ,T strftime("%H:%M:%S")
 
+" vim tip - searching with / are centered
+" I think this are all in lua! :(
+"
+" local opts = { noremap = true, silent = true }
+" local keymap = vim.api.nvim_set_keymap
+
+" " Keep line in the center when jumping between search results
+" keymap("n", "n", "nzzzv", opts)
+" keymap("n", "N", "Nzzzv", opts)

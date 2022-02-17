@@ -67,7 +67,10 @@ Plug 'tpope/vim-dotenv'
 
 " coplilot
 " Plug 'github.com', {'branch': 'release'}
-Plug 'github/copilot.vim', {'branch': 'release'}
+Plug 'github/copilot.vim'
+
+" sympbols
+Plug 'simrat39/symbols-outline.nvim'
 
 " visual mode yank
 Plug 'machakann/vim-highlightedyank'
