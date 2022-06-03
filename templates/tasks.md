@@ -19,7 +19,12 @@
 - [ ] shovel(eat)
 - [ ] shape(workout)
 
-## project_b
+### empirical 5 things
+- [ ] x
+- [ ] x
+- [ ] x
+- [ ] x
+- [ ] x
 
 ## Agenda-ish
 
