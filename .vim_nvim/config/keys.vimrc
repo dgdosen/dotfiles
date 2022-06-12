@@ -118,7 +118,7 @@ nmap <leader>v :e ~/.vim_nvim/init.vim<CR>
 
 " set light/dark colors
 nmap <leader>al :so $NVIM_DAY<cr>
-nmap <leader>an :so $NVIM_NIGHT<cr>
+nmap <leader>ad :so $NVIM_NIGHT<cr>
 
 "denite
 nnoremap <leader>/ :<C-u>Denite grep:. -mode=normal<CR>
