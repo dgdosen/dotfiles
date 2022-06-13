@@ -20,11 +20,11 @@
 - [ ] shape(workout)
 
 ### empirical 5 things
-- [ ] x
-- [ ] x
-- [ ] x
-- [ ] x
-- [ ] x
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
 
 ## Agenda-ish
 
