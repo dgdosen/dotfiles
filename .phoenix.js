@@ -102,11 +102,7 @@ Key.on('o', ['ctrl', 'cmd', 'alt'], resizeToFraction(1, 3, 2, 3, 0, 1, 1, 1));
 // Key.on('j', ['ctr', 'cmd', 'alt'], resizeVerticallyInPlace(1, 2, 1, 2));
 
 // fill
-Key.on(
-  'return',
-  ['ctrl', 'cmd', 'alt'],
-  resizeToFraction(0, 1, 1, 1, 0, 1, 1, 1),
-);
+Key.on('return', ['cmd', 'alt'], resizeToFraction(0, 1, 1, 1, 0, 1, 1, 1));
 
 // focus
 // Key.on("left", ["ctrl", "shift", "cmd"], focusClosestNeighbor("west"));
