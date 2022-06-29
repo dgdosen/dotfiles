@@ -3,7 +3,7 @@ augroup myfiletypes
   autocmd!
   "for ruby, autoindent with two spaces, always expand tabs
   autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
-  autocmd FileType python set sw=2 sts=2 et
+  autocmd FileType python, swift set sw=2 sts=2 et
 augroup END
 
 set switchbuf=useopen
