@@ -3,10 +3,13 @@ bear_backlink_update() {
   echo updating bear backlinks
   cd ~/dev/bear_markdown_export
 
+  # sync
   python3 ~/dev/bear_markdown_export/bear_export_sync.py --out ~/dropboxm/Apps/bearapp/sync --backup ~/dropboxm/Apps/bearapp/backup
 
+  # update
   note-link-janitor ~/dropboxm/Apps/bearapp/sync
 
+  # sync again?
   python3 ~/dev/bear_markdown_export/bear_export_sync.py --out ~/dropboxm/Apps/bearapp/sync --backup ~/dropboxm/Apps/bearapp/backup
 
   cd $CURRENT_DIR
@@ -28,6 +31,7 @@ bear_daily_update() {
 
   gsed -i "s/updated prep/updated ${TEMPLATE_DATE}/" ~/dropboxm/Apps/bearapp/sync/${TASKS_FILE_NAME}
 
+  # sync
   python3 ~/dev/bear_markdown_export/bear_export_sync.py --out ~/dropboxm/Apps/bearapp/sync --backup ~/dropboxm/Apps/bearapp/backup
 
 }
@@ -48,6 +52,7 @@ bear_weekly_create() {
     ((counter ++))
   done
 
-  bear_backlink_update
+  # sync
+  python3 ~/dev/bear_markdown_export/bear_export_sync.py --out ~/dropboxm/Apps/bearapp/sync --backup ~/dropboxm/Apps/bearapp/backup
 
 }
