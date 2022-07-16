@@ -1,7 +1,8 @@
 ## prep
-- [ ] did you log time yesterday?
-- [ ] did you prep your schedule for today?
-- [ ] did you take a long term view?
+- [ ] log time yesterday
+- [ ] prep schedule for today
+- [ ] handwritten apple note
+- [ ] take a long term view
 - [ ] win the day early
 
 ## winning
