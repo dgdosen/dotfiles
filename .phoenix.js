@@ -65,14 +65,31 @@ function focusClosestNeighbor(direction) {
   };
 }
 
-// fourths
-['h', 'j', 'k', 'l'].forEach((key, index) => {
+// mostly fifths
+['j', 'k', 'l'].forEach((key, index) => {
   Key.on(
     key,
     ['ctrl', 'cmd', 'alt'],
-    resizeToFraction(index, 4, 1, 4, 0, 1, 1, 1),
+    resizeToFraction(index + 2, 5, 1, 5, 0, 1, 1, 1),
   );
 });
+
+['h'].forEach((key, index) => {
+  Key.on(
+    key,
+    ['ctrl', 'cmd', 'alt'],
+    resizeToFraction(index, 5, 2, 5, 0, 1, 1, 1),
+  );
+});
+
+// // fourths
+// ['h', 'j', 'k', 'l'].forEach((key, index) => {
+//   Key.on(
+//     key,
+//     ['ctrl', 'cmd', 'alt'],
+//     resizeToFraction(index, 4, 1, 4, 0, 1, 1, 1),
+//   );
+// });
 
 // halves
 ['h', 'l'].forEach((key, index) =>
