@@ -107,11 +107,13 @@ Plug 'moll/vim-node'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 " Plug 'junegunn/fzf'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'michal-h21/vim-zettel'
 Plug 'tpope/vim-commentary'
 Plug 'Lokaltog/vim-easymotion'

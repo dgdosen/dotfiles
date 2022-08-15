@@ -250,4 +250,9 @@ endif
 
 " junegunn stuff
 autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!`
+autocmd! User GoyoLeave Limelight!
+" junegunn rainbow
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+
+
