@@ -8,6 +8,9 @@ export PATH="/usr/local/bin:$PATH"
 
 source /usr/local/opt/asdf/asdf.sh
 
+# postgres app (assuming used on all darwin instances)
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
 # RUBY specific settigns  (need to use RBENV in /opt/homebrew
 # change rbenv root to point to /opt...
 export RBENV_ROOT=/usr/local/var/rbenv
