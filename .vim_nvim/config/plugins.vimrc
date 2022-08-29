@@ -238,11 +238,16 @@ let g:db_ui_use_nerd_fonts = 1
 let g:db_ui_win_position = 'right'
 let g:db_ui_execute_on_save = 0
 " nnoremap <Leader><Leader>S <Plug>(DBUI_ExecuteQuery)
-"
-" vim wiki
+
+" vim wiki/ :help vim-wiki
+" NOTE: <leader> ws -- selects wiki (if multiple)
 let g:vimwiki_list = [{'path': '~/dev/zettel/', 'syntax': 'markdown', 'ext': '.md', 'auto_tags': 1, 'auto_toc': 1}, {'path': '~/dev/zettel_dialing_in_lean/', 'syntax': 'markdown', 'ext': '.md', 'auto_tags': 1, 'auto_toc': 1}]
 let g:zettel_options = [{'front_matter': {'tags': ''}}]
 let g:zettel_format= "%Y-%m-%d:%H:%M-%title"
+
+" vim-zettel/:help vim-zettel
+" NOTE: new file...
+" :ZettelNew <name_of_file_with_no_dashes>
 
 " ocaml
 " let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
