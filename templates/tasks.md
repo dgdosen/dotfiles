@@ -21,15 +21,13 @@
 - [ ] shape(workout)
 
 ### empirical 5 things
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
 
-## Agenda-ish
-
-## Idea-ish
+## Ephemera
 
 
 updated prep
