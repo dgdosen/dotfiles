@@ -21,11 +21,11 @@
 - [ ] shape(workout)
 
 ### empirical 5 things
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
 
 ## Ephemera
 
