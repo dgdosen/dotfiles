@@ -15,9 +15,6 @@ nvimup() {
   cd $FOO
 }
 
-gh() {
-  github
-}
 
 # clean up dotfile submodules
 dotup() {
@@ -44,7 +41,7 @@ touchfoo() {
 # homebrew upgrade
 brewup() {
   brew update
-  brew upgrade
+  brew upgrade  --greedy
   brew cleanup
 }
 
