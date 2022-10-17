@@ -37,7 +37,7 @@ call plug#begin('~/.vim_nvim/plugged')
 "     \ 'branch': 'next',
 "     \ 'do': 'bash install.sh',
 "     \ }
-
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " CONFIG for coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'neoclide/coc-denite'
