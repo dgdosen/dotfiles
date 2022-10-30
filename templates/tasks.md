@@ -1,7 +1,5 @@
 
 
-## Ephemera
-
 
 updated prep
 ---
