@@ -9,6 +9,14 @@ end
 -- Map leader to space
 vim.g.mapleader = " "
 
+-- pane/tmux navigation
+-- NOTE: just done with plugin
+-- TODO; still trying to figure this out...
+-- vim.keymap.set("t", "<c-h>", "<c-\><c-n><c-w>h")
+-- vim.keymap.set("t", "<c-j>", "<c-\><c-n><c-w>j")
+-- vim.keymap.set("t", "<c-k>", "<c-\><c-n><c-w>k")
+-- vim.keymap.set("t", "<c-l>", "<c-\><c-n><c-w>l")
+
 -- -- Switch Session
 -- map("n", "<Leader>1", ":SearchSession<CR>")
 
@@ -30,6 +38,9 @@ map("n", "<Leader>w", "<cmd>:w<CR>")
 -- Open Lazygit
 map("n", "<leader>l", ":LazyGit<cr>", { silent = true })
 map("n", "<Delete>", "<cmd>:w<CR>")
+
+map("n", "<c-n>", ":NvimTreeToggle<CR>")
+
 
 -- Telescope
 local km = vim.keymap
