@@ -7,6 +7,7 @@
 .vim/.netrwhist
 .vim/ruby/*
 .vim_nvim/.netrwhist
+.nvim/plugin
 foobar.txt
 tmux-client*
 tmux-server*
@@ -25,3 +26,4 @@ node_modules
 .rbenv
 .netrwhist
 .oh-my-zsh/**
+
