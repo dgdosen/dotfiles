@@ -39,8 +39,15 @@ map("n", "<Leader>w", "<cmd>:w<CR>")
 map("n", "<leader>l", ":LazyGit<cr>", { silent = true })
 map("n", "<Delete>", "<cmd>:w<CR>")
 
+-- DGD MIGRATION
+-- Toggle File Tree
 map("n", "<c-n>", ":NvimTreeToggle<CR>")
 
+-- MOVE UP/DOWN 5 lines
+map("n", "J", "5j")
+map("n", "K", "5k")
+map("i", "jk", "<esc>")
+map("i", "jk", "<esc>")
 
 -- Telescope
 local km = vim.keymap
