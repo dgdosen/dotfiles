@@ -1,3 +1,4 @@
+print('hello from plugins')
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -52,13 +53,18 @@ return require("packer").startup({
       event = "BufReadPre",
       config = get_setup("gitsigns"),
     })
-    use({ "wbthomason/packer.nvim" })
+    use({ "wbthomason/packer.nvim", 
+      config = get_setup("lsp"),
+		})
     use({ "kdheepak/lazygit.nvim" })
     use({
       "nvim-treesitter/nvim-treesitter",
       config = get_setup("treesitter"),
       run = ":TSUpdate",
     })
+    use({ "neovim/nvim-lspconfig", config = get_setup("lsp") })
+    use({ "williamboman/mason.nvim", config = get_setup("lsp.mason") })
+		-- use({ "williamboman/mason-lspconfig.nvim", config = get_setup("lsp.mason-lspconfig") }) -- simple to use language server installer
     use({ "nvim-treesitter/nvim-treesitter-textobjects" })
     use({
       "nvim-telescope/telescope.nvim",
@@ -74,7 +80,7 @@ return require("packer").startup({
     use({
       "rmagatti/session-lens",
       requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-      config = get_setup("session"),
+    --  config = get_setup("session"),
     })
     use({
       "ellisonleao/gruvbox.nvim",

@@ -1,3 +1,7 @@
+require "setup.lsp.mason"
+require "setup.lsp.handlers"
+require("setup.lsp.handlers").setup()
+
 -- LSP this is needed for LSP completions in CSS along with the snippets plugin
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true

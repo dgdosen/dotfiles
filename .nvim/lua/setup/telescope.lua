@@ -34,6 +34,7 @@ require("telescope").setup({
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
+				['<c-d>'] = require('telescope.actions').delete_buffer,
       },
 
     },
@@ -75,5 +76,5 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("session-lens")
+-- require("telescope").load_extension("session-lens")
 require("telescope").load_extension("file_browser")
