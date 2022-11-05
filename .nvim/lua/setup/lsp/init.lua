@@ -1,4 +1,3 @@
-require "setup.lsp.mason"
 require "setup.lsp.handlers"
 require("setup.lsp.handlers").setup()
 

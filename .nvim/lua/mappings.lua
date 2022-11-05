@@ -44,8 +44,8 @@ map("n", "<Delete>", "<cmd>:w<CR>")
 map("n", "<c-n>", ":NvimTreeToggle<CR>")
 
 -- MOVE UP/DOWN 5 lines
--- map("n", "J", "5j")
--- map("n", "K", "5k")
+map("n", "<c-d>", "5j")
+map("n", "<c-u>", "5k")
 map("i", "jk", "<esc>")
 map("i", "jk", "<esc>")
 
