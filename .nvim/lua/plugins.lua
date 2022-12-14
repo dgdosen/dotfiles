@@ -129,6 +129,15 @@ return require("packer").startup({
       "folke/zen-mode.nvim",
       config = get_setup("zen-mode"),
     })
+    use({ "tpope/vim-dadbod" })
+    use({
+      "kristijanhusak/vim-dadbod-ui",
+      requires = {
+        { "tpope/vim-dadbod" },
+        { "tpope/vim-dotenv" },
+      },
+      config = get_setup("vim-dadbod-ui"),
+    })
     use({
       "tpope/vim-rails",
       config = get_setup("vim-rails"),
