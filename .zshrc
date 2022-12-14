@@ -6,8 +6,6 @@ date
 ZSH=$HOME/.oh-my-zsh
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette_osx.sh"
 
-POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export ZSH_CUSTOM=$HOME/.zsh_customizations
 source $HOME/.zsh_customizations/docker_aliases.sh
@@ -20,6 +18,7 @@ source $HOME/.zsh_customizations/covid_aliases.sh
 source $HOME/.zsh_customizations/fetch_daily.sh
 source $HOME/.zsh_customizations/project_b_aliases.sh
 source $HOME/.zsh_customizations/prouductivity_aliases.sh
+source $HOME/.zsh_customizations/vim_aliases.sh
 
 export CORS_ORIGN='*'
 
