@@ -66,3 +66,5 @@ source ~/bin/git-completion.bash
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source "$HOME/.cargo/env"
+
+source /Users/dgdosen/.docker/init-bash.sh || true # Added by Docker Desktop

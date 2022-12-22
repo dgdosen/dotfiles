@@ -147,3 +147,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+
+source /Users/dgdosen/.docker/init-zsh.sh || true # Added by Docker Desktop

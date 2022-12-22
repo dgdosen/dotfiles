@@ -59,3 +59,5 @@ echo "using dotfiles fish config"
 
 # opam configuration
 source /Users/dgdosen/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+source /Users/dgdosen/.docker/init-fish.sh || true # Added by Docker Desktop
