@@ -2,6 +2,16 @@ print('hello from lua')
 -- You will need to install language servers `npm i -g vscode-langservers-extracted` and `npm install -g typescript typescript-language-server`
 --
 
+-- playing around with lua
+function hello_neovim()
+  print('hello neovim')
+	vim.pretty_print("foobar")
+end
+
+vim.keymap.set("n", "<leader>z", hello_neovim)
+--
+
+
 require("plugins")
 -- require("options")
 -- require("setup.spelling")
