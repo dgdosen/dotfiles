@@ -26,12 +26,33 @@ require('packer').startup(function(use)
     },
   }
 
+
+  -- copilot
+  use 'github/copilot.vim'
+
   -- rails
   use 'tpope/vim-rails'
 
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      'quangnguyen30192/cmp-nvim-tags',
+      -- if you want the sources is available for some file types
+      ft = {
+        'ruby',
+      }
+    },
+  config = function ()
+    require'cmp'.setup {
+    sources = {
+      { name = 'tags' },
+      -- more sources
+    }
+  }
+  end
   }
 
   use { -- Highlight, edit, and navigate code
@@ -50,7 +71,8 @@ require('packer').startup(function(use)
     config = function()
       local nvim_tree = require('nvim-tree')
       nvim_tree.setup{
-        vim.keymap.set('n', "<C-n>", nvim_tree.toggle)
+        vim.keymap.set('n', "<C-n>", vim.cmd.NvimTreeToggle)
+        -- vim.keymap.set('n', "<C-n>", nvim_tree.toggle)
       }
     end,
     -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
