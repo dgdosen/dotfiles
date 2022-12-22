@@ -41,11 +41,18 @@ require('packer').startup(function(use)
     end,
   }
   use 'wfxr/minimap.vim'
+
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    }
+    },
+    config = function()
+      local nvim_tree = require('nvim-tree')
+      nvim_tree.setup{
+        vim.keymap.set('n', "<C-n>", nvim_tree.toggle)
+      }
+    end,
     -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
@@ -71,6 +78,23 @@ require('packer').startup(function(use)
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+
+  use { -- tmux navigation
+    'alexghergh/nvim-tmux-navigation',
+    config = function()
+      local nvim_tmux_nav = require('nvim-tmux-navigation')
+
+      nvim_tmux_nav.setup {
+        disable_when_zoomed = true -- defaults to false
+      }
+      vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+      vim.keymap.set('n', "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+      vim.keymap.set('n', "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+      vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+      vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
+      vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+    end,
+  }
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -198,6 +222,12 @@ require('gitsigns').setup {
   },
 }
 
+-- [[ Configure nvim-tree ]]
+-- NOTE: I can't figure out how to configure nvim-tree using the 'lua' way
+-- require("nvim-tree").setup {
+--   vim.keymap.set('n', "<C-n>", require("nvim_tree").toggle)
+-- }
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -293,10 +323,6 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
-
--- [[ Configure nvim-tree ]]
--- empty setup using defaults
-require("nvim-tree").setup()
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
