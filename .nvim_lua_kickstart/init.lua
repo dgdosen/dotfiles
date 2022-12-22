@@ -68,13 +68,6 @@ require('packer').startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
-    config = function()
-      local nvim_tree = require('nvim-tree')
-      nvim_tree.setup{
-        vim.keymap.set('n', "<C-n>", vim.cmd.NvimTreeToggle)
-        -- vim.keymap.set('n', "<C-n>", nvim_tree.toggle)
-      }
-    end,
     -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
@@ -135,7 +128,7 @@ end)
 -- You'll need to restart nvim, and then it will work.
 if is_bootstrap then
   print '=================================='
-  print '    Plugins are being installed'
+  print '    Plugins are being installednv'
   print '    Wait until Packer completes,'
   print '       then restart nvim'
   print '=================================='
@@ -154,10 +147,12 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- See `:help vim.o`
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
+-- relative line numbers
+vim.o.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -175,6 +170,7 @@ vim.o.smartcase = true
 -- Decrease update time
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
+vim.o.scrolloff = 8
 
 -- Set colorscheme
 vim.o.termguicolors = true
@@ -245,10 +241,9 @@ require('gitsigns').setup {
 }
 
 -- [[ Configure nvim-tree ]]
--- NOTE: I can't figure out how to configure nvim-tree using the 'lua' way
--- require("nvim-tree").setup {
---   vim.keymap.set('n', "<C-n>", require("nvim_tree").toggle)
--- }
+require('nvim-tree').setup{
+  vim.keymap.set('n', "<C-n>", vim.cmd.NvimTreeToggle, { desc = '[N]erdish nvim-tree toggle' })
+}
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
