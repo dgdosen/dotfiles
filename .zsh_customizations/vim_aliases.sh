@@ -23,7 +23,6 @@ nvim_lua() {
 
   # # sync
   # python3 ~/dev/bear_markdown_export/bear_export_sync.py --out ~/dropboxp/Apps/bearapp_b2/sync --backup ~/dropboxp/Apps/bearapp_b2/backup
-
 }
 
 # TEMPLATE_DATE=$(date +"%Y-%m-%d")
@@ -48,6 +47,13 @@ nvim_vimscript() {
   rm -f ~/.local/share/nvim
   ln -sf ~/.config/nvim_vimscript ~/.config/nvim
   ln -sf ~/.local/share/nvim_vimscript ~/.local/share/nvim
+}
+
+nvim_lua_kickstart() {
+  rm -f ~/.config/nvim
+  rm -f ~/.local/share/nvim
+  ln -sf  ~/.config/nvim_lua_kickstart ~/.config/nvim
+  ln -sf  ~/.local/share/nvim_lua_kickstart ~/.local/share/nvim
 }
 
 nvim_reset() {
