@@ -59,8 +59,3 @@ nvim_lua_kickstart() {
 nvim_reset() {
   unset VIM
 }
-
-ln -sv ~/.dotfiles/.tmux-theme-gruvbox.conf ~/.tmux-theme-gruvbox.conf
-ln -sv ~/.dotfiles/.tmux.conf ~/.tmux.conf
-[ ! -L "$HOME/.tmuxinator" ] && ln -sv ~/.dotfiles/.tmuxinator ~/.tmuxinator
-

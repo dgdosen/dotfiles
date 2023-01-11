@@ -4,7 +4,7 @@ al () {
 
 appearance_light () {
   export APPEARANCE='light'
-  alacritty-themes gruvbox-light
+  # alacritty-themes gruvbox-light
 }
 
 ad () {
@@ -13,5 +13,5 @@ ad () {
 
 appearance_dark () {
   export APPEARANCE='dark'
-  alacritty-themes gruvbox-dark
+  # alacritty-themes gruvbox-dark
 }
