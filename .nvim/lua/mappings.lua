@@ -9,6 +9,10 @@ end
 -- Map leader to space
 vim.g.mapleader = " "
 
+-- search highlight
+vim.o.hlsearch = true
+vim.keymap.set('n', '<CR>', vim.cmd.noh, { silent = true })
+
 -- pane/tmux navigation
 -- NOTE: just done with plugin
 -- TODO; still trying to figure this out...

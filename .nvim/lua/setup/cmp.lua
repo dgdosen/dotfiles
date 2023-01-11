@@ -103,6 +103,7 @@ cmp.setup {
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
+        tag = "[Tag]",
       })[entry.source.name]
       return vim_item
     end,
@@ -111,6 +112,7 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "buffer" },
+		{ name = "tags" },
     { name = "path" },
   },
   confirm_opts = {
@@ -128,7 +130,8 @@ cmp.setup {
 
 require'cmp'.setup {
   sources = {
-    { name = 'nvim_lsp' }
+    { name = 'nvim_lsp' },
+		{ name = 'tags' },
   }
 }
 

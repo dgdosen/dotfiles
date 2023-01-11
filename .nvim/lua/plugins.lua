@@ -1,4 +1,3 @@
-print('hello from plugins')
 vim.cmd([[
   augroup packer_user_config
     autocmd!
@@ -7,9 +6,11 @@ vim.cmd([[
 ]])
 
 local fn = vim.fn
+local is_bootstrap = false
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({
+  is_bootstrap = true
+  fn.system({
     "git",
     "clone",
     "--depth",
@@ -18,11 +19,22 @@ if fn.empty(fn.glob(install_path)) > 0 then
     install_path,
   })
 end
+
 vim.api.nvim_command("packadd packer.nvim")
 -- returns the require for use in `config` parameter of packer's use
 -- expects the name of the config file
 function get_setup(name)
   return string.format('require("setup/%s")', name)
+end
+
+-- You'll need to restart nvim, and then it will work.
+if is_bootstrap then
+  print '=================================='
+  print '    Plugins are being installednv'
+  print '    Wait until Packer completes,'
+  print '       then restart nvim'
+  print '=================================='
+  return
 end
 
 return require("packer").startup({
@@ -43,9 +55,22 @@ return require("packer").startup({
         { "L3MON4D3/LuaSnip" },
         { "saadparwaiz1/cmp_luasnip" },
         { "hrsh7th/cmp-calc" },
+				{ "quangnguyen30192/cmp-nvim-tags",
+				  ft = {
+				    'ruby',
+				   }
+				},
         { "rafamadriz/friendly-snippets" },
       },
-      config = get_setup("cmp"),
+      config = function ()
+        require'cmp'.setup {
+        sources = {
+          { name = 'tags' },
+          -- more sources
+          }
+        }
+      end,
+      config = get_setup("cmp")
     })
     use({
       "lewis6991/gitsigns.nvim",
@@ -53,18 +78,23 @@ return require("packer").startup({
       event = "BufReadPre",
       config = get_setup("gitsigns"),
     })
-    use({ "wbthomason/packer.nvim", 
+    use({ "wbthomason/packer.nvim",
       config = get_setup("lsp"),
-		})
+    })
     use({ "kdheepak/lazygit.nvim" })
+		use({ "ojroques/nvim-osc52",
+      config = get_setup("osc52"),
+		})
     use({
       "nvim-treesitter/nvim-treesitter",
       config = get_setup("treesitter"),
       run = ":TSUpdate",
     })
-    use({ "neovim/nvim-lspconfig", config = get_setup("lsp") })
-    use({ "williamboman/mason.nvim", config = get_setup("lsp.mason") })
-		-- use({ "williamboman/mason-lspconfig.nvim", config = get_setup("lsp.mason-lspconfig") }) -- simple to use language server installer
+    use({ "neovim/nvim-lspconfig",
+      config = get_setup("lsp") })
+    use({ "williamboman/mason.nvim",
+      config = get_setup("lsp.mason") })
+      -- use({ "williamboman/mason-lspconfig.nvim", config = get_setup("lsp.mason-lspconfig") }) -- simple to use language server installer
     use({ "nvim-treesitter/nvim-treesitter-textobjects" })
     use({
       "nvim-telescope/telescope.nvim",
@@ -76,12 +106,16 @@ return require("packer").startup({
       },
       config = get_setup("telescope"),
     })
+    -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+
     use({ "nvim-telescope/telescope-file-browser.nvim" })
-    use({
-      "rmagatti/session-lens",
-      requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
-    --  config = get_setup("session"),
-    })
+    -- NOTE: why would I use sessions?
+    -- use({
+    --   "rmagatti/session-lens",
+    --   requires = { "rmagatti/auto-session", "nvim-telescope/telescope.nvim" },
+    -- --  config = get_setup("session"),
+    -- })
     use({
       "ellisonleao/gruvbox.nvim",
       config = get_setup("gruvbox"),
@@ -112,6 +146,22 @@ return require("packer").startup({
       "aserowy/tmux.nvim",
       config = get_setup("tmux"),
     })
+    use { -- tmux navigation
+      'alexghergh/nvim-tmux-navigation',
+      config = function()
+        local nvim_tmux_nav = require('nvim-tmux-navigation')
+
+        nvim_tmux_nav.setup {
+          disable_when_zoomed = true -- defaults to false
+        }
+        vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+        vim.keymap.set('n', "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+        vim.keymap.set('n', "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+        vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+        vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
+        vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
+      end,
+    }
     use({
       "github/copilot.vim",
       config = get_setup("copilot"),
