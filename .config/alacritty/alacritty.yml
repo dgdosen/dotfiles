@@ -43,7 +43,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: buttonless
+  decorations: none
   # Startup Mode (changes require restart)
   #
   # Values for `startup_mode`:
@@ -67,6 +67,7 @@ window:
   # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
   # Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
+  opacity: 0.9
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -136,7 +137,6 @@ font:
   vi_mode_cursor:
     text: '#000000'
     cursor: '#ffffff'
-window.opacity: 0.30
 
 #selection:
 #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -305,4 +305,3 @@ colors:
     magenta: '#d3869b'
     cyan: '#8ec07c'
     white: '#ebdbb2'
-theme: gruvbox-dark

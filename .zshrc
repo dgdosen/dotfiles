@@ -31,10 +31,10 @@ export APPEARANCE='dark'
 
 if [[ "$APPEARANCE" == "dark" ]]
 then
-  echo 'appearance defaults to dark'
+  # echo 'appearance defaults to dark'
   appearance_dark
 else
-  echo 'appearance set to light'
+  # echo 'appearance set to light'
   appearance_light
 fi
 
@@ -148,4 +148,4 @@ unset __conda_setup
 
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
-source /Users/dgdosen/.docker/init-zsh.sh || true # Added by Docker Desktop
+# source /Users/dgdosen/.docker/init-zsh.sh || true # Added by Docker Desktop
