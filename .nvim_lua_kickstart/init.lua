@@ -1,4 +1,6 @@
 -- Install packer
+print 'init from nvim_lua_kickstart'
+
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
@@ -20,18 +22,24 @@ require('packer').startup(function(use)
 
       -- Useful status updates for LSP
       'j-hui/fidget.nvim',
+      'b0o/schemastore.nvim',
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
     },
   }
 
-
   -- copilot
   use 'github/copilot.vim'
 
   -- rails
   use 'tpope/vim-rails'
+
+  -- scrolling
+  use 'karb94/neoscroll.nvim'
+
+  -- misc
+  use {'ojroques/nvim-osc52'}
 
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -40,19 +48,20 @@ require('packer').startup(function(use)
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
       'quangnguyen30192/cmp-nvim-tags',
-      -- if you want the sources is available for some file types
-      ft = {
-        'ruby',
-      }
+      -- -- if you want the sources is available for some file types
+      -- ft = {
+      --   'ruby',
+      --   'yamlls'
+      -- }
     },
-  config = function ()
-    require'cmp'.setup {
-    sources = {
-      { name = 'tags' },
-      -- more sources
-    }
-  }
-  end
+    -- config = function ()
+    -- -- require'cmp'.setup {
+    -- -- sources = {
+    -- --   { name = 'tags' },
+    -- --   -- more sources
+    -- --   }
+    -- -- }
+    -- end
   }
 
   use { -- Highlight, edit, and navigate code
@@ -177,6 +186,9 @@ vim.o.scrolloff = 8
 vim.o.termguicolors = true
 -- vim.cmd [[colorscheme onedark]]
 vim.o.background = 'dark' -- or light
+
+vim.cmd("let g:gruvbox_transparent_bg = 1")
+vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
 vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
@@ -240,6 +252,26 @@ require('gitsigns').setup {
     changedelete = { text = '~' },
   },
 }
+
+require('gitsigns').setup{
+  print('in gitsigns setup'),
+}
+
+require('gitsigns').setup{
+  print('in gitsignss setup'),
+}
+
+-- [[Configure misc ]]
+require('osc52').setup{
+  max_length = 0,  -- Maximum length of selection (0 for no limit)
+  silent = false,  -- Disable message on successful copy
+  trim = false,    -- Trim text before copy
+
+}
+vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
+vim.keymap.set('n', '<leader>cc', '<leader>c_', { remap = true })
+vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
+
 
 -- [[ Configure nvim-tree ]]
 require('nvim-tree').setup{
@@ -403,7 +435,36 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
+
+  yamlls = {
+    yaml = {
+      schemaStore = { 
+        enable = true,
+        url = "https://www.schemastore.org/api/json/catalog.json",
+      },
+      schemas = {
+        kubernetes = "*.yaml",
+        -- ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+        -- ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+        ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+        ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+        -- ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+        -- ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
+        -- ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
+        -- ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
+        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+      --   ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
+      },
+      -- format = {
+      --   enable = false,
+      -- },
+      -- validate = false,
+      completion = true,
+      hover = true,
+
+    },
+  },
 
   sumneko_lua = {
     Lua = {
@@ -440,6 +501,21 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+-- -- DGD Hack to get schema store for kubernetes?
+-- require('lspconfig').jsonls.setup {
+--   settings = {
+--     json = {
+--       schemas = require('schemastore').json.schemas {
+--         select = {
+--           'kustomization.yaml',
+--           'package.json',
+--         },
+--       },
+--       validate = { enable = true },
+--     },
+--   },
+-- }
+
 -- Turn on lsp status information
 require('fidget').setup()
 
@@ -453,6 +529,7 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+  print('hello from cmp setup'),
   mapping = cmp.mapping.preset.insert {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -483,6 +560,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'tags' },
   },
 }
 
