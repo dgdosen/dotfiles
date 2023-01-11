@@ -13,10 +13,10 @@ function resizeToFraction(
     if (window) {
       const screen = window.screen().flippedVisibleFrame();
 
-      const x = (screen.width / xDenominator) * xNumerator;
-      const y = (screen.height / yDenominator) * yNumerator;
-      const width = (screen.width / widthDenominator) * widthNumerator;
-      const height = (screen.height / heightDenominator) * heightNumerator;
+      const x = ((screen.width / xDenominator) * xNumerator) + 5;
+      const y = ((screen.height / yDenominator) * yNumerator) + 30;
+      const width = ((screen.width / widthDenominator) * widthNumerator) - 7;
+      const height = ((screen.height / heightDenominator) * heightNumerator) - 10;
 
       window.setFrame({ x, y, width, height });
     }
@@ -35,10 +35,10 @@ function resizeVerticallyInPlace(
       const screen = window.screen().flippedVisibleFrame();
 
       const currentFrame = window.frame();
-      const x = currentFrame.x;
-      const y = (screen.height / yDenominator) * yNumerator;
-      const width = currentFrame.width;
-      const height = (screen.height / heightDenominator) * heightNumerator;
+      const x = currentFrame.x - 5 ;
+      const y = (screen.height / yDenominator) * yNumerator - 5 ;
+      const width = currentFrame.width - 5 ;
+      const height = (screen.height / heightDenominator) * heightNumerator - 5;
 
       window.setFrame({ x, y, width, height });
     }

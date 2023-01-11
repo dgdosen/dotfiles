@@ -148,6 +148,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 
 -- Set highlight on search
 vim.o.hlsearch = true
+vim.keymap.set('n', '<CR>', vim.cmd.noh, { silent = true })
 
 -- Make line numbers default
 vim.wo.number = true
