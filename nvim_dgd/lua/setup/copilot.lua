@@ -1,5 +1,3 @@
-print('copilot setup')
-
 vim.g.copilot_filetypes = { xml = false }
 vim.cmd[[highlight CopilotSuggestion guifg=#10B870C ctermfg=8]]
 

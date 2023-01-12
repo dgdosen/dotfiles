@@ -1,5 +1,3 @@
-print('plugins.lua')
-
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
@@ -29,19 +27,14 @@ require('packer').startup(function(use)
     },
   }
 
-  -- copilot
-  use 'github/copilot.vim'
-
-  -- rails
-  use 'tpope/vim-rails'
-
   -- scrolling
   use 'karb94/neoscroll.nvim'
 
   -- misc
   use {'ojroques/nvim-osc52'}
 
-  use { -- Autocompletion
+  -- Autocompletion
+  use {
     'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
@@ -54,17 +47,10 @@ require('packer').startup(function(use)
       --   'yamlls'
       -- }
     },
-    -- config = function ()
-    -- -- require'cmp'.setup {
-    -- -- sources = {
-    -- --   { name = 'tags' },
-    -- --   -- more sources
-    -- --   }
-    -- -- }
-    -- end
   }
 
-  use { -- Highlight, edit, and navigate code
+  -- Highlight, edit, and navigate code
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
       pcall(require('nvim-treesitter.install').update { with_sync = true })
@@ -85,23 +71,43 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
+  use { 'kristijanhusak/vim-dadbod-ui',
+    requires = {
+      'tpope/vim-dadbod',
+      'tpope/vim-dotenv',
+    }
+  }
+
   -- Git related plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
 
-  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
   use 'ellisonleao/gruvbox.nvim'
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+  use 'tpope/vim-dotenv' -- Detect tabstop and shiftwidth automatically
+  use 'simrat39/symbols-outline.nvim' -- Provides symbols view
+  use 'jlanzarotta/bufexplorer' -- Buffer Explorer
+  use 'junegunn/goyo.vim' -- Distraction Free Vim
+  use 'kylechui/nvim-surround' -- Replacing tpope?
+  use 'junegunn/vim-easy-align' -- Align tables
+  use 'vimwiki/vimwiki' -- Wiki/Zettel Support
+  use 'michal-h21/vim-zettel' -- Zettel Support
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+
+  -- copilot
+  use 'github/copilot.vim'
+
+  -- rails
+  use 'tpope/vim-rails'
 
   use { -- tmux navigation
     'alexghergh/nvim-tmux-navigation',
@@ -152,17 +158,17 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
+require('setup/lsp')
 require('setup/cmp')
 require('setup/comment')
 require('setup/copilot')
 require('setup/gitsigns')
 require('setup/indent_blankline')
-require('setup/lsp')
 require('setup/lualine')
 require('setup/neodev')
 require('setup/nvim-tree')
-require('setup/osc52')
 require('setup/telescope')
 require('setup/treesitter')
-
+require('setup/osc52')
+require('setup/vim-dadbod-ui')
 
