@@ -27,10 +27,16 @@ require('packer').startup(function(use)
     },
   }
 
-  -- scrolling
+  -- Scrolling
   use 'karb94/neoscroll.nvim'
 
-  -- misc
+  -- InPane navigation
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+  }
+
+  -- Text Copy/Paste with Tmux
   use {'ojroques/nvim-osc52'}
 
   -- Autocompletion
@@ -78,6 +84,24 @@ require('packer').startup(function(use)
     }
   }
 
+  -- zettel 
+  use { 'michal-h21/vim-zettel',
+    requires = {
+      'vimwiki/vimwiki',
+    }
+  }
+
+  -- true zen
+  use({ 
+    'Pocco81/true-zen.nvim',
+	  config = function()
+		  require("true-zen").setup {
+			-- your config goes here
+			-- or just leave it empty :)
+		  }
+	  end,
+  })
+
   -- Git related plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
@@ -91,11 +115,9 @@ require('packer').startup(function(use)
   use 'tpope/vim-dotenv' -- Detect tabstop and shiftwidth automatically
   use 'simrat39/symbols-outline.nvim' -- Provides symbols view
   use 'jlanzarotta/bufexplorer' -- Buffer Explorer
-  use 'junegunn/goyo.vim' -- Distraction Free Vim
   use 'kylechui/nvim-surround' -- Replacing tpope?
   use 'junegunn/vim-easy-align' -- Align tables
   use 'vimwiki/vimwiki' -- Wiki/Zettel Support
-  use 'michal-h21/vim-zettel' -- Zettel Support
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -163,6 +185,7 @@ require('setup/cmp')
 require('setup/comment')
 require('setup/copilot')
 require('setup/gitsigns')
+require('setup/hop')
 require('setup/indent_blankline')
 require('setup/lualine')
 require('setup/neodev')
@@ -171,4 +194,5 @@ require('setup/telescope')
 require('setup/treesitter')
 require('setup/osc52')
 require('setup/vim-dadbod-ui')
+require('setup/vim-wiki')
 
