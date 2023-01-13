@@ -103,16 +103,31 @@ require('packer').startup(function(use)
   -- }
   --
 
-  -- true zen
-  use({
-    'Pocco81/true-zen.nvim',
-	  config = function()
-		  require('true-zen').setup {
-			-- your config goes here
-			-- or just leave it empty :)
-		  }
-	  end,
-  })
+  -- -- true zen
+  -- use({
+  --   'Pocco81/true-zen.nvim',
+	 --  config = function()
+		--   require('true-zen').setup {
+		-- 	-- your config goes here
+		-- 	-- or just leave it empty :)
+		--   }
+	 --  end,
+  -- })
+
+  -- zen-mode is much better!
+  use {
+    'folke/zen-mode.nvim',
+    config = function()
+      require('setup/zen-mode')
+    end,
+  }
+
+  use {
+    "folke/twilight.nvim",
+    config = function()
+      require("setup/twilight")
+    end
+  }
 
   use {
     "AckslD/nvim-neoclip.lua",
@@ -230,5 +245,4 @@ require('setup/osc52')
 require('setup/vim-dadbod-ui')
 -- require('setup/telekasten')
 require('setup/vim-wiki')
--- require('setup/neoclip')
 
