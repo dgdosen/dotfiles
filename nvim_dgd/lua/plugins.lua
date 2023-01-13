@@ -46,7 +46,9 @@ require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lsp',
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
+      'rafamadriz/friendly-snippets',
       'quangnguyen30192/cmp-nvim-tags',
+
       -- -- if you want the sources is available for some file types
       -- ft = {
       --   'ruby',
@@ -84,23 +86,45 @@ require('packer').startup(function(use)
     }
   }
 
-  -- zettel 
+  -- Vim-Zettel for Zettel?
   use { 'michal-h21/vim-zettel',
     requires = {
       'vimwiki/vimwiki',
+      'junegunn/fzf',
+      'junegunn/fzf.vim',
     }
   }
 
+  -- Telekasten for Zettel?
+  -- use { 'renerocksai/telekasten.nvim',
+  --   requires = {
+  --     'nvim-telescope/telescope.nvim'
+  --   }
+  -- }
+  --
+
   -- true zen
-  use({ 
+  use({
     'Pocco81/true-zen.nvim',
 	  config = function()
-		  require("true-zen").setup {
+		  require('true-zen').setup {
 			-- your config goes here
 			-- or just leave it empty :)
 		  }
 	  end,
   })
+
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      -- you'll need at least one of these
+      {'nvim-telescope/telescope.nvim'},
+      -- {'ibhagwan/fzf-lua'},
+    },
+    config = function()
+      require('neoclip').setup()
+    end,
+  }
 
   -- Git related plugins
   use 'tpope/vim-fugitive'
@@ -115,9 +139,17 @@ require('packer').startup(function(use)
   use 'tpope/vim-dotenv' -- Detect tabstop and shiftwidth automatically
   use 'simrat39/symbols-outline.nvim' -- Provides symbols view
   use 'jlanzarotta/bufexplorer' -- Buffer Explorer
-  use 'kylechui/nvim-surround' -- Replacing tpope?
+  use({
+    'kylechui/nvim-surround',
+    tag = "*", -- Use for stability;
+    config = function()
+      require('nvim-surround').setup({
+	-- Configuration here, or leave empty to use defaults
+      })
+    end
+  })
+
   use 'junegunn/vim-easy-align' -- Align tables
-  use 'vimwiki/vimwiki' -- Wiki/Zettel Support
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -188,11 +220,15 @@ require('setup/gitsigns')
 require('setup/hop')
 require('setup/indent_blankline')
 require('setup/lualine')
+-- require('setup/neoclip')
 require('setup/neodev')
+require('setup/neoscroll')
 require('setup/nvim-tree')
 require('setup/telescope')
 require('setup/treesitter')
 require('setup/osc52')
 require('setup/vim-dadbod-ui')
+-- require('setup/telekasten')
 require('setup/vim-wiki')
+-- require('setup/neoclip')
 

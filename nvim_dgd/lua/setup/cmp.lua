@@ -5,6 +5,9 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+require("luasnip.loaders.from_vscode").lazy_load()
+require'luasnip'.filetype_extend("ruby", {"rails"})
+require'luasnip'.filetype_extend("typescript", {"ts"})
 
 cmp.setup {
   snippet = {
@@ -43,7 +46,9 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'tags' },
-  },
+  }, {
+    { name = 'buffer' }
+  }
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
