@@ -1,5 +1,5 @@
 vim.g.copilot_filetypes = { xml = false }
-vim.cmd[[highlight CopilotSuggestion guifg=#10B870C ctermfg=8]]
+vim.cmd [[highlight CopilotSuggestion guifg=#10B870C ctermfg=8]]
 
 
 -- vim.cmd[[imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")]]

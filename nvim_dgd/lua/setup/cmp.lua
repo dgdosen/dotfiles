@@ -6,8 +6,8 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 require("luasnip.loaders.from_vscode").lazy_load()
-require'luasnip'.filetype_extend("ruby", {"rails"})
-require'luasnip'.filetype_extend("typescript", {"ts"})
+require 'luasnip'.filetype_extend("ruby", { "rails" })
+require 'luasnip'.filetype_extend("typescript", { "ts" })
 
 cmp.setup {
   snippet = {
@@ -53,4 +53,3 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-

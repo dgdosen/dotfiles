@@ -37,6 +37,10 @@ local on_attach = function(_, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
 
+  nmap("<leader>lf", function()
+    vim.lsp.buf.format({ async = true })
+  end, 'null-[L]s [F]ormat')
+
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
@@ -57,7 +61,7 @@ local servers = {
 
   yamlls = {
     yaml = {
-      schemaStore = { 
+      schemaStore = {
         enable = true,
         url = "https://www.schemastore.org/api/json/catalog.json",
       },
@@ -72,7 +76,7 @@ local servers = {
         -- ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
         -- ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
         ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
-      --   ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
+        --   ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
       },
       -- format = {
       --   enable = false,
