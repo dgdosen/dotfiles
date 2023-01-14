@@ -20,6 +20,5 @@ vim.keymap.set("i", "jk", "<esc>")
 vim.keymap.set("i", ',d', 'strftime("%y-%m-%d")', { expr = true })
 vim.keymap.set("i", ',t', 'strftime("%H:%M")', { expr = true })
 
-
 -- -- rails search helpers
 -- vim.keymap.set('n', '<leader>gm', ':FZF app/models<cr>', { expr = true }
