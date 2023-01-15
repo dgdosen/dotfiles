@@ -6,10 +6,12 @@ local sources = {
   null_ls.builtins.formatting.isort,
   null_ls.builtins.formatting.tidy,
   -- null_ls.builtins.formatting.stylelua,
+  null_ls.builtins.formatting.rufo,
   null_ls.builtins.formatting.prettier,
   null_ls.builtins.formatting.yamlfmt,
   null_ls.builtins.formatting.codespell.with({ filetypes = { 'markdown' } }),
   null_ls.builtins.diagnostics.eslint,
+  -- null_ls.builtins.diagnostics.rubocop,
   null_ls.builtins.completion.spell,
 }
 

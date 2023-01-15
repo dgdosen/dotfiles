@@ -11,7 +11,6 @@ local on_attach = function(_, bufnr)
     if desc then
       desc = 'LSP: ' .. desc
     end
-    print('in lsp setup')
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
@@ -54,6 +53,9 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   -- clangd = {},
+  html = {},
+  solargraph = {},
+  svelte = {},
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
