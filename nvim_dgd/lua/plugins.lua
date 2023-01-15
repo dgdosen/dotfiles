@@ -72,7 +72,6 @@ require('packer').startup(function(use)
 	use { 'jose-elias-alvarez/null-ls.nvim',
 		config = function()
 			require('setup/null-ls')
-			-- require('null-ls').setup()
 		end,
 		requires = { "nvim-lua/plenary.nvim" }
 	}
@@ -98,18 +97,6 @@ require('packer').startup(function(use)
 	}
 
 	use { 'folke/which-key.nvim', event = "BufWinEnter", config = "require('setup/which-key')" }
-	-- use {
-	-- 	"folke/which-key.nvim",
-	-- 	config = function()
-	-- 		vim.o.timeout = true
-	-- 		vim.o.timeoutlen = 300
-	-- 		require("which-key").setup {
-	-- 			-- your configuration comes here
-	-- 			-- or leave it empty to use the default settings
-	-- 			-- refer to the configuration section below
-	-- 		}
-	-- 	end
-	-- }
 
 	-- Vim-Zettel for Zettel?
 	use { 'michal-h21/vim-zettel',
@@ -178,7 +165,7 @@ require('packer').startup(function(use)
 	use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 	use 'tpope/vim-dotenv' -- Detect tabstop and shiftwidth automatically
 	use 'simrat39/symbols-outline.nvim' -- Provides symbols view
-	use 'jlanzarotta/bufexplorer' -- Buffer Explorer
+	use 'jlanzarotta/bufexplorer' -- Buffer Explorer 
 	use({
 		'kylechui/nvim-surround',
 		tag = "*", -- Use for stability;
@@ -253,6 +240,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 require('setup/lsp')
+require('setup/bufexplorer')
 require('setup/cmp')
 require('setup/comment')
 require('setup/copilot')

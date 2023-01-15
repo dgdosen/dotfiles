@@ -17,6 +17,6 @@ local directions = require('hop.hint').HintDirection
 --   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
 -- end, {remap=true})
 --
-vim.keymap.set('n', '<leader>f', require("hop").hint_words, { remap = true, desc = '[F]ind via hop' })
+vim.keymap.set('n', '<leader>f', require("hop").hint_words, { remap = true, desc = '[f]ind via hop' })
 
 -- vim.keymap.set("v", "<Leader>h", require("hop").hint_words)

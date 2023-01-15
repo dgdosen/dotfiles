@@ -29,9 +29,9 @@ wk.setup {
 -- end
 
 local mappings = {
-  q = { ":q<cr>", "Quit" },
-  Q = { ":wq<cr>", "Save & Quit" },
-  -- w = { ":w<cr>", "Save" },
+  q = { ":q<cr>", "[q]uit" },
+  Q = { ":wq<cr>", "[Q]uit and save" },
+  w = { ":w<cr>", "[w]rite/save" },
   -- x = { ":bdelete<cr>", "Close" },
   -- E = { ":e ~/.config/nvim/init.lua<cr>", "Edit config" },
   -- f = { ":Telescope find_files<cr>", "Telescope Find Files" },
@@ -41,41 +41,53 @@ local mappings = {
   --   f = { toggle_float, "Floating Terminal" },
   --   l = { toggle_lazygit, "LazyGit" }
   -- },
+  r = {
+    -- TODO: I like these hints - but this should be in the setup for bufexporer, not here
+    name = '[r]e[n]ame',
+  },
+  b = {
+    -- TODO: I like these hints - but this should be in the setup for bufexporer, not here
+    name = '[b]uffer ...',
+  },
+  s = {
+    -- TODO: I like these hints - but this should be in the setup for bufexporer, not here
+    name = '[s]earch ...',
+  },
   l = {
-    name = "LSP",
-    i = { ":LspInfo<cr>", "Connected Language Servers" },
-    k = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
-    K = { "<cmd>Lspsaga hover_doc<cr>", "Hover Commands" },
-    w = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add Workspace Folder" },
-    W = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "Remove Workspace Folder" },
+    name = "[l]SP ...",
+    i = { ":LspInfo<cr>", "[i]info on connected language servers" },
+    k = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "si[k]gnature help" },
+    K = { "<cmd>Lspsaga hover_doc<cr>", "[K]hover commands" },
+    w = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "add [w]orkspace folder" },
+    W = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "remove [W]orkspace folder" },
     l = {
       '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>',
       "List Workspace Folders"
     },
-    t = { '<cmd>lua vim.lsp.buf.type_definition()<cr>', "Type Definition" },
-    d = { '<cmd>lua vim.lsp.buf.definition()<cr>', "Go To Definition" },
-    D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', "Go To Declaration" },
-    r = { '<cmd>lua vim.lsp.buf.references()<cr>', "References" },
-    R = { '<cmd>Lspsaga rename<cr>', "Rename" },
-    a = { '<cmd>Lspsaga code_action<cr>', "Code Action" },
-    e = { '<cmd>Lspsaga show_line_diagnostics<cr>', "Show Line Diagnostics" },
-    n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', "Go To Next Diagnostic" },
-    N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', "Go To Previous Diagnostic" }
+    t = { '<cmd>lua vim.lsp.buf.type_definition()<cr>', "[t]ype Definition" },
+    d = { '<cmd>lua vim.lsp.buf.definition()<cr>', "go to [d]efinition" },
+    D = { '<cmd>lua vim.lsp.buf.declaration()<cr>', "go to [D]eclaration" },
+    r = { '<cmd>lua vim.lsp.buf.references()<cr>', "[r]eferences" },
+    R = { '<cmd>Lspsaga rename<cr>', "[R]ename" },
+    a = { '<cmd>Lspsaga code_action<cr>', "code [a]ction" },
+    e = { '<cmd>Lspsaga show_line_diagnostics<cr>', "show Lin[e] diagnostics" },
+    n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', "go to [n]ext diagnostic" },
+    N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', "go to [N]previous Diagnostic" }
   },
   z = {
-    name = "Focus",
-    z = { ":ZenMode<cr>", "Toggle Zen Mode" },
-    t = { ":Twilight<cr>", "Toggle Twilight" }
+    name = "[z]en ...",
+    z = { ":ZenMode<cr>", "toggle [z]en Mode" },
+    t = { ":Twilight<cr>", "toggle [t]wilight" }
   },
   p = {
-    name = "Packer",
-    r = { ":PackerClean<cr>", "Remove Unused Plugins" },
-    c = { ":PackerCompile profile=true<cr>", "Recompile Plugins" },
-    i = { ":PackerInstall<cr>", "Install Plugins" },
-    p = { ":PackerProfile<cr>", "Packer Profile" },
-    s = { ":PackerSync<cr>", "Sync Plugins" },
-    S = { ":PackerStatus<cr>", "Packer Status" },
-    u = { ":PackerUpdate<cr>", "Update Plugins" }
+    name = "[p]acker ...",
+    r = { ":PackerClean<cr>", "[r]emove unused plugins" },
+    c = { ":PackerCompile profile=true<cr>", "re[c]ompile plugins" },
+    i = { ":PackerInstall<cr>", "[i]nstall plugins" },
+    p = { ":PackerProfile<cr>", "[p]rofile" },
+    s = { ":PackerSync<cr>", "[s]ync" },
+    S = { ":PackerStatus<cr>", "[S]tatus" },
+    u = { ":PackerUpdate<cr>", "[u]pdate" }
   }
 }
 
