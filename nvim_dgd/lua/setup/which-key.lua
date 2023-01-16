@@ -41,10 +41,15 @@ local mappings = {
   --   f = { toggle_float, "Floating Terminal" },
   --   l = { toggle_lazygit, "LazyGit" }
   -- },
+  --
   r = {
     -- TODO: I like these hints - but this should be in the setup for bufexporer, not here
     name = '[r]e[n]ame',
   },
+  -- r = {
+  --   name = '[r]ails ...',
+  --   g = { "<Plug>(rails)gf<cr>", "[g]o to the rails file" },
+  -- },
   b = {
     -- TODO: I like these hints - but this should be in the setup for bufexporer, not here
     name = '[b]uffer ...',

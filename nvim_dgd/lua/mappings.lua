@@ -5,6 +5,8 @@ vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
 vim.keymap.set('n', '<leader>q', ':q<CR>', { expr = true })
 vim.keymap.set('n', '<leader>w', ':w<CR>', { expr = true })
 
+-- TODO: trying to 'remap' rails vim commands for older (project_b) rails projects.
+-- vim.keymap.set('n', '<leader>gff', require('rails').rails_gf(), { expr=true})
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -15,6 +17,25 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 -- smash jk to escape
 vim.keymap.set("i", "kj", "<esc>")
 vim.keymap.set("i", "jk", "<esc>")
+
+- -- Move text up and down
+-- vim.keymap.set("v", "<C-j>", ":m .+1<CR>==")
+-- vim.keymap.set("v", "<C-k>", ":m .-2<CR>==")
+-- -- keymap("v", "p", '"_dP', opts)
+
+-- Visual Block --
+-- Move text up and down
+vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
+vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
+vim.keymap.set("x", "<C-j>", ":move '>+1<CR>gv-gv")
+vim.keymap.set("x", "<C-k>", ":move '<-2<CR>gv-gv")
+
+-- "http://vimcasts.org/episodes/bubbling-text/
+-- nmap <C-k> [e
+-- nmap <C-j> ]e
+-- Bubble multiple lines
+-- vmpu <C-k> [egv
+-- vmap <C-j> ]egv"
 
 -- insert date or time
 vim.keymap.set("i", ',d', 'strftime("%y-%m-%d")', { expr = true })

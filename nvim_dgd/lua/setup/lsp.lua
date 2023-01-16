@@ -54,7 +54,8 @@ end
 local servers = {
   -- clangd = {},
   html = {},
-  solargraph = {},
+  ruby_ls = {},
+  -- solargraph = {},
   svelte = {},
   -- gopls = {},
   -- pyright = {},

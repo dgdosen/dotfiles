@@ -107,25 +107,6 @@ require('packer').startup(function(use)
 		}
 	}
 
-	-- Telekasten for Zettel?
-	-- use { 'renerocksai/telekasten.nvim',
-	--   requires = {
-	--     'nvim-telescope/telescope.nvim'
-	--   }
-	-- }
-	--
-
-	-- -- true zen
-	-- use({
-	--   'Pocco81/true-zen.nvim',
-	--  config = function()
-	--   require('true-zen').setup {
-	-- 	-- your config goes here
-	-- 	-- or just leave it empty :)
-	--   }
-	--  end,
-	-- })
-
 	-- zen-mode is much better!
 	use {
 		'folke/zen-mode.nvim',
