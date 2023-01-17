@@ -146,7 +146,7 @@ require('packer').startup(function(use)
 	use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 	use 'tpope/vim-dotenv' -- Detect tabstop and shiftwidth automatically
 	use 'simrat39/symbols-outline.nvim' -- Provides symbols view
-	use 'jlanzarotta/bufexplorer' -- Buffer Explorer 
+	use 'jlanzarotta/bufexplorer' -- Buffer Explorer
 	use({
 		'kylechui/nvim-surround',
 		tag = "*", -- Use for stability;
@@ -188,6 +188,9 @@ require('packer').startup(function(use)
 		end,
 	}
 
+	-- wip custom plugin development
+	use { [[/Users/dgdosen/dev/which_snip.nvim]] }
+
 	-- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
 	local has_plugins, plugins = pcall(require, 'custom.plugins')
 	if has_plugins then
@@ -221,7 +224,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 })
 
 require('setup/lsp')
-require('setup/bufexplorer')
+-- require('setup/bufexplorer')
 require('setup/cmp')
 require('setup/comment')
 require('setup/copilot')

@@ -18,7 +18,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 vim.keymap.set("i", "kj", "<esc>")
 vim.keymap.set("i", "jk", "<esc>")
 
-- -- Move text up and down
+-- Move text up and down
 -- vim.keymap.set("v", "<C-j>", ":m .+1<CR>==")
 -- vim.keymap.set("v", "<C-k>", ":m .-2<CR>==")
 -- -- keymap("v", "p", '"_dP', opts)
