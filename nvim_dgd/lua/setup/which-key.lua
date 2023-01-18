@@ -54,7 +54,13 @@ local mappings = {
     -- TODO: I like these hints - but this should be in the setup for bufexporer, not here
     name = '[b]uffer ...',
   },
-    name = '[s]earch ...',
+  k = {
+    name = "spell chec[k] ...",
+    t = { ":set spell!<cr>", "spell chec[k] [t]oggle" },
+    n = { "]s", "spell chec[k] [n]ext" },
+    p = { "[s", "spell chec[k] [p]revious" },
+    a = { "1z=", "spell chec[k] [a]ccept first" },
+    s = { "z=", "spell chec[k] [s]uggest" },
   },
   l = {
     name = "[l]SP ...",
@@ -77,11 +83,6 @@ local mappings = {
     n = { '<cmd>Lspsaga diagnostic_jump_next<cr>', "go to [n]ext diagnostic" },
     N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', "go to [N]previous Diagnostic" }
   },
-  z = {
-    name = "[z]en ...",
-    z = { ":ZenMode<cr>", "toggle [z]en Mode" },
-    t = { ":Twilight<cr>", "toggle [t]wilight" }
-  },
   p = {
     name = "[p]acker ...",
     r = { ":PackerClean<cr>", "[r]emove unused plugins" },
@@ -91,7 +92,10 @@ local mappings = {
     s = { ":PackerSync<cr>", "[s]ync" },
     S = { ":PackerStatus<cr>", "[S]tatus" },
     u = { ":PackerUpdate<cr>", "[u]pdate" }
-  }
+  },
+  s = {
+    name = "[s]earch ...",
+  },
   t = {
     name = "[t]ypescript and toggle ...",
     a = { ":TypescriptAddMissingImports<cr>", "[t]ypescript [a]dd missing imports" },
@@ -99,6 +103,11 @@ local mappings = {
     l = { ":ToggleAlternate<cr>", "[t]oggle a[l]ternate" },
     o = { ":TypescriptOrganizeImports<cr>", "[t]ypescript [o]rganize" },
     r = { ":TypescriptRemoveUnused<cr>", "[t]ypescript [r]emove unused" }
+  },
+  z = {
+    name = "[z]en ...",
+    z = { ":ZenMode<cr>", "toggle [z]en Mode" },
+    t = { ":Twilight<cr>", "toggle [t]wilight" }
   },
 }
 
