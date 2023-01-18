@@ -3,7 +3,6 @@ vim.g.completeot="menu,menuone,noselect,noinsert"
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
--- print("hello from cmp")
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
@@ -12,6 +11,17 @@ local lspkind = require 'lspkind'
 require("luasnip.loaders.from_vscode").lazy_load()
 require 'luasnip'.filetype_extend("ruby", { "rails" })
 require 'luasnip'.filetype_extend("typescript", { "ts" })
+
+-- lspconfig for copliot
+lspkind.init({
+  symbol_map = {
+    Copilot = "",
+  },
+})
+
+-- defining colors 
+-- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#689D6A"})
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#98971A"})
 
 cmp.setup {
   snippet = {
@@ -47,6 +57,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    { name = "copilot" },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'tags' },
@@ -54,7 +65,7 @@ cmp.setup {
     { name = 'buffer' }
   },
   formatting = {
-    format= lspkind.cmp_format({ with_text = true, maxwidth = 50 })
+    format= lspkind.cmp_format({with_text = true, maxwidth = 50 })
   },
 }
 

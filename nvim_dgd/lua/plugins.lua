@@ -51,6 +51,7 @@ require('packer').startup(function(use)
 			'saadparwaiz1/cmp_luasnip',
 			'rafamadriz/friendly-snippets',
 			'quangnguyen30192/cmp-nvim-tags',
+			'zbirenbaum/copilot-cmp',
 			'onsails/lspkind-nvim',
 			-- -- if you want the sources is available for some file types
 			-- ft = {
@@ -78,6 +79,9 @@ require('packer').startup(function(use)
 		end,
 		requires = { "nvim-lua/plenary.nvim" }
 	}
+
+	-- svelte (no lsp?
+	use 'evanleck/vim-svelte'
 
 	use {
 		'nvim-tree/nvim-tree.lua',
@@ -176,7 +180,58 @@ require('packer').startup(function(use)
 	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
 	-- copilot
-	use 'github/copilot.vim'
+	-- via tpope
+	-- use 'github/copilot.vim'
+	-- via lua
+	-- use { "zbirenbaum/copilot.lua" }
+	use ({
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "VimEnter",
+		config = function()
+			vim.defer_fn(function()
+				require("copilot").setup(
+					{
+						suggestion = { enabled = false },
+						panel = { enabled = false },
+						-- suggestion = {
+						-- 	enabled = true,
+						-- 	auto_trigger = false,
+						-- 	debounce = 75,
+						-- 	keymap = {
+						-- 		accept = "<C-l>",
+						-- 		accept_word = false,
+						-- 		accept_line = false,
+						-- 		next = "<C-]>",
+						-- 		prev = "<C-[>",
+						-- 		dismiss = "<C-x>",
+						-- 	},
+						-- },
+					 --  copilot_node_command = 'node', -- Node.js version must be > 16.x
+						-- server_opts_overrides = {},
+					}
+				)
+			end, 100)
+		end,
+	})
+
+	use ({
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua" },
+		config = function ()
+			require("copilot_cmp").setup(
+				{
+					method = "getCompletionsCycling",
+					-- formatters = {
+					-- 	label = require("copilot_cmp.format").format_label_text,
+					-- 	insert_text = require("copilot_cmp.format").format_insert_text,
+					-- 	preview = require("copilot_cmp.format").deindent,
+					-- }
+				}
+			)
+
+		end
+	})
 
 	-- rails
 	use 'tpope/vim-rails'
@@ -238,7 +293,7 @@ require('setup/lsp')
 -- require('setup/bufexplorer')
 require('setup/cmp')
 require('setup/comment')
-require('setup/copilot')
+-- require('setup/copilot')
 require('setup/gitsigns')
 require('setup/hop')
 require('setup/indent_blankline')
