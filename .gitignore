@@ -27,3 +27,4 @@ node_modules
 .netrwhist
 .oh-my-zsh/**
 **/pack/*
+**/plugin/*
