@@ -55,12 +55,13 @@ local servers = {
   -- clangd = {},
   html = {},
   ruby_ls = {},
+  graphql = {},
   -- solargraph = {},
   svelte = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
-  tsserver = {},
+  rust_analyzer = {},
+  -- tsserver = {},
 
   yamlls = {
     yaml = {

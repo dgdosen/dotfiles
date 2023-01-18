@@ -10,6 +10,9 @@ vim.wo.number = true
 -- relative line numbers
 vim.o.relativenumber = true
 
+-- clipboard
+vim.o.clipboard = 'unnamedplus'
+
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
@@ -27,6 +30,7 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
 
 -- Set colorscheme
 vim.o.termguicolors = true

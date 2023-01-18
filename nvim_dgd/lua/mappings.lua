@@ -23,6 +23,10 @@ vim.keymap.set("i", "jk", "<esc>")
 -- vim.keymap.set("v", "<C-k>", ":m .-2<CR>==")
 -- -- keymap("v", "p", '"_dP', opts)
 
+-- typescripts
+vim.keymap.set("n", "<leader>tt", ":TypescriptOrganizeImports<CR>")
+vim.keymap.set("n", "<leader>tm", ":TypescriptAddMissingImports<CR>")
+
 -- Visual Block --
 -- Move text up and down
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")

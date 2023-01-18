@@ -18,7 +18,7 @@ require('packer').startup(function(use)
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim',
 			'jose-elias-alvarez/null-ls.nvim',
-
+			'jose-elias-alvarez/typescript.nvim',
 			-- Useful status updates for LSP
 			'j-hui/fidget.nvim',
 			'b0o/schemastore.nvim',
@@ -51,7 +51,7 @@ require('packer').startup(function(use)
 			'saadparwaiz1/cmp_luasnip',
 			'rafamadriz/friendly-snippets',
 			'quangnguyen30192/cmp-nvim-tags',
-      'onsails/lspkind-nvim',
+			'onsails/lspkind-nvim',
 			-- -- if you want the sources is available for some file types
 			-- ft = {
 			--   'ruby',
@@ -136,6 +136,13 @@ require('packer').startup(function(use)
 			require('neoclip').setup()
 		end,
 	}
+
+	-- text plugs (via youtuber bitter tea sweet orange)
+	use 'rmagatti/alternate-toggler'
+	use 'windwp/nvim-autopairs'
+	-- use 'mg979/vim-visual-multi'
+	use 'gcmt/wildfire.vim'
+	-- use 'tpope/vim-surround'
 
 	-- Git related plugins
 	use 'tpope/vim-fugitive'
@@ -226,6 +233,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 	pattern = vim.fn.expand '$MYVIMRC',
 })
 
+-- TODO: should these setups be in the configs above? Is there any benefit to doing it here?
 require('setup/lsp')
 -- require('setup/bufexplorer')
 require('setup/cmp')
@@ -240,7 +248,9 @@ require('setup/neodev')
 require('setup/neoscroll')
 require('setup/nvim-tree')
 require('setup/telescope')
+require('setup/text')
 require('setup/treesitter')
+require('setup/typescript')
 require('setup/osc52')
 require('setup/vim-dadbod-ui')
 -- require('setup/telekasten')
