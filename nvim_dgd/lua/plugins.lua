@@ -41,21 +41,24 @@ require('packer').startup(function(use)
 	use { 'ojroques/nvim-osc52' }
 
 	-- Autocompletion
+	-- use { 'folke/which-key.nvim', event = "BufWinEnter", config = "require('setup/which-key')" }
 	use {
 		'hrsh7th/nvim-cmp',
 		requires = {
 			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-buffer',
 			'L3MON4D3/LuaSnip',
 			'saadparwaiz1/cmp_luasnip',
 			'rafamadriz/friendly-snippets',
 			'quangnguyen30192/cmp-nvim-tags',
-
+      'onsails/lspkind-nvim',
 			-- -- if you want the sources is available for some file types
 			-- ft = {
 			--   'ruby',
 			--   'yamlls'
 			-- }
 		},
+		config = "require('setup/cmp')"
 	}
 
 	-- Highlight, edit, and navigate code

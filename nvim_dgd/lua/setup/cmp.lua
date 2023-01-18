@@ -1,10 +1,14 @@
+vim.g.completeot="menu,menuone,noselect,noinsert"
+
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+-- print("hello from cmp")
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local lspkind = require 'lspkind'
 require("luasnip.loaders.from_vscode").lazy_load()
 require 'luasnip'.filetype_extend("ruby", { "rails" })
 require 'luasnip'.filetype_extend("typescript", { "ts" })
@@ -48,7 +52,10 @@ cmp.setup {
     { name = 'tags' },
   }, {
     { name = 'buffer' }
-  }
+  },
+  formatting = {
+    format= lspkind.cmp_format({ with_text = true, maxwidth = 50 })
+  },
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
