@@ -56,6 +56,8 @@ local servers = {
   html = {},
   ruby_ls = {},
   graphql = {},
+  dockerls = {},
+
   -- solargraph = {},
   svelte = {},
   -- gopls = {},
@@ -117,6 +119,15 @@ mason_lspconfig.setup_handlers {
       on_attach = on_attach,
       settings = servers[server_name],
     }
+    -- if server_name == 'tsserver' then
+    --   require('lspconfig').tsserver.setup({
+    --     settings = {
+    --       completions = {
+    --         completeFunctionCalls = true
+    --       }
+    --     }
+    --   })
+    -- end
   end,
 }
 

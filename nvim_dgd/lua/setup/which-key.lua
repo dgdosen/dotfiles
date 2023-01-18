@@ -54,8 +54,6 @@ local mappings = {
     -- TODO: I like these hints - but this should be in the setup for bufexporer, not here
     name = '[b]uffer ...',
   },
-  s = {
-    -- TODO: I like these hints - but this should be in the setup for bufexporer, not here
     name = '[s]earch ...',
   },
   l = {
@@ -94,6 +92,14 @@ local mappings = {
     S = { ":PackerStatus<cr>", "[S]tatus" },
     u = { ":PackerUpdate<cr>", "[u]pdate" }
   }
+  t = {
+    name = "[t]ypescript and toggle ...",
+    a = { ":TypescriptAddMissingImports<cr>", "[t]ypescript [a]dd missing imports" },
+    d = { ":TypescriptGoToSourceDefinition<cr>", "[t]ypescript source [d]efinition" },
+    l = { ":ToggleAlternate<cr>", "[t]oggle a[l]ternate" },
+    o = { ":TypescriptOrganizeImports<cr>", "[t]ypescript [o]rganize" },
+    r = { ":TypescriptRemoveUnused<cr>", "[t]ypescript [r]emove unused" }
+  },
 }
 
 local opts = { prefix = '<leader>' }
