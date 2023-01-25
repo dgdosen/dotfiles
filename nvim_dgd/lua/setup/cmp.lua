@@ -19,7 +19,7 @@ lspkind.init({
   },
 })
 
--- defining colors 
+-- defining colors
 -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#689D6A"})
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#98971A"})
 
@@ -32,42 +32,69 @@ cmp.setup {
   mapping = cmp.mapping.preset.insert {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<C-y>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, { 'i', 's' }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    -- default next/previous via ins-completion
+    -- ['<C-n>'] = next...(),
+    -- ['<C-p>'] = previous(),
+    --
+  --   ['<Tab>'] = cmp.mapping(function(fallback)
+  --     if cmp.visible() then
+  --       cmp.select_next_item()
+  --     elseif luasnip.expand_or_jumpable() then
+  --       luasnip.expand_or_jump()
+  --     else
+  --       fallback()
+  --     end
+  --   end, { 'i', 's' }),
+  --   ['<S-Tab>'] = cmp.mapping(function(fallback)
+  --     if cmp.visible() then
+  --       cmp.select_prev_item()
+  --     elseif luasnip.jumpable(-1) then
+  --       luasnip.jump(-1)
+  --     else
+  --       fallback()
+  --     end
+  --   end, { 'i', 's' }),
   },
   sources = {
     { name = "copilot" },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'nvim_lua' },
     { name = 'tags' },
-  }, {
-    { name = 'buffer' }
+    { name = 'buffer', keyword_length = 4 },
+    { name = 'path' },
+    { name = 'treesitter' },
   },
   formatting = {
-    format= lspkind.cmp_format({with_text = true, maxwidth = 50 })
+    format= lspkind.cmp_format({
+      with_text = true, 
+      maxwidth = 50,
+      menu = {
+        buffer = "[buf]",
+        nvim_lsp = "[lsp]",
+        nvim_lua = "[api]",
+        path = "[path]",
+        luasnip = "[snip]",
+        gh_issues = "[issues]",
+        copilot = "[cp]",
+      },
+    })
   },
 }
+
+-- Add vim-dadbod-completion in sql files
+_ = vim.cmd [[
+  augroup DadbodSql
+    au!
+    autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+  augroup END
+]]
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

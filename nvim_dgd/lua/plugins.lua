@@ -47,12 +47,14 @@ require('packer').startup(function(use)
 		requires = {
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-nvim-lua',
 			'L3MON4D3/LuaSnip',
 			'saadparwaiz1/cmp_luasnip',
 			'rafamadriz/friendly-snippets',
 			'quangnguyen30192/cmp-nvim-tags',
 			'zbirenbaum/copilot-cmp',
 			'onsails/lspkind-nvim',
+			'kristijanhusak/vim-dadbod-completion',
 			-- -- if you want the sources is available for some file types
 			-- ft = {
 			--   'ruby',
@@ -145,7 +147,7 @@ require('packer').startup(function(use)
 	use 'rmagatti/alternate-toggler'
 	use 'windwp/nvim-autopairs'
 	-- use 'mg979/vim-visual-multi'
-	use 'gcmt/wildfire.vim'
+	-- use 'gcmt/wildfire.vim'
 	-- use 'tpope/vim-surround'
 
 	-- Git related plugins
