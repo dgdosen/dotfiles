@@ -93,6 +93,24 @@ require('packer').startup(function(use)
 		-- tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
 
+	-- debugging
+	use {
+		"mfussenegger/nvim-dap",
+		config = function()
+			require('setup/dap')
+		end,
+		requires = {
+      "rcarriga/nvim-dap-ui",
+      "mxsdev/nvim-dap-vscode-js",
+    },
+	}
+
+  use {
+    "microsoft/vscode-js-debug",
+    opt = true,
+    run = "npm install --legacy-peer-deps && npm run compile"
+  }
+
 	use { -- Additional text objects via treesitter
 		'nvim-treesitter/nvim-treesitter-textobjects',
 		after = 'nvim-treesitter',
@@ -295,6 +313,7 @@ require('setup/lsp')
 -- require('setup/bufexplorer')
 require('setup/cmp')
 require('setup/comment')
+require('setup/dap')
 -- require('setup/copilot')
 require('setup/gitsigns')
 require('setup/hop')
