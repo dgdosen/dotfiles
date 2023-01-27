@@ -5,6 +5,7 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 local c = ls.choice_node
+local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
 ls.add_snippets("all", {
@@ -16,6 +17,11 @@ ls.add_snippets("all", {
         t(" "),
         i(0),
     }),
+    s("crdt", {
+        f(function()
+            return os.date "%Y-%m-%d"
+        end)
+    })
 })
 
 ls.add_snippets("lua", {
@@ -23,5 +29,3 @@ ls.add_snippets("lua", {
     s("trigger", { t("Trigger! Text!") }),
   }
 )
-
--- This is a sexy snippet with: choice 1 adfadfqsdf
