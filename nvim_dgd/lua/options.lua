@@ -10,6 +10,8 @@ vim.wo.number = true
 -- relative line numbers
 vim.o.relativenumber = true
 
+vim.o.cusrorline = true
+
 -- clipboard
 vim.o.clipboard = 'unnamedplus'
 

@@ -101,15 +101,18 @@ require('packer').startup(function(use)
 		end,
 		requires = {
       "rcarriga/nvim-dap-ui",
-      "mxsdev/nvim-dap-vscode-js",
+      -- "mxsdev/nvim-dap-vscode-js",
+      "leoluz/nvim-dap-go",
+      "suketa/nvim-dap-ruby",
+      "nvim-telescope/telescope-dap.nvim",
     },
 	}
 
-  use {
-    "microsoft/vscode-js-debug",
-    opt = true,
-    run = "npm install --legacy-peer-deps && npm run compile"
-  }
+  -- use {
+  --   "microsoft/vscode-js-debug",
+  --   opt = true,
+  --   run = "npm install --legacy-peer-deps && npm run compile"
+  -- }
 
 	use { -- Additional text objects via treesitter
 		'nvim-treesitter/nvim-treesitter-textobjects',
@@ -177,7 +180,6 @@ require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim' -- Fancier statusline
 	use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
 	use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-	use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 	use 'tpope/vim-dotenv' -- Detect tabstop and shiftwidth automatically
 	use 'simrat39/symbols-outline.nvim' -- Provides symbols view
 	use 'jlanzarotta/bufexplorer' -- Buffer Explorer
