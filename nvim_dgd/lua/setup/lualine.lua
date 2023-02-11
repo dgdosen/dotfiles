@@ -1,12 +1,24 @@
--- Set lualine as statusline
+-- Set lualine as statuslinea
 -- See `:help lualine.txt`
+local symbols = {
+  unix = '', -- e712
+  dos = '', -- e70f
+  mac = '', -- e711
+}
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'gruvbox',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
-    -- component_separators = '|',
-    section_separators = '',
+    sections = {
+      lualine_a = { "mode" },
+      lualine_b = {"branch"},
+      lualine_c = { diagnostics },
+      lualine_x = { diff, spaces, "encoding", {'fileformat', symbols = { unix = 'Unix', dos = '', mac = '',}}, filetype },
+      lualine_y = { location },
+      lualine_z = { "progress" },
+    },
   },
 }
