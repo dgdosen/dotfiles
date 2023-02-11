@@ -84,14 +84,13 @@ local mappings = {
     N = { '<cmd>Lspsaga diagnostic_jump_prev<cr>', "go to [N]previous Diagnostic" }
   },
   p = {
-    name = "[p]acker ...",
-    r = { ":PackerClean<cr>", "[r]emove unused plugins" },
-    c = { ":PackerCompile profile=true<cr>", "re[c]ompile plugins" },
-    i = { ":PackerInstall<cr>", "[i]nstall plugins" },
-    p = { ":PackerProfile<cr>", "[p]rofile" },
-    s = { ":PackerSync<cr>", "[s]ync" },
-    S = { ":PackerStatus<cr>", "[S]tatus" },
-    u = { ":PackerUpdate<cr>", "[u]pdate" }
+    name = "[p]lugins ...",
+    c = { ":Lazy clean<cr>", "[c]lean plugins" },
+    S = { ":Lazy health<cr>", "[h]ealth" },
+    i = { ":Lazy install<cr>", "[i]nstall plugins" },
+    p = { ":Lazy profile<cr>", "[p]rofile" },
+    s = { ":Lazy sync<cr>", "[s]ync" },
+    u = { ":Lazy update<cr>", "[u]pdate" }
   },
   s = {
     name = "[s]earch ...",
