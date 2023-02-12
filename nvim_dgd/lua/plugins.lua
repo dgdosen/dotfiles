@@ -146,6 +146,10 @@ require('lazy').setup({
 		end,
 	},
 
+  -- text/markdown
+  'preservim/vim-markdown',
+
+
 	{
 		"folke/twilight.nvim",
 		config = function()
@@ -291,9 +295,6 @@ require('lazy').setup({
 	-- wip custom plugin development
 	-- { [[/Users/dgdosen/dev/which_snip.nvim]] },
 
-	-- if is_bootstrap then
-	-- 	require('packer').sync()
-	-- end
 })
 
 -- TODO: should these setups be in the configs above? Is there any benefit to doing it here?

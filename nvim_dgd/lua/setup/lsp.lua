@@ -94,16 +94,16 @@ local servers = {
     },
   },
 
-  sumneko_lua = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-    },
-  },
+  -- sumneko_lua = {
+  --   Lua = {
+  --     workspace = { checkThirdParty = false },
+  --     telemetry = { enable = false },
+  --     diagnostics = {
+  --       -- Get the language server to recognize the `vim` global
+  --       globals = {'vim'},
+  --     },
+  --   },
+  -- },
 }
 
 -- Setup mason so it can manage external tooling
@@ -117,12 +117,12 @@ mason_lspconfig.setup {
 }
 
 mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
+  -- function(server_name)
+    -- require('lspconfig')[server_name].setup {
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   settings = servers[server_name],
+    -- }
     -- if server_name == 'tsserver' then
     --   require('lspconfig').tsserver.setup({
     --     settings = {
@@ -132,7 +132,7 @@ mason_lspconfig.setup_handlers {
     --     }
     --   })
     -- end
-  end,
+  -- end,
 }
 
 -- Turn on lsp status information
