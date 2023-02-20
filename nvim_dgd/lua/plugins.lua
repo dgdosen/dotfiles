@@ -120,6 +120,12 @@ require('lazy').setup({
   --   build = "npm install --legacy-peer-deps && npm build compile"
   -- },
 
+  {"mhanberg/elixir.nvim", 
+    dependencies = { 
+      "nvim-lua/plenary.nvim" 
+    }
+  },
+
 	{ 'kristijanhusak/vim-dadbod-ui',
 		dependencies = {
 			'tpope/vim-dadbod',
