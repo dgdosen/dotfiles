@@ -1,3 +1,5 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -51,6 +53,7 @@ end
 --
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
+
 local servers = {
   -- clangd = {},
   html = {},
@@ -58,12 +61,38 @@ local servers = {
   graphql = {},
   dockerls = {},
 
-  -- solargraph = {},
+  solargraph = {
+    cmd = {"solargraph", "stdio"}
+  },
   svelte = {},
   -- gopls = {},
   -- pyright = {},
-  rust_analyzer = {},
+  rust_analyzer = {
+    cmd = {
+      "rustup", "run", "stable", "rust-analyzer"
+    }
+    -- capabilities = capabilities,
+    -- on_attach = on_attach,
+  },
   -- tsserver = {},
+
+  elixirls = {
+    cmd = {'elixirls'},
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      elixirLS = {
+        -- I choose to disable dialyzer for personal reasons, but
+        -- I would suggest you also disable it unless you are well
+        -- aquainted with dialzyer and know how to use it.
+        dialyzerEnabled = false,
+        -- I also choose to turn off the auto dep fetching feature.
+        -- It often get's into a weird state that requires deleting
+        -- the .elixir_ls directory and restarting your editor.
+        fetchDeps = false
+      }
+    }
+  },
 
   yamlls = {
     yaml = {
@@ -93,17 +122,16 @@ local servers = {
 
     },
   },
-
-  -- sumneko_lua = {
-  --   Lua = {
-  --     workspace = { checkThirdParty = false },
-  --     telemetry = { enable = false },
-  --     diagnostics = {
-  --       -- Get the language server to recognize the `vim` global
-  --       globals = {'vim'},
-  --     },
-  --   },
-  -- },
+  lua_ls = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+    },
+  },
 }
 
 -- Setup mason so it can manage external tooling
@@ -117,22 +145,22 @@ mason_lspconfig.setup {
 }
 
 mason_lspconfig.setup_handlers {
-  -- function(server_name)
-    -- require('lspconfig')[server_name].setup {
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    --   settings = servers[server_name],
-    -- }
-    -- if server_name == 'tsserver' then
-    --   require('lspconfig').tsserver.setup({
-    --     settings = {
-    --       completions = {
-    --         completeFunctionCalls = true
-    --       }
-    --     }
-    --   })
-    -- end
-  -- end,
+  function(server_name)
+    require('lspconfig')[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers[server_name],
+    }
+    if server_name == 'tsserver' then
+      require('lspconfig').tsserver.setup({
+        settings = {
+          completions = {
+            completeFunctionCalls = true
+          }
+        }
+      })
+    end
+  end,
 }
 
 -- Turn on lsp status information
