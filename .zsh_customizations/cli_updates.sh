@@ -1,0 +1,5 @@
+# alias ls="exa"
+alias ll="exa -alh"
+alias ls="exa -alh --sort=size"
+alias ld="exa -alh --sort=mod"
+alias lt="exa -alh --sort=type"
