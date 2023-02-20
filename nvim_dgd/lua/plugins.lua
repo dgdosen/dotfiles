@@ -224,8 +224,6 @@ require('lazy').setup({
 	-- via tpope
 	-- 'github/copilot.vim'
 	-- via lua
-	-- { "zbirenbaum/copilot.lua" },
-
   {
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -255,10 +253,17 @@ require('lazy').setup({
 				)
 			end, 100)
 		end,
-    dependencies = {
-		  "zbirenbaum/copilot-cmp",
-    }
 	},
+
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = {
+      'zbirenbaum/copilot.lua'
+    },
+    config = function ()
+      require("copilot_cmp").setup()
+    end,
+  },
 
 	-- {
 	-- 	"zbirenbaum/copilot-cmp",
@@ -311,7 +316,7 @@ require('setup/lsp')
 require('setup/cmp')
 require('setup/comment')
 require('setup/dap')
--- require('setup/copilot')
+require('setup/elixir')
 require('setup/gitsigns')
 require('setup/hop')
 require('setup/indent_blankline')
