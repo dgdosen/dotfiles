@@ -50,7 +50,6 @@ vim.cmd("autocmd InsertLeave * write")
 
 vim.cmd("let g:gruvbox_transparent_bg = 1")
 vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
--- vim.cmd("colorscheme gruvbox")
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'

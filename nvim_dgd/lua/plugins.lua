@@ -187,6 +187,7 @@ require('lazy').setup({
 	'tpope/vim-rhubarb',
 	'lewis6991/gitsigns.nvim',
 
+  -- colors
   {'ellisonleao/gruvbox.nvim',
     config = function()
       vim.cmd("let g:gruvbox_transparent_bg = 1")
@@ -194,6 +195,8 @@ require('lazy').setup({
       vim.cmd("colorscheme gruvbox")
     end
   },
+  {'folke/tokyonight.nvim'},
+
 
 	'nvim-lualine/lualine.nvim',
 	'lukas-reineke/indent-blankline.nvim',
