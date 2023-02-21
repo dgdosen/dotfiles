@@ -1,0 +1,8 @@
+import:
+ # - ~/.config/alacritty/alacritty-colors.yaml
+ - ~/.config/alacritty/themes/themes/gruvbox_dark.yaml
+ # - ~/.config/alacritty/themes/themes/gruvbox_light.yaml
+ # - ~/.config/alacritty/themes/themes/gruvbox_material.yaml
+ # - ~/.config/alacritty/themes/themes/tokyo-night.yaml
+ # - ~/.config/alacritty/themes/themes/tokyo-night-storm.yaml
+
