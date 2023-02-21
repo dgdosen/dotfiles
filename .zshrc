@@ -4,7 +4,7 @@ fi
 
 date
 ZSH=$HOME/.oh-my-zsh
-source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette_osx.sh"
+# source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette_osx.sh"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export ZSH_CUSTOM=$HOME/.zsh_customizations
@@ -27,16 +27,16 @@ alias zshconfig="vim ~/.zshrc"
 export NVIM_DAY="$HOME/.vim_nvim/config/colors_day.vimrc"
 export NVIM_NIGHT="$HOME/.vim_nvim/config/colors_night.vimrc"
 
-export APPEARANCE='dark'
-
-if [[ "$APPEARANCE" == "dark" ]]
-then
-  # echo 'appearance defaults to dark'
-  appearance_dark
-else
-  # echo 'appearance set to light'
-  appearance_light
-fi
+# export APPEARANCE='dark'
+#
+# if [[ "$APPEARANCE" == "dark" ]]
+# then
+#   # echo 'appearance defaults to dark'
+#   appearance_dark
+# else
+#   # echo 'appearance set to light'
+#   appearance_light
+# fi
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

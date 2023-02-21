@@ -4,7 +4,7 @@ al () {
 
 appearance_light () {
   export APPEARANCE='light'
-  # alacritty-themes gruvbox-light
+  ln -sfv /Users/dgdosen/.dotfiles/.config/alacritty/alacritty-colors-light.yml /Users/dgdosen/.config/alacritty/alacritty-colors.yml
 }
 
 ad () {
@@ -13,5 +13,5 @@ ad () {
 
 appearance_dark () {
   export APPEARANCE='dark'
-  # alacritty-themes gruvbox-dark
+  ln -sfv /Users/dgdosen/.dotfiles/.config/alacritty/alacritty-colors-dark.yml /Users/dgdosen/.config/alacritty/alacritty-colors.yml
 }
