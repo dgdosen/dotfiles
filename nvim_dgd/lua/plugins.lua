@@ -1,3 +1,6 @@
+local appearance = os.getenv('APPEARANCE')
+print("Appearance:", appearance)
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -120,9 +123,9 @@ require('lazy').setup({
   --   build = "npm install --legacy-peer-deps && npm build compile"
   -- },
 
-  {"mhanberg/elixir.nvim", 
-    dependencies = { 
-      "nvim-lua/plenary.nvim" 
+  {"mhanberg/elixir.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
     }
   },
 
@@ -193,9 +196,17 @@ require('lazy').setup({
       vim.cmd("let g:gruvbox_transparent_bg = 1")
       vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
       vim.cmd("colorscheme gruvbox")
+      -- vim.o.background = "dark"
+      vim.o.background = appearance
     end
   },
-  {'folke/tokyonight.nvim'},
+  {'folke/tokyonight.nvim',
+    -- config = function()
+    --   vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
+    --   vim.cmd("colorscheme tokyonight")
+    --   vim.cmd("set background=dark")
+    -- end
+  },
 
 
 	'nvim-lualine/lualine.nvim',

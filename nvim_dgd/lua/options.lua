@@ -46,7 +46,7 @@ vim.o.softtabstop = 2
 vim.o.autoindent = true
 
 -- save file on leaving insert mode
-vim.cmd("autocmd InsertLeave * write")
+vim.cmd("autocmd InsertLeave * silent! write")
 
 vim.cmd("let g:gruvbox_transparent_bg = 1")
 vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
