@@ -123,11 +123,13 @@ require('lazy').setup({
   --   build = "npm install --legacy-peer-deps && npm build compile"
   -- },
 
-  {"mhanberg/elixir.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim"
-    }
-  },
+  -- {"mhanberg/elixir.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim"
+  --   }
+  -- },
+
+  { 'elixir-editors/vim-elixir' },
 
 	{ 'kristijanhusak/vim-dadbod-ui',
 		dependencies = {
@@ -330,7 +332,7 @@ require('setup/lsp')
 require('setup/cmp')
 require('setup/comment')
 require('setup/dap')
-require('setup/elixir')
+-- require('setup/elixir')
 require('setup/gitsigns')
 require('setup/hop')
 require('setup/indent_blankline')
