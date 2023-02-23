@@ -8,10 +8,10 @@ nvimup() {
   FOO=$PWD
   cd ~/.dotfiles
   echo in dotfiles
-  nvim +'PlugInstall --sync' +qa
-  nvim +'PlugUpdate --sync' +qa
-  nvim +'UpdateRemotePlugins' +qa
-
+  nvim --headless -c "+Lazy! sync" +qa
+  nvim --headless -c "TSUpdate" +qa
+  nvim --headless -c "autocmd User MasonUpdateAllComplete quitall" -c "MasonUpdateAll"
+  # nvim --headless -c 'UpdateRemotePlugins' +qa
   cd $FOO
 }
 
@@ -29,14 +29,17 @@ dotup() {
 }
 
 cdot() {
-  cd ~/.dotify
+  cd ~/.dotfiles
+}
+
+ch() {
+  cd ~
 }
 
 touchfoo() {
   mkdir ~/.cron_support
   touch ~/.cron_support/foobar.txt
 }
-
 
 # homebrew upgrade
 brewup() {
@@ -89,8 +92,12 @@ fzfcd() {
 # Use C-x C-e to edit the current command line
 autoload -U edit-command-line
 zle -N edit-command-line
+
 bindkey '^x^e' edit-command-line
 # bindkey '\C-x\C-e' edit-command-line
+
+# zsh autocomplete accept
+bindkey '^ ' autosuggest-accept
 
 # vim key bindings to edit the command line
 bindkey -v
