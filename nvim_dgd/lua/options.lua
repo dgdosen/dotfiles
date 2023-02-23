@@ -3,6 +3,7 @@
 
 -- Set highlight on search
 vim.o.hlsearch = true
+-- ? not working on linux
 -- vim.keymap.set('n', '<CR>', vim.cmd.noh, { silent = true })
 
 -- Make line numbers default
@@ -10,7 +11,8 @@ vim.wo.number = true
 -- relative line numbers
 vim.o.relativenumber = true
 
-vim.o.cusrorline = true
+-- ? not working on linux
+-- vim.o.cusrorline = true
 
 -- clipboard
 vim.o.clipboard = 'unnamedplus'
