@@ -38,6 +38,8 @@ vim.o.sidescrolloff = 8
 
 -- Set colorscheme
 vim.o.termguicolors = true
+vim.go.t_Co = "256"
+vim.go.t_ut = ""
 -- vim.cmd [[colorscheme onedark]]
 vim.o.background = 'dark' -- or light
 
