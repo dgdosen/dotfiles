@@ -194,6 +194,7 @@ require('lazy').setup({
 
   -- colors
   {'ellisonleao/gruvbox.nvim',
+    commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007',
     config = function()
       vim.cmd("let g:gruvbox_transparent_bg = 1")
       vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
