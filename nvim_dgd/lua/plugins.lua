@@ -1,5 +1,4 @@
 local appearance = os.getenv('APPEARANCE')
-print("Appearance:", appearance)
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -21,6 +20,7 @@ require('lazy').setup({
 			-- Automatically install LSPs to stdpath for neovim
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim',
+      'RubixDev/mason-update-all',
 			'jose-elias-alvarez/null-ls.nvim',
 			'jose-elias-alvarez/typescript.nvim',
 			-- Useful status updates for LSP
@@ -326,7 +326,8 @@ require('lazy').setup({
 
 -- TODO: should these setups be in the configs above? Is there any benefit to doing it here?
 
-require("mason").setup()
+require('setup/mason')
+
 require('setup/lsp')
 -- require('setup/bufexplorer')
 require('setup/cmp')

@@ -1,4 +1,4 @@
-print('hello again from dgd.lua')
+-- print('hello again from dgd.lua')
 
 local ls = require('luasnip')
 local s = ls.snippet
