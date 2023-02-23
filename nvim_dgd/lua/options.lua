@@ -4,7 +4,7 @@
 -- Set highlight on search
 vim.o.hlsearch = true
 -- ? not working on linux
--- vim.keymap.set('n', '<CR>', vim.cmd.noh, { silent = true })
+vim.keymap.set('n', '<CR>', vim.cmd.noh, { silent = true })
 
 -- Make line numbers default
 vim.wo.number = true
@@ -12,7 +12,7 @@ vim.wo.number = true
 vim.o.relativenumber = true
 
 -- ? not working on linux
--- vim.o.cusrorline = true
+vim.o.cusrorline = true
 
 -- clipboard
 vim.o.clipboard = 'unnamedplus'
@@ -66,16 +66,16 @@ vim.g.maplocalleader = ' '
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 -- ? not working on linux
--- vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
 -- ? not working on linux
--- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
--- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+-- local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 -- ? not working on linux
 -- vim.api.nvim_create_autocmd('TextYankPost', {
 --   callback = function()
@@ -85,10 +85,10 @@ local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = t
 --   pattern = '*',
 -- })
 
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "lua",
---   callback = function()
---     vim.opt_local.shiftwidth = 2
---     vim.opt_local.tabstop = 2
---   end
--- })
+vim.api.nvim_create_autocmd("FileType", {
+   pattern = "lua",
+   callback = function()
+     vim.opt_local.shiftwidth = 2
+     vim.opt_local.tabstop = 2
+   end
+ })
