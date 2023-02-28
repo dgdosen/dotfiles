@@ -7,11 +7,13 @@ nvimup() {
 
   FOO=$PWD
   cd ~/.dotfiles
-  echo in dotfiles
-  nvim --headless -c "+Lazy! sync" +qa
+  nvim --headless -c "Lazy! sync" +qa
+  echo " -- Lazy Updated"
   nvim --headless -c "TSUpdate" +qa
-  nvim --headless -c "autocmd User MasonUpdateAllComplete quitall" -c "MasonUpdateAll"
+  echo " -- TreeSitter Updated"
+  nvim --headless -c "MasonUpdateAll" 
   # nvim --headless -c 'UpdateRemotePlugins' +qa
+  echo " -- Mason Updated"
   cd $FOO
 }
 
