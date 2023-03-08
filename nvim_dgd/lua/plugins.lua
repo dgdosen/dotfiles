@@ -79,7 +79,7 @@ require('lazy').setup({
 		  'nvim-treesitter/nvim-treesitter-textobjects',
     }
 	},
-
+  'nvim-treesitter/playground',
 	'wfxr/minimap.vim',
 
 	-- formatting
@@ -191,6 +191,18 @@ require('lazy').setup({
 	'tpope/vim-fugitive',
 	'tpope/vim-rhubarb',
 	'lewis6991/gitsigns.nvim',
+
+  {
+    "aaronhallaert/ts-advanced-git-search.nvim",
+    config = function()
+      require("telescope").load_extension("advanced_git_search")
+    end,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      -- to show diff splits and open commits in browser
+      "tpope/vim-fugitive",
+    },
+  },
 
   -- colors
   {'ellisonleao/gruvbox.nvim',
