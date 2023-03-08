@@ -1,5 +1,5 @@
 cc() {
-  clear
+  clear; printf '\e[3J'
 }
 
 # clean up nvim
