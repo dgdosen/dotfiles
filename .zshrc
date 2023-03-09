@@ -149,4 +149,5 @@ unset __conda_setup
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
 # source /Users/dgdosen/.docker/init-zsh.sh || true # Added by Docker Desktop
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/powerlevel10k/powerlevel10k.zsh-theme

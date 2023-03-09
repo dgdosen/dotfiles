@@ -6,11 +6,15 @@ ctrl + cmd - h : yabai -m window --focus west
 ctrl + cmd - j : yabai -m window --focus south
 ctrl + cmd - k : yabai -m window --focus north
 ctrl + cmd - l : yabai -m window --focus east
+
+ctrl + cmd - u : yabai -m window --grid 1:3:0:0:2:1
+ctrl + cmd - o : yabai -m window --grid 1:3:3:0:1:1
+
 # (alt) change focus (using arrow keys)
-ctrl + cmd - left  : yabai -m window --focus west
-ctrl + cmd - down  : yabai -m window --focus south
-ctrl + cmd - up    : yabai -m window --focus north
-ctrl + cmd - right : yabai -m window --focus east
+# ctrl + cmd - left  : yabai -m window --focus west
+# ctrl + cmd - down  : yabai -m window --focus south
+# ctrl + cmd - up    : yabai -m window --focus north
+# ctrl + cmd - right : yabai -m window --focus east
 
 # shift window in current workspace
 cmd + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
@@ -18,10 +22,10 @@ cmd + shift - j : yabai -m window --swap south || $(yabai -m window --display so
 cmd + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
 cmd + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
 # alternatively, use the arrow keys
-cmd + shift - left : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
-cmd + shift - down : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
-cmd + shift - up : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
-cmd + shift - right : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+# cmd + shift - left : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+# cmd + shift - down : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+# cmd + shift - up : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+# cmd + shift - right : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
 
 # # set insertion point in focused container
 # alt + ctrl - h : yabai -m window --insert west
@@ -42,16 +46,16 @@ alt + shift - b : yabai -m window --space recent; \
                   yabai -m space --focus recent
 
 # # move focused window to next/prev workspace
-# cmd + ctrl - 1 : yabai -m window --space 1
-# cmd + ctrl - 2 : yabai -m window --space 2
-# alt + shift - 3 : yabai -m window --space 3
-# alt + shift - 4 : yabai -m window --space 4
-# alt + shift - 5 : yabai -m window --space 5
-# alt + shift - 6 : yabai -m window --space 6
-# alt + shift - 7 : yabai -m window --space 7
-# alt + shift - 8 : yabai -m window --space 8
-# alt + shift - 9 : yabai -m window --space 9
-# #alt + shift - 0 : yabai -m window --space 10
+alt + shift - 1 : yabai -m window --space 1
+alt + shift - 2 : yabai -m window --space 2
+alt + shift - 3 : yabai -m window --space 3
+alt + shift - 4 : yabai -m window --space 4
+alt + shift - 5 : yabai -m window --space 5
+alt + shift - 6 : yabai -m window --space 6
+alt + shift - 7 : yabai -m window --space 7
+alt + shift - 8 : yabai -m window --space 8
+alt + shift - 9 : yabai -m window --space 9
+alt + shift - 0 : yabai -m window --space 10
 
 # # mirror tree y-axis
 alt + shift - y : yabai -m space --mirror y-axis
@@ -61,3 +65,8 @@ alt + shift - x : yabai -m space --mirror x-axis
 
 # balance size of windows
 cmd + ctrl - 0 : yabai -m space --balance
+
+# restart yabai
+ctrl + alt - q : brew services stop yabai
+ctrl + alt - s : brew services start yabai
+
