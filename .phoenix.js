@@ -1,3 +1,10 @@
+var paddingTop = 35;
+var paddingLeft = 15;
+var paddingRight = 30;
+var paddingBottom = 25;
+var paddingCenter = 10;
+var paddingMiddle = 20;
+
 function resizeToFraction(
   xNumerator,
   xDenominator,
@@ -14,7 +21,7 @@ function resizeToFraction(
       const screen = window.screen().flippedVisibleFrame();
 
       const x = ((screen.width / xDenominator) * xNumerator) + 5;
-      const y = ((screen.height / yDenominator) * yNumerator) + 5;
+      const y = ((screen.height / yDenominator) * yNumerator) + 10;
       const width = ((screen.width / widthDenominator) * widthNumerator) - 10;
       const height = ((screen.height / heightDenominator) * heightNumerator) - 10;
 
@@ -122,10 +129,10 @@ Key.on('o', ['ctrl', 'cmd', 'alt'], resizeToFraction(1, 3, 2, 3, 0, 1, 1, 1));
 Key.on('return', ['cmd', 'alt'], resizeToFraction(0, 1, 1, 1, 0, 1, 1, 1));
 
 // focus
-// Key.on("left", ["ctrl", "shift", "cmd"], focusClosestNeighbor("west"));
-// Key.on("right", ["ctrl", "shift", "cmd"], focusClosestNeighbor("east"));
-// Key.on("up", ["ctrl", "shift", "cmd"], focusClosestNeighbor("north"));
-// Key.on("down", ["ctrl", "shift", "cmd"], focusClosestNeighbor("south"));
+Key.on("h", ["ctrl", "shift", "cmd"], focusClosestNeighbor("west"));
+Key.on("l", ["ctrl", "shift", "cmd"], focusClosestNeighbor("east"));
+Key.on("k", ["ctrl", "shift", "cmd"], focusClosestNeighbor("north"));
+Key.on("j", ["ctrl", "shift", "cmd"], focusClosestNeighbor("south"));
 
 // Key.on('z', ['ctrl', 'shift'], () => {
 //   const screen = Screen.main().flippedVisibleFrame();
