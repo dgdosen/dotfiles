@@ -22,7 +22,8 @@ merge-conflicts
 node_modules
 */plugged/*
 .tmux/resurrect/*
-.tmux/plugins
+.tmux/plugins/*
+.zsh_customizations/plugins/*
 .rbenv
 .netrwhist
 .oh-my-zsh/**
