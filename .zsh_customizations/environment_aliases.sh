@@ -2,6 +2,10 @@ cc() {
   clear; printf '\e[3J'
 }
 
+tm() {
+  ~/.dotfiles/.zsh_customizations/tmux-sessionizer.sh
+}
+
 # clean up nvim
 nvimup() {
 
@@ -88,6 +92,13 @@ fzfcd() {
         [[ ${#dir} != 0 ]] || return 0
         builtin cd "$dir" &> /dev/null
     done
+}
+
+dltest() {
+  date  ## echo the date at start
+  # the script contents
+  curl https://releases.ubuntu.com/22.04.2/ubuntu-22.04.2-desktop-amd64.iso --output ~/downloads/ubuntutest.iso
+  date  ## echo the date at enda    
 }
 
 # TODO: put this in zshrc?
