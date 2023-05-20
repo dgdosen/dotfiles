@@ -21,4 +21,7 @@ export RBENV_ROOT=/opt/homebrew/var/rbenv
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
 
+# libpqa
+export RUSTFLAGS="-L /opt/homebrew/opt/libpq/lib"
+
 # /opt/homebrew/opt/fzf/install
