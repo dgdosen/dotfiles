@@ -94,3 +94,38 @@ vim.api.nvim_create_autocmd("FileType", {
      vim.opt_local.tabstop = 2
    end
  })
+
+function show_popup()
+  -- Create a new buffer with some text
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_lines(buf, 0, -1, true, {'Hello, world!', 'This is a popup window.'})
+
+    -- Calculate the size and position of the popup window
+  local win_width = math.floor(vim.api.nvim_win_get_width(0) * 0.8)
+  local win_height = math.floor(vim.api.nvim_win_get_height(0) * 0.8)
+  local win_row = math.floor((vim.api.nvim_win_get_height(0) - win_height) / 2)
+  local win_col = math.floor((vim.api.nvim_win_get_width(0) - win_width) / 2)
+
+  -- Create a new popup window with the buffer content
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative='cursor',
+    row=win_row,
+    col=win_col,
+    width=win_width,
+    height=win_height,
+    style='minimal',
+  })
+  -- Define a new highlight group with a lighter shade
+  vim.api.nvim_command('hi MyPopupHighlight guibg=#4F4945')
+  -- 4F4945
+  -- 63, 56, 53
+
+  -- Set the popup window options
+  vim.api.nvim_win_set_option(win, 'winhl', 'Normal:MyPopupHighlight')
+  vim.api.nvim_win_set_option(win, 'cursorline', false)
+
+
+end
+
+vim.api.nvim_set_keymap('n', '<leader>g', ':lua show_popup()<CR>', { noremap = true, silent = true })
+

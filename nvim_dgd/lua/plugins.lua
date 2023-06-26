@@ -21,16 +21,19 @@ require('lazy').setup({
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim',
       'RubixDev/mason-update-all',
+      'j-hui/fidget.nvim',
 			'jose-elias-alvarez/null-ls.nvim',
 			'jose-elias-alvarez/typescript.nvim',
-			-- Useful status updates for LSP
-			'j-hui/fidget.nvim',
 			'b0o/schemastore.nvim',
-
 			-- Additional lua configuration, makes nvim stuff amazing
 			'folke/neodev.nvim',
 		},
 	},
+  -- Useful status updates for LSP
+  {
+    'j-hui/fidget.nvim',
+    version = 'legacy',
+  },
 
 	-- Scrolling
 	'karb94/neoscroll.nvim',
