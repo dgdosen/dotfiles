@@ -29,3 +29,4 @@ node_modules
 .oh-my-zsh/**
 **/pack/*
 **/plugin/*
+**/lazy-lock.json
