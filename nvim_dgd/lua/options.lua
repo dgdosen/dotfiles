@@ -88,12 +88,22 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- })
 
 vim.api.nvim_create_autocmd("FileType", {
-   pattern = "lua",
-   callback = function()
-     vim.opt_local.shiftwidth = 2
-     vim.opt_local.tabstop = 2
-   end
- })
+  pattern = "lua",
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
+    vim.opt_local.expandtab = true
+  end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "swift",
+  callback = function()
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.expandtab = true
+  end
+})
 
 function show_popup()
   -- Create a new buffer with some text
