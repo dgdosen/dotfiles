@@ -52,6 +52,7 @@ brewup() {
   brew update
   brew upgrade  --greedy
   brew cleanup
+  mas upgrade
 }
 
 armify() {
