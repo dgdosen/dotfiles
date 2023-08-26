@@ -36,9 +36,9 @@ bear_daily_update() {
 
 }
 
-
 bear_weekly_create() {
 
+  # create new dailys
   counter=1
   while [ $counter -le 7 ]
   do
@@ -51,6 +51,13 @@ bear_weekly_create() {
 
     ((counter ++))
   done
+
+  # create new weekly
+  WEEKLY_TEMPLATE_DATE=$(date +"%Y-%m-%d")
+  WEEKLY_TASKS_FILE_NAME="${WEEKLY_TEMPLATE_DATE}-Weekly.md"
+  echo "# ${WEEKLY_TEMPLATE_DATE}-Weekly" > /tmp/newfile
+  cat ~/.dotfiles/templates/weekly.md >> /tmp/newfile
+  cp /tmp/newfile ~/dev/bear_sync/sync/${WEEKLY_TASKS_FILE_NAME}
 
   # sync
   python3 ~/dev/bear_markdown_export/bear_export_sync.py --out ~/dev/bear_sync/sync --backup ~/dev/bear_sync/backup

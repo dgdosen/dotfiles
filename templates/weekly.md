@@ -1,4 +1,4 @@
-# <DATE>-Weekly
+
 
 Use ==X== to complete an item
 |              | Sun   | Mon  | Tue   | Wed   | Thu | Fri | Sat |
