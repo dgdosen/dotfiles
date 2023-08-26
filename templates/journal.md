@@ -5,4 +5,4 @@ updated prep
 ---
 ## References
 
-#daily/journal
+#ephemeral/daily/journal
