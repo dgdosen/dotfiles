@@ -11,7 +11,7 @@ export PATH="/usr/local/bin:$PATH"
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # powerlevel10k
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+# source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 export RBENV_ROOT=/opt/homebrew/var/rbenv
 
