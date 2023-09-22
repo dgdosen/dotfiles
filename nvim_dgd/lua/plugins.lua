@@ -335,6 +335,13 @@ require('lazy').setup({
 		end,
 	},
 
+  {
+    'fei6409/log-highlight.nvim',
+    config = function()
+        require('log-highlight').setup {}
+    end,
+  },
+
 	-- wip custom plugin development
 	-- { [[/Users/dgdosen/dev/which_snip.nvim]] },
 
