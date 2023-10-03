@@ -55,6 +55,9 @@ vim.cmd("autocmd InsertLeave * silent! write")
 vim.cmd("let g:gruvbox_transparent_bg = 1")
 vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
 
+-- trim trailing whitespace on save
+vim.api.nvim_command("autocmd BufWritePre * :%s/\\s\\+$//e")
+
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
