@@ -7,7 +7,7 @@
 # Access a PostgreSQL database server via an SSH tunnel.
 
 $local_ip    = "127.0.0.1";
-$local_port  = "5434";
+$local_port  = "5438";
 $remote_ip   = "127.0.0.1";
 $remote_port = "5432";
 $remote_user = "deployer";
