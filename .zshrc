@@ -27,8 +27,9 @@ alias zshconfig="vim ~/.zshrc"
 export NVIM_DAY="$HOME/.vim_nvim/config/colors_day.vimrc"
 export NVIM_NIGHT="$HOME/.vim_nvim/config/colors_night.vimrc"
 
-# export APPEARANCE='dark'
-#
+export APPEARANCE='dark'
+# export APPEARANCE='light'
+
 # if [[ "$APPEARANCE" == "dark" ]]
 # then
 #   # echo 'appearance defaults to dark'
