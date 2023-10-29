@@ -1,4 +1,4 @@
 #!/bin/zsh
 source ~/.zshrc
-cd $HOME/dev/brisnet_scrape_cli
+cd $HOME/dev/project_b_brisnet_scrape_cli
 yarn dev
