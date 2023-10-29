@@ -6,7 +6,7 @@
     <string>com.agidevelopment.projectb_drf_fetch</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/danieldosen/.dotfiles/daily/projectb_drf_fetch.sh</string>
+      <string>/Users/dgdosen/.dotfiles/daily/projectb_drf_fetch.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
@@ -16,8 +16,8 @@
       <integer>15</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/danieldosen/dev/drf_scrape_cli/scrape.out</string>
+    <string>/Users/dgdosen/dev/drf_scrape_cli/scrape.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/danieldosen/dev/drf_scrape_cli/scrape.err</string>
+    <string>/Users/dgdosen/dev/drf_scrape_cli/scrape.err</string>
   </dict>
 </plist>

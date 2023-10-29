@@ -6,7 +6,7 @@
     <string>com.agidevelopment.projectb_bris_fetch</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/danieldosen/.dotfiles/daily/projectb_bris_fetch.sh</string>
+      <string>/Users/dgdosen/.dotfiles/daily/projectb_bris_fetch.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <array>
@@ -24,8 +24,8 @@
       </dict>
     </array>
     <key>StandardOutPath</key>
-    <string>/Users/danieldosen/dev/brisnet_scrape_cli/scrape.out</string>
+    <string>/Users/dgdosen/dev/brisnet_scrape_cli/scrape.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/danieldosen/dev/brisnet_scrape_cli/scrape.err</string>
+    <string>/Users/dgdosen/dev/brisnet_scrape_cli/scrape.err</string>
 </dict>
 </plist>
