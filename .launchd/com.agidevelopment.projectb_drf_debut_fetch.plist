@@ -11,13 +11,13 @@
     <key>StartCalendarInterval</key>
     <dict>
       <key>Hour</key>
-      <integer>8</integer>
+      <integer>6</integer>
       <key>Minute</key>
       <integer>30</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/dev/drf_debut_scrape_cli/scrape.out</string>
+    <string>/Users/dgdosen/dev/project_b_drf_debut_scrape_cli/scrape.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/dev/drf_debut_scrape_cli/scrape.err</string>
+    <string>/Users/dgdosen/dev/project_b_drf_debut_scrape_cli/scrape.err</string>
   </dict>
 </plist>

@@ -12,20 +12,20 @@
     <array>
       <dict>
         <key>Hour</key>
-        <integer>8</integer>
+        <integer>6</integer>
         <key>Minute</key>
         <integer>0</integer>
       </dict>
       <dict>
         <key>Hour</key>
-        <integer>20</integer>
+        <integer>18</integer>
         <key>Minute</key>
         <integer>0</integer>
       </dict>
     </array>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/dev/brisnet_scrape_cli/scrape.out</string>
+    <string>/Users/dgosen/dev/project_b_brisnet_scrape_cli/scrape.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/dev/brisnet_scrape_cli/scrape.err</string>
+    <string>/Users/dgdosen/dev/project_b_brisnet_scrape_cli/scrape.err</string>
 </dict>
 </plist>
