@@ -6,6 +6,8 @@ fetchthegits() {
   git fetch
   cd ~/dev/project_b_api
   git fetch
+  cd ~/dev/project_b_data_2023
+  git fetch
   cd ~/dev/project_b_data
   git fetch
   cd ~/dev/project_b_start_query
@@ -13,6 +15,12 @@ fetchthegits() {
   cd ~/dev/project_b_query
   git fetch
   cd ~/dev/project_b_racing_form
+  git fetch
+  cd ~/dev/project_b_gmax_scrape_cli
+  git fetch
+  cd ~/dev/project_b_drf_scrape_cli
+  git fetch
+  cd ~/dev/project_b_drf_debut_scrape_cli
   git fetch
   cd ~/dev/project_b_debut
   git fetch
