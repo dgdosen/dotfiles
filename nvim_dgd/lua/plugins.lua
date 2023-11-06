@@ -28,11 +28,14 @@ require('lazy').setup({
 			-- Additional lua configuration, makes nvim stuff amazing
 			'folke/neodev.nvim',
 		},
+    checker = { enabled = true },
 	},
   -- Useful status updates for LSP
   {
     'j-hui/fidget.nvim',
     version = 'legacy',
+    frequency = 3600,
+    notify = true,
   },
 
 	-- Scrolling
@@ -377,3 +380,4 @@ require('setup/vim-dadbod-ui')
 -- require('setup/telekasten')
 require('setup/which-key')
 require('setup/vim-wiki')
+require('setup/shellbot')

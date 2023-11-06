@@ -153,3 +153,7 @@ export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 # source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
 # source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# source open ai key:
+source $HOME/.zsh/.openai.sh
+

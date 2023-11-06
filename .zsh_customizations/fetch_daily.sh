@@ -32,8 +32,6 @@ fetchthegits() {
   git fetch
   cd ~/dev/project_b_matching
   git fetch
-  cd ~/dev/sessuru_material
-  git fetch
   cd ~/dev/sessuru_server
   git fetch
   cd ~/dev/sessuru_client
