@@ -142,3 +142,6 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>g', ':lua show_popup()<CR>', { noremap = true, silent = true })
 
+-- chatgpt/shellbot
+vim.cmd("command! ChatGPT lua require'chatgpt'.chatgpt()")
+

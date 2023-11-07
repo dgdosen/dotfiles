@@ -1,4 +1,5 @@
 local M = {}
+print("chatgpt.lua is loading")
 local is_receiving = false
 
 local gpt_cmd = os.getenv("SHELLBOT")
@@ -6,9 +7,10 @@ local gpt_cmd = os.getenv("SHELLBOT")
 local ns_vimbot = vim.api.nvim_create_namespace("vimbot")
 
 
+local nbsp = ' '
 local roles = {
-  USER = "◭🧑 " .. os.getenv('USER'),
-  ASSISSTANT = "◮🤖 vimbot",
+  USER = nbsp .. "🤓 «" .. os.getenv('USER') .. "»" .. nbsp,
+  ASSISTANT = nbsp .. "🤖 «vimbot»" .. nbsp,
 }
 
 local buffer_sync_cursor = {}
@@ -42,11 +44,18 @@ function ChatGPTSubmit()
     print("Already receiving")
     return
   end
+  print('submitting')
   vim.cmd("normal! Go")
   local winnr = vim.api.nvim_get_current_win()
   local bufnr = vim.api.nvim_get_current_buf()
   buffer_sync_cursor[bufnr] = true
   local function receive_stream(_, data, _)
+    if data then
+      -- Get a buffer number, for example, buffer number 1
+      local bufnr = 1
+      local current_line = vim.api.nvim_buf_line_count(bufnr)
+      vim.api.nvim_buf_set_lines(bufnr, current_line, -1, false, {vim.inspect(data)})
+    end
     if #data > 1 or data[1] ~= '' then
       local current_line = vim.api.nvim_buf_line_count(bufnr)
       local col = #vim.api.nvim_buf_get_lines(bufnr, current_line - 1, current_line, false)[1]
@@ -88,9 +97,8 @@ function ChatGPTSubmit()
     is_receiving = false
     if is_interrupted then
       vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, { "❌ Interrupted" })
-    else
-      add_transcript_header(winnr, bufnr, "USER")
     end
+    add_transcript_header(winnr, bufnr, "USER")
     is_interrupted = false
     ChatGPTCancelJob = nil
   end
@@ -98,10 +106,10 @@ function ChatGPTSubmit()
   local function get_transcript(separator)
     local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
     for i, line in ipairs(lines) do
-      if line:match("^◭") then  -- '^' means start of line
+      if line:match('^' .. nbsp .. '🤓') then  -- '^' means start of line
         lines[i] = separator .. "USER" .. separator
-      elseif line:match("^◮") then
-        lines[i] = separator .. "ASSISSTANT" .. separator
+      elseif line:match('^' .. nbsp ..'🤖') then
+        lines[i] = separator .. "ASSISTANT" .. separator
       end
     end
     return lines
@@ -124,7 +132,7 @@ function ChatGPTSubmit()
       vim.fn.chansend(job_id, line .. "\n")
       -- print(line)
     end
-    local line = add_transcript_header(winnr, bufnr, "ASSISSTANT")
+    local line = add_transcript_header(winnr, bufnr, "ASSISTANT")
     vim.api.nvim_buf_set_lines(bufnr, line + 1, line + 1, false, { "" })
     vim.api.nvim_buf_set_option(bufnr, 'modifiable', false)
     vim.fn.chanclose(job_id, "stdin")
@@ -158,13 +166,16 @@ function ChatGPTInit()
   vim.api.nvim_buf_set_option(bufnr, 'buftype', 'nofile')
   vim.api.nvim_buf_set_option(bufnr, 'bufhidden', 'hide')
   vim.api.nvim_buf_set_option(bufnr, 'swapfile', false)
+  vim.api.nvim_buf_set_option(bufnr, 'filetype', 'shellbot')
   add_transcript_header(winnr, bufnr, "USER", 0)
   local modes = { 'n', 'i' }
   for _, mode in ipairs(modes) do
-    vim.api.nvim_buf_set_keymap(bufnr, mode, '<C-Enter>', '<ESC>:lua ChatGPTSubmit()<CR>',
+    -- vim.api.nvim_buf_set_keymap(bufnr, mode, '<M-CR>', '<ESC>:lua ChatGPTSubmit()<CR>',
+    --   { noremap = true, silent = true })
+    vim.api.nvim_buf_set_keymap(bufnr, mode, '<C-o>', '<ESC>:lua ChatGPTSubmit()<CR>',
       { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(bufnr, mode, '<C-o>', '<ESC>:lua ChatGPTNewBuf()<CR>',
-      { noremap = true, silent = true })
+    -- vim.api.nvim_buf_set_keymap(bufnr, mode, '<C-k>', '<ESC>:lua ChatGPTNewBuf()<CR>',
+    --   { noremap = true, silent = true })
   end
 end
 
@@ -184,7 +195,5 @@ function ChatGPTCancelResponse()
     ChatGPTCancelJob()
   end
 end
-print("chatgpt.lua has been loaded")
 
 return M
-
