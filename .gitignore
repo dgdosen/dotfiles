@@ -30,3 +30,4 @@ node_modules
 **/pack/*
 **/plugin/*
 **/lazy-lock.json
+**/.openai.sh
