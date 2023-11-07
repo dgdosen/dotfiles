@@ -50,12 +50,6 @@ function ChatGPTSubmit()
   local bufnr = vim.api.nvim_get_current_buf()
   buffer_sync_cursor[bufnr] = true
   local function receive_stream(_, data, _)
-    if data then
-      -- Get a buffer number, for example, buffer number 1
-      local bufnr = 1
-      local current_line = vim.api.nvim_buf_line_count(bufnr)
-      vim.api.nvim_buf_set_lines(bufnr, current_line, -1, false, {vim.inspect(data)})
-    end
     if #data > 1 or data[1] ~= '' then
       local current_line = vim.api.nvim_buf_line_count(bufnr)
       local col = #vim.api.nvim_buf_get_lines(bufnr, current_line - 1, current_line, false)[1]
