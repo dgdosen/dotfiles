@@ -42,6 +42,12 @@ nvim_lua() {
 # # sync
 # python3 ~/dev/bear_markdown_export/bear_export_sync.py --out ~/dropboxp/Apps/bearapp_b2/sync --backup ~/dropboxp/Apps/bearapp_b2/backup
 
+nvim_up() {
+  nvim --headless '+Lazy! sync' +qa
+  nvim --headless '+MasonUpdateAll' +qa
+  nvim --headless '+MasonUpdate' +qa
+}
+
 nvim_vimscript() {
   rm -f ~/.config/nvim
   rm -f ~/.local/share/nvim

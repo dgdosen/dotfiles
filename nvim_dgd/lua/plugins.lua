@@ -164,8 +164,11 @@ require('lazy').setup({
 	},
 
   -- text/markdown
-  'preservim/vim-markdown',
-
+  { 'preservim/vim-markdown',
+    dependencies = {
+      'godlygeek/tabular'
+    }
+  },
 
 	{
 		"folke/twilight.nvim",
@@ -380,3 +383,5 @@ require('setup/vim-dadbod-ui')
 -- require('setup/telekasten')
 require('setup/which-key')
 require('setup/vim-wiki')
+require('setup/vim-markdown')
+

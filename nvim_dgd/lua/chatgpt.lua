@@ -1,5 +1,4 @@
 local M = {}
-print("chatgpt.lua is loading")
 local is_receiving = false
 
 local gpt_cmd = os.getenv("SHELLBOT")
