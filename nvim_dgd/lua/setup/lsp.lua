@@ -61,9 +61,9 @@ local servers = {
   graphql = {},
   dockerls = {},
 
-  solargraph = {
-    cmd = {"solargraph", "stdio"}
-  },
+  -- solargraph = {
+  --   cmd = {"solargraph", "stdio"}
+  -- },
   svelte = {},
   -- gopls = {},
   -- pyright = {},

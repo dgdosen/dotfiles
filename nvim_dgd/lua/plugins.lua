@@ -86,7 +86,7 @@ require('lazy').setup({
     }
 	},
   'nvim-treesitter/playground',
-	'wfxr/minimap.vim',
+	-- 'wfxr/minimap.vim',
 
 	-- formatting
   'lukas-reineke/lsp-format.nvim',
