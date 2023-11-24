@@ -16,6 +16,8 @@ fetchthegits() {
   git fetch
   cd ~/dev/project_b_racing_form
   git fetch
+  cd ~/dev/project_b_equibase_scrape_cli
+  git fetch
   cd ~/dev/project_b_gmax_scrape_cli
   git fetch
   cd ~/dev/project_b_drf_scrape_cli

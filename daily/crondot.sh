@@ -6,7 +6,7 @@ gsm
 echo - updated modules
 gsp
 echo - pulled modules
-# nvimup
+nvim_up
 # echo - updated vim plugs
 touch ~/.cron_support/crondot.txt
 echo - touched dot
