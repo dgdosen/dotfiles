@@ -72,6 +72,15 @@ function focusClosestNeighbor(direction) {
   };
 }
 
+// first 2/5ths
+['h'].forEach((key, index) => {
+  Key.on(
+    key,
+    ['ctrl', 'cmd', 'alt'],
+    resizeToFraction(index, 5, 2, 5, 0, 1, 1, 1),
+  );
+});
+
 // mostly fifths
 ['j', 'k', 'l'].forEach((key, index) => {
   Key.on(
@@ -81,11 +90,12 @@ function focusClosestNeighbor(direction) {
   );
 });
 
-['h'].forEach((key, index) => {
+// last seven/eights? it's like Stage Manager lite
+[';'].forEach((key, index) => {
   Key.on(
     key,
     ['ctrl', 'cmd', 'alt'],
-    resizeToFraction(index, 5, 2, 5, 0, 1, 1, 1),
+    resizeToFraction(index + 1, 8, 7, 8, 0, 1, 1, 1),
   );
 });
 
