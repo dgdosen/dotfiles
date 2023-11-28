@@ -13,4 +13,9 @@ psql -U $DB_USER -c "$SQL_CMD"
 # pg_ctl start
 echo - updating project b db
 $HOME/.dotfiles/.postgres/postgres_project_b_reset.sh
+
+cd $HOME/dev/project_b_api
+export RAILS_ENV=development
+bundle exec rake db:migrate
+
 touch ~/.cron_support/cron_project_b.txt

@@ -14,4 +14,9 @@ psql -U $DB_USER -c "$SQL_CMD"
 # PGDATA=/opt/homebrew/var/postgresql@14 pg_ctl start
 echo - updating project b db
 $HOME/.dotfiles/.postgres/postgres_project_b_dw_reset.sh
+
+cd $HOME/dev/project_b_api
+export RAILS_ENV=development
+bundle exec rake dw:db:migrate
+
 touch ~/.cron_support/cron_project_b_dw.txt
