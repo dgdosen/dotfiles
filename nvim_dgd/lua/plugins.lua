@@ -100,6 +100,8 @@ require('lazy').setup({
 	-- svelte (no lsp?
   'evanleck/vim-svelte',
 
+  "leoluz/nvim-dap-go",
+
 	{
 		'nvim-tree/nvim-tree.lua',
 		dependencies = {
