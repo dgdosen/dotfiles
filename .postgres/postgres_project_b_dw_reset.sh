@@ -7,9 +7,9 @@ createdb -U postgres -h localhost project_b_dw_development
 
 echo restoring
 date
-file=$(ls -t $HOME/dropboxm/joined_shares/project_b_share/pg_dw_database_backup/project_b* | head -1)
+file=$(ls -t $HOME/dropboxm/joined_shares/project_b_share/pg_dw_database_nonlogged_backup/project_b* | head -1)
 echo $file
-# pg_restore $file -U postgres -d project_b_dw_development -h localhost -Fc >> restore.log 2>&1
-pg_restore $file -U postgres -d project_b_dw_development -h localhost -Fc > /dev/null
+pg_restore $file -U postgres -d project_b_dw_development -h localhost -Fc >> restore.log 2>&1
+# pg_restore $file -U postgres -d project_b_dw_development -h localhost -Fc > /dev/null
 date
 echo finished restoring
