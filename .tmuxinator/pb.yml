@@ -3,82 +3,50 @@
 name: pb
 root: ~/dev/project_b_api
 
-# Optional tmux socket
-# socket_name: foo
-
-# Runs before everything. Use it to start daemons etc.
-# pre: sudo /etc/rc.d/mysqld start
-
-# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: rbenv shell 2.0.0-p247
-
-# Pass command line options to tmux. Useful for specifying a different tmux.conf.
-# tmux_options: -f ~/.tmux.mac.conf
-
-# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
-# tmux_command: byobu
-
-# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-# startup_window: logs
-
 windows:
   - server:
       root: ~/dev/project_b_api
       # layout: 6d60,208x57,0,0{130x57,0,0,19,77x57,131,0[77x11,131,0,20,77x10,131,12,21,77x10,131,23,22,77x10,131,34,23,77x12,131,45,24]}
       # layout: eeac,318x95,0,0{216x95,0,0,82,101x95,217,0[101x14,217,0,83,101x21,217,15,84,101x48,217,37,86,101x9,217,86,87]}
-      layout: 9530,318x90,0,0{200x90,0,0,0,117x90,201,0[117x16,201,0,4,117x11,201,17,5,117x51,201,29,6,117x9,201,81,7]}
+      # layout: 9530,318x90,0,0{200x90,0,0,0,117x90,201,0[117x16,201,0,4,117x11,201,17,5,117x51,201,29,6,117x9,201,81,7]}
+      layout: 75ba,373x95,0,0{246x95,0,0,2,126x95,247,0[126x47,247,0,4,126x47,247,48,3]}
+      panes:
+        - nvim
+        - bundle exec guard -c
+        - bundle exec rails c
+  - run:
+      # layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      root: ~/dev/project_b_api
+      layout: c100,373x95,0,0[373x47,0,0,5,373x47,0,48,6]
+      panes:
+        - bundle exec rails s
+        - bundle exec sidekiq -C config/sidekiq.ymsidekiq -C config/sidekiq.yml
+  - sql:
+      root: ~/dev/project_b_api
+      layout: cc04,373x95,0,0,7
+      panes:
+        - nvim
+  - data:
+      root: ~/dev/project_b_data_2023
+      layout: 4108,373x95,0,0[373x47,0,0,8,373x47,0,48,9]
       panes:
         - nvim
         -
-        - xxxbundle exec guards -c
-        - sleep 2 && zeus c
-        - zeus start
-  - racing_form:
+  - rf:
       root: ~/dev/project_b_racing_form
-      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      layout: fd9d,373x95,0,0[373x47,0,0,10,373x47,0,48,11]
       panes:
         - nvim
         -
-        -
-  - variants:
-      root: ~/dev/project_b_variants
-      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+  - dot:
+      root: ~/.dotfiles
+      layout: fda3,373x95,0,0[373x47,0,0,14,373x47,0,48,15]
       panes:
-        - nvim
-        -
-        -
-  - pars:
-      root: ~/dev/project_b_pars
-      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
-      panes:
-        - nvim
-        -
-        -
-  - twinspires:
-      root: ~/dev/project_b_twinspires_scrape_cli
-      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
-      panes:
-        - nvim
         -
         -
   - cloud:
-      root: ~/dev/project_b_api
-      layout: 9de3,318x90,0,0{159x90,0,0,2,158x90,160,0,13}
-      # layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      root: ~/dropboxm/joined_shares/project_b_share
+      layout: fda6,373x95,0,0[373x47,0,0,16,373x47,0,48,17]
       panes:
-        -
-        -
-  - data:
-      root: ~/dev/project_b_data
-      # layout: even-vertical
-      layout: 9de3,318x90,0,0{159x90,0,0,3,158x90,160,0,12}
-      panes:
-        -
-        -
-  - debut:
-      root: ~/dev/project_b_debut
-      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
-      panes:
-        - nvim
         -
         -
