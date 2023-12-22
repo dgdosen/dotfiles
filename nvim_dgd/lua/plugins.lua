@@ -217,15 +217,16 @@ require('lazy').setup({
 
   -- colors
   {'ellisonleao/gruvbox.nvim',
-    commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007',
-    config = function()
-      vim.cmd("let g:gruvbox_transparent_bg = 1")
-      vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
-      vim.cmd("colorscheme gruvbox")
-      -- vim.o.background = "light"
-      vim.o.background = appearance
-    end
+    -- commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007',
+    -- config = function()
+    --   vim.cmd("let g:gruvbox_transparent_bg = 1")
+    --   vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
+    --   vim.cmd("colorscheme gruvbox")
+    --   -- vim.o.background = "light"
+    --   vim.o.background = appearance
+    -- end
   },
+  {'shaunsingh/nord.nvim'},
   {'folke/tokyonight.nvim',
     -- config = function()
     --   vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
@@ -364,7 +365,8 @@ require('setup/lsp')
 require('setup/cmp')
 require('setup/comment')
 require('setup/dap')
-require('setup/gruvbox')
+-- require('setup/gruvbox')
+require('setup/nord')
 -- require('setup/elixir')
 require('setup/gitsigns')
 require('setup/hop')
