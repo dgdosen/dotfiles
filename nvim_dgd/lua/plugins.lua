@@ -21,7 +21,7 @@ require('lazy').setup({
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim',
       'RubixDev/mason-update-all',
-      'j-hui/fidget.nvim',
+      -- 'j-hui/fidget.nvim',
 			'jose-elias-alvarez/null-ls.nvim',
 			'jose-elias-alvarez/typescript.nvim',
 			'b0o/schemastore.nvim',
@@ -33,7 +33,6 @@ require('lazy').setup({
   -- Useful status updates for LSP
   {
     'j-hui/fidget.nvim',
-    version = 'legacy',
     frequency = 3600,
     notify = true,
   },
@@ -387,4 +386,5 @@ require('setup/vim-dadbod-ui')
 require('setup/which-key')
 require('setup/vim-wiki')
 require('setup/vim-markdown')
+require('setup/vim-zettel')
 
