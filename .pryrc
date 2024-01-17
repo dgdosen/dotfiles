@@ -14,6 +14,7 @@ Pry.config.commands.alias_command "q", "exit-all"
 
 require "table_print"
 require "amazing_print"
+require 'table_print'
 AmazingPrint.pry!
 
 # supress return values
