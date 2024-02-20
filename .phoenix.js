@@ -16,16 +16,29 @@ function resizeToFraction(
   heightDenominator,
 ) {
   return () => {
+    Phoenix.log("hello from the script")
+    const screens = Screen.all();
+    Phoenix.log("screens")
+    screens.map((screen) => {
+      // Phoenix.log(screen.identifier())
+      // Phoenix.log(screen.frame().x)
+      // Phoenix.log(screen.width, screen.height);
+    })
     const window = Window.focused();
     if (window) {
       const screen = window.screen().flippedVisibleFrame();
+      const x_offset = window.screen().frame().x
+      // Phoenix.log("screen")
+      // Phoenix.log(screen.width, screen.height);
+      // Phoenix.log(`xoffiset: ${x_offset}`)
 
       const x = ((screen.width / xDenominator) * xNumerator) + 5;
       const y = ((screen.height / yDenominator) * yNumerator) + 10;
       const width = ((screen.width / widthDenominator) * widthNumerator) - 10;
       const height = ((screen.height / heightDenominator) * heightNumerator) - 10;
-
-      window.setFrame({ x, y, width, height });
+      const x_actual = x + x_offset
+      // Phoenix.log(JSON.stringify(screen), x_actual)
+      window.setFrame({ x , y, width, height });
     }
   };
 }
