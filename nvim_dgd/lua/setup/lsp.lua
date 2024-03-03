@@ -21,7 +21,7 @@ local on_attach = function(_, bufnr)
 
   nmap('gd', vim.lsp.buf.definition, '[g]oto [d]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[g]oto [r]eferences')
-  nmap('gI', vim.lsp.buf.implementation, '[g]oto [i]mplementation')
+  nmap('gI', vim.lsp.buf.implementation, '[g]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'type [D]efinition')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[d]ocument [s]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[w]orkspace [s]ymbols')
@@ -31,7 +31,7 @@ local on_attach = function(_, bufnr)
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+  nmap('gD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
   nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
   nmap('<leader>wl', function()
