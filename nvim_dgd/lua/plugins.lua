@@ -20,7 +20,6 @@ require('lazy').setup({
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
       -- 'j-hui/fidget.nvim',
-      'jose-elias-alvarez/null-ls.nvim',
       'jose-elias-alvarez/typescript.nvim',
       'b0o/schemastore.nvim',
       -- Additional lua configuration, makes nvim stuff amazing
@@ -91,13 +90,6 @@ require('lazy').setup({
 
   -- formatting
   -- 'lukas-reineke/lsp-format.nvim',
-  {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = function()
-      require('setup/null-ls')
-    end,
-    dependencies = { "nvim-lua/plenary.nvim" }
-  },
 
   { -- Autoformat
     'stevearc/conform.nvim',
@@ -239,9 +231,9 @@ require('lazy').setup({
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
     },
   },
 
@@ -481,7 +473,6 @@ require('setup/luasnips')
 require('setup/neodev')
 require('setup/neoscroll')
 require('setup/nvim-tree')
-require('setup/null-ls')
 require('setup/telescope')
 require('setup/text')
 -- require('setup/treesitter')
