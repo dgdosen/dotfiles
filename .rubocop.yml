@@ -1,3 +1,5 @@
+# require: rubocop-rspec
+
 # Documentation:
 #   Enabled: false
 #
@@ -5472,3 +5474,15 @@ Style/ZeroLengthPredicate:
   Safe: false
   VersionAdded: '0.37'
   VersionChanged: '0.39'
+
+# RSpec/EmptyLineAfterExampleGroup:
+#   Enabled: true
+#
+# RSpec/EmptyLineAfterFinalLet:
+#   Enabled: true
+#
+# RSpec/EmptyLineAfterSubject:
+#   Enabled: true
+#
+# RSpec/EmptyLineAfterHook:
+#   Enabled: true

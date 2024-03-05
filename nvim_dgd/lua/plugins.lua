@@ -220,6 +220,9 @@ require('lazy').setup({
   -- 'gcmt/wildfire.vim',
   -- 'tpope/vim-surround',
 
+  -- FIX: test
+
+  -- DGD: test
   {
     'folke/todo-comments.nvim',
     event = 'VimEnter',
@@ -473,6 +476,7 @@ require('setup/luasnips')
 require('setup/neodev')
 require('setup/neoscroll')
 require('setup/nvim-tree')
+require('setup/todo-comments')
 require('setup/telescope')
 require('setup/text')
 -- require('setup/treesitter')
