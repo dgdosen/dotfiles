@@ -257,6 +257,8 @@ require('lazy').setup({
   },
 
   -- colors
+  'norcalli/nvim-colorizer.lua',
+
   {
     'ellisonleao/gruvbox.nvim',
     commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007',
@@ -462,6 +464,7 @@ require('setup/lsp')
 -- require('setup/bufexplorer')
 require('setup/cmp')
 require('setup/comment')
+require('setup/colorizer')
 require('setup/dap')
 require('setup/gruvbox')
 -- require('setup/nord')
