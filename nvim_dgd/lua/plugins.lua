@@ -42,10 +42,10 @@ require('lazy').setup({
 
   -- InPane navigation
   {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
+    'smoka7/hop.nvim',
+    version = "*",
+    opts = {},
   },
-
   -- Text Copy/Paste with Tmux
   'ojroques/nvim-osc52',
 
@@ -78,13 +78,12 @@ require('lazy').setup({
   -- Highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
-    build = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
+    build = ":TSUpdate",
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     }
   },
+
   'nvim-treesitter/playground',
   -- 'wfxr/minimap.vim',
 
@@ -479,7 +478,7 @@ require('setup/nvim-tree')
 require('setup/todo-comments')
 require('setup/telescope')
 require('setup/text')
--- require('setup/treesitter')
+require('setup/treesitter')
 require('setup/typescript')
 require('setup/ruby')
 require('setup/osc52')
