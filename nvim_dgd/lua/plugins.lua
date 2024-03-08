@@ -86,6 +86,11 @@ require('lazy').setup({
 
   'nvim-treesitter/playground',
   -- 'wfxr/minimap.vim',
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
 
   -- formatting
   -- 'lukas-reineke/lsp-format.nvim',
@@ -470,6 +475,7 @@ require('setup/gruvbox')
 -- require('setup/nord')
 -- require('setup/elixir')
 require('setup/gitsigns')
+require('setup/harpoon')
 require('setup/hop')
 require('setup/indent_blankline')
 require('setup/lualine')

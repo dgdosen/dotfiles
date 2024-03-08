@@ -16,7 +16,7 @@ require 'hop'.setup {
 -- --   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
 -- -- end, {remap=true})
 --
-vim.keymap.set('n', '<leader>h', require("hop").hint_words, { remap = true, desc = 'find via [h]op' })
+vim.keymap.set('n', '<leader>o', require("hop").hint_words, { remap = true, desc = 'find via h[o]p' })
 
 -- place this in one of your configuration file(s)
 local hop = require('hop')
