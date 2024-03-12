@@ -104,6 +104,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "ruby",
+  callback = function()
+    vim.opt_local.indentkeys:remove(".")
+  end
+})
+
 function show_popup()
   -- Create a new buffer with some text
   local buf = vim.api.nvim_create_buf(false, true)
