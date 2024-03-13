@@ -85,7 +85,7 @@ white   = '#ebdbb2'
 TERM = "xterm-256color"
 
 [font]
-size = 13.0
+size = 12.0
 
 [font.bold]
 family = "SauceCodePro NF"
