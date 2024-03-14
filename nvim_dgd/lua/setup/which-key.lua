@@ -94,6 +94,9 @@ local mappings = {
   },
   s = {
     name = "[s]earch ...",
+    y = {
+      name = "rub[y] ..."
+    }
   },
   t = {
     name = "[t]ypescript and toggle ...",
@@ -112,4 +115,3 @@ local mappings = {
 
 local opts = { prefix = '<leader>' }
 wk.register(mappings, opts)
-
