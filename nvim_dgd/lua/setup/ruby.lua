@@ -13,8 +13,10 @@ local function search_in_folder(folder)
 end
 
 -- Define keymaps for each search
-vim.keymap.set('n', '<leader>sym', function() search_in_folder("app/models") end, { desc = '[s]earch Rub[y] [m]odels' })
-vim.keymap.set('n', '<leader>syt', function() search_in_folder("spec") end, { desc = '[s]earch Rub[y] [t]pec' })
-vim.keymap.set('n', '<leader>syo', function() search_in_folder("app/objects") end, { desc = '[s]earch Rub[y] [o]bjects' })
+vim.keymap.set('n', '<leader>sym', function() search_in_folder("app/models") end, { desc = '[s]earch rub[y] [m]odels' })
+vim.keymap.set('n', '<leader>syc', function() search_in_folder("spec") end, { desc = '[s]earch rub[y] spe[c]' })
+vim.keymap.set('n', '<leader>syo', function() search_in_folder("app/objects") end, { desc = '[s]earch rub[y] [o]bjects' })
 vim.keymap.set('n', '<leader>sys', function() search_in_folder("app/services") end,
-  { desc = '[s]earch Rub[y] [s]ervices' })
+  { desc = '[s]earch rub[y] [s]ervices' })
+vim.keymap.set('n', '<leader>syt', function() search_in_folder("app/types") end,
+  { desc = '[s]earch rub[y] [t]ypes' })

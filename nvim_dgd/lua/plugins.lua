@@ -115,6 +115,8 @@ require('lazy').setup({
     },
   },
 
+  -- 'mhartington/formatter.nvim',
+
   -- svelte (no lsp?
   'evanleck/vim-svelte',
 
@@ -474,6 +476,7 @@ require('setup/dap')
 require('setup/gruvbox')
 -- require('setup/nord')
 -- require('setup/elixir')
+-- require('setup/formatter')
 require('setup/gitsigns')
 require('setup/harpoon')
 require('setup/hop')
