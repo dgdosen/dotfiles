@@ -1,9 +1,17 @@
+-- Description: Keymaps
+-- write/quit
+vim.keymap.set('n', '<leader>q', ':q<CR>', { expr = true })
+vim.keymap.set('n', '<leader>w', ':w<CR>', { expr = true })
+
+-- copy/paste
 vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
 vim.keymap.set('n', '<leader>cc', '<leader>c_', { remap = true })
 vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
+vim.keymap.set({ "n", "x" }, "<leader>p", [["0p]], { desc = "paste from yank register" })
 
-vim.keymap.set('n', '<leader>q', ':q<CR>', { expr = true })
-vim.keymap.set('n', '<leader>w', ':w<CR>', { expr = true })
+-- scratch
+-- vim.keymap,set('n', '<leader>gd', ':lua git_last_commit()<CR>')
+
 
 -- TODO: trying to 'remap' rails vim commands for older (project_b) rails projects.
 -- vim.keymap.set('n', '<leader>gff', require('rails').rails_gf(), { expr=true})
