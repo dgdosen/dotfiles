@@ -339,7 +339,7 @@ Layout/AccessModifierIndentation:
     - indent
   # By default the indentation width from `Layout/IndentationWidth` is used,
   # but it can be overridden by setting this parameter.
-  IndentationWidth: ~
+  IndentationWidth: 2
 
 Layout/ArgumentAlignment:
   Description: >-
@@ -368,7 +368,7 @@ Layout/ArgumentAlignment:
     - with_fixed_indentation
   # By default the indentation width from `Layout/IndentationWidth` is used,
   # but it can be overridden by setting this parameter.
-  IndentationWidth: ~
+  IndentationWidth: 2
 
 Layout/ArrayAlignment:
   Description: >-
@@ -397,7 +397,7 @@ Layout/ArrayAlignment:
     - with_fixed_indentation
   # By default the indentation width from `Layout/IndentationWidth` is used,
   # but it can be overridden by setting this parameter.
-  IndentationWidth: ~
+  IndentationWidth: 2
 
 Layout/AssignmentIndentation:
   Description: >-
@@ -409,7 +409,7 @@ Layout/AssignmentIndentation:
   VersionChanged: '1.40'
   # By default the indentation width from `Layout/IndentationWidth` is used,
   # but it can be overridden by setting this parameter.
-  IndentationWidth: ~
+  IndentationWidth: 2
 
 Layout/BeginEndAlignment:
   Description: 'Align ends corresponding to begins correctly.'
