@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.agidevelopment.logrotate</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>/opt/homebrew/sbin/logrotate</string>
+        <string>/Users/dgdosen/.dotfiles/logrotate/dev_logs.conf</string>
+      </array>
+      <key>StartCalendarInterval</key>
+      <dict>
+        <key>Hour</key>
+        <integer>2</integer>
+        <key>Minute</key>
+        <integer>30</integer>
+      </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/Public/brew_logrotate.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/Public/brew_logrotate.err</string>
+  </dict>
+</plist>
+
