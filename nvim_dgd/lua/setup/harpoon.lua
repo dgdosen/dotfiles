@@ -5,7 +5,7 @@ harpoon:setup({})
 harpoon:setup()
 -- REQUIRED
 
-vim.keymap.set("n", "ha", function() harpoon:list():append() end, { desc = '[a]dd file to harpoon' })
+vim.keymap.set("n", "ha", function() harpoon:list():add() end, { desc = '[a]dd file to harpoon' })
 vim.keymap.set("n", "hr", function() harpoon:list():remove() end, { desc = 'harpoon [r]]emove current file' })
 
 -- vim.keymap.set("n", "ha", function()
