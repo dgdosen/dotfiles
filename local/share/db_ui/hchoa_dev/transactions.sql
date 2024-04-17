@@ -1,5 +1,5 @@
 select e.id, e.name, e.customer_id, i.number, i.customer_id, a.id as account_id, a.name,
-pt.posting_date, pt.transactionable_id, pt.transactionable_type, pt.memo,
+pt.posting_date, pt.transactionable_id, p.id as posting_id, pt.transactionable_type, pt.memo,
 p.credit_amount, p.debit_amount
 from posting_transactions as pt,
 postings as p,
@@ -12,7 +12,7 @@ and pt.transactionable_id = i.id
 and i.customer_id = c.id
 and c.account_id = a.id
 and e.customer_id = c.id
-order by pt.created_at desc
+order by pt.id desc, p.id desc
 limit 40;
 
 select * from postings
