@@ -1,6 +1,6 @@
-require 'amazing_print'
-
-AmazingPrint.pry!
+# require 'amazing_print'
+#
+# AmazingPrint.pry!
 
 # Alias commands for debugging convenience
 if defined?(PryByebug)
