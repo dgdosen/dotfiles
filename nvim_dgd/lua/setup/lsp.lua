@@ -57,7 +57,6 @@ end
 local servers = {
   -- clangd = {},
   html = {},
-  ruby_ls = {},
   graphql = {},
   dockerls = {},
 
@@ -110,7 +109,8 @@ local servers = {
         -- ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
         -- ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
         -- ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
-        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+        ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
+        "*docker-compose*.{yml,yaml}",
         --   ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
       },
       -- format = {
@@ -128,7 +128,7 @@ local servers = {
       telemetry = { enable = false },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
     },
   },
