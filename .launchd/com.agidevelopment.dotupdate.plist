@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.agidevelopment.dotpdate</string>
+    <string>com.agidevelopment.dotupdate</string>
       <key>ProgramArguments</key>
       <array>
         <string>/Users/dgdosen/.dotfiles/daily/crondot.sh</string>
