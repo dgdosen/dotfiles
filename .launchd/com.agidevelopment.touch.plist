@@ -11,9 +11,9 @@
       <key>StartInterval</key>
       <integer>86400</integer>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/Public/filetouch.out</string>
+    <string>/Users/dgdosen/log/filetouch.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/Public/filetouch.err</string>
+    <string>/Users/dgdosen/log/filetouch.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>

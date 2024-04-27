@@ -16,9 +16,9 @@
         <integer>1</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/Public/filedot.out</string>
+    <string>/Users/dgdosen/log/filedot.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/Public/filedot.err</string>
+    <string>/Users/dgdosen/log/filedot.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>

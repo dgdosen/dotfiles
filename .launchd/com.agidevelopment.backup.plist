@@ -16,9 +16,9 @@
         <integer>50</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/Public/backup.out</string>
+    <string>/Users/dgdosen/log/backup.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/Public/backup.err</string>
+    <string>/Users/dgdosen/log/backup.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>

@@ -17,9 +17,9 @@
         <integer>30</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/Public/brew_logrotate.out</string>
+    <string>/Users/dgdosen/log/brew_logrotate.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/Public/brew_logrotate.err</string>
+    <string>/Users/dgdosen/log/brew_logrotate.err</string>
   </dict>
 </plist>
 

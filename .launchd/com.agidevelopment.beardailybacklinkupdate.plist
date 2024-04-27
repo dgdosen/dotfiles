@@ -16,9 +16,9 @@
         <integer>50</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/Public/bear_daily_update.out</string>
+    <string>/Users/dgdosen/log/bear_daily_update.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/Public/bear_daily_update.err</string>
+    <string>/Users/dgdosen/log/bear_daily_update.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>

@@ -18,9 +18,9 @@
         <integer>0</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/Public/bear_weekly_create.out</string>
+    <string>/Users/dgdosen/log/bear_weekly_create.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/Public/bear_weekly_create.err</string>
+    <string>/Users/dgdosen/log/bear_weekly_create.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>

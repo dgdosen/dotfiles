@@ -16,9 +16,9 @@
         <integer>6</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/Public/filebrew.out</string>
+    <string>/Users/dgdosen/log/filebrew.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/Public/filebrew.err</string>
+    <string>/Users/dgdosen/log/filebrew.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>

@@ -16,9 +16,9 @@
         <integer>45</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/Public/filezettelupdate.out</string>
+    <string>/Users/dgdosen/log/filezettelupdate.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/Public/filezettelupdate.err</string>
+    <string>/Users/dgdosen/log/filezettelupdate.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>
