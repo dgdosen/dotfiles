@@ -65,11 +65,28 @@ cmp.setup {
     --   end, { 'i', 's' }),
   },
   sources = {
-    { name = "copilot" },
+    {
+      name = 'tags',
+      option = {
+        -- this is the default options, change them if you want.
+        -- Delayed time after user input, in milliseconds.
+        complete_defer = 100,
+        -- Max items when searching `taglist`.
+        max_items = 10,
+        -- The number of characters that need to be typed to trigger
+        -- auto-completion.
+        keyword_length = 3,
+        -- Use exact word match when searching `taglist`, for better searching
+        -- performance.
+        exact_match = false,
+        -- Prioritize searching result for current buffer.
+        current_buffer_only = false,
+      },
+    },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'nvim_lua' },
-    { name = 'tags' },
+    -- { name = 'nvim_lua' },
+    { name = "copilot" },
     { name = 'buffer',    keyword_length = 4 },
     { name = 'path' },
     { name = 'treesitter' },
@@ -87,6 +104,7 @@ cmp.setup {
         luasnip = "[snip]",
         gh_issues = "[issues]",
         copilot = "[cp]",
+        tags = '[tags]'
       },
     })
   },

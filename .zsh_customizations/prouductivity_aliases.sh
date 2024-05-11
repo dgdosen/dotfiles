@@ -28,6 +28,8 @@ bear_daily_update() {
   #   echo "${TEMPLATE_DATE} - ${TEMPLATE_YESTERDAY} - ${REPLACEMENT}"
   #   echo cp "$file" "${REPLACEMENT}"
   # done
+  # python3 ~/dev/bear_markdown_export/bear_export_sync.py --out ~/dev/bear_sync/sync --backup ~/dev/bear_sync/backup
+
 
   gsed -i "s/updated prep/updated ${TEMPLATE_DATE}/" ~/dev/bear_sync/sync/${TASKS_FILE_NAME}
 
@@ -38,7 +40,7 @@ bear_daily_update() {
 
 bear_weekly_create() {
 
-  # create new dailys
+  # create new daily's
   counter=1
   while [ $counter -le 7 ]
   do
