@@ -446,7 +446,7 @@ join  tm_races on races.id = tm_races.race_id
 where races.track_code in ('SA', 'DMR')
 and races.run_up_distance <> tm_races.run_up_distance
 order by races.run_up_distance - tm_races.run_up_distance
-limit 100
+limit 100;
 
 select races.date, races.race_number, races.track_code, races.run_up_distance, races.temp_rail_distance,
 tm_races.run_up_distance as tm_run_up_distance, tm_races.rail_distance as tm_rail_distance
@@ -454,7 +454,7 @@ from races, tm_races
 where races.id = tm_races.race_id
 and races.track_code in ('SA', 'DMR')
 and races.run_up_distance <> tm_races.run_up_distance
-limit 100
+limit 100;
 
 select races.date, races.race_number, races.track_code, footnotes.note, tm_races.footnotes
 from races, tm_races, footnotes
@@ -462,6 +462,10 @@ where races.id = tm_races.race_id
 and races.id = footnotes.race_id
 and footnotes.note <> tm_races.footnotes
 and races.track_code in ('SA', 'DMR')
+limit 100;
+
+select * from gmax_races 
+order by race_time desc
 limit 100;
 
 -- SA 7F Turf

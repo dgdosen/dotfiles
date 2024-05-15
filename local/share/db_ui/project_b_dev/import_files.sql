@@ -1,7 +1,7 @@
 select * from import_files
 where type_category_code = 'results_files'
 and track_code = 'CD'
-order by id desc;
+order by updated_at desc;
 
 select * from import_files
 order by updated_at desc
