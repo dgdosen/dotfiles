@@ -133,6 +133,13 @@ require('lazy').setup({
     -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
   },
 
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
   -- debugging
   -- {
   -- 	"mfussenegger/nvim-dap",
@@ -490,6 +497,7 @@ require('setup/luasnips')
 require('setup/neodev')
 require('setup/neoscroll')
 require('setup/nvim-tree')
+require('setup/oil')
 require('setup/todo-comments')
 require('setup/telescope')
 require('setup/text')
