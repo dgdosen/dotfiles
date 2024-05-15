@@ -1,2 +1,1 @@
-vim.g.zettel_path = '/Users/dgdosen/dev/zettel/'
-
+-- vim.g.zettel_path = '/Users/dgdosen/dev/zettel/'
