@@ -112,21 +112,39 @@ cmp.setup {
 
 local autocomplete_group = vim.api.nvim_create_augroup('vimrc_autocompletion', { clear = true })
 
+-- Create a new augroup
+local autocomplete_group = vim.api.nvim_create_augroup("DadbodSql", { clear = true })
+
+-- Set up the autocommand
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'sql', 'mysql', 'plsql' },
   callback = function()
-    cmp.setup.buffer({ sources = { { name = 'vim-dadbod-completion' } } })
+    require('cmp').setup.buffer({
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+      },
+    })
   end,
   group = autocomplete_group,
 })
 
--- Add vim-dadbod-completion in sql files
-_ = vim.cmd [[
-  augroup DadbodSql
-    au!
-    autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
-  augroup END
-]]
+-- -- Add vim-dadbod-completion in sql files
+-- _ = vim.cmd [[
+--   augroup DadbodSql
+--     au!
+--     autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+--   augroup END
+-- ]]
+--
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = { 'sql', 'mysql', 'plsql' },
+--   callback = function()
+--     cmp.setup.buffer({ sources = { { name = 'vim-dadbod-completion' } } })
+--   end,
+--   group = autocomplete_group,
+-- })
+
 
 _ = vim.cmd [[
   augroup CmpZsh
