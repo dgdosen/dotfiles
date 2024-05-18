@@ -20,8 +20,10 @@ cpb() {
 }
 
 pbrestore() {
-  sh ~/.dotfiles/.postgres/postgres_project_b_dw_reset.sh
-  sh ~/.dotfiles/.postgres/postgres_project_b_reset.sh
+  ~/.dotfiles/daily/cron_project_b_dw.sh
+  ~/.dotfiles/daily/cron_project_b.sh
+  # sh ~/.dotfiles/.postgres/postgres_project_b_dw_reset.sh
+  # sh ~/.dotfiles/.postgres/postgres_project_b_reset.sh
 }
 
 pb_new_data() {
