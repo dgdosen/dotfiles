@@ -99,9 +99,9 @@ function ChatGPTSubmit()
   local function get_transcript(separator)
     local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
     for i, line in ipairs(lines) do
-      if line:match('^' .. nbsp .. '🤓') then  -- '^' means start of line
+      if line:match('^' .. nbsp .. '🤓') then -- '^' means start of line
         lines[i] = separator .. "USER" .. separator
-      elseif line:match('^' .. nbsp ..'🤖') then
+      elseif line:match('^' .. nbsp .. '🤖') then
         lines[i] = separator .. "ASSISTANT" .. separator
       end
     end

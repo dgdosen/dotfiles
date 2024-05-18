@@ -16,4 +16,4 @@ vim.g.vimwiki_list = {
 }
 vim.g.zettel_format = "%Y-%m-%d:%H:%M-%title"
 vim.g.zettel_options = { { front_matter = { tags = '' } } }
-vim.api.nvim_echo({ { '-setup/vim-wiki.lua loaded', "None" } }, false, {})
+-- vim.api.nvim_echo({ { '-setup/vim-wiki.lua loaded', "None" } }, false, {})

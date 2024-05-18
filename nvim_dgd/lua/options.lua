@@ -12,7 +12,7 @@ vim.wo.number = true
 vim.o.relativenumber = true
 
 -- ? not working on linux
-vim.o.cusrorline = true
+vim.o.cursorline = true
 
 -- clipboard
 vim.o.clipboard = 'unnamedplus'
@@ -38,8 +38,6 @@ vim.o.sidescrolloff = 8
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.go.t_Co = "256"
-vim.go.t_ut = ""
 -- vim.cmd [[colorscheme onedark]]
 vim.o.background = 'dark' -- or light
 

@@ -18,4 +18,4 @@ vim.g.vimwiki_list = {
 
 -- Additional vimwiki configurations if needed
 vim.g.vimwiki_ext2syntax = { ['.md'] = 'markdown' }
-vim.api.nvim_echo({ { '-ftdetect/vimwiki.lua loaded', "None" } }, false, {})
+-- vim.api.nvim_echo({ { '-ftdetect/vimwiki.lua loaded', "None" } }, false, {})
