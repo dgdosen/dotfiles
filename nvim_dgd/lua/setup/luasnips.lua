@@ -34,4 +34,4 @@ end)
 
 require('setup/luasnips_custom/dgd')
 
-vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/setup/luasnips.lua<cr>|<cmd>source ~/.config/nvim/lua/setup/luasnips_custom/dgd.lua<cr>")
+-- vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/setup/luasnips.lua<cr>|<cmd>source ~/.config/nvim/lua/setup/luasnips_custom/dgd.lua<cr>")
