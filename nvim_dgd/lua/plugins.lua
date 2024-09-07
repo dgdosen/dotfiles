@@ -125,27 +125,27 @@ require('lazy').setup({
 
   "leoluz/nvim-dap-go",
 
-  {
-    "echasnovski/mini.icons",
-    opts = {},
-    lazy = true,
-    specs = {
-      { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
-    },
-    init = function()
-      package.preload["nvim-web-devicons"] = function()
-        require("mini.icons").mock_nvim_web_devicons()
-        return package.loaded["nvim-web-devicons"]
-      end
-    end,
-  },
+  -- {
+  --   "echasnovski/mini.icons",
+  --   opts = {},
+  --   lazy = true,
+  --   specs = {
+  --     { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+  --   },
+  --   init = function()
+  --     package.preload["nvim-web-devicons"] = function()
+  --       require("mini.icons").mock_nvim_web_devicons()
+  --       return package.loaded["nvim-web-devicons"]
+  --     end
+  --   end,
+  -- },
 
   {
     'nvim-tree/nvim-tree.lua',
-    dependencies = { "echasnovski/mini.icons" },
-    -- dependencies = {
-    --   'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    -- },
+    -- dependencies = { "echasnovski/mini.icons" },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
     -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
   },
 
@@ -153,8 +153,8 @@ require('lazy').setup({
     'stevearc/oil.nvim',
     opts = {},
     -- Optional dependencies
-    dependencies = { "echasnovski/mini.icons" },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" },
+    -- dependencies = { "echasnovski/mini.icons" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
   -- debugging
@@ -185,16 +185,32 @@ require('lazy').setup({
   -- },
 
   { 'elixir-editors/vim-elixir' },
-
   {
     'kristijanhusak/vim-dadbod-ui',
     dependencies = {
-      'tpope/vim-dadbod',
-      'tpope/vim-dotenv',
-      'kristijanhusak/vim-dadbod-completion',
-    }
+      { 'tpope/vim-dadbod',                     lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
   },
-
+  -- {
+  --   'kristijanhusak/vim-dadbod-ui',
+  --   dependencies = {
+  --     'tpope/vim-dadbod',
+  --     'tpope/vim-dotenv',
+  --     'kristijanhusak/vim-dadbod-completion',
+  --   }
+  -- },
+  --
   {
     'folke/which-key.nvim',
     event = "BufWinEnter",
@@ -519,7 +535,7 @@ require('setup/todo-comments')
 require('setup/telescope')
 require('setup/text')
 require('setup/treesitter')
-require('setup/typescript')
+-- require('setup/typescript')
 require('setup/ruby')
 require('setup/osc52')
 require('setup/vim-dadbod-ui')
