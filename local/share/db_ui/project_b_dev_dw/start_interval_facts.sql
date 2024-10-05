@@ -1,4 +1,7 @@
-select * from start_interval_facts limit 100;
+select * from start_interval_facts order by created_at desc limit 100
+select * from start_facts order by created_at desc limit 100
+select * from output_facts order by created_at desc limit 100
+select * from start_interval_facts order by created_at desc limit 100
 
 select distinct display_interval_type from start_interval_facts;
 select distinct (data_source_type, modification_type) from start_interval_facts;

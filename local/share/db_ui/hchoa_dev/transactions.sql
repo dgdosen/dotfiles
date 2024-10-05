@@ -17,11 +17,11 @@ limit 40;
 
 select * from postings
 order by id desc
-limit 10;
+limit 50;
 
 select * from posting_transactions
 order by id desc
-limit 25;
+limit 30;
 
 select * from financial_accounts limit 100;
 
@@ -33,9 +33,13 @@ select * from invoices
 order by id desc
 limit 10;
 
-select * from contacts
+select * from customer_payments
 order by id desc
 limit 10;
+
+select * from contacts
+order by id desc
+limit 50;
 
 select * from customers
 order by id desc
@@ -49,3 +53,6 @@ select * from accounts
 where description = 'Customer Account'
 and is_active = true
 limit 100;
+
+-- update the posting date of a cash reciept?
+update posting_transactions set posting_date = '2024-09-24' where id = 3587

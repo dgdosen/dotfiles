@@ -39,7 +39,7 @@ select starts.id as start_id, races.id as race_id, races.date, races.track_code,
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'MAVEN'
+    select id from horses where name = 'GETAWAY CAR'
   )
 )
 and races.id = starts.race_id
