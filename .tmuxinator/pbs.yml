@@ -1,0 +1,38 @@
+# ~/.tmuxinator/pbs.yml
+
+name: pbs
+root: ~/dev/project_b_api
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+windows:
+  - spec:
+      root: ~/dev/project_b_api
+      layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
+      panes:
+        - bundle exec guard -c
+        -
+        -
+  - console:
+      root: ~/dev/project_b_api
+      # layout: main-vertical
+      layout: 9530,318x90,0,0{200x90,0,0,0,117x90,201,0[117x16,201,0,4,117x11,201,17,5,117x51,201,29,6,117x9,201,81,7]}
+      panes:
+        - bundle exec rails c
+        - tail -f log/color_output.log

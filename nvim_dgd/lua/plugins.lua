@@ -293,6 +293,18 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'lewis6991/gitsigns.nvim',
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",  -- required
+      "sindrets/diffview.nvim", -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      "nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua",              -- optional
+    },
+    config = true
+  },
 
   {
     "aaronhallaert/ts-advanced-git-search.nvim",
@@ -307,7 +319,8 @@ require('lazy').setup({
   },
 
   -- colors
-  'norcalli/nvim-colorizer.lua',
+  -- 'norcalli/nvim-colorizer.lua',
+  'brenoprata10/nvim-highlight-colors',
 
   {
     'ellisonleao/gruvbox.nvim',
@@ -514,7 +527,7 @@ require('setup/lsp')
 -- require('setup/bufexplorer')
 require('setup/cmp')
 require('setup/comment')
-require('setup/colorizer')
+require('setup/nvim-highlight-colors')
 require('setup/dap')
 require('setup/gruvbox')
 -- require('setup/nord')
