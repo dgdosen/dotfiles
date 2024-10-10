@@ -30,7 +30,7 @@ and horses.name = 'ELITE POWER'
 order by date desc
 
 -- races for date
-select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2024-09-29'
+select id, date, track_code, race_number, distance, pp1_distance, all_source_surface_code, about_distance_code from races where date = '2024-10-11'
 order by track_code, race_number;
 
 -- races on a date at track_code
@@ -464,7 +464,7 @@ and footnotes.note <> tm_races.footnotes
 and races.track_code in ('SA', 'DMR')
 limit 100;
 
-select * from gmax_races 
+select * from gmax_races
 order by race_time desc
 limit 100;
 

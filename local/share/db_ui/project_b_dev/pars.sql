@@ -2,6 +2,8 @@
 
 -- what are we looking at
 select * from pars limit 10;
+select distinct data_source_type from pars;
+
 
 select * from pars order by updated_at desc limit 10;
 select * from par_intervals where par_id = 26992;
