@@ -9,3 +9,4 @@ order by data_source_type, modification_type, interval_type;
 select count(id), rating_type from rating_facts
 group by rating_type;
 
+select * from start_facts order by updated_at desc limit 20;

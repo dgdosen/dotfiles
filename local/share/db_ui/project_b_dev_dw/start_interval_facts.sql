@@ -1,4 +1,4 @@
-select * from start_interval_facts order by created_at desc limit 100
+select * from start_interval_facts where created_at < '2024-10-13' order by created_at desc limit 100
 select * from start_facts order by created_at desc limit 100
 select * from output_facts order by created_at desc limit 100
 select * from start_interval_facts order by created_at desc limit 100

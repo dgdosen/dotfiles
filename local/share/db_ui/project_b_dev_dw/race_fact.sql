@@ -1,6 +1,6 @@
 select * from race_facts
 order by updated_at desc
-limit 10;
+limit 100;
 
 select * from track_dimensions limit 10;
 

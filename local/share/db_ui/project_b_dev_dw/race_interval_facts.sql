@@ -1,5 +1,11 @@
 select * from race_facts order by updated_at desc limit 10;
-select * from race_interval_facts limit 11;
+
+select * from race_interval_facts order by updated_at desc limit 11;
+
+-- raceid 126704 (2022-01-02 R1 SA)
+select * from race_facts where race_id = 126704;
+select * from race_interval_facts where race_fact_id = 91766;
+
 select distinct(par_interval_type) from race_interval_facts;
 select distinct(interval_split_type) from race_interval_facts;
 
@@ -10,7 +16,6 @@ delete from race_interval_facts where interval_type = ':w'
 select count(id), display_interval_type from race_interval_facts group by display_interval_type;
 select count(id), par_interval_type from race_interval_facts group by par_interval_type;
 select count(id), interval_split_type from race_interval_facts group by interval_split_type;
-
 
 update race_interval_facts
   set par_interval_type = 'interval_finish' where interval_type = 'interval_finish' and data_derivation_type = 1;

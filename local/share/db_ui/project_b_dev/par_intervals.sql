@@ -1,4 +1,6 @@
-select * from par_intervals order by id desc limit 10;
+select * from par_interval_starts order by created_at desc limit 50;
+select * from par_intervals  order by created_at desc limit 50;
+select * from pars order by created_at desc limit 50;
 
 select distinct interval_type from par_tranche_par_intervals;
 select distinct par_interval_type from par_tranche_par_intervals;

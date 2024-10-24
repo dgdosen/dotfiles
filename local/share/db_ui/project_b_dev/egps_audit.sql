@@ -1,6 +1,7 @@
 select count(*) from egps_fractions;
 select count(*) from egps_calls where distance_feet < 0;
 select count(*) from egps_calls;
+select * from egps_calls order by id desc limit 10;
 
 
 SELECT COUNT(DISTINCT races.id) AS race_count

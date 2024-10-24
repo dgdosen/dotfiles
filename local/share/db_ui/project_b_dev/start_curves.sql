@@ -1,5 +1,5 @@
-s4elect * from race_curves
-select * from start_curves 
+select * from race_curves;
+select * from start_curves order by created_at desc limit 10; 
 where data_source_type = 'trakus'
 limit 10;
 

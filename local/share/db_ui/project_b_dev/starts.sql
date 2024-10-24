@@ -10,9 +10,10 @@ select starts.id, horses.id as horse_id, starts.race_id, starts.version, horses.
 select count(id), version from starts
 group by version
 
+-- 1 horse 611859 BLUE DOG
 select starts.id, horses.id as horse_id, horses.name, program_number, pp2_program_number from starts, horses
   where starts.horse_id = horses.id
-  and starts.race_id = 68034
+  and starts.race_id = 152373
 order by pp2_program_number;
 
 
@@ -29,7 +30,7 @@ order by races.date desc limit 10;
 select starts.race_id, starts.id, horses.id as horse_id, horses.name, program_number, post_position from starts, horses
   where starts.horse_id = horses.id
   and starts.race_id in (
-    select id from races where date = '2021-11-28' and race_number = 7jj
+    select id from races where date = '2021-11-28' and race_number = 7
   )
 order by race_id, program_number;
 
@@ -39,7 +40,7 @@ select starts.id as start_id, races.id as race_id, races.date, races.track_code,
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'GETAWAY CAR'
+    select id from horses where name = 'EASTBOUND'
   )
 )
 and races.id = starts.race_id

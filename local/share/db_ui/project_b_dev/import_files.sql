@@ -7,6 +7,12 @@ select * from import_files
 order by updated_at desc
 limit 500;
 
+-- missing DMR?
+select * from import_files
+where file_date = '2023-05-19'
+
+
+update import_files set track_id = 188 where id = 117377
 
 update import_files set import_state_code = 'cd_problem'
 where type_category_code = 'results_files'
