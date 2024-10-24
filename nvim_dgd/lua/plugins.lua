@@ -123,7 +123,7 @@ require('lazy').setup({
   -- svelte (no lsp?
   'evanleck/vim-svelte',
 
-  "leoluz/nvim-dap-go",
+  -- "leoluz/nvim-dap-go",
 
   -- {
   --   "echasnovski/mini.icons",
@@ -528,7 +528,7 @@ require('setup/lsp')
 require('setup/cmp')
 require('setup/comment')
 require('setup/nvim-highlight-colors')
-require('setup/dap')
+-- require('setup/dap')
 require('setup/gruvbox')
 -- require('setup/nord')
 -- require('setup/elixir')
