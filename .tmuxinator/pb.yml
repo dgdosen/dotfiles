@@ -14,7 +14,7 @@ windows:
       panes:
         - nvim
         - bundle exec rails c
-        - tail -f log/test.log
+        - tail -f log/color_output.log
         - bundle exec guard -c
   - run:
       # layout: b657,254x75,0,0{150x75,0,0,175,103x75,151,0[103x37,151,0,180,103x37,151,38,181]}
