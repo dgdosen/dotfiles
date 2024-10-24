@@ -146,14 +146,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
-# source /Users/dgdosen/.docker/init-zsh.sh || true # Added by Docker Desktop
-# source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+# Only source Powerlevel10k if not already sourced
 source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
-# source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# source open ai key:
-# source $HOME/.zsh/.openai.sh
-
+# [[ ! $P10K_SOURCED ]] && source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme && export P10K_SOURCED=1
