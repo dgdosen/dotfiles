@@ -6,7 +6,6 @@
 -- NOTE: foobar
 -- DOC: foobar - easy on the eyes!
 -- TEST: foobar
--- def_purple = { "", "#B16286" }
 
 require("todo-comments").setup(
   {
