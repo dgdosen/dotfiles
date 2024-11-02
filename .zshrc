@@ -149,5 +149,5 @@ unset __conda_setup
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
 # Only source Powerlevel10k if not already sourced
-# source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! $P10K_SOURCED ]] && source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme && export P10K_SOURCED=1
+source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
+# [[ ! $P10K_SOURCED ]] && source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme && export P10K_SOURCED=1
