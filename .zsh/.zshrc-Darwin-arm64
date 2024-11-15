@@ -26,4 +26,7 @@ export PUPPETEER_EXECUTABLE_PATH=`which chromium`
 # libpqa
 export RUSTFLAGS="-L /opt/homebrew/opt/libpq/lib"
 
+# dealing with PG issues
+export PGGSSENCMODE=disable
+
 # /opt/homebrew/opt/fzf/install
