@@ -55,4 +55,16 @@ and is_active = true
 limit 100;
 
 -- update the posting date of a cash reciept?
-update posting_transactions set posting_date = '2024-09-24' where id = 3587
+update posting_transactions set posting_date = '2024-09-24' where id = 3587;
+
+-- vendors/
+select * from accounts
+where account_type = 11
+order by id desc;
+
+select * from vendors
+where account_id = 70
+order by id desc;
+
+select * from bills where vendor_id = 18;
+

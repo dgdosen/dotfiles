@@ -34,7 +34,9 @@ select id, date, track_code, race_number, distance, pp1_distance, all_source_sur
 order by track_code, date desc, race_number;
 
 -- races on a date at track_code
-select id, track_id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date > '2023-11-04'
+select id, track_id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races 
+where date = '2024-10-26'
+and track_code = 'SA'
 order by track_code, race_number;
 
 -- track geometry issues

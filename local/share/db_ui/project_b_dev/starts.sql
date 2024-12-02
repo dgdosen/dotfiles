@@ -30,7 +30,7 @@ order by races.date desc limit 10;
 select starts.race_id, starts.id, horses.id as horse_id, horses.name, program_number, post_position from starts, horses
   where starts.horse_id = horses.id
   and starts.race_id in (
-    select id from races where date = '2021-11-28' and race_number = 7
+    select id from races where date = '2024-10-26' and race_number = 5
   )
 order by race_id, program_number;
 
@@ -40,7 +40,7 @@ select starts.id as start_id, races.id as race_id, races.date, races.track_code,
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'EASTBOUND'
+    select id from horses where name = 'DUVET DAN'
   )
 )
 and races.id = starts.race_id
