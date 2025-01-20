@@ -1,4 +1,6 @@
-select * from interval_trip_notes limit 10;
+select * from interval_trip_notes order by id desc limit 500;
+
+select * from interval_trip_notes where start_id = 573768;
 select * from interval_trip_notes where start_id = 546015;
 select * from interval_trip_notes where start_id = 546015 and trip_type = 'egps_trip';
 select * from interval_trip_notes where trip_type = 'project_b_trip' limit 10;

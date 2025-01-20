@@ -1,4 +1,10 @@
 select * from horses where name = 'NOTRE DAME';
+
+select distinct breed from horses;
+select distinct pp2_sex from starts;
+select distinct breed_category from horses;
+
+
 select * from horses where name = 'WARD ''N JERRY';
 select * from horses where name = 'C''MON JENNA';
 

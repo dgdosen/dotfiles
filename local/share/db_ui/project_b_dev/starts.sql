@@ -77,3 +77,11 @@ and races.track_code = 'CD' order by races.date desc
 limit 20;
 
 select created_at from tm_races order by id desc limit 10;
+
+
+select races.date, races.track_code, races.race_number, starts.id, horses.name, starts.pp2_sex from 
+races, starts, horses
+where races.id = starts.race_id
+and starts.horse_id = horses.id
+and races.date = '2025-01-18'
+order by race_number, starts.pp2_program_number

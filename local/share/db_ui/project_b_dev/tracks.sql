@@ -8,6 +8,9 @@ select * from tracks order by updated_at desc
 
 select * from tracks where track_code = 'SA' order by updated_at desc
 
+-- look up a track
+select * from tracks where track_code = 'BAQ';
+
 select * from locations;
 
 delete from tracks where id = 481
