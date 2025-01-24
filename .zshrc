@@ -22,6 +22,19 @@ source $HOME/.zsh_customizations/vim_aliases.sh
 
 export CORS_ORIGN='*'
 
+# # Detect Dropbox Personal and Business locations
+if [[ -d "$HOME/Dropbox (Personal)" ]]; then
+  export DROPBOX_PERSONAL="$HOME/Dropbox (Personal)"
+elif [[ -d "$HOME/Library/CloudStorage/Dropbox-Personal" ]]; then
+  export DROPBOX_PERSONAL="$HOME/Library/CloudStorage/Dropbox-Personal"
+fi
+
+if [[ -d "$HOME/makerboarding Dropbox" ]]; then
+  export DROPBOX_BUSINESS="$HOME/makerboarding Dropbox"
+elif [[ -d "$HOME/Library/CloudStorage/Dropbox-makerboarding" ]]; then
+  export DROPBOX_BUSINESS="$HOME/Library/CloudStorage/Dropbox-makerboarding"
+fi
+
 alias zshconfig="vim ~/.zshrc"
 
 export NVIM_DAY="$HOME/.vim_nvim/config/colors_day.vimrc"
