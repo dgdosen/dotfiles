@@ -58,7 +58,7 @@ export APPEARANCE='dark'
 if [[ "`uname`" == "Darwin" ]]
 then
   # echo 'darwin oh-my-zsh'
-  plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases )
+  plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-syntax-highlighting zsh-autosuggestions )
 else
   # echo 'linux oh-my-zsh'
   plugins=(git git-extras lol powify dgdosen docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-syntax-highlighting)
