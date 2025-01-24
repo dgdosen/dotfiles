@@ -45,10 +45,10 @@ export APPEARANCE='dark'
 if [[ "`uname`" == "Darwin" ]]
 then
   # echo 'darwin oh-my-zsh'
-  plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-autosuggestions )
+  plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases )
 else
   # echo 'linux oh-my-zsh'
-  plugins=(git git-extras lol powify dgdosen docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-autosuggestions zsh-syntax-highlighting)
+  plugins=(git git-extras lol powify dgdosen docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-syntax-highlighting)
 fi
 
 source ~/.bin/tmuxinator.zsh
@@ -151,3 +151,4 @@ export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 # Only source Powerlevel10k if not already sourced
 source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
 # [[ ! $P10K_SOURCED ]] && source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme && export P10K_SOURCED=1
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
