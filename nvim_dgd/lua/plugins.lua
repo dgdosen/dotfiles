@@ -323,16 +323,24 @@ require('lazy').setup({
   'brenoprata10/nvim-highlight-colors',
 
   {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
+    'luisiacc/gruvbox-baby',
     config = function()
-      vim.cmd("let g:gruvbox_transparent_bg = 1")
-      vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
-      vim.cmd("colorscheme gruvbox")
-      -- vim.o.background = "light"
-      vim.o.background = appearance
+      vim.g.gruvbox_baby_background_color = "light"
+      vim.cmd [[colorscheme gruvbox-baby]]
     end
   },
+
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd("let g:gruvbox_transparent_bg = 1")
+  --     vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
+  --     vim.cmd("colorscheme gruvbox")
+  --     -- vim.o.background = "light"
+  --     vim.o.background = vim.env.APPEARANCE
+  --   end
+  -- },
 
   -- {
   --   'ellisonleao/gruvbox.nvim',
@@ -493,7 +501,7 @@ require('setup/cmp')
 require('setup/comment')
 require('setup/nvim-highlight-colors')
 -- require('setup/dap')
-require('setup/gruvbox')
+-- require('setup/gruvbox')
 -- require('setup/nord')
 -- require('setup/elixir')
 -- require('setup/formatter')
