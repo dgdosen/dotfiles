@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 source ~/.zshrc
 cd $HOME/.dotfiles
 echo - in dotfiles

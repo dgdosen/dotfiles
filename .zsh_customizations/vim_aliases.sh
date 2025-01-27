@@ -48,6 +48,15 @@ nvim_up() {
   nvim --headless '+MasonUpdate' +qa
 }
 
+# nvim_up() {
+#   {
+#     nvim --headless '+Lazy! sync' +qa
+#     nvim --headless '+MasonUpdateAll' +qa
+#     nvim --headless '+MasonUpdate' +qa
+#     echo "Neovim updates completed!"
+#   } &
+# }
+
 nvim_vimscript() {
   rm -f ~/.config/nvim
   rm -f ~/.local/share/nvim

@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 echo - updating nvim components
 nvim_up
 echo - updating zsh components

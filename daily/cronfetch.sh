@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 source ~/.zshrc
 nvim_up
 fetchthegits

@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 # run the audit locally...
 source ~/.zshrc
 echo "running the project b gmax (and other?) audit for missing race data"

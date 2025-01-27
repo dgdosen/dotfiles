@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 source ~/.zshrc
 echo - recyling postgres
 # PGDATA=$HOME/Library/Application\ Support/Postgres/var-13 pg_ctl stop

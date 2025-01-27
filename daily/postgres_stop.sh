@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 source ~/.zshrc
 # PGDATA=$HOME/Library/Application\ Support/Postgres/var-13 pg_ctl stop
 # PGDATA=$HOME/Library/Application\ Support/Postgres/var-13 pg_ctl start
