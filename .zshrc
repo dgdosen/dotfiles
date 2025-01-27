@@ -165,3 +165,6 @@ export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
 # [[ ! $P10K_SOURCED ]] && source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme && export P10K_SOURCED=1
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export LDFLAGS="-L$(brew --prefix gsl)/lib"
+export CPPFLAGS="-I$(brew --prefix gsl)/include"
+export PKG_CONFIG_PATH="$(brew --prefix gsl)/lib/pkgconfig"
