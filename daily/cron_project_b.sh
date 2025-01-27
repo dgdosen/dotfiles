@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 source ~/.zshrc
 echo - updating project b data
 DB_NAME="project_b_development"
