@@ -1,5 +1,6 @@
--- starts for a race
+select * from starts limit 10;
 
+-- starts for a race
 select starts.id, horses.id as horse_id, starts.race_id, starts.version, horses.name, program_number, pp2_program_number from starts, horses
 
   where starts.horse_id = horses.id and race_id in (
@@ -24,7 +25,7 @@ and horses.id = starts.horse_id
 and races.track_code = 'CD'
 order by races.date desc limit 10;
 
-
+select distinct official_finish_position from starts;
 
 -- horses/start for race_id
 select starts.race_id, starts.id, horses.id as horse_id, horses.name, program_number, post_position from starts, horses
@@ -36,15 +37,35 @@ order by race_id, program_number;
 
 
 /* horse history */
-select starts.id as start_id, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
+select starts.id as start_id, starts.is_scratched, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.created_at from races, starts
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'DUVET DAN'
+    select id from horses where name = 'SURF SONG'
   )
 )
 and races.id = starts.race_id
 order by date desc;
+
+/* trainer history */
+select starts.id as start_id, starts.is_scratched, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.created_at from races, starts
+where
+starts.id in (
+  select id from  starts where trainer_id in (
+    select id from trainers where name = 'POWELL LEONARD'
+  )
+)
+and races.id = starts.race_id
+order by date desc;
+
+-- for a given set of race_ids:
+select starts.race_id, starts.id, horses.id as horse_id, horses.name, program_number, post_position, starts.official_finish_position, starts.is_scratched from starts, horses
+  where starts.horse_id = horses.id
+  and starts.race_id in (
+    140681
+  )
+order by race_id, program_number;
+
 
 -- with a given date?
 select starts.id as start_id, races.id as race_id, races.date, races.track_code, races.race_number from races, starts where races.id in (
@@ -79,9 +100,32 @@ limit 20;
 select created_at from tm_races order by id desc limit 10;
 
 
-select races.date, races.track_code, races.race_number, starts.id, horses.name, starts.pp2_sex from 
+select races.date, races.track_code, races.race_number, starts.id, horses.name, starts.pp2_sex from
 races, starts, horses
 where races.id = starts.race_id
 and starts.horse_id = horses.id
 and races.date = '2025-01-18'
-order by race_number, starts.pp2_program_number
+order by race_number, starts.pp2_program_number;
+
+
+-- paul query
+SELECT horses.id AS horse_id, races.date, races.track_code, races.race_number, drf_calls.call_code, drf_calls.position 
+FROM horses 
+JOIN starts ON horses.id = starts.horse_id
+JOIN races ON races.id = starts.race_id
+LEFT JOIN drf_calls ON starts.id = drf_calls.start_id
+WHERE horses.id in (
+  SELECT id from horses WHERE name = 'LAULNE'
+)
+AND (drf_calls.call_code = 'finish_call' OR drf_calls.call_code IS NULL)
+AND races.track_code <> 'CHT'
+AND races.date < '2025-01-12'
+ORDER BY races.date desc
+
+ON races.id = starts.race_id) ON horses.id =starts.horse_id) LEFT JOIN drf_calls ON starts.id = drf_calls.start_id
+WHERE (((horses.id)=87484) AND ((races.Date)<>#1/12/2025# And (races.Date)<>#1/19/2025#) AND ((races.track_code)<>"CHT") AND ((drf_calls.call_code)="finish_call"))
+ORDER BY races.Date DESC;
+
+select count(id), pp3_state_bred_flag from starts
+group by pp3_state_bred_flag
+order by pp3_state_bred_flag;

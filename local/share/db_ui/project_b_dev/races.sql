@@ -34,8 +34,8 @@ select id, date, track_code, race_number, distance, pp1_distance, all_source_sur
 order by track_code, date desc, race_number;
 
 -- races on a date at track_code
-select id, track_id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races 
-where date = '2024-10-26'
+select id, track_id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races
+where date = '2025-01-24'
 and track_code = 'SA'
 order by track_code, race_number;
 
@@ -509,3 +509,10 @@ date = '2024-10-06'
 -- 2022-01-02 R1 - 126704
 select * from races where date = '2022-01-02' and track_code = 'SA'
 
+-- duplicate races:
+select * from races where id in (
+ 140473, 146839
+)
+
+select created_at, updated_at from races order by date desc limit 100;
+select date, track_code, race_number, track_meet_id from races order by date desc limit 100;

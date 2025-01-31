@@ -25,3 +25,6 @@ order by date desc;
 select distinct date from races where track_code in ('SA', 'CD', 'DMR')
 and date > '2022-12-31'
 order by date;
+
+select * from horses where id =     87484
+
