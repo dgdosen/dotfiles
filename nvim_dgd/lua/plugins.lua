@@ -66,7 +66,7 @@ require('lazy').setup({
       'rafamadriz/friendly-snippets',
       -- 'delphinus/cmp-ctags',
       'quangnguyen30192/cmp-nvim-tags',
-      'zbirenbaum/copilot-cmp',
+      -- 'zbirenbaum/copilot-cmp',
       'onsails/lspkind-nvim',
       'kristijanhusak/vim-dadbod-completion',
       -- -- if you want the sources is available for some file types
@@ -322,6 +322,12 @@ require('lazy').setup({
   -- 'norcalli/nvim-colorizer.lua',
   'brenoprata10/nvim-highlight-colors',
 
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   priority = 1000
+  -- },
+
   {
     'luisiacc/gruvbox-baby',
     config = function()
@@ -361,6 +367,14 @@ require('lazy').setup({
   --   --   vim.cmd("set background=dark")
   --   -- end
   -- },
+  { 'shaunsingh/nord.nvim' },
+  { 'folke/tokyonight.nvim',
+    -- config = function()
+    --   vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
+    --   vim.cmd("colorscheme tokyonight")
+    --   vim.cmd("set background=dark")
+    -- end
+  },
 
   'nvim-lualine/lualine.nvim',
   'lukas-reineke/indent-blankline.nvim',
@@ -400,46 +414,46 @@ require('lazy').setup({
   -- via tpope
   -- 'github/copilot.vim'
   -- via lua
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "VimEnter",
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup(
-          {
-            suggestion = { enabled = false },
-            panel = { enabled = false },
-            -- suggestion = {
-            -- 	enabled = true,
-            -- 	auto_trigger = false,
-            -- 	debounce = 75,
-            -- 	keymap = {
-            -- 		accept = "<C-l>",
-            -- 		accept_word = false,
-            -- 		accept_line = false,
-            -- 		next = "<C-]>",
-            -- 		prev = "<C-[>",
-            -- 		dismiss = "<C-x>",
-            -- 	},
-            -- },
-            --  copilot_node_command = 'node', -- Node.js version must be > 16.x
-            -- server_opts_overrides = {},
-          }
-        )
-      end, 100)
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "VimEnter",
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("copilot").setup(
+  --         {
+  --           suggestion = { enabled = false },
+  --           panel = { enabled = false },
+  --           -- suggestion = {
+  --           -- 	enabled = true,
+  --           -- 	auto_trigger = false,
+  --           -- 	debounce = 75,
+  --           -- 	keymap = {
+  --           -- 		accept = "<C-l>",
+  --           -- 		accept_word = false,
+  --           -- 		accept_line = false,
+  --           -- 		next = "<C-]>",
+  --           -- 		prev = "<C-[>",
+  --           -- 		dismiss = "<C-x>",
+  --           -- 	},
+  --           -- },
+  --           --  copilot_node_command = 'node', -- Node.js version must be > 16.x
+  --           -- server_opts_overrides = {},
+  --         }
+  --       )
+  --     end, 100)
+  --   end,
+  -- },
 
-  {
-    "zbirenbaum/copilot-cmp",
-    dependencies = {
-      'zbirenbaum/copilot.lua'
-    },
-    config = function()
-      require("copilot_cmp").setup()
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   dependencies = {
+  --     'zbirenbaum/copilot.lua'
+  --   },
+  --   config = function()
+  --     require("copilot_cmp").setup()
+  --   end,
+  -- },
 
   -- {
   -- 	"zbirenbaum/copilot-cmp",

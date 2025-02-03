@@ -58,7 +58,9 @@ export APPEARANCE='dark'
 if [[ "`uname`" == "Darwin" ]]
 then
   # echo 'darwin oh-my-zsh'
-  plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-syntax-highlighting zsh-autosuggestions )
+  # NOTE: removing zsh-syntax-highlighting and zsh-autosuggestions here - as they're loaded via homebrew
+  plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases )
+  # plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-syntax-highlighting zsh-autosuggestions )
 else
   # echo 'linux oh-my-zsh'
   plugins=(git git-extras lol powify dgdosen docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-syntax-highlighting)
@@ -164,7 +166,9 @@ export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 # Only source Powerlevel10k if not already sourced
 source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
 # [[ ! $P10K_SOURCED ]] && source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme && export P10K_SOURCED=1
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export LDFLAGS="-L$(brew --prefix gsl)/lib"
 export CPPFLAGS="-I$(brew --prefix gsl)/include"
 export PKG_CONFIG_PATH="$(brew --prefix gsl)/lib/pkgconfig"
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
