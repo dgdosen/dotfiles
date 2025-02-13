@@ -3,6 +3,17 @@ select count(*) from egps_calls where distance_feet < 0;
 select count(*) from egps_calls;
 select * from egps_calls order by id desc limit 10;
 
+select * from egps_calls where start_id = 623857;
+
+-- races where there are calls with a length < 0
+select distinct races.id, races.date, races.track_code, races.race_number, races.pp3_distance
+from races, starts, egps_calls
+where races.id = starts.race_id
+and starts.id = egps_calls.start_id
+and starts.id in (
+  select start_id from egps_calls where distance_feet < 0
+)
+order by races.date, races.track_code, races.race_number;
 
 SELECT COUNT(DISTINCT races.id) AS race_count
 FROM races
