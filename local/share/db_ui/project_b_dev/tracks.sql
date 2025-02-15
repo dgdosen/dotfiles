@@ -4,6 +4,8 @@ and tracks.track_code in ('SA', 'DMR',  'CD');
 
 select * from watched_tracks;
 
+select * from tracks where track_code = 'WO';
+
 select * from tracks order by updated_at desc
 
 select * from tracks where track_code = 'SA' order by updated_at desc

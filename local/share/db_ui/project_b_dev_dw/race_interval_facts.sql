@@ -1,5 +1,8 @@
-select * from race_facts order by updated_at desc limit 10;
+select * from race_facts order by updated_at desc limit 20;
 
+-- specific race/race_fact_id
+select * from race_facts where race_id = 152729;
+select * from race_interval_facts where race_fact_id = 99233;
 select * from race_interval_facts order by updated_at desc limit 11;
 
 -- raceid 126704 (2022-01-02 R1 SA)

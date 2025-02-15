@@ -26,11 +26,11 @@ horses.id as horse_id, horses.name, starts.program_number
 from races, starts, horses
 where races.id = starts.race_id
 and starts.horse_id = horses.id
-and horses.name = 'ELITE POWER'
+and horses.name = 'CHASING LIBERTY'
 order by date desc
 
 -- races for date
-select id, date, track_code, race_number, distance, pp1_distance, all_source_surface_code, about_distance_code from races where date = '2024-10-20'
+select id, date, track_code, race_number, distance, pp1_distance, all_source_surface_code, about_distance_code from races where date = '2024-10-27'
 order by track_code, date desc, race_number;
 
 -- races on a date at track_code
