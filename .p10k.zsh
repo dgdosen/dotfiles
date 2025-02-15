@@ -914,7 +914,7 @@
   # typeset -g POWERLEVEL9K_GOENV_FOREGROUND=0
   # typeset -g POWERLEVEL9K_GOENV_BACKGROUND=4
   # Hide go version if it doesn't come from one of these sources.
-  typeset -g POWERLEVEL9K_GOENV_SOURCES=(shell local global)
+  typeset -g POWERLEVEL9K_GOENV_SOURCES=(shell local global prompt)
   # If set to false, hide go version if it's the same as global:
   # $(goenv version-name) == $(goenv global).
   typeset -g POWERLEVEL9K_GOENV_PROMPT_ALWAYS_SHOW=false
