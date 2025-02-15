@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 source ~/.zshrc
+date
+echo "running bear_daily_update"
 
 # Since .zshrc isn’t sourced, we need to manually initialize pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -18,5 +20,6 @@ echo "Python Version: $(python --version)"
 # Run the actual script in an interactive shell
 zsh -i -c 'bear_daily_update'
 
+date
 # Ensure script completion
 touch ~/.cron_support/bear_daily_update.txt
