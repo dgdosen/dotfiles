@@ -24,7 +24,7 @@ ln -sv ~/.dotfiles/.ruby-version ~/.ruby-version
 
 # tmux
 [ ! -L "$HOME/.tmux" ] && ln -sv ~/.dotfiles/.tmux ~/.tmux
-ln -sv ~/.dotfiles/.tmux-theme-gruvbox.conf ~/.tmux-theme-gruvbox.conf
+# ln -sv ~/.dotfiles/.tmux-theme-gruvbox.conf ~/.tmux-theme-gruvbox.conf
 ln -sv ~/.dotfiles/.tmux.conf ~/.tmux.conf
 [ ! -L "$HOME/.tmuxinator" ] && ln -sv ~/.dotfiles/.tmuxinator ~/.tmuxinator
 
