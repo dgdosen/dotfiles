@@ -320,21 +320,42 @@ require('lazy').setup({
 
   -- colors
   -- 'norcalli/nvim-colorizer.lua',
-  'brenoprata10/nvim-highlight-colors',
+  -- 'brenoprata10/nvim-highlight-colors',
 
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        integrations = {
+          treesitter = true,
+          telescope = true,
+          lsp_saga = true,
+          lsp_trouble = true,
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          which_key = true,
+        }
+      })
+      vim.cmd.colorscheme "catppuccin"
+    end
+  },
   -- {
   --   "catppuccin/nvim",
   --   name = "catppuccin",
   --   priority = 1000
   -- },
 
-  {
-    'luisiacc/gruvbox-baby',
-    config = function()
-      vim.g.gruvbox_baby_background_color = "light"
-      vim.cmd [[colorscheme gruvbox-baby]]
-    end
-  },
+  -- {
+  --   'luisiacc/gruvbox-baby',
+  --   config = function()
+  --     vim.g.gruvbox_baby_background_color = "light"
+  --     -- vim.cmd [[colorscheme gruvbox-baby]]
+  --   end
+  -- },
 
   -- {
   --   "ellisonleao/gruvbox.nvim",
@@ -513,7 +534,7 @@ require('setup/lsp')
 -- require('setup/bufexplorer')
 require('setup/cmp')
 require('setup/comment')
-require('setup/nvim-highlight-colors')
+-- require('setup/nvim-highlight-colors')
 -- require('setup/dap')
 -- require('setup/gruvbox')
 -- require('setup/nord')

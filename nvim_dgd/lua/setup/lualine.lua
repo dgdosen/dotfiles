@@ -9,12 +9,12 @@ local symbols = {
 }
 
 -- Conditionally set the lualine theme
-local lualine_theme
-if appearance == "dark" then
-  lualine_theme = 'gruvbox_dark'
-else
-  lualine_theme = 'gruvbox_light'
-end
+-- local lualine_theme
+-- if appearance == "dark" then
+--   lualine_theme = 'gruvbox_dark'
+-- else
+--   lualine_theme = 'gruvbox_light'
+-- end
 
 require('lualine').setup {
   options = {
@@ -24,9 +24,9 @@ require('lualine').setup {
     section_separators = { left = '', right = '' },
     sections = {
       lualine_a = { "mode" },
-      lualine_b = {"branch"},
+      lualine_b = { "branch" },
       lualine_c = { diagnostics },
-      lualine_x = { diff, spaces, "encoding", {'fileformat', symbols = { unix = 'Unix', dos = '', mac = '',}}, filetype },
+      lualine_x = { diff, spaces, "encoding", { 'fileformat', symbols = { unix = 'Unix', dos = '', mac = '', } }, filetype },
       lualine_y = { location },
       lualine_z = { "progress" },
     },

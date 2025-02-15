@@ -138,6 +138,7 @@ y = 5
 
 [general]
 import = [
-  "~/.config/alacritty/alacritty-colors-dark.toml"
+  # "~/.config/alacritty/alacritty-colors-dark.toml"
   # "~/.config/alacritty/alacritty-colors-light.toml"
+  "~/.config/alacritty/themes/catppuccin-mocha.toml"
 ]
