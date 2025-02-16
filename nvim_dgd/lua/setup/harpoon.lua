@@ -4,7 +4,6 @@ local harpoon = require("harpoon")
 harpoon:setup()
 -- REQUIRED
 
--- my config H
 --
 vim.keymap.set("n", "Ha", function() harpoon:list():add() end, { desc = '[a]dd file to harpoon' })
 vim.keymap.set("n", "Hr", function() harpoon:list():remove() end, { desc = 'harpoon [r]emove current file' })
