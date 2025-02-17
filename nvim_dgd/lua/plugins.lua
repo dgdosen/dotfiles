@@ -320,7 +320,7 @@ require('lazy').setup({
 
   -- colors
   -- 'norcalli/nvim-colorizer.lua',
-  -- 'brenoprata10/nvim-highlight-colors',
+  'brenoprata10/nvim-highlight-colors',
 
   {
     "catppuccin/nvim",
@@ -497,7 +497,16 @@ require('lazy').setup({
   -- rails
   'tpope/vim-rails',
 
-  { -- tmux navigation
+  {
+    'fei6409/log-highlight.nvim',
+    config = function()
+      require('log-highlight').setup {}
+    end,
+  },
+
+  -- wip custom plugin development
+  -- { [[/Users/dgdosen/dev/which_snip.nvim]] },
+  {
     'alexghergh/nvim-tmux-navigation',
     config = function()
       local nvim_tmux_nav = require('nvim-tmux-navigation')
@@ -511,18 +520,8 @@ require('lazy').setup({
       vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
       vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
       vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
-    end,
+    end
   },
-
-  {
-    'fei6409/log-highlight.nvim',
-    config = function()
-      require('log-highlight').setup {}
-    end,
-  },
-
-  -- wip custom plugin development
-  -- { [[/Users/dgdosen/dev/which_snip.nvim]] },
 
 })
 
@@ -549,6 +548,7 @@ require('setup/luasnips')
 -- require('setup/neoclip')
 require('setup/neodev')
 require('setup/neoscroll')
+-- require('setup/nvim-tmux-navigation')
 require('setup/nvim-tree')
 require('setup/oil')
 require('setup/todo-comments')

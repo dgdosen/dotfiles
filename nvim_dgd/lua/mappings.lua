@@ -37,6 +37,8 @@ vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
 vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
 vim.keymap.set("x", "<C-j>", ":move '>+1<CR>gv-gv")
 vim.keymap.set("x", "<C-k>", ":move '<-2<CR>gv-gv")
+-- vim.keymap.set('n', "<C-j>", "<C-w>j", { noremap = true, silent = true })
+-- vim.keymap.set('n', "<C-k>", "<C-w>k", { nremap = true, silent = true })
 
 -- "http://vimcasts.org/episodes/bubbling-text/
 -- nmap <C-k> [e
