@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 echo --
 echo dropping database
 dropdb -U postgres -h localhost project_b_dw_development
