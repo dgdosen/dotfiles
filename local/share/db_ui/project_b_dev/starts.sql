@@ -41,7 +41,7 @@ select starts.id as start_id, starts.is_scratched, races.id as race_id, races.da
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'TRULY QUALITY'
+    select id from horses where name = 'PAARL'
   )
 )
 and races.id = starts.race_id

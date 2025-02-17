@@ -516,3 +516,11 @@ select * from races where id in (
 
 select created_at, updated_at from races order by date desc limit 100;
 select date, track_code, race_number, track_meet_id from races order by date desc limit 100;
+
+SELECT track_meets.year, COUNT(*) AS race_count
+FROM starts
+JOIN races ON starts.race_id = races.id
+JOIN track_meets ON races.track_meet_id = track_meets.id
+WHERE track_meets.year BETWEEN 2020 AND 2024
+GROUP BY track_meets.year
+ORDER BY track_meets.year;
