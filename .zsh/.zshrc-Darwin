@@ -79,5 +79,5 @@ eval "$(rbenv init -)"
 # - note these should be different on linux
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/.zsh_customizations/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
