@@ -32,13 +32,13 @@ function resizeToFraction(
       // Phoenix.log(screen.width, screen.height);
       // Phoenix.log(`xoffiset: ${x_offset}`)
 
-      const x = ((screen.width / xDenominator) * xNumerator) + 5;
-      const y = ((screen.height / yDenominator) * yNumerator) + 10;
-      const width = ((screen.width / widthDenominator) * widthNumerator) - 10;
-      const height = ((screen.height / heightDenominator) * heightNumerator) - 10;
+      const x = ((screen.width / xDenominator) * xNumerator) + 8;
+      const y = ((screen.height / yDenominator) * yNumerator) + 33
+      const width = ((screen.width / widthDenominator) * widthNumerator) - 11
+      const height = ((screen.height / heightDenominator) * heightNumerator) - 17;
       const x_actual = x + x_offset
       // Phoenix.log(JSON.stringify(screen), x_actual)
-      window.setFrame({ x , y, width, height });
+      window.setFrame({ x, y, width, height });
     }
   };
 }
@@ -55,9 +55,9 @@ function resizeVerticallyInPlace(
       const screen = window.screen().flippedVisibleFrame();
 
       const currentFrame = window.frame();
-      const x = currentFrame.x - 5 ;
-      const y = (screen.height / yDenominator) * yNumerator - 5 ;
-      const width = currentFrame.width - 5 ;
+      const x = currentFrame.x - 5;
+      const y = (screen.height / yDenominator) * yNumerator - 5;
+      const width = currentFrame.width - 5;
       const height = (screen.height / heightDenominator) * heightNumerator - 5;
 
       window.setFrame({ x, y, width, height });
