@@ -31,7 +31,9 @@ select distinct official_finish_position from starts;
 select starts.race_id, starts.*, horses.id as horse_id, horses.name, program_number, post_position from starts, horses
   where starts.horse_id = horses.id
   and starts.race_id in (
-    select id from races where date = '2024-10-26' and race_number = 6
+    select id from races
+    where date = '2024-10-26'
+    and race_number = 6
   )
 order by race_id, program_number;
 

@@ -4,6 +4,12 @@ and track_code = 'CD'
 order by updated_at desc;
 
 select * from import_files
+where type_category_code = 'pp_files'
+and file_date > '2024-05-22'
+order by file_date desc;
+
+select * from import_files
+where import_state_code = 'reset'
 order by updated_at desc
 limit 500;
 
@@ -15,9 +21,16 @@ where file_date = '2023-05-19'
 update import_files set track_id = 188 where id = 117377
 
 update import_files set import_state_code = 'cd_problem'
+
+-- missing results
 where type_category_code = 'results_files'
-and track_code = 'CD'
-and import_state_code = 'downloaded'
+order by file_date desc
+limit 1000;
+
+-- update import_files set import_state_code = 'cd_problem'
+-- where type_category_code = 'results_files'
+-- and track_code = 'CD'
+-- and import_state_code = 'downloaded'
 
 -- finding pp files for a date and track
 select * from import_files
@@ -46,7 +59,7 @@ order by file_date desc , type_category_code
 limit 100;
 
 select * from import_files
-where file_date = '2022-01-23'
+where file_date = '2024-05-18'
 order by id desc
 limit 100;
 
