@@ -28,13 +28,12 @@ order by races.date desc limit 10;
 select distinct official_finish_position from starts;
 
 -- horses/start for race_id
-select starts.race_id, starts.id, horses.id as horse_id, horses.name, program_number, post_position from starts, horses
+select starts.race_id, starts.*, horses.id as horse_id, horses.name, program_number, post_position from starts, horses
   where starts.horse_id = horses.id
   and starts.race_id in (
-    select id from races where date = '2024-10-26' and race_number = 5
+    select id from races where date = '2024-10-26' and race_number = 6
   )
 order by race_id, program_number;
-
 
 /* horse history */
 select starts.id as start_id, starts.is_scratched, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.created_at from races, starts
@@ -109,8 +108,8 @@ order by race_number, starts.pp2_program_number;
 
 
 -- paul query
-SELECT horses.id AS horse_id, races.date, races.track_code, races.race_number, drf_calls.call_code, drf_calls.position 
-FROM horses 
+SELECT horses.id AS horse_id, races.date, races.track_code, races.race_number, drf_calls.call_code, drf_calls.position
+FROM horses
 JOIN starts ON horses.id = starts.horse_id
 JOIN races ON races.id = starts.race_id
 LEFT JOIN drf_calls ON starts.id = drf_calls.start_id
