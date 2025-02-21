@@ -8,6 +8,17 @@ and code = 'Routes';
 
 select * from start_trainer_overall_analysis limit 100;
 
+-- trainers raw history:
+select starts.id as start_id, starts.trainer_id, starts.is_scratched, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
+where
+starts.id in (
+  select id from  starts where trainer_id in (
+    select id from trainers where name = 'HARRIS ANDREW'
+  )
+)
+and races.id = starts.race_id
+order by date desc;
+
 
 select * from trainers where id = 266;
 select * from start_trainer_traits where trainer_id = 266;

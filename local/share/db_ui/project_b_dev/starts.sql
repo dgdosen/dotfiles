@@ -1,10 +1,8 @@
 select * from starts limit 10;
 
 -- starts for a race
-select starts.id, horses.id as horse_id, starts.race_id, starts.version, horses.name, program_number, pp2_program_number from starts, horses
-
+select starts.id, horses.id as horse_id, starts.*, horses.name, program_number, pp2_program_number from starts, horses
   where starts.horse_id = horses.id and race_id in (
-
   select id from races where date = '2023-11-04'  and race_number = 11
 )
 
@@ -42,20 +40,22 @@ select starts.id as start_id, starts.is_scratched, races.id as race_id, races.da
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'PAARL'
+    select id from horses where name = 'DUVET DAY'
   )
 )
 and races.id = starts.race_id
 order by date desc;
 
 /* trainer history */
-select starts.id as start_id, starts.is_scratched, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.created_at from races, starts
+select starts.id as start_id, starts.is_scratched, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, calls.position, starts.created_at from races, starts, calls
 where
 starts.id in (
   select id from  starts where trainer_id in (
-    select id from trainers where name = 'POWELL LEONARD'
+    select id from trainers where name = 'HARRIS ANDREW'
   )
 )
+and starts.id = calls.start_id
+and calls.call_code = 'finish_call'
 and races.id = starts.race_id
 order by date desc;
 
