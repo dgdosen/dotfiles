@@ -51,7 +51,7 @@ and races.race_number = 2
 and races.track_code = 'SA';
 
 
-select * from start_finishers_view where trainer_id = 
+select * from start_finishers_view where trainer_id =
 (select id from trainers where name = 'HARRIS ANDREW')
 order by race_date desc
 limit 100;

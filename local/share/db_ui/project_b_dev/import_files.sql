@@ -1,3 +1,8 @@
+-- recent history
+select * from import_files
+order by updated_at desc
+limit 100;
+
 select * from import_files
 where type_category_code = 'results_files'
 and track_code = 'CD'
