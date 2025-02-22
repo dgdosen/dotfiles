@@ -16,8 +16,8 @@
       <integer>30</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/dev/project_b_drf_debut_scrape_cli/scrape.out</string>
+    <string>/Users/dgdosen/log/project_b_drf_debuut_scrape_cli.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/dev/project_b_drf_debut_scrape_cli/scrape.err</string>
+    <string>/Users/dgdosen/log/project_b_drf_debuut_scrape_cli.err</string>
   </dict>
 </plist>

@@ -24,8 +24,8 @@
       </dict>
     </array>
     <key>StandardOutPath</key>
-    <string>/Users/dgosen/dev/project_b_brisnet_scrape_cli/scrape.out</string>
+    <string>/Users/dgdosen/log/project_b_brisnet_scrape_cli.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/dev/project_b_brisnet_scrape_cli/scrape.err</string>
+    <string>/Users/dgdosen/log/project_b_brisnet_scrape_cli.err</string>
 </dict>
 </plist>
