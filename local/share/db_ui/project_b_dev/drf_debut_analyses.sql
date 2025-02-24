@@ -23,3 +23,17 @@ select count(id) from drf_debut_horses where created_at > '2025-01-01';
 select * from drf_debut_horses where created_at > '2025-01-01'
 
 select * from drf_debut_trainers where trainer_id is null;
+
+select * from drf_debut_analyses order by updated_at desc limit 1000;
+select * from drf_debut_analyses where debutable_id = 49500;
+select * from drf_debut_horses order by updated_at desc;
+
+select * from drf_debut_analyses where debutable_id in (
+  select id from horses where name = 'NYQUIST'
+)
+order by effective_date desc;
+
+select effective_date, debutable_role, count(id)
+from drf_debut_analyses
+group by debutable_role, effective_date
+order by debutable_role, effective_date desc
