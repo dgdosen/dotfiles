@@ -1,5 +1,5 @@
 select * from race_curves;
-select * from start_curves order by created_at desc limit 10; 
+select * from start_curves order by created_at desc limit 10;
 where data_source_type = 'trakus'
 limit 10;
 
@@ -38,5 +38,5 @@ select * from start_curves where start_id = 558072
 select * from curve_coefficients where coefficientable_id in (kkk
   select id from start_curves where start_id = 466825
 )
-  
+
 select distinct equation_type from start_curves

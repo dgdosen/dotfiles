@@ -1,4 +1,11 @@
-select * from breeding_ratings order by created_at desc limit 200;
+select * from breeding_ratings order by date(updated_at) desc, date(created_at) desc limit 1000;
+
+select * from breeding_ratings where horse_id in (
+  select id from horses where name = 'CAME HOME'
+);
+
+select * from horses where id = 36923;
+
 select count(id), year from breeding_ratings
 group by year;
 
