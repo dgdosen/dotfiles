@@ -19,7 +19,8 @@ local symbols = {
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = lualine_theme,
+    -- theme = 'gruvbox',
+    theme = 'catppuccin',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     sections = {

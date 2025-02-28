@@ -39,7 +39,7 @@ vim.o.sidescrolloff = 8
 -- Set colorscheme
 vim.o.termguicolors = true
 -- vim.cmd [[colorscheme onedark]]
-vim.o.background = 'dark' -- or light
+vim.o.background = 'light' -- or light
 
 vim.o.expandtab = true
 vim.o.tabstop = 2
@@ -112,9 +112,9 @@ vim.api.nvim_create_autocmd("FileType", {
 function show_popup()
   -- Create a new buffer with some text
   local buf = vim.api.nvim_create_buf(false, true)
-  vim.api.nvim_buf_set_lines(buf, 0, -1, true, {'Hello, world!', 'This is a popup window.'})
+  vim.api.nvim_buf_set_lines(buf, 0, -1, true, { 'Hello, world!', 'This is a popup window.' })
 
-    -- Calculate the size and position of the popup window
+  -- Calculate the size and position of the popup window
   local win_width = math.floor(vim.api.nvim_win_get_width(0) * 0.8)
   local win_height = math.floor(vim.api.nvim_win_get_height(0) * 0.8)
   local win_row = math.floor((vim.api.nvim_win_get_height(0) - win_height) / 2)
@@ -122,12 +122,12 @@ function show_popup()
 
   -- Create a new popup window with the buffer content
   local win = vim.api.nvim_open_win(buf, true, {
-    relative='cursor',
-    row=win_row,
-    col=win_col,
-    width=win_width,
-    height=win_height,
-    style='minimal',
+    relative = 'cursor',
+    row = win_row,
+    col = win_col,
+    width = win_width,
+    height = win_height,
+    style = 'minimal',
   })
   -- Define a new highlight group with a lighter shade
   vim.api.nvim_command('hi MyPopupHighlight guibg=#4F4945')
@@ -137,12 +137,9 @@ function show_popup()
   -- Set the popup window options
   vim.api.nvim_win_set_option(win, 'winhl', 'Normal:MyPopupHighlight')
   vim.api.nvim_win_set_option(win, 'cursorline', false)
-
-
 end
 
 vim.api.nvim_set_keymap('n', '<leader>g', ':lua show_popup()<CR>', { noremap = true, silent = true })
 
 -- chatgpt/shellbot
 vim.cmd("command! ChatGPT lua require'chatgpt'.chatgpt()")
-

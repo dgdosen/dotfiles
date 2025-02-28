@@ -1,9 +1,9 @@
-# gruvbox dark
 # Default colors
 # NOTE: this palatte is pretty official
 [colors.primary]
 foreground = '#ebdbb2'
 background = '#121212'
+# these are from gruvbox dark
 
 # Normal colors
 [colors.normal]
