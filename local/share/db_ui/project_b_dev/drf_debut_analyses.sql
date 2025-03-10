@@ -17,6 +17,8 @@ select * from drf_debut_analyses where drf_debutable_id is null;
 
 select * from horses where name = 'OM';
 select * from drf_debut_horses where name = 'OM';
+select * from drf_debut_horses limit 10;
+
 select * from drf_debut_horses order by updated_at desc limit 10;
 
 select count(id) from drf_debut_horses where created_at > '2025-01-01';
@@ -59,3 +61,5 @@ WHERE
   AND EXTRACT(DAY FROM effective_date) = 31
 GROUP BY effective_date, created_date
 ORDER BY effective_date DESC, created_date DESC;
+
+

@@ -32,7 +32,7 @@ and horses.name = 'CHASING LIBERTY'
 order by date desc;
 
 -- races for date
-select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2024-05-18'
+select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2025-03-07'
 order by track_code, race_number;
 
 -- races on a date at track_code
