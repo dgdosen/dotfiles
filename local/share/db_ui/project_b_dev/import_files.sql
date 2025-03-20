@@ -3,6 +3,36 @@ select * from import_files
 order by updated_at desc
 limit 100;
 
+--pp_file reprocssing?
+
+-- pp related files
+select * from import_files
+where type_category_code like 'pp_%'
+-- and file_date > '2025-03-01'
+and file_date = '2025-03-22'
+and file_name is not null
+order by file_date, type_category_code;
+
+
+--pp related files for data range to remove
+delete from import_files
+where type_category_code like 'pp_%'
+-- and file_date > '2025-03-01'
+and file_date = '2025-03-22'
+and file_name is not null
+order by file_date, type_category_code;
+
+--pp_files for data range to update
+select * from import_files
+where type_category_code like 'pp_files'
+-- and file_date > '2025-03-01'
+and file_date = '2025-03-22'
+order by file_date, type_category_code;
+
+update import_files set import_state_code = 'downloaded'
+where type_category_code = 'pp_files'
+and file_date = '2025-03-22';
+
 select * from import_files
 where type_category_code = 'results_files'
 and track_code = 'CD'
