@@ -424,6 +424,7 @@ require('lazy').setup({
   'nvim-lualine/lualine.nvim',
   'lukas-reineke/indent-blankline.nvim',
   'numToStr/Comment.nvim',
+  'JoosepAlviste/nvim-ts-context-commentstring',
   'tpope/vim-dotenv',
   'simrat39/symbols-outline.nvim',
   'jlanzarotta/bufexplorer',
