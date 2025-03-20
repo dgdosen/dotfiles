@@ -109,6 +109,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.textwidth = 80            -- Hard wrap at 80 characters
+    vim.opt_local.colorcolumn = "80"        -- Show a visual column at 80
+    vim.opt_local.formatoptions:append("t") -- Auto-wrap text
+    vim.opt_local.wrap = true               -- Enable soft wrapping
+    vim.opt_local.linebreak = true          -- Wrap at word boundaries
+  end
+})
+
 function show_popup()
   -- Create a new buffer with some text
   local buf = vim.api.nvim_create_buf(false, true)
