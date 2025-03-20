@@ -10,10 +10,11 @@
 require("todo-comments").setup(
   {
     keywords = {
-      DGD = { color = "warning" },
+      DGD = { color = "def_white" },
       DOC = { color = "def_grey" },
       PERF = { color = "def_purple" },
-      TODO = { color = "def_orange" }
+      TODO = { color = "def_orange" },
+      DEPRECATED = { color = "def_orange" }
 
     },
     colors = {
