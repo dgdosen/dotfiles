@@ -31,12 +31,22 @@ and starts.horse_id = horses.id
 and horses.name = 'CHASING LIBERTY'
 order by date desc;
 
+-- distinct pp1_distance (is this where about distance is hidden?)
+select distinct pp1_distance from races order by pp1_distance;
+
 -- races for date
-select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2025-03-07'
+select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2025-03-08'
+order by track_code, race_number;
+
+-- races for two dates
+select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code, pp1_distance, pp1_bris_code, pp1_age_restriction_code from races where date = '2025-03-07' or date = '2025-03-08'
+order by track_code, race_number;
+
+select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code, pp1_distance, pp1_bris_code, pp1_age_restriction_code from races where id in (157035,157058 )
 order by track_code, race_number;
 
 -- races on a date at track_code
-select id, track_id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races
+select id, track_id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code, pp1_distance from races
 where date = '2025-01-24'
 and track_code = 'SA'
 order by track_code, race_number;

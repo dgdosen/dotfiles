@@ -1,9 +1,11 @@
 select * from starts limit 10;
+select * from starts where id = 629192;
+select * from pp_starts;
 
 -- starts for a race
-select starts.id, horses.id as horse_id, starts.*, horses.name, program_number, pp2_program_number from starts, horses
+select starts.id, horses.id as horse_id, horses.name, program_number, pp2_program_number from starts, horses
   where starts.horse_id = horses.id and race_id in (
-  select id from races where date = '2023-11-04'  and race_number = 11
+  select id from races where date = '2025-02-15'  and race_number = 4
 )
 
 select count(id), version from starts
@@ -30,17 +32,18 @@ select starts.race_id, starts.*, horses.id as horse_id, horses.name, program_num
   where starts.horse_id = horses.id
   and starts.race_id in (
     select id from races
-    where date = '2024-10-26'
-    and race_number = 6
+    where date = '2025-03-08'
+    and race_number = 3
   )
 order by race_id, program_number;
 
 /* horse history */
-select starts.id as start_id, starts.is_scratched, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.created_at from races, starts
+-- select starts.id as start_id, starts.is_historical, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
+select starts.id as start_id, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'DUVET DAY'
+    select id from horses where name = 'NAVY JACK'
   )
 )
 and races.id = starts.race_id

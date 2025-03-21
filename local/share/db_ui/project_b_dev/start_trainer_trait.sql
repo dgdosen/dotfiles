@@ -156,5 +156,9 @@ and trainers.name = 'O''NEILL DOUG'
 and start_trainer_traits.code = '1st time lasix'
 and date < '2025-01-23'
 and date > '2024-12-25'
-order by races.date desc, races.id desc limit 25
+order by races.date desc, races.id desc limit 25;
 
+select count(*) from start_trainer_traits;
+
+select * from start_trainer_traits order by created_at desc limit 100;
+select * from start_trainer_traits where start_id = 630476;
