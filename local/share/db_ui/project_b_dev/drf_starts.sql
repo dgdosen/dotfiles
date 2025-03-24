@@ -12,8 +12,13 @@ order by date desc;
 
 select * from drf_starts where horse_id = 90267;
 
-select drf_starts.id, drf_starts.start_id, drf_starts.is_historical, drf_races.date, drf_races.track_code, drf_races.race_number, drf_races.race_id 
+select drf_starts.id, drf_starts.start_id, drf_starts.is_historical, drf_races.date, drf_races.track_code, drf_races.race_number, drf_races.race_id
 from drf_starts, drf_races
 where drf_starts.drf_race_id = drf_races.id
 and drf_starts.horse_id = 90267;
 
+-- fix in error is-historical
+update drf_starts set is_historical = false
+from starts
+where drf_starts.start_id = starts.id
+and starts.program_number = 'SCR'
