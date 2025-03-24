@@ -172,3 +172,6 @@ export PKG_CONFIG_PATH="$(brew --prefix gsl)/lib/pkgconfig"
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Added by Windsurf
+export PATH="/Users/dgdosen/.codeium/windsurf/bin:$PATH"

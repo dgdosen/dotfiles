@@ -29,3 +29,19 @@ order by date;
 
 select * from horses where id =     87484
 
+-- ages
+select count(id), year_of_birth from horses
+where id in (
+  select horse_id from starts where race_id in (
+    select id from races where track_code = 'SA' and date > '2024-12-25'
+  )
+)
+group by year_of_birth
+order by year_of_birth desc;
+
+select horse_id, starts.id, age, races.date, races.track_code, races.race_number from starts, races  where 
+starts.race_id = races.id
+and starts.race_id in (
+  select id from races where track_code = 'SA' and date > '2024-12-25'
+)
+order by age desc;
