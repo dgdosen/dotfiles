@@ -35,3 +35,8 @@ and races.date > '2024-12-25'
 and starts.trainer_id = 173
 and calls.position > 0
 order by date desc, race_number
+
+-- trainer matching
+select * from trainers where name = 'LEWIS CRAIG A'
+select * from drf_debut_trainers where name = 'CRAIG LEWIS'
+update drf_debut_trainers set trainer_id = 658 where id = 262;

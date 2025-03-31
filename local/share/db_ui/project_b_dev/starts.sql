@@ -39,11 +39,11 @@ order by race_id, program_number;
 
 /* horse history */
 -- select starts.id as start_id, starts.is_historical, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
-select starts.id as start_id, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
+select starts.id as start_id, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.pp3_post_position from races, starts
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'NAVY JACK'
+    select id from horses where name = 'SIR TOM'
   )
 )
 and races.id = starts.race_id
@@ -133,3 +133,8 @@ ORDER BY races.Date DESC;
 select count(id), pp3_state_bred_flag from starts
 group by pp3_state_bred_flag
 order by pp3_state_bred_flag;
+
+-- unique pp3_post_position
+select count(id), pp3_post_position, program_number from starts
+group by pp3_post_position, program_number
+order by pp3_post_position;

@@ -22,3 +22,7 @@ update drf_starts set is_historical = false
 from starts
 where drf_starts.start_id = starts.id
 and starts.program_number = 'SCR'
+
+-- best beyer
+select * from drf_starts order by updated_at desc
+limit 100;
