@@ -1,3 +1,7 @@
+-- latest
+select * from drf_starts order by updated_at desc
+limit 100;
+
 /* horse history */
 -- select starts.id as start_id, starts.is_historical, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
 select drf_starts.id as drf_start_id, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
