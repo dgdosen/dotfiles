@@ -26,4 +26,4 @@ Use ==X== to complete an item
 
 Clean [this](this) up
 
-[#ephermeral weekly tasks](#ephermeral/weekly/tasks) 
+#intents/7_weekly
