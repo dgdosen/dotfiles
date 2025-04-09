@@ -57,15 +57,18 @@ update par_intervals set par_interval_type = 'interval_turn' where par_interval_
 
 -- everything for a race?
 select par_interval_starts.start_id,
+par_interval_starts.updated_at,
 horses.name,
 races.id as race_id,
 starts.id as start_id,
 par_intervals.par_id,
+par_intervals.is_par_included,
 par_intervals.interval_type,
 par_intervals.common_feet,
 par_intervals.par_interval_type,
 pars.date_par_generated,
-pars.interval_split_type
+pars.interval_split_type,
+par_interval_starts.updated_at
 from starts, horses, races, project_b_races, pars, par_intervals, par_interval_starts
 where starts.horse_id = horses.id
 and starts.race_id = races.id
@@ -77,7 +80,7 @@ and par_interval_starts.start_id = starts.id
 and races.id in (
   select id from races where track_code = 'SA'
   and race_number = 7
-  and date = '2025-01-31'
+  and date = '2025-02-08'
 )
 order by par_intervals.common_feet
 

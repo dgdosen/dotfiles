@@ -49,15 +49,14 @@ where race_id in (
 select * from horses where name = 'GO TIME';
 
 /* select calls for a race */
-select gmax_calls.id, start_id, position, seconds, horses.name, distance_feet, interval_type, interval_type, gmax_calls.updated_at from gmax_calls, starts, horses
+select gmax_calls.id, start_id, position, lengths_behind, seconds, horses.name, distance_feet, interval_type, interval_type, gmax_calls.updated_at from gmax_calls, starts, horses
 where starts.id = gmax_calls.start_id
 and horses.id = starts.horse_id
 and start_id in (
   select id from starts where race_id in (
-    select id from races where date = '2020-08-28' and race_number = 3 and track_code = 'DMR'
+    select id from races where date = '2025-02-08' and race_number = 10 and track_code = 'SA'
   )
-and interval_type = 'interval_6x'
-) order by position
+) order by distance_feet, position;
 
 select * from gmax_calls limit 10;
 
