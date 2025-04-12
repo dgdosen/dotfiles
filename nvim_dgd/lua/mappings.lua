@@ -48,8 +48,11 @@ vim.keymap.set("x", "<C-k>", ":move '<-2<CR>gv-gv")
 -- vmap <C-j> ]egv"
 
 -- insert date or time
-vim.keymap.set("i", ',d', 'strftime("%y-%m-%d")', { expr = true })
-vim.keymap.set("i", ',t', 'strftime("%H:%M")', { expr = true })
+vim.api.nvim_set_keymap('i', ',d', [[<C-R>=strftime("%Y-%m-%d")<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', ',t', [[<C-R>=strftime("%H:%M")<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', ',dt', [[<C-R>=strftime("%Y-%m-%d %H:%M")<CR>]], { noremap = true, silent = true })
+-- vim.keymap.set("i", ',d', 'strftime("%y-%m-%d")', { expr = true })
+-- vim.keymap.set("i", ',t', 'strftime("%H:%M")', { expr = true })
 
 -- -- rails search helpers
 -- vim.keymap.set('n', '<leader>gm', ':FZF app/models<cr>', { expr = true }
