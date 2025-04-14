@@ -1,3 +1,26 @@
+-- negative fractions
+select count(distinct(race_id)) from gmax_fractions where distance_feet < 0;
+select count(*) from gmax_races;
+
+select count(distinct(starts.race_id)) from gmax_calls, starts
+where gmax_calls.start_id = starts.id
+and distance_feet < 0
+
+select * from gmax_calls where distance_feet < 0;
+
+-- gmax calls for race
+select gmax_calls.id, start_id, position, seconds, horses.name, distance_feet, interval_type, interval_type, gmax_calls.updated_at from gmax_calls, starts, horses, races
+where starts.id = gmax_calls.start_id
+and starts.race_id = races.id
+and horses.id = starts.horse_id
+and start_id in (
+  select id from starts where race_id in (
+    select id from races where date = '2024-08-31' and race_number = 10 and track_code = 'DMR'
+  )
+) order by interval_type, position
+
+
+
 SELECT gmax_calls.id as gmax_call_id,
 starts.id as start_id,
 horses.name,
@@ -21,7 +44,7 @@ limit 10
 
 select * from gmax_calls limit 10;
 
-select * from gmax_fractions 
+select * from gmax_fractions
 order by race_id, distance_feet
 limit 20;
 

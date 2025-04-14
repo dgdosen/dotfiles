@@ -5,6 +5,33 @@ select * from egps_calls order by id desc limit 10;
 
 select * from egps_calls where start_id = 623857;
 
+-- earliest and latest egps races:
+-- latest -- today?
+select races.id, races.date, races.track_code, races.race_number from races, egps_fractions
+where egps_fractions.race_id = races.id
+and races.track_code in ('SA', 'DMR', 'CD')
+order by races.date desc
+limit 10;
+
+-- earliest -- 2022-07-22
+select races.id, races.date, races.track_code, races.race_number from races, egps_fractions
+where egps_fractions.race_id = races.id
+and races.track_code in ('SA', 'DMR', 'CD')
+order by races.date
+limit 10;
+
+-- earliest egps dates
+select min(races.date), track_code from races, egps_fractions
+where egps_fractions.race_id = races.id
+and races.track_code in ('SA', 'DMR', 'CD')
+group by track_code;
+
+-- earliest gmax dates
+select min(races.date), track_code from races, gmax_fractions
+where gmax_fractions.race_id = races.id
+and races.track_code in ('SA', 'DMR', 'CD')
+group by track_code;
+
 -- races where there are calls with a length < 0
 select distinct races.id, races.date, races.track_code, races.race_number, races.pp3_distance
 from races, starts, egps_calls
@@ -44,9 +71,7 @@ where egps_calls.start_id = starts.id
 and starts.race_id = races.id
 and seconds is null
 group by races.id, start_id
-order by races.id, start_id;
-
-select * from egps_calls where start_id = 543323;
+order by races.id, start_id * from egps_calls where start_id = 543323;
 select * from egps_calls where start_id = 566091;
 select * from gmax_calls where start_id = 571743;
 
@@ -168,3 +193,5 @@ WHERE enumtypid = (
 SELECT typname
 FROM pg_type
 WHERE typtype = 'e';
+
+

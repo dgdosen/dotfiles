@@ -34,7 +34,8 @@ and file_date = '2025-03-22';
 
 select * from import_files
 where type_category_code = 'results_files'
-and track_code = 'CD'
+and track_code = 'SA'
+and file_date = '2025-01-26'
 order by updated_at desc;
 
 select * from import_files
@@ -189,3 +190,7 @@ select * from import_files
 where type_category_code = 'trakus_results'
 and import_state_code = 'processing'
 order by file_date desc;
+
+-- watched_bris_file_typses.
+select distinct watched_bris_file_type_id from import_files;
+select * from watched_bris_file_types;

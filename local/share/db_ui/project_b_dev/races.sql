@@ -34,6 +34,11 @@ order by date desc;
 -- distinct pp1_distance (is this where about distance is hidden?)
 select distinct pp1_distance from races order by pp1_distance;
 
+-- races for a distance
+select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where distance = 2200
+order by date desc, track_code, race_number
+limit 100;
+
 -- races for date
 select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2025-03-22'
 order by track_code, race_number;
