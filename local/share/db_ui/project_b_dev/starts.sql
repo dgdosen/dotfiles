@@ -1,4 +1,4 @@
-select * from starts limit 10;
+select * from starts order by id desc limit 11;
 select * from starts where id = 629192;
 select * from pp_starts;
 
@@ -36,7 +36,7 @@ select starts.race_id, starts.*, horses.id as horse_id, horses.name, program_num
     and race_number = 3
   )
 order by race_id, program_number;
-
+j
 /* horse history */
 -- select starts.id as start_id, starts.is_historical, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
 select starts.id as start_id, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.pp3_post_position from races, starts

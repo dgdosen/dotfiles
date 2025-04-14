@@ -5,15 +5,14 @@ limit 100;
 
 --pp_file reprocssing?
 
--- pp related files
+-- pp finding related files
 select * from import_files
 where type_category_code like 'pp_%'
 -- and file_date > '2025-03-01'
 and file_date = '2025-03-22'
 and file_name is not null
 order by file_date, type_category_code;
-
-
+j
 --pp related files for data range to remove
 delete from import_files
 where type_category_code like 'pp_%'
