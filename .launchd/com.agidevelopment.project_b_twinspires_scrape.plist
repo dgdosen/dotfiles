@@ -11,7 +11,7 @@
     <key>StartInterval</key>
     <integer>60</integer>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/log/project_b_twinspores_scrape_cli.out</string>
+    <string>/Users/dgdosen/log/project_b_twinspires_scrape_cli.out</string>
     <key>StandardErrorPath</key>
     <string>/Users/dgdosen/log/project_b_twinspires_scrape_cli.err</string>
   </dict>
