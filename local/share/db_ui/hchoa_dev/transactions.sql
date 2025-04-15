@@ -1,3 +1,12 @@
+-- lastest cash receipts?
+select * from customer_payments order by updated_at desc;
+
+select * from posting_transactions order by updated_at desc;
+
+select distinct(transactionable_type) from posting_transactions;
+
+
+-- posting transaction?
 select e.id, e.name, e.customer_id, i.number, i.customer_id, a.id as account_id, a.name,
 pt.posting_date, pt.transactionable_id, p.id as posting_id, pt.transactionable_type, pt.memo,
 p.credit_amount, p.debit_amount
