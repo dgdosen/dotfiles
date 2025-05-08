@@ -43,7 +43,7 @@ select starts.id as start_id, races.id as race_id, races.date, races.track_code,
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'HAY STACK'
+    select id from horses where name = 'YUKI'
   )
 )
 and races.id = starts.race_id
@@ -54,7 +54,7 @@ select starts.id as start_id, starts.is_scratched, races.id as race_id, races.da
 where
 starts.id in (
   select id from  starts where trainer_id in (
-    select id from trainers where name = 'HARRIS ANDREW'
+    select id from trainers where name = 'SPACE BLUES'
   )
 )
 and starts.id = calls.start_id

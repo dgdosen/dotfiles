@@ -13,6 +13,12 @@ select *
 from races
 where id = 139044;
 
+-- pp3_distance - unique
+select distinct abs(pp3_distance) from races
+order by abs(pp3_distance);
+
+select * from races order by id desc limit 100;
+
 select id, date, track_code, race_number, all_source_surface_code, drf_surface from races where date = '2024-06-28' and track_code = 'CD';
 
 select track_code, date, race_number from races where pp1_distance = '1430' and about_distance_code = 'A'
@@ -31,6 +37,26 @@ and starts.horse_id = horses.id
 and horses.name = 'CHASING LIBERTY'
 order by date desc;
 
+-- quarter horse races
+select id, track_code, date, race_number, distance, pp3_distance, drf_distance from races where abs(pp3_distance) <> drf_distance
+order by abs(pp3_distance), track_code, date, race_number;
+
+select distinct id, name from horses where id in
+(
+  select horse_id from starts where race_id in
+  (
+    select id from races where abs(pp3_distance) <> drf_distance
+  )
+);
+
+select horses.name, starts.post_position, races.track_code, races.date, races.pp3_distance, races.drf_distance
+from horses, starts, races
+where horses.id = starts.horse_id
+and races.id = starts.race_id
+and abs(races.pp3_distance) = 1000 and races.drf_distance = 2200
+order by date desc;
+
+
 -- distinct pp1_distance (is this where about distance is hidden?)
 select distinct pp1_distance from races order by pp1_distance;
 
@@ -40,10 +66,10 @@ order by date desc, track_code, race_number
 limit 100;
 
 -- races for date
-select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2024-06-30'
-order by track_code, race_number;
+select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2024-04-13'
 
 -- races for two dates
+order by track_code, race_number;
 select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code, pp1_distance, pp1_bris_code, pp1_age_restriction_code from races where date = '2025-03-07' or date = '2025-03-08'
 order by track_code, race_number;
 
@@ -406,8 +432,8 @@ select id, date, race_number, texts from races where date > '2019-11-14'
 order by id desc;
 
 
-select * from races where date > '2019-11-14'
-order by id desc;
+select * from races where date = '2024-09-29'
+order by track_code, race_number desc;
 
 
 select * from races where date = '2019-12-29' and race_number = 8
@@ -580,8 +606,8 @@ order by date desc;
 select race_id, rail_distance, alt_rail_distance from tm_races where alt_rail_distance > 0;
 
 -- race class issues
-select id, date, track_code, race_number, race_class, drf_long_class 
-from races 
+select id, date, track_code, race_number, race_class, drf_long_class
+from races
 where
     (track_code = 'SA' and date = '2023-05-29' and race_number = 7)
     or (track_code = 'SA' and date = '2024-05-27' and race_number = 11)

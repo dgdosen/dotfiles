@@ -1,5 +1,10 @@
 select * from race_interval_facts order by updated_at desc limit 20;
 
+select * from race_interval_facts where split_seconds < 0
+order by updated_at desc;
+
+
+
 select * from race_interval_facts where race_fact_id = 101519;
 select * from race_interval_facts where race_fact_id = 101210;
 

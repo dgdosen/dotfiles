@@ -1,8 +1,9 @@
 select * from audits limit 10;
 
+select * from audits order by id desc limit 20;
+
 delete from audits;
 delete from audits where id = 2
-
 
 
 -- import files

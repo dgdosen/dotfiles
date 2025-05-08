@@ -7,6 +7,8 @@ select distinct data_source_type from pars;
 select * from pars order by updated_at desc limit 10;
 select * from par_intervals where par_id = 26992;
 
+-- excluded counts
+select count(id) as excluded from pars where is_par_excluded = true;
 
 -- how much work has been done on pars
 select count(id) as c, is_par_reviewed from pars where data_derivation_type = 1

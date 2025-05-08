@@ -1,5 +1,18 @@
 select * from par_interval_starts order by created_at desc limit 50;
-select * from par_intervals  order by created_at desc limit 50;
+
+select races.id as race_id, par_intervals.* from races, project_b_races, pars, par_intervals
+where races.id = project_b_races.race_id
+and project_b_races.id = pars.project_b_race_id
+and pars.id = par_intervals.par_id
+order by updated_at desc limit 50;
+
+select races.id as race_id, par_intervals.* from par_intervals
+join pars on pars.id = par_intervals.par_id
+join project_b_races on pars.project_b_race_id = project_b_races.id
+join races on project_b_races.race_id = races.id
+where is_par_included = false
+order by par_intervals.updated_at desc limit 50;
+
 select * from pars order by created_at desc limit 50;
 
 select distinct interval_type from par_tranche_par_intervals;
