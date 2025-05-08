@@ -210,7 +210,12 @@ require('lazy').setup({
   --     'kristijanhusak/vim-dadbod-completion',
   --   }
   -- },
-  --
+  {
+    'xemptuous/sqlua.nvim',
+    lazy = true,
+    cmd = 'SQLua',
+    config = function() require('sqlua').setup() end
+  },
   {
     'folke/which-key.nvim',
     event = "BufWinEnter",
