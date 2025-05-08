@@ -12,8 +12,7 @@ require('lazy').setup({
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      "mason-org/mason.nvim",
       'RubixDev/mason-update-all',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       -- Useful status updates for LSP.
@@ -32,6 +31,12 @@ require('lazy').setup({
     'j-hui/fidget.nvim',
     frequency = 3600,
     notify = true,
+  },
+
+  {
+    "mason-org/mason.nvim",
+    "mason-org/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
   },
 
   -- tab/shifts
