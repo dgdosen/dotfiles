@@ -125,24 +125,38 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
-    -- if server_name == 'tsserver' then
-    --   require('lspconfig').ts_ls.setup({
-    --     settings = {
-    --       completions = {
-    --         completeFunctionCalls = true
-    --       }
-    --     }
-    --   })
-    -- end
-  end,
-}
+local mason_lspconfig = require("mason-lspconfig")
+
+mason_lspconfig.setup()
+
+local lspconfig = require("lspconfig")
+
+for _, server_name in ipairs(mason_lspconfig.get_installed_servers()) do
+  lspconfig[server_name].setup {
+    -- your custom setup for each LSP server
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+
+-- mason_lspconfig.setup_handlers {
+--   function(server_name)
+--     require('lspconfig')[server_name].setup {
+--       capabilities = capabilities,
+--       on_attach = on_attach,
+--       settings = servers[server_name],
+--     }
+--     -- if server_name == 'tsserver' then
+--     --   require('lspconfig').ts_ls.setup({
+--     --     settings = {
+--     --       completions = {
+--     --         completeFunctionCalls = true
+--     --       }
+--     --     }
+--     --   })
+--     -- end
+--   end,
+-- }
 
 -- Turn on lsp status information
 -- require('fidget').setup()
