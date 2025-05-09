@@ -3,45 +3,50 @@
 # - link files based on folders and environment!
 
 # bin (for tmuxinator?)
-[ ! -L "$HOME/.bin" ] && ln -sv ~/.dotfiles/.bin ~/.bin
+[ ! -L "$HOME/.bin" ] && ln -sfnv ~/.dotfiles/.bin ~/.bin
 
 # dotfiles
-ln -sv ~/.dotfiles/.ackrc  ~/.ackrc
-ln -sv ~/.dotfiles/.agignore  ~/.agignore
-ln -sv ~/.dotfiles/.androidrc  ~/.androidrc
-ln -sv ~/.dotfiles/.bash_profile  ~/.bash_profile
-ln -sv ~/.dotfiles/.bashrc  ~/.bashrc
-ln -sv ~/.dotfiles/.dotrc ~/.dotrc
-ln -sv ~/.dotfiles/.gemrc ~/.gemrc
-ln -sv ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -sv ~/.dotfiles/.p10k.zsh  ~/.p10k.zsh
-ln -sv ~/.dotfiles/.phoenix.js  ~/.phoenix.js
-ln -sv ~/.dotfiles/.pomorc ~/.pomorc
-ln -sv ~/.dotfiles/.prettierrc ~/.prettierrc
-ln -sv ~/.dotfiles/.pryrc ~/.pryrc
-ln -sv ~/.dotfiles/.rubocop.yml ~/.rubocop.yml
-ln -sv ~/.dotfiles/.ruby-version ~/.ruby-version
+ln -sfnv ~/.dotfiles/.ackrc  ~/.ackrc
+ln -sfnv ~/.dotfiles/.agignore  ~/.agignore
+ln -sfnv ~/.dotfiles/.androidrc  ~/.androidrc
+ln -sfnv ~/.dotfiles/.bash_profile  ~/.bash_profile
+ln -sfnv ~/.dotfiles/.bashrc  ~/.bashrc
+ln -sfnv ~/.dotfiles/.dotrc ~/.dotrc
+ln -sfnv ~/.dotfiles/.gemrc ~/.gemrc
+ln -sfnv ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -sfnv ~/.dotfiles/.p10k.zsh  ~/.p10k.zsh
+ln -sfnv ~/.dotfiles/.phoenix.js  ~/.phoenix.js
+ln -sfnv ~/.dotfiles/.pomorc ~/.pomorc
+ln -sfnv ~/.dotfiles/.prettierrc ~/.prettierrc
+ln -sfnv ~/.dotfiles/.pryrc ~/.pryrc
+ln -sfnv ~/.dotfiles/.rubocop.yml ~/.rubocop.yml
+ln -sfnv ~/.dotfiles/.ruby-version ~/.ruby-version
+
+# database support in neovim
+DB_SOURCE="$HOME/.dotfiles/local/share/nvim/sqlua"
+ln -sfnv "$DB_SOURCE" "$HOME/.local/share/nvim/sqlua"
+ln -sfnv "$DB_SOURCE" "$HOME/.local/share/db_ui"
 
 # tmux
-[ ! -L "$HOME/.tmux" ] && ln -sv ~/.dotfiles/.tmux ~/.tmux
-# ln -sv ~/.dotfiles/.tmux-theme-gruvbox.conf ~/.tmux-theme-gruvbox.conf
-ln -sv ~/.dotfiles/.tmux.conf ~/.tmux.conf
-[ ! -L "$HOME/.tmuxinator" ] && ln -sv ~/.dotfiles/.tmuxinator ~/.tmuxinator
+[ ! -L "$HOME/.tmux" ] && ln -sfnv ~/.dotfiles/.tmux ~/.tmux
+# ln -sfnv ~/.dotfiles/.tmux-theme-gruvbox.conf ~/.tmux-theme-gruvbox.conf
+ln -sfnv ~/.dotfiles/.tmux.conf ~/.tmux.conf
+[ ! -L "$HOME/.tmuxinator" ] && ln -sfnv ~/.dotfiles/.tmuxinator ~/.tmuxinator
 
 # vim/nvim
-[ ! -L "$HOME/.vim" ] && ln -sv ~/.dotfiles/.vim ~/.vim
-[ ! -L "$HOME/.vim_nvim" ] && ln -sv ~/.dotfiles/.vim_nvim ~/.vim_nvim
-[ ! -L "$HOME/.nvim" ] && ln -sv ~/.dotfiles/.nvim ~/.nvim
-ln -sv ~/.dotfiles/.vimrc ~/.vimrc
+[ ! -L "$HOME/.vim" ] && ln -sfnv ~/.dotfiles/.vim ~/.vim
+[ ! -L "$HOME/.vim_nvim" ] && ln -sfnv ~/.dotfiles/.vim_nvim ~/.vim_nvim
+[ ! -L "$HOME/.nvim" ] && ln -sfnv ~/.dotfiles/.nvim ~/.nvim
+ln -sfnv ~/.dotfiles/.vimrc ~/.vimrc
 
 # zsh
-[ ! -L "$HOME/.zsh" ] && ln -sv ~/.dotfiles/.zsh ~/.zsh
-[ ! -L "$HOME/.zsh_customizations" ] && ln -sv ~/.dotfiles/.zsh_customizations ~/.zsh_customizations
-ln -sv ~/.dotfiles/.zshrc ~/.zshrc
+[ ! -L "$HOME/.zsh" ] && ln -sfnv ~/.dotfiles/.zsh ~/.zsh
+[ ! -L "$HOME/.zsh_customizations" ] && ln -sfnv ~/.dotfiles/.zsh_customizations ~/.zsh_customizations
+ln -sfnv ~/.dotfiles/.zshrc ~/.zshrc
 
 # testing
 [ ! -d "$HOME/.cron_support" ] && mkdir ~/.cron_support
-ln -sv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
+ln -sfnv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 
 # config files
 [ ! -d "$HOME/.config" ] && mkdir ~/.config
@@ -49,22 +54,22 @@ ln -sv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 [ ! -d "$HOME/.config/fish/functions" ] && mkdir ~/.config/fish/functions
 [ ! -d "$HOME/.config/karabiner" ] && mkdir ~/.config/karabiner
 [ ! -d "$HOME/.config/alacritty" ] && mkdir ~/.config/alacritty
-[ ! -L "$HOME/.config/nvim" ] && ln -sv ~/.dotfiles/nvim_dgd ~/.config/nvim
-ln -sv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-ln -sv ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-ln -sv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
-ln -sv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config/fish/functions/fish_user_key_bindings.fish
-ln -sv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
+[ ! -L "$HOME/.config/nvim" ] && ln -sfnv ~/.dotfiles/nvim_dgd ~/.config/nvim
+ln -sfnv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -sfnv ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sfnv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+ln -sfnv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config/fish/functions/fish_user_key_bindings.fish
+ln -sfnv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 
 # project b dropbox
-[ ! -L "$HOME/dropboxm" ] && ln -sv ~/Dropbox\ \(makerboarding\) ~/dropboxm
+[ ! -L "$HOME/dropboxm" ] && ln -sfnv ~/Dropbox\ \(makerboarding\) ~/dropboxm
 
 # project b database utils
 [ ! -d "$HOME/.postgres" ] && mkdir ~/.postgres
-# ln -sv ~/.dotfiles/.postgres/postgres_project_b_reset.sh ~/.postgres/postgres_project_b_reset.sh
-# ln -sv ~/.dotfiles/.postgres/postgres_project_b_dw_reset.sh ~/.postgres/postgres_project_b_dw_reset.sh
-# ln -sv ~/.dotfiles/.postgres/postgrestunnel_ssi.pl ~/.postgres/postgrestunnel_ssi.pl
-# ln -sv ~/.dotfiles/.postgres/postgrestunnel_hendricks.pl ~/.postgres/postgrestunnel_hendricks.pl
+# ln -sfnv ~/.dotfiles/.postgres/postgres_project_b_reset.sh ~/.postgres/postgres_project_b_reset.sh
+# ln -sfnv ~/.dotfiles/.postgres/postgres_project_b_dw_reset.sh ~/.postgres/postgres_project_b_dw_reset.sh
+# ln -sfnv ~/.dotfiles/.postgres/postgrestunnel_ssi.pl ~/.postgres/postgrestunnel_ssi.pl
+# ln -sfnv ~/.dotfiles/.postgres/postgrestunnel_hendricks.pl ~/.postgres/postgrestunnel_hendricks.pl
 
 
 # TODO: project b config files
