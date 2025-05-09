@@ -17,6 +17,6 @@ $HOME/.dotfiles/.postgres/postgres_project_b_dw_reset.sh
 
 cd $HOME/dev/project_b_api
 export RAILS_ENV=development
-bundle exec rake dw:db:migrate
+bundle exec rake db:migrate:warehouse
 
 touch ~/.cron_support/cron_project_b_dw.txt
