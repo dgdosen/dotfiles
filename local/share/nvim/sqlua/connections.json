@@ -1,10 +1,10 @@
 [
   {
     "url": "postgres://postgres:postgres@localhost:5432/project_b_development",
-    "name": "project_b"
+    "name": "project_b_dev"
   },
   {
     "url": "postgres://postgres:postgres@localhost:5432/project_b_dw_development",
-    "name": "project_b_dw"
+    "name": "project_b_dw_dev"
   }
 ]

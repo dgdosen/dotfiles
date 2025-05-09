@@ -5,9 +5,9 @@ select count(*) from breeding_ratings;
 
 select * from breeding_ratings where year = 2020;
 
-select * from breeding_ratings where debutable_id in 
+select * from breeding_ratings where debutable_id in
 (select id from horses where name = 'WISHTHEYALLCOULDBE')
-select * from breeding_ratings where horse_id in 
+select * from breeding_ratings where horse_id in
 (select id from horses where name = 'GRAZEN')
 
 select distinct year from breeding_ratings;

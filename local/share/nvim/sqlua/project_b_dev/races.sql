@@ -612,6 +612,9 @@ where
     (track_code = 'SA' and date = '2023-05-29' and race_number = 7)
     or (track_code = 'SA' and date = '2024-05-27' and race_number = 11)
 
+-- tm_races
+select count(*) from tm_races;
+select count(*) from races;
 
 -- debugging missing first past start:
 -- 2024-05-10 SA R3

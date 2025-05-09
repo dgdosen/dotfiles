@@ -1,4 +1,5 @@
 select * from audits limit 10;
+select * from race
 
 select * from audits order by id desc limit 20;
 
