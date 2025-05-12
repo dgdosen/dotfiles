@@ -128,7 +128,13 @@ function focusClosestNeighbor(direction) {
 
 // top/bottom
 ['k', 'j'].forEach((key, index) =>
-  Key.on(key, ['alt', 'cmd'], resizeToFraction(0, 1, 1, 1, index, 3, index + 1, 3)),
+  Key.on(
+    key,
+    ['alt', 'cmd'],
+    index === 0
+      ? resizeToFraction(0, 1, 1, 1, 0, 3, 2, 3) // 'k' => top 2/3
+      : resizeToFraction(0, 1, 1, 1, 2, 3, 1, 3) // 'j' => bottom 1/3
+  )
 );
 
 // thirds
