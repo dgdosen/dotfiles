@@ -6,6 +6,15 @@ select * from trackmaster_horses;
 select * from trackmaster_trainers;
 select * from trackmaster_calls order by id;
 
+-- tm_races versus trackmaster races
+select count(*) from tm_races;
+select count(*) from trackmaster_races;
+
+
+-- tm_races
+select * from tm_races order by updated_at desc
+limit 40;
+
 select distinct fraction_code from fractions;
 
 select * from trakus_fractions limit 20;

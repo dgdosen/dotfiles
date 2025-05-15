@@ -41,5 +41,5 @@ where exists (
     and abs(r_check.pp3_distance) = 1000
     and r_check.drf_distance = 2200
 )
-order by r_latest.date, r_latest.track_code;
+order by r_latest.date desc, r_latest.track_code;
 

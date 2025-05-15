@@ -3,7 +3,7 @@ select count(*) from egps_calls where distance_feet < 0;
 select count(*) from egps_calls;
 select * from egps_calls order by id desc limit 10;
 
-select * from egps_calls where start_id = 623857;
+select * from egps_calls where start_id = 556399;
 
 -- earliest and latest egps races:
 -- latest -- today?

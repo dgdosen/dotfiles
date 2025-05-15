@@ -37,13 +37,18 @@ select starts.race_id, starts.*, horses.id as horse_id, horses.name, program_num
   )
 order by race_id, program_number;
 
+select starts.race_id, horses.id as horse_id, horses.name, program_number, post_position from starts, horses
+  where starts.horse_id = horses.id
+  and starts.race_id = 138925
+order by race_id, program_number;
+
 /* horse history */
 -- select starts.id as start_id, starts.is_historical, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
 select starts.id as start_id, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.pp3_post_position from races, starts
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'YUKI'
+    select id from horses where name = 'SUMTER'
   )
 )
 and races.id = starts.race_id

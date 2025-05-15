@@ -52,6 +52,11 @@ limit 500;
 select * from import_files
 where file_date = '2023-05-19'
 
+-- trackmaster files
+select * from import_files where type_category_code = 'equibase_chart'
+order by updated_at desc
+limit 100;
+
 
 update import_files set track_id = 188 where id = 117377
 

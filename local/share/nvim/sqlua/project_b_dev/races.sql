@@ -1,4 +1,5 @@
 -- about distance issues...
+
 select is_about_distance, about_distance_code, pp1_distance, pp3_distance, count(id)
 from races
 where pp3_distance in (1430, -1430) and track_code = 'SA'
@@ -11,7 +12,7 @@ where id = 139044;
 
 select *
 from races
-where id = 139044;
+where id = 138925;
 
 -- pp3_distance - unique
 select distinct abs(pp3_distance) from races
@@ -19,7 +20,7 @@ order by abs(pp3_distance);
 
 select * from races order by id desc limit 100;
 
-select id, date, track_code, race_number, all_source_surface_code, drf_surface from races where date = '2024-06-28' and track_code = 'CD';
+select id, date, track_code, race_number, all_source_surface_code, drf_surface from races where date = '2025-04-26' and track_code = 'CD';
 
 select track_code, date, race_number from races where pp1_distance = '1430' and about_distance_code = 'A'
 
