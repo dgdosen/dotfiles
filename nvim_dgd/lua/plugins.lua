@@ -299,6 +299,9 @@ require('lazy').setup({
     },
   },
 
+  -- AI related plugins?
+  -- 'github/copilot.vim',
+
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
