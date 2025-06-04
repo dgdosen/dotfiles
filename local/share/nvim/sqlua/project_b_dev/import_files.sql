@@ -4,29 +4,52 @@ order by updated_at desc
 limit 100;
 
 --pp_file reprocssing?
+select * from import_files 
+where import_state_code = 'downloaded'
+limit 10;
 
 -- pp finding related files
 select * from import_files
-where type_category_code like 'pp_%'
+-- where type_category_code like 'pp_%'
 -- and file_date > '2025-03-01'
-and file_date = '2025-03-22'
+where file_date = '2024-09-29'
 and file_name is not null
 order by file_date, type_category_code;
-j
+
 --pp related files for data range to remove
 delete from import_files
 where type_category_code like 'pp_%'
 -- and file_date > '2025-03-01'
-and file_date = '2025-03-22'
+and file_date = '2022-11-04'
 and file_name is not null
 order by file_date, type_category_code;
 
 --pp_files for data range to update
 select * from import_files
-where type_category_code like 'pp_files'
 -- and file_date > '2025-03-01'
-and file_date = '2025-03-22'
+where file_date = '2024-09-29'
 order by file_date, type_category_code;
+
+-- reset charts file?
+-- prep
+select * from import_files
+where type_category_code like 'results%'
+and file_date = '2025-04-05'
+and track_code = 'SA';
+
+update import_files 
+set import_state_code = 'downloaded'
+where id = 120249;
+
+
+-- do we need to delete? won't this reprocess by default?
+delete from import_files
+where type_category_code like 'results_%'
+-- and file_date > '2025-03-01'
+and file_date = '2025-05-04'
+and track_code = 'SA';
+
+
 
 update import_files set import_state_code = 'downloaded'
 where type_category_code = 'pp_files'

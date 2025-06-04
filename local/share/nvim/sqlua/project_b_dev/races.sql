@@ -1,5 +1,16 @@
 -- about distance issues...
 
+-- races ddates in a year
+select  distinct (track_code, date) from races where track_code in ('SA', 'DMR', 'CD')
+and races.date >= '2024-01-01' and date <= '2024-12-31';
+
+-- races for date, track, number
+select * from races 
+where track_code = 'SA'
+and date = '2024-05-05'
+and race_number = 5;
+
+
 select is_about_distance, about_distance_code, pp1_distance, pp3_distance, count(id)
 from races
 where pp3_distance in (1430, -1430) and track_code = 'SA'
@@ -14,13 +25,15 @@ select *
 from races
 where id = 138925;
 
+select count (distinct race_id) from egps_fractions;
+
 -- pp3_distance - unique
 select distinct abs(pp3_distance) from races
 order by abs(pp3_distance);
 
 select * from races order by id desc limit 100;
 
-select id, date, track_code, race_number, all_source_surface_code, drf_surface from races where date = '2025-04-26' and track_code = 'CD';
+select id, date, track_code, race_number, all_source_surface_code, drf_surface from races where date = '2022-11-04' and track_code = 'SA';
 
 select track_code, date, race_number from races where pp1_distance = '1430' and about_distance_code = 'A'
 
@@ -35,7 +48,7 @@ horses.id as horse_id, horses.name, starts.program_number
 from races, starts, horses
 where races.id = starts.race_id
 and starts.horse_id = horses.id
-and horses.name = 'CHASING LIBERTY'
+and horses.name = 'MAGALE'
 order by date desc;
 
 -- quarter horse races

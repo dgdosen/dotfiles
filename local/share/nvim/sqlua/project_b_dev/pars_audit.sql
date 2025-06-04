@@ -1,3 +1,12 @@
+-- everything for a race?
+select par_* from starts, races
+where starts.race_id = races.id
+and races.id in (
+  select id from races where track_code = 'SA'
+  and race_number = 12
+  and date = '2025-04-05'
+)
+
 -- sql for auditing completeness of pars (and race fact) data
 
 select distinct races.track_code, distinct races.date, distinct races.race_number

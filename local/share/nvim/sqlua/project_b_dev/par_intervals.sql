@@ -91,9 +91,9 @@ and pars.id = par_intervals.par_id
 and par_interval_starts.par_interval_id = par_intervals.id
 and par_interval_starts.start_id = starts.id
 and races.id in (
-  select id from races where track_code = 'CD'
-  and race_number = 7
-  and date = '2024-06-28'
+  select id from races where track_code = 'SA'
+  and race_number = 12
+  and date = '2024-04-05'
 )
 order by par_intervals.common_feet
 

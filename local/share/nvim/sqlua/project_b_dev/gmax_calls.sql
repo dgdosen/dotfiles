@@ -1,3 +1,32 @@
+-- everything for a race?
+select gmax_calls.* from gmax_calls, starts, races
+where starts.race_id = races.id
+and gmax_calls.start_id = starts.id
+and races.id in (
+  select id from races where track_code = 'SA'
+  and race_number = 12
+  and date = '2025-04-05'
+);
+
+select egps_calls.* from egps_calls, starts, races
+where starts.race_id = races.id
+and egps_calls.start_id = starts.id
+and races.id in (
+  select id from races where track_code = 'SA'
+  and race_number = 12
+  and date = '2025-04-05'
+);
+
+select calls.* from calls, starts, races
+where starts.race_id = races.id
+and calls.start_id = starts.id
+and races.id in (
+  select id from races where track_code = 'SA'
+  and race_number = 12
+  and date = '2025-04-05'
+)
+
+
 -- negative fractions
 select count(distinct(race_id)) from gmax_fractions where distance_feet < 0;
 select count(*) from gmax_races;

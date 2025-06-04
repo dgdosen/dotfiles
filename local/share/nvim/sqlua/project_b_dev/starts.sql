@@ -48,7 +48,7 @@ select starts.id as start_id, races.id as race_id, races.date, races.track_code,
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'SUMTER'
+    select id from horses where name = 'ADRASTEIA'
   )
 )
 and races.id = starts.race_id
@@ -143,3 +143,13 @@ order by pp3_state_bred_flag;
 select count(id), pp3_post_position, program_number from starts
 group by pp3_post_position, program_number
 order by pp3_post_position;
+
+-- everything for a race?
+select * from starts, races
+where starts.race_id = races.id
+and races.id in (
+  select id from races where track_code = 'SA'
+  and race_number = 12
+  and date = '2025-04-05'
+)
+

@@ -1,4 +1,6 @@
-select * from drf_debut_analyses where debutable_id = 15667
+select * from drf_debut_analyses 
+where debutable_id = 15667
+and debutable_role = 'DamSire'
 order by effective_date desc;
 
 select distinct debutable_type, debutable_role from drf_debut_analyses;

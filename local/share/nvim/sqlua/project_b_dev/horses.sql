@@ -10,7 +10,25 @@ select * from horses where name = 'C''MON JENNA';
 
 select * from horses order by id desc limit 25;
 
-select * from horses where name = 'UNDER CAUTION';
+select * from horses where name = 'TARIFF';
+select * from horses where id = 54909;
+
+-- find who's got a recent start for a given sire id
+select races.track_code, races.date, races.race_number, starts.program_number, horses.name
+from races, starts, horses
+where starts.race_id = races.id
+and starts.horse_id = horses.id
+and starts.horse_id in (
+  select id from horses where pp2_sire_id = 49500;
+)
+order by races.date desc;
+
+
+select * from horses where name = 'OM';
+select * from horses where pp2_sire_id = 49500;
+
+
+
 select * from horses where name = 'UNUSUAL HEATWAVE';
 
 select starts.id as start_id, races.id, races.date, races.race_number, starts.program_number, starts.pp2_program_number, starts.pp2_original_post_position
