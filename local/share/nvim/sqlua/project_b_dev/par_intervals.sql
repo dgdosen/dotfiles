@@ -34,8 +34,11 @@ select * from par_intervals where par_id in (
 ) limit 1000;
 
 select * from races limit 10;
+
 select * from pars limit 10;
+
 select * from project_b_races limit 10;
+
 select * from par_intervals limit 10;
 
 /* par starts for pars :*/

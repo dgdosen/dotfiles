@@ -3,12 +3,12 @@
 -- races ddates in a year
 select  distinct (track_code, date) from races where track_code in ('SA', 'DMR', 'CD')
 and races.date >= '2024-01-01' and date <= '2024-12-31';
-
+p
 -- races for date, track, number
-select * from races 
+select * from races
 where track_code = 'SA'
-and date = '2024-05-05'
-and race_number = 5;
+and date = '2024-05-31'
+and race_number = 8;
 
 
 select is_about_distance, about_distance_code, pp1_distance, pp3_distance, count(id)

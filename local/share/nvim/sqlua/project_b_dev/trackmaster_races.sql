@@ -1,4 +1,6 @@
-select * from trackmaster_races;
+select * from trackmaster_races
+limit 5;
+
 select * from trackmaster_fractions order by id;
 select * from trackmaster_starts;
 select * from trackmaster_jockeys;

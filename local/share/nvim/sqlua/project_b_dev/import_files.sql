@@ -1,3 +1,7 @@
+p-- unique type_category_code
+select distinct type_category_code from import_files
+order by type_category_code;
+
 -- recent history
 select * from import_files
 order by updated_at desc
@@ -30,6 +34,14 @@ select * from import_files
 where file_date = '2024-09-29'
 order by file_date, type_category_code;
 
+-- trackmaster files
+select * from import_files where type_category_code = 'trackmaster_chart_files'
+order by updated_at desc;
+
+select * from import_files where type_category_code = 'equibase_chart'
+order by updated_at desc;
+
+
 -- reset charts file?
 -- prep
 select * from import_files
@@ -48,7 +60,6 @@ where type_category_code like 'results_%'
 -- and file_date > '2025-03-01'
 and file_date = '2025-05-04'
 and track_code = 'SA';
-
 
 
 update import_files set import_state_code = 'downloaded'
