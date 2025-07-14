@@ -76,6 +76,7 @@ require('lazy').setup({
       }
     end
   },
+
   -- Text Copy/Paste with Tmux
   'ojroques/nvim-osc52',
 
@@ -252,14 +253,30 @@ require('lazy').setup({
     config = "require('setup/which-key')"
   },
 
-  -- Vim-Zettel for Zettel?
+  -- -- Vim-Zettel for Zettel?
+  -- {
+  --   'michal-h21/vim-zettel',
+  --   dependencies = {
+  --     'vimwiki/vimwiki',
+  --     -- 'junegunn/fzf',
+  --     -- 'junegunn/fzf.vim',
+  --   }
+  -- },
+
   {
-    'michal-h21/vim-zettel',
-    dependencies = {
-      'vimwiki/vimwiki',
-      'junegunn/fzf',
-      'junegunn/fzf.vim',
-    }
+    'renerocksai/telekasten.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' }, -- or 'ibhagwan/fzf-lua'
+    config = function()
+      require('telekasten').setup({
+        home = vim.fn.expand("~/dev/zettel"), -- or wherever your notes live
+        take_over_my_home = true,
+        dailies = "daily",
+        weeklies = "weekly",
+        templates = vim.fn.expand("~/.config/nvim/templates"),
+        extension = ".md",
+        template_new_note = "new_note.md",
+      })
+    end
   },
 
   -- zen-mode is much better!
@@ -626,4 +643,5 @@ require('setup/vim-dadbod-ui')
 require('setup/which-key')
 require('setup/vim-wiki')
 require('setup/vim-markdown')
-require('setup/vim-zettel')
+-- require('setup/vim-zettel')
+require('setup/telekasten')
