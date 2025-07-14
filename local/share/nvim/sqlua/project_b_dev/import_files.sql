@@ -7,6 +7,8 @@ select * from import_files
 order by updated_at desc
 limit 100;
 
+select distinct type_category_code from import_files;
+
 --pp_file reprocssing?
 select * from import_files 
 where import_state_code = 'downloaded'

@@ -3,13 +3,14 @@
 -- races ddates in a year
 select  distinct (track_code, date) from races where track_code in ('SA', 'DMR', 'CD')
 and races.date >= '2024-01-01' and date <= '2024-12-31';
-p
--- races for date, track, number
-select * from races
-where track_code = 'SA'
-and date = '2024-05-31'
-and race_number = 8;
 
+-- race and starts for date, track, number
+select starts.id as start_id, horses.name, races.id as race_id from starts, races, horses
+where races.id = starts.race_id
+and starts.horse_id = horses.id
+and track_code = 'SA'
+and date = '2025-04-04'
+and race_number = 7;
 
 select is_about_distance, about_distance_code, pp1_distance, pp3_distance, count(id)
 from races

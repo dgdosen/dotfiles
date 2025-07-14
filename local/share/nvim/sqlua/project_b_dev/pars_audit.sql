@@ -1,10 +1,30 @@
 -- everything for a race?
-select par_* from starts, races
-where starts.race_id = races.id
+select races.id as race_id, par_interval_starts.*, pars.interval_split_type from par_interval_starts, par_intervals, pars, project_b_races, races
+where races.id = project_b_races.race_id
+and project_b_races.race_id = races.id
+and pars.project_b_race_id = project_b_races.id
+and par_intervals.par_id = pars.id
+and par_interval_starts.par_interval_id = par_intervals.id
+and pars.interval_split_type = 'complete_interval'
 and races.id in (
   select id from races where track_code = 'SA'
-  and race_number = 12
-  and date = '2025-04-05'
+  and race_number = 4
+  and date = '2025-01-17'
+);
+
+SELECT races.id AS race_id, par_interval_starts.*, pars.interval_split_type
+FROM races
+JOIN project_b_races ON project_b_races.race_id = races.id
+JOIN pars ON pars.project_b_race_id = project_b_races.id
+JOIN par_intervals ON par_intervals.par_id = pars.id
+JOIN par_interval_starts ON par_interval_starts.par_interval_id = par_intervals.id
+WHERE pars.interval_split_type = 'complete_interval'
+AND races.id IN (
+  SELECT id
+  FROM races
+  WHERE track_code = 'SA'
+  AND race_number = 4
+  AND date = '2025-01-17'
 )
 
 -- sql for auditing completeness of pars (and race fact) data
