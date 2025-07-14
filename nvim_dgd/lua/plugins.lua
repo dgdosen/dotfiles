@@ -51,6 +51,31 @@ require('lazy').setup({
     version = "*",
     opts = {},
   },
+
+  {
+    'chaoren/vim-wordmotion',
+    init = function()
+      -- Optional: change the default prefix for toggling wordmotion
+      -- Default prefix is <leader>, so <leader>w toggles wordmotion mode.
+      -- You can set something else, or just always leave it enabled.
+      -- Example to set it to comma (`,`):
+      -- vim.g.wordmotion_prefix = ','
+
+      -- Optional: always start in wordmotion mode
+      vim.g.wordmotion_motions = {
+        w = 1,
+        e = 1,
+        b = 1,
+        ge = 1
+      }
+      vim.g.wordmotion_text_objects = {
+        iw = 1,
+        aw = 1,
+        iW = 1,
+        aW = 1
+      }
+    end
+  },
   -- Text Copy/Paste with Tmux
   'ojroques/nvim-osc52',
 
