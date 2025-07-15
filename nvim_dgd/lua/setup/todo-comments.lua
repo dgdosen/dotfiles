@@ -2,6 +2,7 @@
 -- PERF: foobar - this should be purple
 -- HACK: foobar
 -- DGD: foobar
+-- WIP: foobar
 -- TODO: foobar
 -- NOTE: foobar
 -- DOC: foobar - easy on the eyes!
@@ -10,7 +11,8 @@
 require("todo-comments").setup(
   {
     keywords = {
-      DGD = { color = "def_white" },
+      DGD = { color = "def_bright_red" },
+      WIP = { color = "def_green" },
       DOC = { color = "def_grey" },
       PERF = { color = "def_purple" },
       TODO = { color = "def_orange" },
@@ -21,7 +23,10 @@ require("todo-comments").setup(
       def_white = { "", "#EBDBB2" },
       def_grey = { "", "#A89984" },
       def_purple = { "", "#D3869B" },
-      def_orange = { "", "#fe8019" }
+      def_orange = { "", "#fe8019" },
+      def_blue = { "", "#83A598" },      -- Gruvbox blue
+      def_green = { "", "#B8BB26" },     -- Gruvbox green
+      def_bright_red = { "", "#FB4934" } -- Gruvbox bright red
     },
     merge_keywords = true,
   }

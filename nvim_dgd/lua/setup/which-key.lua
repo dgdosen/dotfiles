@@ -53,6 +53,8 @@ wk.add({
   { "<leader>lr", "<cmd>lua vim.lsp.buf.references()<cr>",                                 desc = "[r]eferences" },
   { "<leader>lt", "<cmd>lua vim.lsp.buf.type_definition()<cr>",                            desc = "[t]ype Definition" },
   { "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>",                       desc = "add [w]orkspace folder" },
+  { "<leader>m",  group = "[m]arkup ..." },
+  { "<leader>mx", ":%!xmllint --format -<CR>",                                             desc = "[x]ml format" },
   { "<leader>p",  group = "[p]lugins ..." },
   { "<leader>pS", ":Lazy health<cr>",                                                      desc = "[S]? health" },
   { "<leader>pc", ":Lazy clean<cr>",                                                       desc = "[c]lean plugins" },
