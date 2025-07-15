@@ -1,4 +1,4 @@
-p-- unique type_category_code
+-- unique type_category_code
 select distinct type_category_code from import_files
 order by type_category_code;
 
@@ -10,7 +10,7 @@ limit 100;
 select distinct type_category_code from import_files;
 
 --pp_file reprocssing?
-select * from import_files 
+select * from import_files
 where import_state_code = 'downloaded'
 limit 10;
 
@@ -37,7 +37,7 @@ where file_date = '2024-09-29'
 order by file_date, type_category_code;
 
 -- trackmaster files
-select * from import_files where type_category_code = 'trackmaster_chart_files'
+select * from import_files where type_category_code like 'trackmaste%'
 order by updated_at desc;
 
 select * from import_files where type_category_code = 'equibase_chart'
@@ -51,7 +51,7 @@ where type_category_code like 'results%'
 and file_date = '2025-04-05'
 and track_code = 'SA';
 
-update import_files 
+update import_files
 set import_state_code = 'downloaded'
 where id = 120249;
 

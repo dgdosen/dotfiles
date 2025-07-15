@@ -1,7 +1,13 @@
 select * from trackmaster_races
-limit 5;
+order by track_code, date, race_number;
+
+limit 201;
 
 select * from trackmaster_fractions order by id;
+select * from fractions where race_id = 157449;
+select * from races where id = 157449;
+
+
 select * from trackmaster_starts;
 select * from trackmaster_jockeys;
 select * from trackmaster_horses;
@@ -36,3 +42,40 @@ and calls.position <> official_finish_position
 order by start_id desc
 limit 20;
 
+-- completeness
+select
+trackmaster_races.id,
+trackmaster_races.date,
+trackmaster_races.race_number,
+trackmaster_races.track_code,
+trackmaster_starts.id,
+trackmaster_starts.axcis_key,
+trackmaster_horses.name
+from trackmaster_races, trackmaster_starts, trackmaster_horses
+where trackmaster_races.id = trackmaster_starts.trackmaster_race_id
+and trackmaster_horses.id = trackmaster_starts.trackmaster_horse_id
+and trackmaster_races.track_code = 'SA'
+order by date desc, race_number
+limit 200;
+
+
+select * from trackmaster_races where date = '2025-06-15';
+
+select * from trackmaster_starts order by trackmaster_race_id desc;
+
+select * from trackmaster_starts where trackmaster_race_id in
+(
+  select id from trackmaster_races where date = '2025-06-15'
+  and track_code = 'SA'
+);
+
+select * from trackmaster_starts where trackmaster_race_id > 702 and trackmaster_race_id < 715;
+
+
+select count(*) from trackmaster_races;
+
+select count(*) from trackmaster_starts;
+
+select count(*) from trackmaster_fractions;
+
+select count(*) from trackmaster_starts;
