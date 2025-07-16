@@ -7,7 +7,6 @@ select * from trackmaster_fractions order by id;
 select * from fractions where race_id = 157449;
 select * from races where id = 157449;
 
-
 select * from trackmaster_starts;
 select * from trackmaster_jockeys;
 select * from trackmaster_horses;
@@ -59,9 +58,13 @@ order by date desc, race_number
 limit 200;
 
 
-select * from trackmaster_races where date = '2025-06-15';
+select * from trackmaster_races 
+where date = '2025-06-15'
+and track_code = 'SA';
 
-select * from trackmaster_starts order by trackmaster_race_id desc;
+select * from trackmaster_starts 
+where id > 
+order by trackmaster_race_id desc;
 
 select * from trackmaster_starts where trackmaster_race_id in
 (
@@ -76,6 +79,11 @@ select count(*) from trackmaster_races;
 
 select count(*) from trackmaster_starts;
 
-select count(*) from trackmaster_fractions;
+select * from trackmaster_fractions
+where trackmaster_race_id in 
+(
+  select id from trackmaster_races where date = '2025-06-15'
+  and track_code = 'SA'
+);
 
 select count(*) from trackmaster_starts;
