@@ -5,7 +5,7 @@ order by type_category_code;
 -- recent history
 select * from import_files
 order by updated_at desc
-limit 100;
+limit 500;
 
 select distinct type_category_code from import_files;
 
@@ -94,11 +94,11 @@ order by updated_at desc
 limit 100;
 
 
-update import_files set track_id = 188 where id = 117377
+update import_files set track_id = 188 where id = 117377;
 
-update import_files set import_state_code = 'cd_problem'
 
 -- missing results
+select * from import_files
 where type_category_code = 'results_files'
 order by file_date desc
 limit 1000;

@@ -58,12 +58,12 @@ order by date desc, race_number
 limit 200;
 
 
-select * from trackmaster_races 
+select * from trackmaster_races
 where date = '2025-06-15'
 and track_code = 'SA';
 
-select * from trackmaster_starts 
-where id > 
+select * from trackmaster_starts
+where id >
 order by trackmaster_race_id desc;
 
 select * from trackmaster_starts where trackmaster_race_id in
@@ -72,6 +72,13 @@ select * from trackmaster_starts where trackmaster_race_id in
   and track_code = 'SA'
 );
 
+select * from starts where race_id in
+(
+  select id from races where date = '2025-06-15'
+  and track_code = 'SA'
+);
+
+
 select * from trackmaster_starts where trackmaster_race_id > 702 and trackmaster_race_id < 715;
 
 
@@ -79,8 +86,20 @@ select count(*) from trackmaster_races;
 
 select count(*) from trackmaster_starts;
 
+select * from trackmaster_calls order by id desc
+limit 100;
+
+select * from trackmaster_calls
+where trackmaster_start_id in (
+  select id from trackmaster_starts where trackmaster_race_id in (
+    select id from trackmaster_races where date = '2025-06-15'
+    and track_code = 'SA'
+  )
+) order by trackmaster_start_id, id;
+
+
 select * from trackmaster_fractions
-where trackmaster_race_id in 
+where trackmaster_race_id in
 (
   select id from trackmaster_races where date = '2025-06-15'
   and track_code = 'SA'
