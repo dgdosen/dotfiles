@@ -154,3 +154,6 @@ vim.api.nvim_set_keymap('n', '<leader>g', ':lua show_popup()<CR>', { noremap = t
 
 -- chatgpt/shellbot
 vim.cmd("command! ChatGPT lua require'chatgpt'.chatgpt()")
+
+-- keep folds open by default
+vim.opt.foldenable = false
