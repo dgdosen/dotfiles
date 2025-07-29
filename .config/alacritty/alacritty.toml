@@ -121,6 +121,11 @@ key = "End"
 mode = "~Alt"
 mods = "Shift"
 
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\n"
+
 [scrolling]
 history = 20000
 multiplier = 3
