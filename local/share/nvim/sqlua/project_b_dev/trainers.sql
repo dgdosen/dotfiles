@@ -1,4 +1,5 @@
-select * from trainers where name like '%BAFF%';
+select * from trainers where name like '%LEWIS%';
+select * from jockeys where jockey_name like '%FRANKO%';
 select * from start_trainer_overall_analysis_view where trainer_id = 173;
 
 select * from start_trainer_traits where start_id = 627570;
