@@ -16,7 +16,12 @@ COLORTERM = "truecolor"
 
 [font]
 # size = 12.25
-size = 13
+# size = 14.25
+size = 13.75
+
+[font.offset]
+x = 0
+y = 2
 
 [font.normal]
 family = "Mononoki Nerd Font"
@@ -49,10 +54,6 @@ style = "Bold Italic"
 # [font.normal]
 # family = "SauceCodePro NF"
 # style = "Regular"
-
-[font.offset]
-x = 0
-y = 1
 
 [[keyboard.bindings]]
 action = "Paste"
