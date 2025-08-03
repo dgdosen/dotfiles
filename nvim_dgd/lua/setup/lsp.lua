@@ -129,6 +129,13 @@ local mason_lspconfig = require("mason-lspconfig")
 
 mason_lspconfig.setup()
 
+-- require('lspconfig').ruby_lsp.setup({
+--   init_options = {
+--     formatter = "rubocop",
+--     linters = { "rubocop" }
+--   }
+-- })
+--
 local lspconfig = require("lspconfig")
 
 for _, server_name in ipairs(mason_lspconfig.get_installed_servers()) do
