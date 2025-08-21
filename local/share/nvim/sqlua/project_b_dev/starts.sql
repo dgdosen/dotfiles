@@ -5,7 +5,7 @@ select * from pp_starts;
 -- starts for a race
 select starts.id, horses.id as horse_id, horses.name, program_number, pp2_program_number from starts, horses
   where starts.horse_id = horses.id and race_id in (
-  select id from races where date = '2025-04-26'  and race_number = 3
+  select id from races where date = '2025-05-26' and track_code = 'SA' and race_number = 6
 )
 
 select count(id), version from starts

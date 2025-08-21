@@ -6,3 +6,6 @@ select * from track_dimensions;
 select * from track_condition_dimensions order by id;
 select * from surface_dimensions;
 select * from rail_distance_dimensions;
+
+
+select * from age_restriction_dimensions;

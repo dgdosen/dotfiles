@@ -63,3 +63,5 @@ and starts.race_id in (
   select id from races where track_code = 'SA' and date > '2024-12-25'
 )
 order by age desc;
+
+select * from jockeys where jockey_name like '%ANTONGEORGI%'

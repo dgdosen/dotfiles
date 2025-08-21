@@ -1,17 +1,46 @@
 select * from trackmaster_races
-order by track_code, date, race_number;
-
+order by track_code, date, race_number
 limit 201;
 
-select * from trackmaster_fractions order by id;
+select date, track_code, race_number, age_restriction_code from trackmaster_races where track_code = 'SA' and date = '2025-05-04' order by date desc, race_number limit 500;
+
+select distinct age_restriction from trackmaster_races order by age_restriction;
+
+select * from trackmaster_races order by updated_at desc limit 50;
+
+ORDER BY first_two, third_char, fourth_char, rest;
+select * from trackmaster_historical_races where track_code = 'SA' order by race_date desc limit 500;
+select * from trackmaster_historical_fractions limit 50;
+select * from trackmaster_historical_starts limit 50;
+select * from trackmaster_historical_calls limit 50;
+
+select * from trackmaster_pre_starts order by updated_at desc limit 50;
+select * from trackmaster_pre_races order by race_date desc, race_number limit 50;
+select distinct race_class_raw from trackmaster_pre_races;
+
+select * from trackmaster_horses order by updated_at desc limit 50;
+select * from trackmaster_trainers order by updated_at desc limit 50;
+select * from trackmaster_jockeys order by updated_at desc limit 50;
+
+select * from trackmaster_fractions order by updated_at desc limit 50;
+select * from fractions order by updated_at desc limit 50;
+
 select * from fractions where race_id = 157449;
 select * from races where id = 157449;
+
+-- delete fomm trackmaster_
+delete from trackmaster_pre_starts;
+delete from trackmaster_horses;
+
+select * from trackmaster_calls order by updated_at desc limit 50;
 
 select * from trackmaster_starts;
 select * from trackmaster_jockeys;
 select * from trackmaster_horses;
 select * from trackmaster_trainers;
 select * from trackmaster_calls order by id;
+
+select * from trackmaster_start_traits;
 
 -- tm_races versus trackmaster races
 select count(*) from tm_races;
