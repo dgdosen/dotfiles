@@ -84,6 +84,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.claude",
+  callback = function()
+    vim.bo.filetype = "markdown"
+  end
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "lua",
   callback = function()
@@ -118,6 +125,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.wrap = true               -- Enable soft wrapping
     vim.opt_local.linebreak = true          -- Wrap at word boundaries
   end
+})
+
+vim.filetype.add({
+  extension = {
+    claude = 'markdown',
+  }
 })
 
 function show_popup()
