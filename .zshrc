@@ -80,6 +80,7 @@ unsetopt correct_all
 
 # set vim as the default editor
 export EDITOR='vi'
+set -o vi
 
 export CI=false
 
@@ -180,6 +181,24 @@ export FORCE_COLOR=1
 # alias ls='ls -G'
 # alias grep='grep --color=always'
 
-# Added by Windsurf
-export PATH="/Users/dgdosen/.codeium/windsurf/bin:$PATH"
+# configurationfor vi_mode within zsh and P10K
+# Fix vi mode detection for Powerlevel10k
+function zle-keymap-select {
+  zle reset-prompt
+}
+zle -N zle-keymap-select
+
+function zle-line-init {
+  zle reset-prompt
+}
+zle -N zle-line-init
+
+# Make sure we start in insert mode
+function zle-line-finish {
+  zle reset-prompt
+}
+zle -N zle-line-finish
+export KEYTIMEOUT=1
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins 'kj' vi-cmd-mode
 
