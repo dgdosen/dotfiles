@@ -4,25 +4,41 @@ vim.g.completeopt = "menu,menuone,noselect,noinsert"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- nvim-cmp setup
+-- Load required modules
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 local lspkind = require 'lspkind'
+
+-- LuaSnip Configuration
 require("luasnip.loaders.from_vscode").lazy_load()
 require 'luasnip'.filetype_extend("ruby", { "rails" })
 require 'luasnip'.filetype_extend("typescript", { "ts" })
 
--- lspconfig for copliot
+
+-- LSPKind & Highlight Configuration
 lspkind.init({
   symbol_map = {
     Copilot = "",
   },
 })
 
--- defining colors
--- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#689D6A"})
+-- Set Copilot highlight color
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#98971A" })
 
+-- Define completion source menu labels
+local source_menu = {
+  buffer = "[buf]",
+  nvim_lsp = "[lsp]",
+  nvim_lua = "[api]",
+  ['vim-dadbod-completion'] = '[db]',
+  path = "[path]",
+  luasnip = "[snip]",
+  gh_issues = "[issues]",
+  copilot = "[cp]",
+  tags = '[tags]'
+}
+
+-- Main CMP Setup
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -65,29 +81,24 @@ cmp.setup {
     --   end, { 'i', 's' }),
   },
   sources = {
+    -- Tags completion with custom configuration
     {
       name = 'tags',
       option = {
-        -- this is the default options, change them if you want.
-        -- Delayed time after user input, in milliseconds.
-        complete_defer = 100,
-        -- Max items when searching `taglist`.
-        max_items = 10,
-        -- The number of characters that need to be typed to trigger
-        -- auto-completion.
-        keyword_length = 3,
-        -- Use exact word match when searching `taglist`, for better searching
-        -- performance.
-        exact_match = false,
-        -- Prioritize searching result for current buffer.
+        complete_defer = 100,     -- Delay after user input (ms)
+        max_items = 10,           -- Max items when searching taglist
+        keyword_length = 3,       -- Min chars to trigger completion
+        exact_match = false,      -- Use fuzzy matching
         current_buffer_only = false,
       },
     },
+    -- Core completion sources
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    -- { name = 'nvim_lua' },
-    { name = "copilot" },
-    { name = 'buffer',    keyword_length = 4 },
+    { name = 'copilot' },
+    -- Buffer completion (requires 4+ chars to avoid noise)
+    { name = 'buffer', keyword_length = 4 },
+    -- Additional sources
     { name = 'path' },
     { name = 'treesitter' },
   },
@@ -95,25 +106,16 @@ cmp.setup {
     format = lspkind.cmp_format({
       with_text = true,
       maxwidth = 50,
-      menu = {
-        buffer = "[buf]",
-        nvim_lsp = "[lsp]",
-        nvim_lua = "[api]",
-        ['vim-dadbod-completion'] = '[db]',
-        path = "[path]",
-        luasnip = "[snip]",
-        gh_issues = "[issues]",
-        copilot = "[cp]",
-        tags = '[tags]'
-      },
+      menu = source_menu,
     })
   },
 }
 
--- Create augroup for database completion
-local autocomplete_group = vim.api.nvim_create_augroup("DadbodSql", { clear = true })
+-- Filetype-specific Completion Setup
 
--- Set up the autocommand
+-- SQL file completion setup
+local sql_augroup = vim.api.nvim_create_augroup("DadbodSql", { clear = true })
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'sql', 'mysql', 'plsql' },
   callback = function()
@@ -124,12 +126,12 @@ vim.api.nvim_create_autocmd('FileType', {
       },
     })
   end,
-  group = autocomplete_group,
+  group = sql_augroup,
 })
 
 
--- Create augroup for zsh completion
-local zsh_group = vim.api.nvim_create_augroup("CmpZsh", { clear = true })
+-- Zsh file completion setup  
+local zsh_augroup = vim.api.nvim_create_augroup("CmpZsh", { clear = true })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'zsh',
@@ -140,7 +142,7 @@ vim.api.nvim_create_autocmd('FileType', {
       },
     })
   end,
-  group = zsh_group,
+  group = zsh_augroup,
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
