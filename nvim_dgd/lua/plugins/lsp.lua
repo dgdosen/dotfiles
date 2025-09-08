@@ -18,8 +18,8 @@ return {
     },
     checker = { enabled = true },
     config = function()
-      require('setup/lsp')
       require('setup/neodev')
+      require('setup/lsp')
     end,
   },
 

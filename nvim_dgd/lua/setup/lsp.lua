@@ -105,11 +105,18 @@ local servers = {
   },
   lua_ls = {
     Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
+      runtime = {
+        version = 'LuaJIT',
+      },
       diagnostics = {
-        -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false,
+      },
+      telemetry = {
+        enable = false,
       },
     },
   },
@@ -143,6 +150,7 @@ for _, server_name in ipairs(mason_lspconfig.get_installed_servers()) do
     -- your custom setup for each LSP server
     on_attach = on_attach,
     capabilities = capabilities,
+    settings = servers[server_name] or {},
   }
 end
 
