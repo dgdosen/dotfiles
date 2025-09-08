@@ -15,7 +15,6 @@ require('lazy').setup({
 
 -- Setup that still needs to be done after plugins load
 require('setup/ruby')
-require('setup/vim-wiki')
 
 -- Just the keymap for alternate-toggler
 vim.keymap.set('n', '<space>ta', '<cmd>ToggleAlternate<cr>')
