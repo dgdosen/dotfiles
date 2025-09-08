@@ -1,4 +1,4 @@
-vim.g.completeot = "menu,menuone,noselect,noinsert"
+vim.g.completeopt = "menu,menuone,noselect,noinsert"
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -110,9 +110,7 @@ cmp.setup {
   },
 }
 
-local autocomplete_group = vim.api.nvim_create_augroup('vimrc_autocompletion', { clear = true })
-
--- Create a new augroup
+-- Create augroup for database completion
 local autocomplete_group = vim.api.nvim_create_augroup("DadbodSql", { clear = true })
 
 -- Set up the autocommand
@@ -129,29 +127,21 @@ vim.api.nvim_create_autocmd('FileType', {
   group = autocomplete_group,
 })
 
--- -- Add vim-dadbod-completion in sql files
--- _ = vim.cmd [[
---   augroup DadbodSql
---     au!
---     autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
---   augroup END
--- ]]
---
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = { 'sql', 'mysql', 'plsql' },
---   callback = function()
---     cmp.setup.buffer({ sources = { { name = 'vim-dadbod-completion' } } })
---   end,
---   group = autocomplete_group,
--- })
 
+-- Create augroup for zsh completion
+local zsh_group = vim.api.nvim_create_augroup("CmpZsh", { clear = true })
 
-_ = vim.cmd [[
-  augroup CmpZsh
-    au!
-    autocmd Filetype zsh lua require'cmp'.setup.buffer { sources = { { name = "zsh" }, } }
-  augroup END
-]]
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'zsh',
+  callback = function()
+    require('cmp').setup.buffer({
+      sources = {
+        { name = 'zsh' },
+      },
+    })
+  end,
+  group = zsh_group,
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
