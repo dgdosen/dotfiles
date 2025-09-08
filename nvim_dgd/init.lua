@@ -3,6 +3,6 @@ if vim.loader then
 end
 
 require('options')
-require('plugins')
+require('lazy-config')
 require('mappings')
 require('chatgpt')

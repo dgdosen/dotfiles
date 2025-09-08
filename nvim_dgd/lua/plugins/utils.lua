@@ -1,0 +1,12 @@
+return {
+  -- Log highlighting
+  {
+    'fei6409/log-highlight.nvim',
+    config = function()
+      require('log-highlight').setup {}
+    end,
+  },
+
+  -- Ruby specific setup
+  'tpope/vim-rails',
+}
