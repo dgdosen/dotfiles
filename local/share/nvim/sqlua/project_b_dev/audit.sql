@@ -1,6 +1,9 @@
-select * from audits 
-order by updated_at desc
-limit 10;
+select * from audits order by updated_at desc;
+limit 100;
+
+delete from audits;
+
+select count(*) from audits;
 
 select * from race
 

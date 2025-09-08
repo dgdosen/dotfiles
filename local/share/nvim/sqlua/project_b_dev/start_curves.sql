@@ -7,6 +7,14 @@ select count(id), curve_version from start_curves
 group by curve_version
 select count(*) from interval_infos;
 
+-- start curves (used?)
+select * from start_curves order by updated_at desc
+limit 100;
+
+-- curve_coefficients
+select * from curve_coefficients order by updated_at desc
+limit 100;
+
 -- these enums are great
 
 select * from start_curves where data_source_type = 'equibase' limit 10;

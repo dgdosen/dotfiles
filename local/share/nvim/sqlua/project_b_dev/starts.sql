@@ -8,6 +8,11 @@ select starts.id, horses.id as horse_id, horses.name, program_number, pp2_progra
   select id from races where date = '2025-05-26' and track_code = 'SA' and race_number = 6
 )
 
+select * from starts where race_id = 162067;
+
+
+
+
 select count(id), version from starts
 group by version
 

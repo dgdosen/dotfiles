@@ -1,6 +1,6 @@
 select * from odds_for_starts
 -- where start_odds_code <> 'morning line'
-order by updated_at desc limit 24;
+order by updated_at desc limit 500;
 
 select count(id), start_odds_code from odds_for_starts group by start_odds_code order by start_odds_code;
 

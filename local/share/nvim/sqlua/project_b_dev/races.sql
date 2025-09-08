@@ -9,7 +9,7 @@ select starts.id as start_id, horses.name, races.id as race_id from starts, race
 where races.id = starts.race_id
 and starts.horse_id = horses.id
 and track_code = 'SA'
-and date = '2025-04-04'
+and date = '2025-04kk-04'
 and race_number = 7;
 
 select is_about_distance, about_distance_code, pp1_distance, pp3_distance, count(id)
@@ -81,7 +81,7 @@ order by date desc, track_code, race_number
 limit 100;
 
 -- races for date
-select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2024-04-13'
+select id, date, track_code, race_number, distance, all_source_surface_code, about_distance_code from races where date = '2025-09-01'
 
 -- races for two dates
 order by track_code, race_number;
