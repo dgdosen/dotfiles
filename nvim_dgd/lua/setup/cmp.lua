@@ -38,6 +38,23 @@ local source_menu = {
   tags = '[tags]'
 }
 
+-- Formatting configuration
+local formatting_config = {
+  format = lspkind.cmp_format({
+    mode = 'symbol_text',
+    maxwidth = 50,
+    ellipsis_char = '...',
+    menu = source_menu,
+    before = function(entry, vim_item)
+      -- Customize the appearance of different sources
+      if entry.source.name == 'copilot' then
+        vim_item.kind_hl_group = 'CmpItemKindCopilot'
+      end
+      return vim_item
+    end,
+  })
+}
+
 -- Main CMP Setup
 cmp.setup {
   snippet = {
@@ -54,61 +71,54 @@ cmp.setup {
       select = true,
     },
     ['<C-Space>'] = cmp.mapping.complete {},
-    -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    --
-    -- default next/previous via ins-completion
-    -- ['<C-n>'] = next...(),
-    -- ['<C-p>'] = previous(),
-    --
-    --   ['<Tab>'] = cmp.mapping(function(fallback)
-    --     if cmp.visible() then
-    --       cmp.select_next_item()
-    --     elseif luasnip.expand_or_jumpable() then
-    --       luasnip.expand_or_jump()
-    --     else
-    --       fallback()
-    --     end
-    --   end, { 'i', 's' }),
-    --   ['<S-Tab>'] = cmp.mapping(function(fallback)
-    --     if cmp.visible() then
-    --       cmp.select_prev_item()
-    --     elseif luasnip.jumpable(-1) then
-    --       luasnip.jump(-1)
-    --     else
-    --       fallback()
-    --     end
-    --   end, { 'i', 's' }),
+    -- Documentation scrolling
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    -- Smart Tab completion with snippet jumping
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
   },
-  sources = {
-    -- Tags completion with custom configuration
-    {
-      name = 'tags',
+  sources = cmp.config.sources({
+    -- High priority: LSP and snippets
+    { name = 'nvim_lsp', priority = 1000 },
+    { name = 'luasnip', priority = 750 },
+  }, {
+    -- Medium priority: AI assistance and tags
+    { name = 'copilot', priority = 600 },
+    { 
+      name = 'tags', 
+      priority = 500,
       option = {
-        complete_defer = 100,     -- Delay after user input (ms)
-        max_items = 10,           -- Max items when searching taglist
-        keyword_length = 3,       -- Min chars to trigger completion
-        exact_match = false,      -- Use fuzzy matching
+        complete_defer = 100,
+        max_items = 10,
+        keyword_length = 3,
+        exact_match = false,
         current_buffer_only = false,
       },
     },
-    -- Core completion sources
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'copilot' },
-    -- Buffer completion (requires 4+ chars to avoid noise)
-    { name = 'buffer', keyword_length = 4 },
-    -- Additional sources
-    { name = 'path' },
-    { name = 'treesitter' },
-  },
-  formatting = {
-    format = lspkind.cmp_format({
-      with_text = true,
-      maxwidth = 50,
-      menu = source_menu,
-    })
-  },
+  }, {
+    -- Lower priority: buffer text and paths
+    { name = 'buffer', keyword_length = 4, priority = 300 },
+    { name = 'path', priority = 250 },
+    { name = 'treesitter', priority = 200 },
+  }),
+  formatting = formatting_config,
 }
 
 -- Filetype-specific Completion Setup
