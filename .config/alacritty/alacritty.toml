@@ -15,9 +15,9 @@ TERM = "xterm-256color"
 COLORTERM = "truecolor"
 
 [font]
+# size = 11
 size = 12.25
 # size = 12.75
-# size = 14.25
 # size = 13.75
 
 [font.offset]
