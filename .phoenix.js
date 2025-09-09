@@ -1,9 +1,6 @@
-var paddingTop = 35;
-var paddingLeft = 15;
-var paddingRight = 30;
-var paddingBottom = 25;
-var paddingCenter = 10;
-var paddingMiddle = 20;
+const MENUBAR_HEIGHT = 25;  // macOS menubar height
+const EDGE_PADDING = 4;     // padding from screen edges
+const WINDOW_GAP = 4;       // gap between tiled windows
 
 function resizeToFraction(
   xNumerator,
@@ -32,10 +29,10 @@ function resizeToFraction(
       // Phoenix.log(screen.width, screen.height);
       // Phoenix.log(`xoffiset: ${x_offset}`)
 
-      const x = ((screen.width / xDenominator) * xNumerator) + 8;
-      const y = ((screen.height / yDenominator) * yNumerator) + 33
-      const width = ((screen.width / widthDenominator) * widthNumerator) - 11
-      const height = ((screen.height / heightDenominator) * heightNumerator) - 17;
+      const x = ((screen.width / xDenominator) * xNumerator) + EDGE_PADDING;
+      const y = ((screen.height / yDenominator) * yNumerator) + MENUBAR_HEIGHT;
+      const width = ((screen.width / widthDenominator) * widthNumerator) - (EDGE_PADDING * 2);
+      const height = ((screen.height / heightDenominator) * heightNumerator) - EDGE_PADDING;
       const x_actual = x + x_offset
       // Phoenix.log(JSON.stringify(screen), x_actual)
       window.setFrame({ x, y, width, height });
@@ -55,10 +52,10 @@ function resizeVerticallyInPlace(
       const screen = window.screen().flippedVisibleFrame();
 
       const currentFrame = window.frame();
-      const x = currentFrame.x - 5;
-      const y = (screen.height / yDenominator) * yNumerator - 5;
-      const width = currentFrame.width - 5;
-      const height = (screen.height / heightDenominator) * heightNumerator - 5;
+      const x = currentFrame.x;
+      const y = (screen.height / yDenominator) * yNumerator + MENUBAR_HEIGHT;
+      const width = currentFrame.width;
+      const height = (screen.height / heightDenominator) * heightNumerator - EDGE_PADDING;
 
       window.setFrame({ x, y, width, height });
     }
