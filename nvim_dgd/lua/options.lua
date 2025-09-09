@@ -170,3 +170,17 @@ vim.cmd("command! ChatGPT lua require'chatgpt'.chatgpt()")
 
 -- keep folds open by default
 vim.opt.foldenable = false
+
+-- diagnostics
+vim.diagnostic.config({
+  virtual_text = true, -- Enable inline diagnostics
+})
+
+-- More control over virtual text:
+vim.diagnostic.config({
+  virtual_text = {
+    spacing = 8, -- Space between code and diagnostic
+    prefix = '■', -- Custom prefix character
+    severity_limit = vim.diagnostic.severity.WARN, -- Only show warnings and errors
+  }
+})
