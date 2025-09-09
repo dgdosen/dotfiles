@@ -15,7 +15,7 @@ ln -sfnv ~/.dotfiles/.dotrc ~/.dotrc
 ln -sfnv ~/.dotfiles/.gemrc ~/.gemrc
 ln -sfnv ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sfnv ~/.dotfiles/.p10k.zsh  ~/.p10k.zsh
-ln -sfnv ~/.dotfiles/.phoenix.js  ~/.phoenix.js
+ln -sfnv ~/.dotfiles/phoenix.js  ~/.phoenix.js
 ln -sfnv ~/.dotfiles/.pomorc ~/.pomorc
 ln -sfnv ~/.dotfiles/.prettierrc ~/.prettierrc
 ln -sfnv ~/.dotfiles/.pryrc ~/.pryrc
