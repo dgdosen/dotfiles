@@ -36,10 +36,6 @@ vim.wo.signcolumn = 'yes'
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 
--- Set colorscheme
-vim.o.termguicolors = true
-vim.o.background = 'dark' -- or light
-
 vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
@@ -183,3 +179,9 @@ vim.diagnostic.config({
     severity_limit = vim.diagnostic.severity.WARN, -- Only show warnings and errors
   }
 })
+
+-- Set colorscheme
+-- gruvbox light/dark
+vim.o.termguicolors = true
+vim.o.background = 'dark' -- or light
+-- vim.o.background = 'light'
