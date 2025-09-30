@@ -172,13 +172,8 @@
   # # Left prompt terminator for lines without any segments.
   # typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=
   #
-  # #################################[ os_icon: os identifier ]##################################
-  # # OS identifier color.
-  # typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=254
-  # typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=7
-  # # Custom icon.
-  # # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
-  #
+  #################################[ os_icon: os identifier ]##################################
+  # OS identifier colors are configured in the GRUVBOX THEME section at the bottom of this file
   ################################[ prompt_char: prompt symbol ]################################
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   # Replace removed segment suffixes with this symbol.
@@ -207,27 +202,6 @@
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=196
   # Default prompt symbol.
   ##################################[ dir: current directory ]##################################
-
-  # COLORS: Dark/Light
-
-  # Colors DARK
-  # Transparent background.
-  # Current directory background color.
-  # typeset -g POWERLEVEL9K_DIR_BACKGROUND=4
-  # Default current directory foreground color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=232
-  # If directory is too long, shorten some of its segments to the shortest possible unique
-  # prefix. The shortened directory can be tab-completed to the original.
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=232
-  # Color of the anchor directory segments. Anchor segments are never shortened. The first
-  # segment is always an anchor.
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=232
-  # Display anchor directory segments in bold.
-
- # # Colors Light
- #  typeset -g POWERLEVEL9K_DIR_FOREGROUND=252  # Lighter gray for light mode
- #  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=252
- #  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=252
 
   local anchor_files=(
     .bzr
@@ -327,12 +301,7 @@
   # typeset -g POWERLEVEL9K_DIR_CLASSES=()
 
   #####################################[ vcs: git status ]######################################
-  # Version control system colors.
-  # typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=2
-  # typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=3
-  # typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=2
-  # typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=3
-  # typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
+  # Version control colors are configured in the GRUVBOX THEME section at the bottom of this file
 
   # Branch icon. Set this parameter to '\uF126 ' for the popular Powerline branch icon.
   typeset -g POWERLEVEL9K_VCS_BRANCH_ICON='\uF126 '
@@ -359,12 +328,12 @@
       return
     fi
 
-    # Styling for different parts of Git status.
-    local       meta='%7F' # white foreground
-    local      clean='%0F' # black foreground
-    local   modified='%0F' # black foreground
-    local  untracked='%0F' # black foreground
-    local conflicted='%1F' # red foreground
+    # Styling for different parts of Git status - uses theme variables from bottom of file
+    local       meta=$P10K_GIT_META_COLOR
+    local      clean=$P10K_GIT_CLEAN_COLOR
+    local   modified=$P10K_GIT_MODIFIED_COLOR
+    local  untracked=$P10K_GIT_UNTRACKED_COLOR
+    local conflicted=$P10K_GIT_CONFLICTED_COLOR
 
     local res
     local where  # branch or tag
@@ -752,23 +721,13 @@
   # typeset -g POWERLEVEL9K_DISK_USAGE_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ###########[ vi_mode: vi mode (you don't need this if you've enabled prompt_char) ]###########
-  # Foreground color.
-  typeset -g POWERLEVEL9K_VI_MODE_FOREGROUND=0
-  # Text and color for normal (a.k.a. command) vi mode.
+  # vi_mode colors are configured in the GRUVBOX THEME section at the bottom of this file
+
+  # Text strings for different vi modes
   typeset -g POWERLEVEL9K_VI_COMMAND_MODE_STRING=N
-  typeset -g POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=0
-  typeset -g POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=8
-  # Text and color for visual vi mode.
   typeset -g POWERLEVEL9K_VI_VISUAL_MODE_STRING=V
-  typeset -g POWERLEVEL9K_VI_MODE_VISUAL_BACKGROUND=0
-  typeset -g POWERLEVEL9K_VI_MODE_VISUAL_FOREGROUND=8
-  # Text and color for overtype (a.k.a. overwrite and replace) vi mode.
   typeset -g POWERLEVEL9K_VI_OVERWRITE_MODE_STRING=OVERTYPE
-  typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_BACKGROUND=3
-  # Text and color for insert vi mode.
   typeset -g POWERLEVEL9K_VI_INSERT_MODE_STRING=I
-  typeset -g POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=0
-  typeset -g POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=8
 
   ######################################[ ram: free RAM ]#######################################
   # RAM color.
@@ -969,18 +928,14 @@
   # typeset -g POWERLEVEL9K_NODEENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ##############################[ node_version: node.js version ]###############################
-  # Node version color.
-  # typeset -g POWERLEVEL9K_NODE_VERSION_FOREGROUND=7
-  # typeset -g POWERLEVEL9K_NODE_VERSION_BACKGROUND=2
+  # Node version colors are configured in the GRUVBOX THEME section at the bottom of this file
   # Show node version only when in a directory tree containing package.json.
   typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=true
   # Custom icon.
   # typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   #######################[ go_version: go version (https://golang.org) ]########################
-  # Go version color.
-  typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=0
-  typeset -g POWERLEVEL9K_GO_VERSION_BACKGROUND=4
+  # Go version colors are configured in the GRUVBOX THEME section at the bottom of this file
   # Show go version only when in a go project subdirectory.
   typeset -g POWERLEVEL9K_GO_VERSION_PROJECT_ONLY=true
   # Custom icon.
@@ -1006,8 +961,7 @@
 
   #####################[ php_version: php version (https://www.php.net/) ]######################
   # PHP version color.
-  typeset -g POWERLEVEL9K_PHP_VERSION_FOREGROUND=0
-  typeset -g POWERLEVEL9K_PHP_VERSION_BACKGROUND=5
+  # PHP version colors are configured in the GRUVBOX THEME section at the bottom of this file
   # Show PHP version only when in a PHP project subdirectory.
   typeset -g POWERLEVEL9K_PHP_VERSION_PROJECT_ONLY=true
   # Custom icon.
@@ -1015,8 +969,7 @@
 
   ##########[ laravel_version: laravel php framework version (https://laravel.com/) ]###########
   # Laravel version color.
-  typeset -g POWERLEVEL9K_LARAVEL_VERSION_FOREGROUND=1
-  typeset -g POWERLEVEL9K_LARAVEL_VERSION_BACKGROUND=7
+  # Laravel version colors are configured in the GRUVBOX THEME section at the bottom of this file
   # Custom icon.
   # typeset -g POWERLEVEL9K_LARAVEL_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1036,8 +989,7 @@
 
   ####################[ java_version: java version (https://www.java.com/) ]####################
   # Java version color.
-  typeset -g POWERLEVEL9K_JAVA_VERSION_FOREGROUND=1
-  typeset -g POWERLEVEL9K_JAVA_VERSION_BACKGROUND=7
+  # Java version colors are configured in the GRUVBOX THEME section at the bottom of this file
   # Show java version only when in a java project subdirectory.
   typeset -g POWERLEVEL9K_JAVA_VERSION_PROJECT_ONLY=true
   # Show brief version.
@@ -1603,3 +1555,103 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
+
+  ################################################################################
+  # GRUVBOX THEME CONFIGURATION - LIGHT/DARK MODE SWITCHING
+  ################################################################################
+  # To switch themes, comment/uncomment the appropriate sections below
+
+  # === GRUVBOX LIGHT THEME ===
+
+  # # Directory colors
+  # typeset -g POWERLEVEL9K_DIR_BACKGROUND=4                    # blue bg (git status colors override this)
+  # typeset -g POWERLEVEL9K_DIR_FOREGROUND=240                  # darker grey text
+  # typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=240
+  # typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=240
+  # # Version control system colors
+  # typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=2              # green
+  # typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=240            # darker grey text
+  # typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=3           # yellow
+  # typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=240         # darker grey text
+  # typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=2          # green (same as clean)
+  # typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=240        # darker grey text
+  # typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=1         # red
+  # typeset -g POWERLEVEL9K_VCS_CONFLICTED_FOREGROUND=240       # darker grey text
+  # typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8            # gray
+  # # vi_mode colors
+  # typeset -g POWERLEVEL9K_VI_MODE_FOREGROUND=240
+  # typeset -g POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=8         # lighter gray
+  # typeset -g POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=240       # darker grey text
+  # typeset -g POWERLEVEL9K_VI_MODE_VISUAL_BACKGROUND=8         # lighter gray
+  # typeset -g POWERLEVEL9K_VI_MODE_VISUAL_FOREGROUND=240       # darker grey text
+  # typeset -g POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=8         # lighter gray
+  # typeset -g POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=240       # darker grey text
+  # typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_BACKGROUND=3
+  # # OS icon colors
+  # typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=240              # darker grey text
+  # typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=8                # lighter gray
+  # # Version display colors (go, node, etc.)
+  # typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=240           # darker grey text
+  # typeset -g POWERLEVEL9K_GO_VERSION_BACKGROUND=8             # lighter gray
+  # typeset -g POWERLEVEL9K_NODE_VERSION_FOREGROUND=240         # darker grey text
+  # typeset -g POWERLEVEL9K_NODE_VERSION_BACKGROUND=8           # lighter gray
+  # typeset -g POWERLEVEL9K_PHP_VERSION_FOREGROUND=240          # darker grey text
+  # typeset -g POWERLEVEL9K_PHP_VERSION_BACKGROUND=8            # lighter gray
+  # typeset -g POWERLEVEL9K_JAVA_VERSION_FOREGROUND=240         # darker grey text
+  # typeset -g POWERLEVEL9K_JAVA_VERSION_BACKGROUND=8           # lighter gray
+  # typeset -g POWERLEVEL9K_LARAVEL_VERSION_FOREGROUND=240      # darker grey text
+  # typeset -g POWERLEVEL9K_LARAVEL_VERSION_BACKGROUND=8        # lighter gray
+  # # Git formatter text colors
+  # typeset -g P10K_GIT_META_COLOR='%240F'                      # darker grey
+  # typeset -g P10K_GIT_CLEAN_COLOR='%240F'                     # darker grey
+  # typeset -g P10K_GIT_MODIFIED_COLOR='%240F'                  # darker grey
+  # typeset -g P10K_GIT_UNTRACKED_COLOR='%240F'                 # darker grey
+  # typeset -g P10K_GIT_CONFLICTED_COLOR='%240F'                # darker grey
+
+  # === GRUVBOX DARK THEME (COMMENTED OUT) ===
+
+  # Directory colors
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=4                    # blue bg (git status colors override this)
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=0                    # black text
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=0
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=0
+  # Version control system colors
+  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=2              # green
+  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=0              # black text
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=3           # yellow
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=0           # black text
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=2          # green (same as clean)
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=0          # black text
+  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=1         # red
+  typeset -g POWERLEVEL9K_VCS_CONFLICTED_FOREGROUND=15        # white text
+  typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8            # gray
+  # vi_mode colors
+  typeset -g POWERLEVEL9K_VI_MODE_FOREGROUND=0
+  typeset -g POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=0
+  typeset -g POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND=8
+  typeset -g POWERLEVEL9K_VI_MODE_VISUAL_BACKGROUND=0
+  typeset -g POWERLEVEL9K_VI_MODE_VISUAL_FOREGROUND=8
+  typeset -g POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND=0
+  typeset -g POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=8
+  typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_BACKGROUND=3
+  # OS icon colors
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=254
+  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=0
+  # Version display colors (go, node, etc.)
+  typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=15            # white text
+  typeset -g POWERLEVEL9K_GO_VERSION_BACKGROUND=4             # blue
+  typeset -g POWERLEVEL9K_NODE_VERSION_FOREGROUND=15          # white text
+  typeset -g POWERLEVEL9K_NODE_VERSION_BACKGROUND=2           # green
+  typeset -g POWERLEVEL9K_PHP_VERSION_FOREGROUND=15           # white text
+  typeset -g POWERLEVEL9K_PHP_VERSION_BACKGROUND=5            # magenta
+  typeset -g POWERLEVEL9K_JAVA_VERSION_FOREGROUND=15          # white text
+  typeset -g POWERLEVEL9K_JAVA_VERSION_BACKGROUND=1           # red
+  typeset -g POWERLEVEL9K_LARAVEL_VERSION_FOREGROUND=15       # white text
+  typeset -g POWERLEVEL9K_LARAVEL_VERSION_BACKGROUND=1        # red
+  # Git formatter text colors
+  typeset -g P10K_GIT_META_COLOR='%0F'                        # black
+  typeset -g P10K_GIT_CLEAN_COLOR='%0F'                       # black
+  typeset -g P10K_GIT_MODIFIED_COLOR='%0F'                    # black
+  typeset -g P10K_GIT_UNTRACKED_COLOR='%0F'                   # black
+  typeset -g P10K_GIT_CONFLICTED_COLOR='%0F'                  # black
