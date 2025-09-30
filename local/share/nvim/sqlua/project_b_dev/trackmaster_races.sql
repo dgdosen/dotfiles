@@ -1,6 +1,10 @@
 select * from trackmaster_races
-order by track_code, date, race_number
+where track_code = 'SA'
+order by date desc, track_code, race_number
 limit 201;
+
+select * from trackmaster_fractions
+limit 100;
 
 select date, track_code, race_number, age_restriction_code from trackmaster_races where track_code = 'SA' and date = '2025-05-04' order by date desc, race_number limit 500;
 

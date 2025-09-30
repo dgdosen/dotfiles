@@ -37,8 +37,9 @@ select starts.race_id, starts.*, horses.id as horse_id, horses.name, program_num
   where starts.horse_id = horses.id
   and starts.race_id in (
     select id from races
-    where date = '2025-03-08'
-    and race_number = 3
+    where date = '2025-06-15'
+    and track_code = 'SA'
+    and race_number = 2
   )
 order by race_id, program_number;
 
