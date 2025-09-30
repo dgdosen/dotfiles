@@ -18,4 +18,3 @@ require('setup/ruby')
 
 -- Just the keymap for alternate-toggler
 vim.keymap.set('n', '<space>ta', '<cmd>ToggleAlternate<cr>')
-
