@@ -7,6 +7,7 @@ ZSH=$HOME/.oh-my-zsh
 # source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette_osx.sh"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH_CUSTOM=$HOME/.zsh_customizations
 source $HOME/.zsh_customizations/docker_aliases.sh
 source $HOME/.zsh_customizations/working_aliases.sh
