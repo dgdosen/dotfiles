@@ -182,5 +182,5 @@ vim.diagnostic.config({
 
 -- gruvbox light/dark
 vim.o.termguicolors = true
--- vim.o.background = 'dark' -- or light
-vim.o.background = 'light'
+vim.o.background = 'dark' -- or light
+-- vim.o.background = 'light'

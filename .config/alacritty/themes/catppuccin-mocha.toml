@@ -1,4 +1,5 @@
 [colors.primary]
+# background = "#1e1e2e"
 background = "#1e1e2e"
 foreground = "#cdd6f4"
 dim_foreground = "#7f849c"
@@ -6,6 +7,7 @@ bright_foreground = "#cdd6f4"
 
 [colors.cursor]
 text = "#1e1e2e"
+# text = "#000000"
 cursor = "#f5e0dc"
 
 [colors.vi_mode_cursor]
@@ -37,7 +39,9 @@ text = "#1e1e2e"
 background = "#f5e0dc"
 
 [colors.normal]
-black = "#45475a"
+# black = "#45475a"
+# black = "#4c4f69"
+black = "#000000"
 red = "#f38ba8"
 green = "#a6e3a1"
 yellow = "#f9e2af"
@@ -48,6 +52,7 @@ white = "#bac2de"
 
 [colors.bright]
 black = "#585b70"
+# black = "#000000"
 red = "#f38ba8"
 green = "#a6e3a1"
 yellow = "#f9e2af"
