@@ -202,4 +202,9 @@ zle -N zle-line-finish
 export KEYTIMEOUT=1
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode
+# required my claude_code
+export DISABLE_AUTOUPDATE=1
+
+# Added by Windsurf
+export PATH="/Users/dgdosen/.codeium/windsurf/bin:$PATH"
 
