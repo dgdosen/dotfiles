@@ -208,11 +208,8 @@ instance = "Alacritty"
 x = 5
 y = 5
 
-# gruvbox light/dark
+# Theme switching via symlink
 [general]
 import = [
-  "~/.config/alacritty/themes/gruvbox_dark.toml"
-  # "~/.config/alacritty/themes/gruvbox_light.toml"
-  # "~/.config/alacritty/themes/catppuccin-mocha.toml"
-  # "~/.config/alacritty/themes/catppuccin-latte.toml"
+  "~/.config/alacritty/current-theme.toml"
 ]
