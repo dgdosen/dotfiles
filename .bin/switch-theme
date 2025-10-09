@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Theme switcher for terminal environment
+# Usage: switch-theme <theme-name>
+#   or set TERMINAL_THEME env variable
+#
+# Available themes:
+#   - catppuccin-mocha
+#   - catppuccin-latte
+#   - gruvbox-dark (gruvbox_dark)
+#   - gruvbox-light (gruvbox_light)
+
+set -e
+
+DOTFILES="${HOME}/.dotfiles"
+
+# Get theme from argument or env variable
+THEME="${1:-${TERMINAL_THEME}}"
+
+if [ -z "$THEME" ]; then
+  echo "Usage: switch-theme <theme-name>"
+  echo "  or set TERMINAL_THEME environment variable"
+  echo ""
+  echo "Available themes:"
+  echo "  - catppuccin-mocha"
+  echo "  - catppuccin-latte"
+  echo "  - gruvbox-dark"
+  echo "  - gruvbox-light"
+  exit 1
+fi
+
+# Normalize theme names (handle both gruvbox-dark and gruvbox_dark)
+case "$THEME" in
+  gruvbox-dark) THEME="gruvbox_dark" ;;
+  gruvbox-light) THEME="gruvbox_light" ;;
+esac
+
+# Validate theme exists
+ALACRITTY_THEME="${DOTFILES}/.config/alacritty/themes/${THEME}.toml"
+if [ ! -f "$ALACRITTY_THEME" ]; then
+  echo "Error: Theme '$THEME' not found at $ALACRITTY_THEME"
+  exit 1
+fi
+
+echo "Switching to theme: $THEME"
+
+# Update Alacritty
+echo "  ✓ Alacritty"
+ln -sf "themes/${THEME}.toml" "${DOTFILES}/.config/alacritty/current-theme.toml"
+touch "${DOTFILES}/.config/alacritty/alacritty.toml"
+
+# TODO: Add tmux switching
+# TODO: Add nvim switching
+# TODO: Add p10k switching
+
+echo "Theme switched successfully!"
+echo "Note: Alacritty windows will reload automatically"

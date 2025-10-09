@@ -32,3 +32,4 @@ node_modules
 **/lazy-lock.json
 **/.openai.sh
 **/restore.log
+.config/alacritty/current-theme.toml
