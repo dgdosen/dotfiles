@@ -206,6 +206,9 @@ bindkey -M viins 'kj' vi-cmd-mode
 # required my claude_code
 export DISABLE_AUTOUPDATE=1
 
+# Source Claude Code theme preference
+[[ -f ~/.dotfiles/.claude-theme ]] && source ~/.dotfiles/.claude-theme
+
 # Added by Windsurf
 export PATH="/Users/dgdosen/.codeium/windsurf/bin:$PATH"
 

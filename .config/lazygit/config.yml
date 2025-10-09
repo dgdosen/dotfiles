@@ -1,93 +1,24 @@
 gui:
   theme:
-    # === CATPPUCCIN-LATTE (LIGHT) ===
+    # === GRUVBOX-DARK (HARD) ===
     activeBorderColor:
-      - '#7287fd' # catppuccin blue
+      - "#458588" # gruvbox blue
       - bold
     inactiveBorderColor:
-      - '#9ca0b0' # catppuccin grey
+      - "#928374" # gruvbox grey
     optionsTextColor:
-      - '#7287fd' # catppuccin blue
+      - "#458588" # gruvbox blue
     selectedLineBgColor:
-      - '#bcc5e3' # soft blue (lighter version of catppuccin blue)
+      - "#3c3836" # gruvbox dark1
     selectedRangeBgColor:
-      - '#bcc5e3' # soft blue (lighter version of catppuccin blue)
+      - "#3c3836" # gruvbox dark1
     cherryPickedCommitBgColor:
-      - '#8839ef' # catppuccin mauve
+      - "#b16286" # gruvbox purple
     cherryPickedCommitFgColor:
-      - '#7287fd' # catppuccin blue
+      - "#458588" # gruvbox blue
     unstagedChangesColor:
-      - '#d20f39' # catppuccin red
+      - "#cc241d" # gruvbox red
     defaultFgColor:
-      - '#4c4f69' # catppuccin text
+      - "#ebdbb2" # gruvbox light
     searchingActiveBorderColor:
-      - '#df8e1d' # catppuccin yellow
-
-    # === CATPPUCCIN-MOCHA (DARK) ===
-    # activeBorderColor:
-    #   - '#89b4fa' # catppuccin blue
-    #   - bold
-    # inactiveBorderColor:
-    #   - '#6c7086' # catppuccin grey
-    # optionsTextColor:
-    #   - '#89b4fa' # catppuccin blue
-    # selectedLineBgColor:
-    #   - '#313244' # catppuccin surface0
-    # selectedRangeBgColor:
-    #   - '#313244' # catppuccin surface0
-    # cherryPickedCommitBgColor:
-    #   - '#cba6f7' # catppuccin mauve
-    # cherryPickedCommitFgColor:
-    #   - '#89b4fa' # catppuccin blue
-    # unstagedChangesColor:
-    #   - '#f38ba8' # catppuccin red
-    # defaultFgColor:
-    #   - '#cdd6f4' # catppuccin text
-    # searchingActiveBorderColor:
-    #   - '#f9e2af' # catppuccin yellow
-
-    # === GRUVBOX-LIGHT (HARD) ===
-    # activeBorderColor:
-    #   - '#458588' # gruvbox blue
-    #   - bold
-    # inactiveBorderColor:
-    #   - '#928374' # gruvbox grey
-    # optionsTextColor:
-    #   - '#458588' # gruvbox blue
-    # selectedLineBgColor:
-    #   - '#ebdbb2' # gruvbox light1
-    # selectedRangeBgColor:
-    #   - '#ebdbb2' # gruvbox light1
-    # cherryPickedCommitBgColor:
-    #   - '#b16286' # gruvbox purple
-    # cherryPickedCommitFgColor:
-    #   - '#458588' # gruvbox blue
-    # unstagedChangesColor:
-    #   - '#cc241d' # gruvbox red
-    # defaultFgColor:
-    #   - '#3c3836' # gruvbox dark
-    # searchingActiveBorderColor:
-    #   - '#d79921' # gruvbox yellow
-
-    # === GRUVBOX-DARK (HARD) ===
-    # activeBorderColor:
-    #   - '#458588' # gruvbox blue
-    #   - bold
-    # inactiveBorderColor:
-    #   - '#928374' # gruvbox grey
-    # optionsTextColor:
-    #   - '#458588' # gruvbox blue
-    # selectedLineBgColor:
-    #   - '#3c3836' # gruvbox dark1
-    # selectedRangeBgColor:
-    #   - '#3c3836' # gruvbox dark1
-    # cherryPickedCommitBgColor:
-    #   - '#b16286' # gruvbox purple
-    # cherryPickedCommitFgColor:
-    #   - '#458588' # gruvbox blue
-    # unstagedChangesColor:
-    #   - '#cc241d' # gruvbox red
-    # defaultFgColor:
-    #   - '#ebdbb2' # gruvbox light
-    # searchingActiveBorderColor:
-    #   - '#d79921' # gruvbox yellow
+      - "#d79921" # gruvbox yellow

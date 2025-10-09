@@ -1,0 +1,22 @@
+# === GRUVBOX-DARK (HARD) ===
+activeBorderColor:
+  - "#458588" # gruvbox blue
+  - bold
+inactiveBorderColor:
+  - "#928374" # gruvbox grey
+optionsTextColor:
+  - "#458588" # gruvbox blue
+selectedLineBgColor:
+  - "#3c3836" # gruvbox dark1
+selectedRangeBgColor:
+  - "#3c3836" # gruvbox dark1
+cherryPickedCommitBgColor:
+  - "#b16286" # gruvbox purple
+cherryPickedCommitFgColor:
+  - "#458588" # gruvbox blue
+unstagedChangesColor:
+  - "#cc241d" # gruvbox red
+defaultFgColor:
+  - "#ebdbb2" # gruvbox light
+searchingActiveBorderColor:
+  - "#d79921" # gruvbox yellow

@@ -1,0 +1,22 @@
+# === CATPPUCCIN-LATTE (LIGHT) ===
+activeBorderColor:
+  - '#7287fd' # catppuccin blue
+  - bold
+inactiveBorderColor:
+  - '#9ca0b0' # catppuccin grey
+optionsTextColor:
+  - '#7287fd' # catppuccin blue
+selectedLineBgColor:
+  - '#bcc5e3' # soft blue (lighter version of catppuccin blue)
+selectedRangeBgColor:
+  - '#bcc5e3' # soft blue (lighter version of catppuccin blue)
+cherryPickedCommitBgColor:
+  - '#8839ef' # catppuccin mauve
+cherryPickedCommitFgColor:
+  - '#7287fd' # catppuccin blue
+unstagedChangesColor:
+  - '#d20f39' # catppuccin red
+defaultFgColor:
+  - '#4c4f69' # catppuccin text
+searchingActiveBorderColor:
+  - '#df8e1d' # catppuccin yellow

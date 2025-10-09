@@ -113,6 +113,23 @@ if command -v tmux &> /dev/null && tmux list-sessions &>/dev/null 2>&1; then
   echo "    → Reloaded tmux config"
 fi
 
+# Update Lazygit
+echo "  ✓ Lazygit"
+LAZYGIT_CONFIG="${DOTFILES}/.config/lazygit/config.yml"
+LAZYGIT_THEME="${DOTFILES}/.config/lazygit/themes/${THEME}.yml"
+
+if [ -f "$LAZYGIT_THEME" ]; then
+  # Create config with theme content
+  cat > "$LAZYGIT_CONFIG" << 'EOF'
+gui:
+  theme:
+EOF
+  # Indent and append theme content
+  sed 's/^/    /' "$LAZYGIT_THEME" >> "$LAZYGIT_CONFIG"
+else
+  echo "    → Warning: Lazygit theme file not found: $LAZYGIT_THEME"
+fi
+
 # Update Powerlevel10k
 echo "  ✓ Powerlevel10k"
 ln -sf "${DOTFILES}/.p10k-themes/${THEME}.zsh" "${DOTFILES}/.p10k-theme"
@@ -127,6 +144,19 @@ else
   # If not in tmux, remind user to reload
   echo "    → Run 'source ~/.p10k.zsh' to apply changes"
 fi
+
+# Update Claude Code theme preference
+echo "  ✓ Claude Code"
+case "$THEME" in
+  gruvbox_light|catppuccin-latte)
+    export CLAUDE_CODE_THEME="light"
+    echo "export CLAUDE_CODE_THEME=light" > "${DOTFILES}/.claude-theme"
+    ;;
+  gruvbox_dark|catppuccin-mocha)
+    export CLAUDE_CODE_THEME="dark"
+    echo "export CLAUDE_CODE_THEME=dark" > "${DOTFILES}/.claude-theme"
+    ;;
+esac
 
 echo ""
 echo "Theme switched successfully!"

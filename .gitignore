@@ -36,3 +36,4 @@ node_modules
 .nvim-theme
 .tmux-theme
 .p10k-theme
+.claude-theme

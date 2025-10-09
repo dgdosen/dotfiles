@@ -1,0 +1,22 @@
+# === CATPPUCCIN-MOCHA (DARK) ===
+activeBorderColor:
+  - "#89b4fa" # catppuccin blue
+  - bold
+inactiveBorderColor:
+  - "#6c7086" # catppuccin grey
+optionsTextColor:
+  - "#89b4fa" # catppuccin blue
+selectedLineBgColor:
+  - "#313244" # catppuccin surface0
+selectedRangeBgColor:
+  - "#313244" # catppuccin surface0
+cherryPickedCommitBgColor:
+  - "#cba6f7" # catppuccin mauve
+cherryPickedCommitFgColor:
+  - "#89b4fa" # catppuccin blue
+unstagedChangesColor:
+  - "#f38ba8" # catppuccin red
+defaultFgColor:
+  - "#cdd6f4" # catppuccin text
+searchingActiveBorderColor:
+  - "#f9e2af" # catppuccin yellow

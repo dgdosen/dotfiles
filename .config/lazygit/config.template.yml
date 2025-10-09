@@ -1,0 +1,4 @@
+gui:
+  theme:
+    # Theme configuration - managed by switch-theme script
+    # Theme is loaded from ~/.dotfiles/.config/lazygit/.lazygit-theme
