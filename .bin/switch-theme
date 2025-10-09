@@ -113,7 +113,21 @@ if command -v tmux &> /dev/null && tmux list-sessions &>/dev/null 2>&1; then
   echo "    → Reloaded tmux config"
 fi
 
-# TODO: Add p10k switching
+# Update Powerlevel10k
+echo "  ✓ Powerlevel10k"
+ln -sf "${DOTFILES}/.p10k-themes/${THEME}.zsh" "${DOTFILES}/.p10k-theme"
 
+# Reload p10k in all running zsh shells (including current shell if in tmux)
+if command -v tmux &> /dev/null && tmux list-sessions &>/dev/null 2>&1; then
+  tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | grep zsh | awk '{print $1}' | while read pane; do
+    tmux send-keys -t "$pane" " source ~/.p10k.zsh" Enter
+  done
+  echo "    → Reloaded p10k in running shells"
+else
+  # If not in tmux, remind user to reload
+  echo "    → Run 'source ~/.p10k.zsh' to apply changes"
+fi
+
+echo ""
 echo "Theme switched successfully!"
-echo "Note: Alacritty windows will reload automatically"
+echo "Note: Alacritty reloads automatically. New shells will use the new theme."
