@@ -34,3 +34,4 @@ node_modules
 **/restore.log
 .config/alacritty/current-theme.toml
 .nvim-theme
+.tmux-theme

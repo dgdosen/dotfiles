@@ -86,7 +86,33 @@ if command -v tmux &> /dev/null && tmux list-panes -a -F '#{pane_id} #{pane_curr
   echo "    → Updated running nvim instances"
 fi
 
-# TODO: Add tmux switching
+# Update Tmux
+echo "  ✓ Tmux"
+# Map theme names to tmux theme names
+TMUX_THEME=""
+case "$THEME" in
+  gruvbox_dark)
+    TMUX_THEME="gruvbox-dark"
+    ;;
+  gruvbox_light)
+    TMUX_THEME="gruvbox-light"
+    ;;
+  catppuccin-mocha)
+    TMUX_THEME="catppuccin-mocha"
+    ;;
+  catppuccin-latte)
+    TMUX_THEME="catppuccin-latte"
+    ;;
+esac
+
+echo "set -g @theme \"${TMUX_THEME}\"" > "${DOTFILES}/.tmux-theme"
+
+# Reload tmux config if tmux is running
+if command -v tmux &> /dev/null && tmux list-sessions &>/dev/null 2>&1; then
+  tmux source-file ~/.tmux.conf
+  echo "    → Reloaded tmux config"
+fi
+
 # TODO: Add p10k switching
 
 echo "Theme switched successfully!"
