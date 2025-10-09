@@ -49,8 +49,44 @@ echo "  ✓ Alacritty"
 ln -sf "themes/${THEME}.toml" "${DOTFILES}/.config/alacritty/current-theme.toml"
 touch "${DOTFILES}/.config/alacritty/alacritty.toml"
 
+# Update Neovim
+echo "  ✓ Neovim"
+echo "${THEME}" > "${DOTFILES}/.nvim-theme"
+
+# Map theme to nvim colorscheme
+NVIM_COLORSCHEME=""
+case "$THEME" in
+  gruvbox_dark|gruvbox_light)
+    NVIM_COLORSCHEME="gruvbox"
+    ;;
+  catppuccin-mocha)
+    NVIM_COLORSCHEME="catppuccin-mocha"
+    ;;
+  catppuccin-latte)
+    NVIM_COLORSCHEME="catppuccin-latte"
+    ;;
+esac
+
+# Send colorscheme command to running nvim instances in tmux
+if command -v tmux &> /dev/null && tmux list-panes -a -F '#{pane_id} #{pane_current_command}' 2>/dev/null | grep -q nvim; then
+  # Set background for gruvbox
+  if [[ "$THEME" == "gruvbox_light" ]]; then
+    tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | grep nvim | awk '{print $1}' | while read pane; do
+      tmux send-keys -t "$pane" Escape
+      tmux send-keys -t "$pane" ":set background=light" Enter
+      tmux send-keys -t "$pane" ":colorscheme ${NVIM_COLORSCHEME}" Enter
+    done
+  else
+    tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | grep nvim | awk '{print $1}' | while read pane; do
+      tmux send-keys -t "$pane" Escape
+      tmux send-keys -t "$pane" ":set background=dark" Enter
+      tmux send-keys -t "$pane" ":colorscheme ${NVIM_COLORSCHEME}" Enter
+    done
+  fi
+  echo "    → Updated running nvim instances"
+fi
+
 # TODO: Add tmux switching
-# TODO: Add nvim switching
 # TODO: Add p10k switching
 
 echo "Theme switched successfully!"

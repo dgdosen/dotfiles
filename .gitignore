@@ -33,3 +33,4 @@ node_modules
 **/.openai.sh
 **/restore.log
 .config/alacritty/current-theme.toml
+.nvim-theme

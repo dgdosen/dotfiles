@@ -111,6 +111,7 @@ export PATH=$PATH:$GOROOT/bin
 # export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.site-visit-workers-cloud-8706f85a3286.json"
 export PATH=$PATH:$HOME/dev/flutter/bin
 export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/.bin"
 export PATH="$HOME/.local/bin:$PATH"
 export PYTHONPATH="$HOME/dev/forecasting"
 
