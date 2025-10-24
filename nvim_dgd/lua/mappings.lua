@@ -2,6 +2,13 @@
 -- write/quit
 vim.keymap.set('n', '<leader>q', ':q<CR>', { expr = true })
 vim.keymap.set('n', '<leader>w', ':w<CR>', { expr = true })
+-- quit all windows, including NvimTree, without saving
+vim.keymap.set('n', '<leader>Q', function()
+  -- Close every single window
+  vim.cmd('silent! tabdo windo q!')
+  vim.cmd('qa!')
+end, { silent = true, desc = 'Force quit everything' })
+
 -- copy/paste
 vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
 vim.keymap.set('n', '<leader>cc', '<leader>c_', { remap = true })
