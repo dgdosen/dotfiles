@@ -20,7 +20,7 @@ return {
           auto_toc = 1
         }
       }
-      
+
       -- Additional VimWiki configurations
       vim.g.vimwiki_ext2syntax = { ['.md'] = 'markdown' }
       vim.g.zettel_format = "%Y-%m-%d:%H:%M-%title"
@@ -31,18 +31,28 @@ return {
   -- Zettelkasten / Notes with Telekasten
   {
     'renerocksai/telekasten.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim' }, -- or 'ibhagwan/fzf-lua'
+    dependencies = { 'nvim-telescope/telescope.nvim' },
     config = function()
+      local home = vim.fn.expand("~/dev/zettel")
       require('telekasten').setup({
-        home = vim.fn.expand("~/dev/zettel"), -- or wherever your notes live
+        home = home,
         take_over_my_home = true,
-        dailies = "daily",
-        weeklies = "weekly",
-        templates = vim.fn.expand("~/.config/nvim/templates"),
+        dailies = home .. "/daily",
+        weeklies = home .. "/weekly",
+        templates = home .. "/templates",
         extension = ".md",
-        template_new_note = "new_note.md",
+        template_new_note = home .. "/templates/new_note.md",
+
+        -- UUID prefix with timestamp
+        new_note_filename = "uuid-title",
+        uuid_type = "%Y-%m-%d:%H:%M", -- This creates the timestamp
+        uuid_sep = "-",               -- Separator between timestamp and title
       })
-      require('setup/telekasten')
+
+      -- Keymaps
+      vim.keymap.set("n", "<leader>zn", function() require('telekasten').new_note() end)
+      vim.keymap.set("n", "<leader>zd", function() require('telekasten').goto_today() end)
+      vim.keymap.set("n", "<leader>zf", function() require('telekasten').find_notes() end)
     end
   },
 
