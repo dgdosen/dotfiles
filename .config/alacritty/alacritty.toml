@@ -19,6 +19,7 @@ COLORTERM = "truecolor"
 size = 12.25
 # size = 12.75
 # size = 13.75
+builtin_box_drawing = true
 
 [font.offset]
 x = 0
@@ -87,6 +88,22 @@ style = "Italic"
 [font.normal]
 family = "SauceCodePro Nerd Font"
 style = "Regular"
+
+# [font.bold]
+# family = "alacritty"
+# style = "Bold"
+#
+# [font.bold_italic]
+# family = "alacritty"
+# style = "Bold Italic"
+#
+# [font.italic]
+# family = "alacritty"
+# style = "Italic"
+#
+# [font.normal]
+# family = "alacritty"
+# style = "Regular"
 
 # tmux tab keyboard bindings
 # [[keyboard.bindings]]

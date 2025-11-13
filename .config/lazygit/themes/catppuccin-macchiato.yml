@@ -1,0 +1,22 @@
+# === CATPPUCCIN-MACCHIATO (DARK) ===
+activeBorderColor:
+  - "#8aadf4" # catppuccin blue
+  - bold
+inactiveBorderColor:
+  - "#6e738d" # catppuccin overlay0
+optionsTextColor:
+  - "#8aadf4" # catppuccin blue
+selectedLineBgColor:
+  - "#363a4f" # catppuccin surface0
+selectedRangeBgColor:
+  - "#363a4f" # catppuccin surface0
+cherryPickedCommitBgColor:
+  - "#c6a0f6" # catppuccin mauve
+cherryPickedCommitFgColor:
+  - "#8aadf4" # catppuccin blue
+unstagedChangesColor:
+  - "#ed8796" # catppuccin red
+defaultFgColor:
+  - "#cad3f5" # catppuccin text
+searchingActiveBorderColor:
+  - "#eed49f" # catppuccin yellow
