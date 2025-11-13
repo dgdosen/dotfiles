@@ -29,8 +29,16 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- smash jk to escape
-vim.keymap.set("i", "kj", "<esc>")
-vim.keymap.set("i", "jk", "<esc>")
+-- vim.keymap.set("i", "kj", "<esc>")
+-- vim.keymap.set("i", "jk", "<esc>")
+
+-- block q: command-line window
+vim.api.nvim_create_autocmd('CmdwinEnter', {
+  callback = function()
+    vim.cmd('quit')
+  end,
+  desc = 'Disable command-line window'
+})
 
 -- Move text up and down
 -- vim.keymap.set("v", "<C-j>", ":m .+1<CR>==")

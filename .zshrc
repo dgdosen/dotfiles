@@ -80,7 +80,7 @@ unsetopt correct_all
 # DGD customizations
 
 # set vim as the default editor
-export EDITOR='vi'
+export EDITOR=nvim
 set -o vi
 
 export CI=false
