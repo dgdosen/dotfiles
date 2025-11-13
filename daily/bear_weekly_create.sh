@@ -1,10 +1,11 @@
 #!/usr/bin/env zsh
 source ~/.zshrc
 
-# Since .zshrc isn’t sourced, we need to manually initialize pyenv
+# Since .zshrc isn't sourced, we need to manually initialize pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # Only load virtualenv if available
 if command -v pyenv-virtualenv-init >/dev/null 2>&1; then
