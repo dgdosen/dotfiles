@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# BearDailyUpdate App Wrapper
+# This allows macOS to grant permissions once to the app bundle
+# instead of prompting for each tool (python, rsync, etc.)
+
+# Run the actual script
+exec "$HOME/.dotfiles/daily/bear_daily_update.sh"
