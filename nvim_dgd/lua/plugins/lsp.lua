@@ -20,6 +20,16 @@ return {
     config = function()
       require('setup/neodev')
       require('setup/lsp')
+
+      -- Configure sourcekit LSP for Swift
+      vim.lsp.config('sourcekit', {
+        cmd = { 'sourcekit-lsp' },
+        filetypes = { 'swift', 'objective-c', 'objective-cpp' },
+        root_dir = function(filename, bufnr)
+          return vim.fs.root(bufnr, { 'Package.swift', '.git' })
+        end,
+      })
+      vim.lsp.enable("sourcekit")
     end,
   },
 
