@@ -21,9 +21,9 @@ function resizeToFraction(
       const xOffset = window.screen().frame().x;
 
       const x = ((screen.width / xDenominator) * xNumerator) + EDGE_PADDING;
-      const y = ((screen.height / yDenominator) * yNumerator) + MENUBAR_HEIGHT;
-      const width = ((screen.width / widthDenominator) * widthNumerator) - (EDGE_PADDING * 2);
-      const height = ((screen.height / heightDenominator) * heightNumerator) - EDGE_PADDING;
+      const y = ((screen.height / yDenominator) * yNumerator) + MENUBAR_HEIGHT + EDGE_PADDING;
+      const width = ((screen.width / widthDenominator) * widthNumerator) - (WINDOW_GAP * 2);
+      const height = ((screen.height / heightDenominator) * heightNumerator) - (WINDOW_GAP * 2);
 
       window.setFrame({ x, y, width, height });
     }
@@ -73,21 +73,16 @@ function focusClosestNeighbor(direction) {
 }
 
 // Key Bindings
-// first 2/5ths
-['h'].forEach((key, index) => {
-  Key.on(
-    key,
-    ['ctrl', 'cmd', 'alt'],
-    resizeToFraction(index, 5, 2, 5, 0, 1, 1, 1),
-  );
-});
+// first 2/5ths - top/bottom with gap
+Key.on('d', ['ctrl', 'cmd', 'alt'], resizeToFraction(0, 5, 2, 5, 0, 3, 2, 3));
+Key.on('f', ['ctrl', 'cmd', 'alt'], resizeToFraction(0, 5, 2, 5, 2, 3, 1, 3));
 
 // mostly fifths
-['j', 'k', 'l'].forEach((key, index) => {
+['g', 'h', 'j', 'k', 'l'].forEach((key, index) => {
   Key.on(
     key,
     ['ctrl', 'cmd', 'alt'],
-    resizeToFraction(index + 2, 5, 1, 5, 0, 1, 1, 1),
+    resizeToFraction(index, 5, 1, 5, 0, 1, 1, 1),
   );
 });
 
@@ -98,8 +93,8 @@ function focusClosestNeighbor(direction) {
     ['ctrl', 'cmd', 'alt'],
     resizeToFraction(index + 1, 8, 7, 8, 0, 1, 1, 1),
   );
-});
 
+});
 // ending fourths
 [',', '.'].forEach((key, index) => {
   Key.on(
