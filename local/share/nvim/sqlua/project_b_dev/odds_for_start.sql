@@ -2,6 +2,45 @@ select * from odds_for_starts
 -- where start_odds_code <> 'morning line'
 order by updated_at desc limit 500;
 
+
+-- horses and odds for a race
+select races.date, races.track_code, races.race_number, horses.name, odds_for_starts.* from horses, races, starts, odds_for_starts
+where races.track_code = 'SA'
+and races.date = '2025-10-19'
+and races.race_number = 9
+and races.id = starts.race_id
+and horses.id = starts.horse_id
+and odds_for_starts.start_id = starts.id
+order by start_id, start_odds_code desc limit 500;
+
+
+  -- horses and odds for a race
+  SELECT
+    races.date,
+    races.track_code,
+    races.race_number,
+    horses.name,
+    odds_for_starts.start_odds_code,
+    odds_for_starts.odds,
+    odds_for_starts.win_wager
+  FROM horses, races, starts, odds_for_starts
+  WHERE races.track_code = 'SA'
+    AND races.date = '2025-10-19'
+    AND races.race_number = 9
+    AND races.id = starts.race_id
+    AND horses.id = starts.horse_id
+    AND odds_for_starts.start_id = starts.id
+  ORDER BY
+    start_id,
+    CASE
+      WHEN odds_for_starts.start_odds_code ~ '^[0-9]+\.?[0-9]*$'
+        THEN odds_for_starts.start_odds_code::numeric
+      ELSE 99
+    END DESC
+  LIMIT 500;
+
+
+
 select count(id), start_odds_code from odds_for_starts group by start_odds_code order by start_odds_code;
 
 select start_id, start_odds_code, odds from odds_for_starts where start_id = 631202 order by created_at;

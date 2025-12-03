@@ -28,6 +28,10 @@ where id = 138925;
 
 select count (distinct race_id) from egps_fractions;
 
+-- condition
+select count(id), track_condition_code from races
+group by track_condition_code
+
 -- pp3_distance - unique
 select distinct abs(pp3_distance) from races
 order by abs(pp3_distance);

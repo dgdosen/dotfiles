@@ -1,5 +1,7 @@
 -- latest
-select * from drf_starts order by updated_at desc
+select * from drf_starts 
+where beyer is not null
+order by updated_at desc
 limit 100;
 
 /* horse history */
