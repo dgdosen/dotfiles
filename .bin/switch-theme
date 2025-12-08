@@ -51,6 +51,20 @@ echo "  ✓ Alacritty"
 ln -sf "themes/${THEME}.toml" "${DOTFILES}/.config/alacritty/current-theme.toml"
 touch "${DOTFILES}/.config/alacritty/alacritty.toml"
 
+# Update Kitty
+echo "  ✓ Kitty"
+KITTY_THEME="${DOTFILES}/.config/kitty/themes/${THEME}.conf"
+if [ -f "$KITTY_THEME" ]; then
+  ln -sf "themes/${THEME}.conf" "${DOTFILES}/.config/kitty/current-theme.conf"
+  # Kitty auto-reloads config, but we can trigger it explicitly
+  if command -v kitty &> /dev/null && pgrep -x kitty > /dev/null; then
+    killall -SIGUSR1 kitty 2>/dev/null || true
+    echo "    → Reloaded kitty config"
+  fi
+else
+  echo "    → Warning: Kitty theme not found: $KITTY_THEME"
+fi
+
 # Update Neovim
 echo "  ✓ Neovim"
 echo "${THEME}" > "${DOTFILES}/.nvim-theme"
@@ -168,4 +182,4 @@ esac
 
 echo ""
 echo "Theme switched successfully!"
-echo "Note: Alacritty reloads automatically. New shells will use the new theme."
+echo "Note: Alacritty and Kitty reload automatically. New shells will use the new theme."
