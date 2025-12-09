@@ -2,13 +2,23 @@
 
 DISPLAYPLACER="/opt/homebrew/bin/displayplacer"
 
-# === The resolutions you want to cycle through ===
-RES_LIST=(
+# === The resolutions you want to cycle through (across all machines) ===
+DESIRED_RES_LIST=(
   "res:2560x1440 hz:60 color_depth:8 scaling:on"
   "res:3008x1692 hz:60 color_depth:8 scaling:on"
   "res:3360x1890 hz:60 color_depth:8 scaling:on"
   "res:3840x2160 hz:60 color_depth:8 scaling:on"
 )
+
+# === Get all available mode strings for this machine ===
+AVAILABLE_MODES=$($DISPLAYPLACER list | grep '  mode [0-9]*:' | sed 's/.*mode [0-9]*: //')
+
+# === Helper function to check if exact mode is supported ===
+is_supported() {
+  local mode_to_check="$1"
+  echo "$AVAILABLE_MODES" | grep -q "^${mode_to_check}$"
+  return $?
+}
 
 # === Find main display and its current resolution ===
 MAIN_INFO=$(
@@ -28,21 +38,47 @@ PRIMARY_DISPLAY=${MAIN_INFO%% *}
 CURRENT_RES=${MAIN_INFO#* }
 CURRENT_TAG="res:${CURRENT_RES}"
 
+# === Find next supported resolution ===
 NEXT_RES=""
 found_current=false
+start_index=0
 
-for res in "${RES_LIST[@]}"; do
-  if [[ $found_current == true ]]; then
-    NEXT_RES="$res"
-    break
-  fi
-  if [[ "$res" == ${CURRENT_TAG}* ]]; then
+# Find current resolution index
+for i in {1..${#DESIRED_RES_LIST[@]}}; do
+  if [[ "${DESIRED_RES_LIST[$i]}" == ${CURRENT_TAG}* ]]; then
+    start_index=$i
     found_current=true
+    break
   fi
 done
 
+# Search for next supported resolution, cycling through the list
+attempts=0
+max_attempts=${#DESIRED_RES_LIST[@]}
+
+while [[ $attempts -lt $max_attempts ]]; do
+  if [[ $found_current == true ]]; then
+    next_index=$(( (start_index + attempts + 1) % ${#DESIRED_RES_LIST[@]} ))
+    # zsh arrays are 1-indexed, adjust if needed
+    next_index=$(( next_index == 0 ? ${#DESIRED_RES_LIST[@]} : next_index ))
+  else
+    # Current res not in list, start from beginning
+    next_index=$(( attempts + 1 ))
+  fi
+
+  candidate="${DESIRED_RES_LIST[$next_index]}"
+
+  if is_supported "$candidate"; then
+    NEXT_RES="$candidate"
+    break
+  fi
+
+  attempts=$(( attempts + 1 ))
+done
+
 if [[ -z "$NEXT_RES" ]]; then
-  NEXT_RES="${RES_LIST[1]}"
+  osascript -e 'display notification "No supported resolutions found." with title "Resolution Toggle"'
+  exit 1
 fi
 
 $DISPLAYPLACER "id:$PRIMARY_DISPLAY $NEXT_RES"
