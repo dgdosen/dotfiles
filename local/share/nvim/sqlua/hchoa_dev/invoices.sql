@@ -15,14 +15,11 @@ invoices.debit_financial_account_id,
 invoices.credit_financial_account_id,
 invoices.updated_at,
 accounts.name,
-accounts.description,
-posting_transactions.id,
-posting_transactions.posting_date
-from invoices, posting_transactions, customers, accounts
-where invoices.id = posting_transactions.transactionable_id
-and posting_transactions.transactionable_type = 'CustomerPayment'
-and invoices.customer_id = customers.id
+accounts.description
+from invoices, customers, accounts
+where invoices.customer_id = customers.id
 and accounts.id = customers.account_id
-order by posting_transactions.updated_at desc;
+order by invoices.number desc;
+-- order by posting_transactions.updated_at desc;
 
-select * from invoices;
+select * from invoices,

@@ -77,3 +77,5 @@ order by id desc;
 
 select * from bills where vendor_id = 18;
 
+
+select * from posting_transactions where id = 3711
