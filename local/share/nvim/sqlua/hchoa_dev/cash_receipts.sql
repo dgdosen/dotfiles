@@ -46,7 +46,7 @@ and customer_payment_items.customer_payment_id = customer_payments.id
 and accounts.name = 'Tom Damico'
 and customer_payments.customer_id = customers.id
 and accounts.id = customers.account_id
-order by posting_transactions.updated_at desc;
+order by posting_transactions.id desc;
 
 -- detail behind a cashrecipt
 select * from customer_payments, customer_payment_items
