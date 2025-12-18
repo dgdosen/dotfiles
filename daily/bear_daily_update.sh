@@ -32,12 +32,15 @@ echo "Using Python: $(which python)"
 echo "Python Version: $(python --version)"
 
 # Run the actual script in an interactive shell
-if /bin/zsh -i -c 'bear_daily_update'; then
+/bin/zsh -i -c 'bear_daily_update'
+EXIT_CODE=$?
+
+if [ $EXIT_CODE -eq 0 ]; then
   date
   echo "bear_daily_update completed successfully"
+  touch ~/.cron_support/bear_daily_update.txt
 else
   date
-  echo "bear_daily_update failed with exit code $?"
+  echo "bear_daily_update failed with exit code $EXIT_CODE"
   exit 1
 fi
-touch ~/.cron_support/bear_daily_update.txt
