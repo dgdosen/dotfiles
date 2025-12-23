@@ -1,8 +1,10 @@
 
+## morning pages
 
+### X
 
 updated prep
 ---
-## References
+## references
 
 #intents/1_daily
