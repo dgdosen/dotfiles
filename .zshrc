@@ -212,3 +212,7 @@ export DISABLE_AUTOUPDATE=1
 # Added by Windsurf
 export PATH="/Users/dgdosen/.codeium/windsurf/bin:$PATH"
 
+# edit-command-line
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line

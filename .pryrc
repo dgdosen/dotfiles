@@ -15,3 +15,9 @@ Pry.config.commands.alias_command 'q', 'exit-all'
 
 # Suppress return values to keep the console clean.
 Pry.config.print = proc {}
+
+# Load project-specific console helpers (queries, editors, etc)
+if defined?(Rails)
+  helpers = Rails.root.join("script/console/helpers/pry_helpers.rb")
+  load helpers if File.exist?(helpers)
+end
