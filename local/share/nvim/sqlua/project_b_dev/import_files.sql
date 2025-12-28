@@ -2,6 +2,10 @@
 select distinct type_category_code from import_files
 order by type_category_code;
 
+select count(id) as type_count, type_category_code from import_files
+group by type_category_code
+order by type_count desc
+
 -- recent history
 select * from import_files
 order by updated_at desc
