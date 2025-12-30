@@ -1,6 +1,4 @@
-
 ## morning pages
-
 ### X
 
 updated prep
