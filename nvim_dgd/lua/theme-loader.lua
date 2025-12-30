@@ -20,12 +20,22 @@ local function load_theme()
         ["gruvbox-light"] = "gruvbox",
         ["catppuccin-mocha"] = "catppuccin-mocha",
         ["catppuccin-latte"] = "catppuccin-latte",
+        ["everforest_dark"] = "everforest",
+        ["everforest-dark"] = "everforest",
+        ["everforest_light"] = "everforest",
+        ["everforest-light"] = "everforest",
       }
 
       local colorscheme = theme_map[theme] or theme
 
       -- Set gruvbox background if needed
       if colorscheme == "gruvbox" then
+        if string.match(theme, "light") then
+          vim.opt.background = "light"
+        else
+          vim.opt.background = "dark"
+        end
+      elseif colorscheme == "everforest" then
         if string.match(theme, "light") then
           vim.opt.background = "light"
         else

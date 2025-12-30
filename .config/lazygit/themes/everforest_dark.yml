@@ -1,0 +1,22 @@
+# === EVERFOREST-DARK (HARD) ===
+activeBorderColor:
+  - "#7fbbb3" # everforest blue
+  - bold
+inactiveBorderColor:
+  - "#859289" # everforest grey
+optionsTextColor:
+  - "#7fbbb3" # everforest blue
+selectedLineBgColor:
+  - "#4b565c" # everforest dark1
+selectedRangeBgColor:
+  - "#4b565c" # everforest dark1
+cherryPickedCommitBgColor:
+  - "#d699b6" # everforest purple
+cherryPickedCommitFgColor:
+  - "#7fbbb3" # everforest blue
+unstagedChangesColor:
+  - "#e67e80" # everforest red
+defaultFgColor:
+  - "#d3c6aa" # everforest light
+searchingActiveBorderColor:
+  - "#dbbc7f" # everforest yellow
