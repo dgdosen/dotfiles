@@ -22,11 +22,11 @@ root: ~/dev/accountingtrak_hchoa
 # startup_window: logs
 
 windows:
-  - editor:
+  - hchoa:
       # layout: 6d60,208x57,0,0{130x57,0,0,19,77x57,131,0[77x11,131,0,20,77x10,131,12,21,77x10,131,23,22,77x10,131,34,23,77x12,131,45,24]}
       layout: eeac,318x95,0,0{216x95,0,0,82,101x95,217,0[101x14,217,0,83,101x21,217,15,84,101x48,217,37,86,101x9,217,86,87]}
       panes:
-        - vim
+        - nvim
         -
         - tail -f log/development.log
         - foreman start
