@@ -6,8 +6,14 @@ LOCKFILE="$HOME/.cron_support/projectb_gmax_egps_audit.lock"
 
 # Check if another instance is running
 if [ -f "$LOCKFILE" ]; then
-    echo "Another instance is already running. Exiting."
-    exit 0
+    OLD_PID=$(cat "$LOCKFILE" 2>/dev/null)
+    if [ -n "$OLD_PID" ] && kill -0 "$OLD_PID" 2>/dev/null; then
+        echo "Another instance is already running (PID $OLD_PID). Exiting."
+        exit 0
+    else
+        echo "Removing stale lock file (PID $OLD_PID no longer running)."
+        rm -f "$LOCKFILE"
+    fi
 fi
 
 # Create lock file with current PID
