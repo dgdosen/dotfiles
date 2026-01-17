@@ -49,15 +49,15 @@ select starts.race_id, horses.id as horse_id, horses.name, program_number, post_
 order by race_id, program_number;
 
 /* horse history */
-  -- 164685 |    97605 | FREAK CITY     |                |              
-  -- 164685 |    99608 | SHEILA'S LION  |                |              
-  -- 164685 |   102008 | EL JOURY       |                |              
-  -- 164685 |    93876 | HEART SPIN     |                |              
-  -- 164685 |    99504 | ANNELLE        |                |              
-  -- 164685 |    95527 | CHA CHA CHUKKA |                |              
-  -- 164685 |   103762 | VINA ARANA     |                |              
-  -- 164685 |    97662 | GOOD GAME      |                |              
-  -- 164685 |    99236 | FLEETINGLY     |                |              
+  -- 164685 |    97605 | FREAK CITY     |                |
+  -- 164685 |    99608 | SHEILA'S LION  |                |
+  -- 164685 |   102008 | EL JOURY       |                |
+  -- 164685 |    93876 | HEART SPIN     |                |
+  -- 164685 |    99504 | ANNELLE        |                |
+  -- 164685 |    95527 | CHA CHA CHUKKA |                |
+  -- 164685 |   103762 | VINA ARANA     |                |
+  -- 164685 |    97662 | GOOD GAME      |                |
+  -- 164685 |    99236 | FLEETINGLY     |                |
   --
 
   -- select starts.id as start_id, starts.is_historical, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
@@ -65,7 +65,7 @@ select starts.id as start_id, races.id as race_id, races.date, races.track_code,
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'VINA ARANA'
+    select id from horses where name = 'A REAL JEWEL'
   )
 )
 and races.id = starts.race_id

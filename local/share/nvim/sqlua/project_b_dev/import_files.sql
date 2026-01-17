@@ -22,7 +22,7 @@ limit 10;
 select * from import_files
 -- where type_category_code like 'pp_%'
 -- and file_date > '2025-03-01'
-where file_date = '2024-09-29'
+where file_date = '2025-10-19'
 and file_name is not null
 order by file_date, type_category_code;
 

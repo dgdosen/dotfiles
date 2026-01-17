@@ -20,24 +20,28 @@ order by start_id, start_odds_code desc limit 500;
     races.track_code,
     races.race_number,
     horses.name,
+    starts.program_number,
     odds_for_starts.start_odds_code,
     odds_for_starts.odds,
-    odds_for_starts.win_wager
+    odds_for_starts.win_wager,
+    odds_for_starts.updated_at,
+    odds_for_starts.created_at
   FROM horses, races, starts, odds_for_starts
   WHERE races.track_code = 'SA'
     AND races.date = '2025-10-19'
-    AND races.race_number = 9
+    -- AND races.race_number = 9
     AND races.id = starts.race_id
     AND horses.id = starts.horse_id
     AND odds_for_starts.start_id = starts.id
   ORDER BY
+    races.race_number,
     start_id,
     CASE
       WHEN odds_for_starts.start_odds_code ~ '^[0-9]+\.?[0-9]*$'
         THEN odds_for_starts.start_odds_code::numeric
       ELSE 99
-    END DESC
-  LIMIT 500;
+    END DESC;
+  -- LIMIT 500;
 
 
 
@@ -76,6 +80,7 @@ WITH cleaned_odds AS (
     END AS start_odds_code_int,
     ofs.odds,
     ofs.updated_at,
+    ofs.created_at,
     h.name,
     ROW_NUMBER() OVER (
       PARTITION BY ofs.start_id
@@ -100,4 +105,4 @@ FROM cleaned_odds
 WHERE rn = 1
 ORDER BY name, id;
 
-
+select * from odds_for_starts where created_at > '2025-04-06'
