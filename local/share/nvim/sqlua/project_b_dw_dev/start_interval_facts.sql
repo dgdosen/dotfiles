@@ -15,7 +15,6 @@ where start_interval_facts.start_fact_id = start_facts.id
 and start_facts.start_id = 669683;
 
 
-
 select * from start_facts where start_id = 491330;
 select * from start_facts where start_id = 478130;
 

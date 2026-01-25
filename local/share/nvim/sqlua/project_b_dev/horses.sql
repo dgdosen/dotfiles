@@ -1,9 +1,11 @@
 select * from horses where name = 'GOOD MAGIC';
+select * from drf_debut_horses;
 
 select distinct breed from horses;
 select distinct pp2_sex from starts;
 select distinct breed_category from horses;
 
+select * from horse_matchings;
 
 select * from horses where name = 'WARD ''N JERRY';
 select * from horses where name = 'C''MON JENNA';

@@ -4,6 +4,26 @@
 select  distinct (track_code, date) from races where track_code in ('SA', 'DMR', 'CD')
 and races.date >= '2024-01-01' and date <= '2024-12-31';
 
+-- races with starts (horse names) for track_code
+selct races.track_code, races.date, races.race_number, starts.pp2_program_number, horses.name
+from races, starts, horses
+where races.id = starts.race_id
+and starts.horse_id = horses.id
+and races.track_code = 'LRC';
+
+SELECT
+  r.track_code,
+  r.date,
+  r.race_number,
+  s.pp2_program_number,
+  h.name
+FROM races r
+JOIN starts s ON s.race_id = r.id
+JOIN horses h ON h.id = s.horse_id
+WHERE r.track_code = 'LRC'
+ORDER BY r.date desc, r.race_number, s.pp2_program_number;
+
+
 -- race and starts for date, track, number
 select starts.id as start_id, horses.name, races.id as race_id from starts, races, horses
 where races.id = starts.race_id

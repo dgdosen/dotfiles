@@ -11,8 +11,6 @@ select starts.id, horses.id as horse_id, horses.name, program_number, pp2_progra
 select * from starts where race_id = 162067;
 
 
-
-
 select count(id), version from starts
 group by version
 
@@ -61,7 +59,7 @@ order by race_id, program_number;
   --
 
   -- select starts.id as start_id, starts.is_historical, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
-select starts.id as start_id, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.program_number, starts.post_position, starts.pp3_post_position, starts.drf_beyer from races, starts
+select starts.id as start_id, races.id as race_id, races.date, races.race_number, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.program_number, starts.post_position, starts.pp3_post_position, starts.drf_beyer from races, starts
 where
 starts.id in (
   select id from  starts where horse_id in (
@@ -71,12 +69,20 @@ starts.id in (
 and races.id = starts.race_id
 order by date desc;
 
+-- calls and fractions for above query (or start_id)
+select * from drf_calls where start_id = 669659;
+
+select * from drf_fractions
+join drf_races on drf_fractions.drf_race_id = drf_races.id
+join drf_starts on drf_starts.drf_race_id = drf_races.id
+where drf_starts.start_id = 669659;
+
 /* trainer history */
 select starts.id as start_id, starts.is_scratched, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number, calls.position, starts.created_at from races, starts, calls
 where
 starts.id in (
   select id from  starts where trainer_id in (
-    select id from trainers where name = 'SPACE BLUES'
+    select id from trainers where name = 'DAMATO PHILIP'
   )
 )
 and starts.id = calls.start_id

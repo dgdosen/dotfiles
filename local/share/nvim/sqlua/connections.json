@@ -1,5 +1,9 @@
 [
   {
+    "url": "postgres://postgres:postgres@localhost:5432/huntingtoncourt",
+    "name": "hchoa_dev"
+  },
+  {
     "url": "postgres://postgres:postgres@localhost:5432/project_b_development",
     "name": "project_b_dev"
   },
