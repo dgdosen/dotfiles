@@ -14,8 +14,19 @@ vim.o.relativenumber = true
 -- ? not working on linux
 vim.o.cursorline = true
 
--- clipboard
+-- clipboard (OSC 52 for remote/tmux support)
 vim.o.clipboard = 'unnamedplus'
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
 
 -- Enable mouse mode
 vim.o.mouse = 'a'

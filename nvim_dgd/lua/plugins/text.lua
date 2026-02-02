@@ -1,12 +1,4 @@
 return {
-  -- Text Copy/Paste with Tmux
-  {
-    'ojroques/nvim-osc52',
-    config = function()
-      require('setup/osc52')
-    end,
-  },
-
   -- text plugs
   'rmagatti/alternate-toggler',
   {
