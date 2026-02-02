@@ -10,5 +10,9 @@
   {
     "url": "postgres://postgres:postgres@localhost:5432/project_b_dw_development",
     "name": "project_b_dw_dev"
+  },
+  {
+    "url": "postgres://postgres:postgres@localhost:5432/project_b_equibase_api_development",
+    "name": "project_b_equibase_api_dev"
   }
 ]

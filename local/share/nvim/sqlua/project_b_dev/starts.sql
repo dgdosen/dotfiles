@@ -63,7 +63,7 @@ select starts.id as start_id, races.id as race_id, races.date, races.race_number
 where
 starts.id in (
   select id from  starts where horse_id in (
-    select id from horses where name = 'A REAL JEWEL'
+    select id from horses where name = 'SHAMROCKING'
   )
 )
 and races.id = starts.race_id

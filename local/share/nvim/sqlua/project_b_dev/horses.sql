@@ -7,7 +7,7 @@ select distinct breed_category from horses;
 
 select * from horse_matchings;
 
-select * from horses where name = 'WARD ''N JERRY';
+select * from horses where name like '%MACLEA%';
 select * from horses where name = 'C''MON JENNA';
 
 select * from horses order by id desc limit 25;

@@ -1,5 +1,7 @@
 -- about distance issues...
 
+select id from races where date = '2026-01-09' and race_number = 7 and track_code = 'SA';
+
 -- races ddates in a year
 select  distinct (track_code, date) from races where track_code in ('SA', 'DMR', 'CD')
 and races.date >= '2024-01-01' and date <= '2024-12-31';
@@ -22,6 +24,17 @@ JOIN starts s ON s.race_id = r.id
 JOIN horses h ON h.id = s.horse_id
 WHERE r.track_code = 'LRC'
 ORDER BY r.date desc, r.race_number, s.pp2_program_number;
+
+-- most popular race tracks
+select
+  track_code,
+  extract(year from date) as year,
+  count(*) as race_count
+from races
+group by track_code, extract(year from date)
+order by year desc, race_count desc
+limit 100;
+
 
 
 -- race and starts for date, track, number
