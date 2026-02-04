@@ -7,6 +7,8 @@ select count(*) from equibase_fractions;
 select count(*) from equibase_calls;
 select * from equibase_tracks;
 
+select distinct distance, distance_furlongs from equibase_races;
+select distance, distance_furlongs from equibase_races where track_id = 5 limit 10;
 select * from equibase_jockeys;
 select * from equibase_jockeys;
 
@@ -30,7 +32,7 @@ select distinct margin from equibase_calls;
     r.race_number,
     t.id AS track_id,
     t.code AS track_code,
-    s.id AS tart_id,
+    s.id AS start_id,
     s.finish_position,
     s.program_number,
     h.id AS horse_id,
@@ -40,6 +42,8 @@ select distinct margin from equibase_calls;
   JOIN equibase_starts s ON s.race_id = r.id
   JOIN equibase_horses h ON s.horse_id = h.id
   where t.code = 'LRC'
-  and r.race_date = '2025-12-07'
+  and r.race_date = '2025-06-28'
   ORDER BY r.race_date, r.race_number, s.finish_position;
+
+ 4 select * from equibase_calls where start_id = 5369;
 

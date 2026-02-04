@@ -2,7 +2,7 @@
 
 select id from races where date = '2026-01-09' and race_number = 7 and track_code = 'SA';
 
--- races ddates in a year
+-- races dates in a year
 select  distinct (track_code, date) from races where track_code in ('SA', 'DMR', 'CD')
 and races.date >= '2024-01-01' and date <= '2024-12-31';
 
@@ -34,8 +34,6 @@ from races
 group by track_code, extract(year from date)
 order by year desc, race_count desc
 limit 100;
-
-
 
 -- race and starts for date, track, number
 select starts.id as start_id, horses.name, races.id as race_id from starts, races, horses
