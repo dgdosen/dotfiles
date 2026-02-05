@@ -1,0 +1,46 @@
+# ~/.config/smug/pb.yml
+
+session: pb
+root: ~/dev/project_b_api/
+
+windows:
+  - name: api
+    root: ~/dev/project_b_api/
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - bundle exec guard -nc
+      - commands:
+          - nvim
+  - name: run
+    root: ~/dev/project_b_api/
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - bundle exec rails s
+      - commands:
+          - bundle exec sidekiq -C config/sidekiq.yml
+  - name: sql
+    root: ~/dev/project_b_api/
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: racing_form
+    root: ~/dev/project_b_racing_form/
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - yarn dev
+      - commands:
+          - ""

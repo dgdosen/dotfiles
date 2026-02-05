@@ -1,0 +1,7 @@
+session: test
+root: ~
+
+windows:
+  - name: main
+    panes:
+      - echo hello

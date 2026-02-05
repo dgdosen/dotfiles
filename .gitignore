@@ -37,3 +37,4 @@ node_modules
 .tmux-theme
 .p10k-theme
 .claude-theme
+.config/smug/smug.log
