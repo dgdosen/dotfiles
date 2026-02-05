@@ -14,7 +14,7 @@ vim.o.relativenumber = true
 -- ? not working on linux
 vim.o.cursorline = true
 
--- clipboard (OSC 52 for remote/tmux support)
+-- clipboard (OSC 52 for copy, native pbpaste for paste to avoid timeout)
 vim.o.clipboard = 'unnamedplus'
 vim.g.clipboard = {
   name = 'OSC 52',
@@ -23,8 +23,8 @@ vim.g.clipboard = {
     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
   },
   paste = {
-    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    ['+'] = function() return vim.fn.systemlist('pbpaste') end,
+    ['*'] = function() return vim.fn.systemlist('pbpaste') end,
   },
 }
 
