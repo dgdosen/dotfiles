@@ -113,6 +113,8 @@ export PATH=$PATH:$HOME/dev/flutter/bin
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.bin"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/Users/dgdosen/.bun/bin:$PATH"
+
 export PYTHONPATH="$HOME/dev/forecasting"
 
 # Digitial Ocean API (doctl)
