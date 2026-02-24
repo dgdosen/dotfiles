@@ -1,0 +1,36 @@
+# ~/.config/smug/pars.yml
+
+session: pars
+root: ~/dev/project_b_unified_pars
+
+windows:
+  - name: unified
+    root: ~/dev/project_b_unified_pars
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - "bun run dev"
+  - name: og
+    root: ~/dev/project_b_pars/
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: sql
+    root: ~/dev/project_b_unified_pars/
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""

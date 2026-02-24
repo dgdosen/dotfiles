@@ -1,0 +1,26 @@
+# ~/.config/smug/ai.yml
+
+session: ai
+root: ~/dev/project_b_ai_handicapping/
+
+windows:
+  - name: handicapping
+    root: ~/dev/project_b_ai_handicapping/
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: dq
+    root: ~/dev/project_b_ai_handicapping_data_quality/
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
