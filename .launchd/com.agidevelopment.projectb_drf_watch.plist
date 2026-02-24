@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.agidevelopment.projectb_drf_watch</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/dgdosen/.dotfiles/.zsh_customizations/projectb_drf_watch.sh</string>
+    </array>
+
+    <key>WatchPaths</key>
+    <array>
+        <string>/Users/dgdosen/dropboxm/joined_shares/project_b_share/documents/dropoff_drf_zips/to_be_processed</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/projectb_drf_watch.out</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/projectb_drf_watch.err</string>
+</dict>
+</plist>
