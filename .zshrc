@@ -37,6 +37,8 @@ elif [[ -d "$HOME/Library/CloudStorage/Dropbox-makerboarding" ]]; then
 fi
 
 alias zshconfig="vim ~/.zshrc"
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
 
 export NVIM_DAY="$HOME/.vim_nvim/config/colors_day.vimrc"
 export NVIM_NIGHT="$HOME/.vim_nvim/config/colors_night.vimrc"
