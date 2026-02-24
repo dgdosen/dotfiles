@@ -35,6 +35,8 @@ select distinct margin from equibase_calls;
     s.id AS start_id,
     s.finish_position,
     s.program_number,
+    s.comments,
+    s.footnotes,
     h.id AS horse_id,
     h.name AS horse_name
   FROM equibase_races r

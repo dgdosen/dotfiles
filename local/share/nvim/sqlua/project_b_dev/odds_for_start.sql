@@ -1,6 +1,23 @@
+delete from odds_for_starts ;
+
+
 select * from odds_for_starts
--- where start_odds_code <> 'morning line'
+-- where start_odds_code = 'morning line'
+where start_id = 671196
 order by updated_at desc limit 500;
+
+  SELECT
+    ofs.*,
+    s.horse_id,
+    h.name AS horse_name
+  FROM odds_for_starts ofs
+  JOIN starts s
+    ON s.id = ofs.start_id
+  JOIN horses h
+    ON h.id = s.horse_id
+  -- WHERE ofs.start_odds_code = 'morning line'
+  ORDER BY ofs.updated_at DESC
+  LIMIT 500;
 
 
 -- horses and odds for a race

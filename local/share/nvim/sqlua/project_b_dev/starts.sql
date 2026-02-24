@@ -47,18 +47,25 @@ select starts.race_id, horses.id as horse_id, horses.name, program_number, post_
 order by race_id, program_number;
 
 /* horse history */
-  -- 164685 |    97605 | FREAK CITY     |                |
-  -- 164685 |    99608 | SHEILA'S LION  |                |
-  -- 164685 |   102008 | EL JOURY       |                |
-  -- 164685 |    93876 | HEART SPIN     |                |
-  -- 164685 |    99504 | ANNELLE        |                |
-  -- 164685 |    95527 | CHA CHA CHUKKA |                |
-  -- 164685 |   103762 | VINA ARANA     |                |
-  -- 164685 |    97662 | GOOD GAME      |                |
-  -- 164685 |    99236 | FLEETINGLY     |                |
-  --
+SELECT
+  starts.id AS start_id,
+  races.id AS race_id,
+  races.date,
+  races.race_number,
+  races.track_code,
+  races.distance,
+  races.all_source_surface_code,
+  starts.program_number,
+  starts.post_position,
+  starts.pp3_post_position,
+  starts.drf_beyer
+FROM starts
+INNER JOIN races ON races.id = starts.race_id
+INNER JOIN horses ON horses.id = starts.horse_id
+WHERE horses.name = 'WITH LOVE'
+ORDER BY races.date DESC;
 
-  -- select starts.id as start_id, starts.is_historical, races.id as race_id, races.date, races.track_code, races.distance, races.all_source_surface_code, races.race_number from races, starts
+the og..
 select starts.id as start_id, races.id as race_id, races.date, races.race_number, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.program_number, starts.post_position, starts.pp3_post_position, starts.drf_beyer from races, starts
 where
 starts.id in (

@@ -12,3 +12,12 @@ select * from start_facts where start_id = 584799;
 select count(id), rating_type from rating_facts
 group by rating_type;
 
+select * from output_facts 
+where data_source_type = 'egps'
+limit 100;
+
+select * from rating_facts 
+where data_source_type = 'egps'
+and modification_type = 'automatically_adjusted'
+and rating_type = 'beyer_race'
+limit 100;

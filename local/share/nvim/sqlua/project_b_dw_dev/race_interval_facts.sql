@@ -1,11 +1,16 @@
 select * from race_interval_facts order by updated_at desc limit 20;
+select * from race_interval_facts where par_interval_type is not null order by updated_at desc limit 20;
 
-select * from race_interval_facts where split_seconds < 0
+select * from race_interval_facts where split_seconds < 0;
 
 select * from race_interval_facts where split_seconds < 0
 order by updated_at desc;
 
+select count(id), par_interval_type from race_interval_facts
+group by par_interval_type;
 
+select count(id), interval_split_type, par_interval_type from race_interval_facts
+group by interval_split_type, par_interval_type;
 
 select * from race_interval_facts where race_fact_id = 101519;
 select * from race_interval_facts where race_fact_id = 101210;
@@ -47,6 +52,8 @@ select * from race_facts where id = 80084;
 select * from start_interval_facts limit 100;
 
 select * from surface_dimensions;
+select * from class_rating_dimensions;
+select * from class_dimensions;
 
 /* only migrate facts that aren't Turf (id 34) */
 select distinct surface_dimension_id from race_facts;

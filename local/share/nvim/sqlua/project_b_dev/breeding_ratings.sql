@@ -1,4 +1,26 @@
-select * from breeding_ratings order by date(updated_at) desc, date(created_at) desc limit 1000;
+select * from breeding_ratings order by date(updated_at) desc limit 1000;
+
+select distinct status from breeding_ratings order by status;
+
+select * from breed
+
+select * from breeding_ratings 
+where horse_id = 24230
+and year = 2025
+order by date(updated_at) desc, date(created_at) ;
+
+  SELECT
+    horse_id,
+    year,
+    COUNT(id) AS rating_count
+  FROM breeding_ratings
+  GROUP BY horse_id, year
+  HAVING COUNT(id) > 1
+  ORDER BY rating_count DESC;
+
+select * from breeding_rating_horses;
+
+select * from  horses where name = 'ACCLAMATION';
 
 select * from breeding_rating_horses order by name;
 
@@ -8,7 +30,7 @@ select count(horse_id) from breeding_ratings;
 select * from breeding_ratings where horse_id is null;
 
 select * from breeding_ratings where horse_id in (
-  select id from horses where name = 'SIR PERCY'
+  select id from horses where name = 'ACCLAMATION'
 );
 
 select * from horses where name = 'SIR PERCY';
@@ -20,7 +42,7 @@ select count(id), year from breeding_ratings
 group by year;
 
 select * from breeding_ratings where horse_id in
-(select id from horses where name = 'JAMES STREET')
+(select id from horses where name = 'UNUSUAL HEAT')
 
 select distinct fts_grade from breeding_ratings;
 

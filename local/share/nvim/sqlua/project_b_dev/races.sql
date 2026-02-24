@@ -40,8 +40,8 @@ select starts.id as start_id, horses.name, races.id as race_id from starts, race
 where races.id = starts.race_id
 and starts.horse_id = horses.id
 and track_code = 'SA'
-and date = '2025-04kk-04'
-and race_number = 7;
+and date = '2025-05-11'
+and race_number = 3;
 
 select is_about_distance, about_distance_code, pp1_distance, pp3_distance, count(id)
 from races
