@@ -6,7 +6,7 @@
     <string>com.makerboarding.project_b_bris_fetch</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Users/dgdosen/.dotfiles/daily/projectb_bris_fetch.sh</string>
+      <string>/Users/dgdosen/.dotfiles/daily/project_b_bris_fetch.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <array>

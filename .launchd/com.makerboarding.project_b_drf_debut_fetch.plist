@@ -6,7 +6,7 @@
     <string>com.makerboarding.project_b_drf_debut_fetch</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Users/dgdosen/.dotfiles/daily/projectb_drf_debut_fetch.sh</string>
+      <string>/Users/dgdosen/.dotfiles/daily/project_b_drf_debut_fetch.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>

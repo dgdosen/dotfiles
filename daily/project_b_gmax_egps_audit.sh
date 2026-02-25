@@ -2,7 +2,7 @@
 source ~/.zshrc
 
 # Lock file to prevent multiple instances
-LOCKFILE="$HOME/.cron_support/projectb_gmax_egps_audit.lock"
+LOCKFILE="$HOME/.cron_support/project_b_gmax_egps_audit.lock"
 
 # Check if another instance is running
 if [ -f "$LOCKFILE" ]; then
@@ -73,4 +73,4 @@ echo "=================================================="
 echo "All audit processing completed: $(date)"
 echo "=================================================="
 
-touch ~/.cron_support/cron_projectb_gmax_egps_audit.txt
+touch ~/.cron_support/cron_project_b_gmax_egps_audit.txt
