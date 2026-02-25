@@ -3,10 +3,10 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.agidevelopment.projectb_twinspires_scrape</string>
+    <string>com.makerboarding.project_b_twinspires_scrape</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Users/dgdosen/.dotfiles/daily/projectb_twinspires_scrape.sh</string>
+      <string>/Users/dgdosen/.dotfiles/daily/project_b_twinspires_scrape.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>60</integer>
