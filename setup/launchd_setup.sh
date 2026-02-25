@@ -7,8 +7,8 @@ lunchy install ~/.dotfiles/.launchd/com.agidevelopment.logrotate.plist
 lunchy install ~/.dotfiles/.launchd/com.agidevelopment.fetch.plist
 lunchy install ~/.dotfiles/.launchd/com.agidevelopment.touch.plist
 
-lunchy install ~/.dotfiles/.launchd/com.makerboarding.projectb_db.plist
-lunchy install ~/.dotfiles/.launchd/com.makerboarding.projectb_dw_db.plist
+lunchy install ~/.dotfiles/.launchd/com.makerboarding.project_b_db.plist
+lunchy install ~/.dotfiles/.launchd/com.makerboarding.project_b_dw_db.plist
 
 lunchy start com.agidevelopment.backup
 lunchy start com.agidevelopment.beardailyupdate
@@ -19,6 +19,6 @@ lunchy start com.agidevelopment.logrotate
 lunchy start com.agidevelopment.fetch
 lunchy start com.agidevelopment.touch
 
-lunchy start com.makerboarding.projectb_db
-lunchy start com.makerboarding.projectb_dw_db
+lunchy start com.makerboarding.project_b_db
+lunchy start com.makerboarding.project_b_dw_db
 

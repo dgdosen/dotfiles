@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.makerboarding.projectb_drf_fetch</string>
+    <string>com.makerboarding.project_b_drf_fetch</string>
     <key>ProgramArguments</key>
     <array>
       <string>/Users/dgdosen/.dotfiles/daily/projectb_drf_fetch.sh</string>
