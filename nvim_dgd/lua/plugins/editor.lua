@@ -39,13 +39,19 @@ return {
     end,
   },
 
-  -- InPane navigation
+  -- InPane navigation + search jump labels
   {
-    'smoka7/hop.nvim',
-    version = "*",
-    opts = {},
+    'folke/flash.nvim',
+    event = 'VeryLazy',
+    opts = {
+      modes = {
+        search = {
+          enabled = true,
+        },
+      },
+    },
     config = function()
-      require('setup/hop')
+      require('setup/flash')
     end,
   },
 
