@@ -13,11 +13,11 @@
       <key>Hour</key>
       <integer>7</integer>
       <key>Minute</key>
-      <integer>30</integer>
+      <integer>10</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/log/project_b_drf_debuut_scrape_cli.out</string>
+    <string>/Users/dgdosen/dev/project_b_drf_debut_scrape_cli/scrape.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/log/project_b_drf_debuut_scrape_cli.err</string>
+    <string>/Users/dgdosen/dev/project_b_drf_debut_scrape_cli/scrape.err</string>
   </dict>
 </plist>

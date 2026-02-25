@@ -32,6 +32,9 @@
     <key>StandardErrorPath</key>
     <string>/Users/dgdosen/log/projectb_gmax_egps_audit.error.log</string>
 
+    <key>TimeOut</key>
+    <integer>10800</integer>
+
     <key>RunAtLoad</key>
     <false/>
 </dict>
