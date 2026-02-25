@@ -3,21 +3,21 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.agidevelopment.projectb_drf_fetch</string>
+    <string>com.makerboarding.projectb_drf_debut_fetch</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Users/dgdosen/.dotfiles/daily/projectb_drf_fetch.sh</string>
+      <string>/Users/dgdosen/.dotfiles/daily/projectb_drf_debut_fetch.sh</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
       <key>Hour</key>
       <integer>7</integer>
       <key>Minute</key>
-      <integer>15</integer>
+      <integer>10</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/dev/project_b_drf_scrape_cli/scrape.out</string>
+    <string>/Users/dgdosen/dev/project_b_drf_debut_scrape_cli/scrape.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/dev/project_b_drf_scrape_cli/scrape.err</string>
+    <string>/Users/dgdosen/dev/project_b_drf_debut_scrape_cli/scrape.err</string>
   </dict>
 </plist>

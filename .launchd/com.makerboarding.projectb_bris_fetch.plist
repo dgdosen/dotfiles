@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.agidevelopment.projectb_bris_fetch</string>
+    <string>com.makerboarding.projectb_bris_fetch</string>
     <key>ProgramArguments</key>
     <array>
       <string>/Users/dgdosen/.dotfiles/daily/projectb_bris_fetch.sh</string>

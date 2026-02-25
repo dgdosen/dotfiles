@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.agidevelopment.project_b_dw_db</string>
+    <string>com.makerboarding.projectb_dw_db</string>
       <key>ProgramArguments</key>
       <array>
         <string>/Users/dgdosen/.dotfiles/daily/cron_project_b_dw.sh</string>
