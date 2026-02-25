@@ -38,3 +38,4 @@ node_modules
 .p10k-theme
 .claude-theme
 .config/smug/smug.log
+**/.nvimlog
