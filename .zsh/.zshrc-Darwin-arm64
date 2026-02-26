@@ -1,6 +1,6 @@
 echo 'on darwin and arm64 zsh'
 
-export PGDATA=/opt/homebrew/var/postgresql@14
+export PGDATA=/opt/homebrew/var/postgresql@18
 
 export PATH="/opt/homebrew/opt/libxml2/bin:$PATH"
 export PATH="/opt/homebrew/opt/libiconv/bin:$PATH"
