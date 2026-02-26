@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.agidevelopment.project_b_ai_handicapping</string>
+    <string>com.makerboarding.project_b_ai_handicapping</string>
     <key>ProgramArguments</key>
     <array>
         <string>/Users/dgdosen/dev/project_b_ai_handicapping/bin/run_handicapping.sh</string>
