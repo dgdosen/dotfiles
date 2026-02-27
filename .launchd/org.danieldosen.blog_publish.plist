@@ -16,9 +16,9 @@
       <integer>30</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/logs/blog_publish.out</string>
+    <string>/Users/dgdosen/log/blog_publish.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/logs/blog_publish.err</string>
+    <string>/Users/dgdosen/log/blog_publish.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>
