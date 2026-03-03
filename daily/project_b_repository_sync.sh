@@ -45,6 +45,6 @@ rsync -av --delete \
   --exclude 'tmp' \
   --exclude '.claude' \
   /Users/dgdosen/dev/project_b_data/ \
-  "$DROPBOX_BASE/project_b_ai_data/"
+  "$DROPBOX_BASE/project_b_data/"
 
 

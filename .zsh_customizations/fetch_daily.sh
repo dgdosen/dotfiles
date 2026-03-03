@@ -6,6 +6,8 @@ fetchthegits() {
   git fetch
   cd ~/dev/project_b_api
   git fetch
+  cd ~/dev/project_b_ai_handicapping
+  git fetch
   cd ~/dev/project_b_data_2023
   git fetch
   cd ~/dev/project_b_data

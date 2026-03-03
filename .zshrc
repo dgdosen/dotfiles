@@ -169,6 +169,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
 # Only source Powerlevel10k if not already sourced
@@ -220,3 +221,11 @@ export PATH="/Users/dgdosen/.codeium/windsurf/bin:$PATH"
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
+
+# pnpm
+export PNPM_HOME="/Users/dgdosen/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
