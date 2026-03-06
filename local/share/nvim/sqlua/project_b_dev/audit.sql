@@ -1,5 +1,5 @@
 select * from audits order by updated_at desc;
-limit 100;
+limit 10;
 
 delete from audits;
 
