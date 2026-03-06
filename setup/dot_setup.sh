@@ -57,6 +57,7 @@ ln -sfnv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 [ ! -L "$HOME/.config/nvim" ] && ln -sfnv ~/.dotfiles/nvim_dgd ~/.config/nvim
 [ ! -L "$HOME/.config/smug" ] && ln -sfnv ~/.dotfiles/.config/smug ~/.config/smug
 [ ! -L "$HOME/.config/lazygit" ] && ln -sfnv ~/.dotfiles/.config/lazygit ~/.config/lazygit
+[ ! -L "$HOME/.config/opencode" ] && ln -sfnv ~/.dotfiles/.config/opencode ~/.config/opencode
 ln -sfnv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ln -sfnv ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -sfnv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish

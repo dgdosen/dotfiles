@@ -39,3 +39,13 @@ node_modules
 .claude-theme
 .config/smug/smug.log
 **/.nvimlog
+
+# opencode runtime/sensitive files
+.config/opencode/node_modules
+.config/opencode/bun.lock
+.config/opencode/package.json
+.config/opencode/tui.json
+.config/opencode/*.bak
+.config/opencode/*.tmp
+.config/opencode/antigravity-accounts.json
+.config/opencode/antigravity-logs/
