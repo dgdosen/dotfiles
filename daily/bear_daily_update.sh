@@ -19,7 +19,7 @@ fi
 echo "running bear_daily_update"
 
 # Find today's note by title
-NOTE_ID=$(bcli search "$TODAY" --no-sync --json | jq -r '.[] | select(.title == "'"$TODAY"'") | .id' | head -1)
+NOTE_ID=$(bcli search "$TODAY" --json | jq -r '.[] | select(.title == "'"$TODAY"'") | .id' | head -1)
 
 if [[ -z "$NOTE_ID" ]]; then
   echo "No note found with title $TODAY"
@@ -32,6 +32,7 @@ echo "Found note: $NOTE_ID"
 CONTENT=$(bcli get "$NOTE_ID" --raw)
 CONTENT=$(echo "$CONTENT" | sed "s/updated prep/updated ${TODAY}/")
 echo "$CONTENT" | bcli edit "$NOTE_ID" --stdin
+bcli sync
 
 if [ $? -eq 0 ]; then
   echo "bear_daily_update completed successfully"

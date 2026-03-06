@@ -22,13 +22,13 @@ echo "running bear_weekly_create"
 counter=1
 while [ $counter -le 7 ]; do
   TEMPLATE_DATE=$(date -v+${counter}d +"%Y-%m-%d")
-  (echo "# ${TEMPLATE_DATE}"; cat ~/.dotfiles/templates/tasks.md) | bcli create "${TEMPLATE_DATE}" --stdin
+  cat ~/.dotfiles/templates/tasks.md | bcli create "${TEMPLATE_DATE}" --stdin
   ((counter++))
 done
 
 # Weekly note
 WEEKLY_DATE=$(date -v+1d +"%Y-%m-%d")
-(echo "# ${WEEKLY_DATE}-Weekly"; cat ~/.dotfiles/templates/weekly.md) | bcli create "${WEEKLY_DATE}-Weekly" --stdin
+cat ~/.dotfiles/templates/weekly.md | bcli create "${WEEKLY_DATE}-Weekly" --stdin
 
 if [ $? -eq 0 ]; then
   echo "bear_weekly_create completed successfully"
