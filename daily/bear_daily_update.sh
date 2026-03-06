@@ -1,11 +1,13 @@
 #!/usr/bin/env zsh
-source ~/.zshrc
-date
+export PATH="$HOME/.local/bin:$PATH"
 
-# Check if the script has already run today
+# Update today's daily note in Bear via bcli
+# Replaces bear_daily_update which used bear_export_sync.py
+
 LOG_FILE=~/.cron_support/bear_daily_update.txt
 TODAY=$(date +%Y-%m-%d)
 
+# Check if already run today
 if [[ -f "$LOG_FILE" ]]; then
   LAST_RUN=$(date -r "$LOG_FILE" +%Y-%m-%d 2>/dev/null)
   if [[ "$LAST_RUN" == "$TODAY" ]]; then
@@ -16,31 +18,25 @@ fi
 
 echo "running bear_daily_update"
 
-# Since .zshrc isn't sourced, we need to manually initialize pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+# Find today's note by title
+NOTE_ID=$(bcli search "$TODAY" --no-sync --json | jq -r '.[] | select(.title == "'"$TODAY"'") | .id' | head -1)
 
-# Only load virtualenv if available
-if command -v pyenv-virtualenv-init >/dev/null 2>&1; then
-  eval "$(pyenv virtualenv-init -)"
+if [[ -z "$NOTE_ID" ]]; then
+  echo "No note found with title $TODAY"
+  exit 1
 fi
 
-# Debugging: Print environment variables
-echo "Using Python: $(which python)"
-echo "Python Version: $(python --version)"
+echo "Found note: $NOTE_ID"
 
-# Run the actual script in an interactive shell
-/bin/zsh -i -c 'bear_daily_update'
-EXIT_CODE=$?
+# Get current content, replace "updated prep" with today's date, push back
+CONTENT=$(bcli get "$NOTE_ID" --raw)
+CONTENT=$(echo "$CONTENT" | sed "s/updated prep/updated ${TODAY}/")
+echo "$CONTENT" | bcli edit "$NOTE_ID" --stdin
 
-if [ $EXIT_CODE -eq 0 ]; then
-  date
+if [ $? -eq 0 ]; then
   echo "bear_daily_update completed successfully"
-  touch ~/.cron_support/bear_daily_update.txt
+  touch "$LOG_FILE"
 else
-  date
-  echo "bear_daily_update failed with exit code $EXIT_CODE"
+  echo "bear_daily_update failed"
   exit 1
 fi

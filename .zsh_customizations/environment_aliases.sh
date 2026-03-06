@@ -53,6 +53,7 @@ brewup() {
   brew upgrade  --greedy
   brew cleanup
   mas upgrade
+  xattr -d com.apple.quarantine $(which claude) 2>/dev/null
 }
 
 armify() {
