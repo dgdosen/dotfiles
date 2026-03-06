@@ -17,6 +17,26 @@ windows:
   - name: gmax
     root: ~/dev/project_b_gmax_scrape_cli/
     layout: main-vertical
+    commajnds:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: eq_program
+    root: ~/dev/project_b_equibase_program_scrape_cli/
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: eq_results
+    root: ~/dev/project_b_equibase_results_scrape_cli/
+    layout: main-vertical
     commands:
       - nvim
     panes:
