@@ -36,6 +36,9 @@ vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[s]earch [f]iles
 vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[s]earch Telescope [s]ymbols' })
 vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[s]earch current [w]ord' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[s]earch by [g]rep' })
+vim.keymap.set('n', '<leader>sG', function()
+  builtin.live_grep { additional_args = { '--no-ignore', '--hidden' } }
+end, { desc = '[s]earch by [G]rep (include ignored/hidden)' })
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[s]earch [d]iagnostics' })
 vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[s]earch [r]esume' })
 vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[s]earch Recent Files ("." for repeat)' })
