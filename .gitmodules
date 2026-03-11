@@ -7,3 +7,6 @@
 [submodule ".zsh_customizations/plugins/zsh-autosuggestions"]
 	path = .zsh_customizations/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule ".zsh_customizations/themes/powerlevel10k"]
+	path = .zsh_customizations/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
