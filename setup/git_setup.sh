@@ -3,6 +3,9 @@
 [ ! -d "$HOME/dev" ] && mkdir "$HOME/dev"
 git clone git@github.com:dgdosen/dotfiles.git $HOME/.dotfiles
 
+# Alacritty (not available via Homebrew cask - deprecated due to Gatekeeper)
+git clone https://github.com/alacritty/alacritty.git $HOME/dev/alacritty
+
 git clone git@github.com:makerboarding/project_b.git $HOME/dev/project_b_api
 git clone git@github.com:makerboarding/project_b_data.git $HOME/dev/project_b_data
 git clone git@github.com:makerboarding/project_b_data_2023.git $HOME/dev/project_b_data_2023
