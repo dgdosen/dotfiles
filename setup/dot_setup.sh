@@ -53,14 +53,13 @@ ln -sfnv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 [ ! -d "$HOME/.config/fish" ] && mkdir ~/.config/fish
 [ ! -d "$HOME/.config/fish/functions" ] && mkdir ~/.config/fish/functions
 [ ! -d "$HOME/.config/karabiner" ] && mkdir ~/.config/karabiner
-[ ! -d "$HOME/.config/alacritty" ] && mkdir ~/.config/alacritty
+[ ! -L "$HOME/.config/alacritty" ] && ln -sfnv ~/.dotfiles/.config/alacritty ~/.config/alacritty
 [ ! -L "$HOME/.config/git" ] && ln -sfnv ~/.dotfiles/.config/git ~/.config/git
 [ ! -L "$HOME/.config/nvim" ] && ln -sfnv ~/.dotfiles/nvim_dgd ~/.config/nvim
 [ ! -L "$HOME/.config/smug" ] && ln -sfnv ~/.dotfiles/.config/smug ~/.config/smug
 [ ! -L "$HOME/.config/lazygit" ] && ln -sfnv ~/.dotfiles/.config/lazygit ~/.config/lazygit
 [ ! -L "$HOME/.config/opencode" ] && ln -sfnv ~/.dotfiles/.config/opencode ~/.config/opencode
 ln -sfnv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-ln -sfnv ~/.dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -sfnv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 ln -sfnv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config/fish/functions/fish_user_key_bindings.fish
 ln -sfnv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
