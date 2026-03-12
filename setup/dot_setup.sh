@@ -65,7 +65,13 @@ ln -sfnv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config
 ln -sfnv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 
 # project b dropbox
-[ ! -L "$HOME/dropboxm" ] && ln -sfnv ~/Dropbox\ \(makerboarding\) ~/dropboxm
+if [ ! -L "$HOME/dropboxm" ]; then
+  if [ -d "$HOME/makerboarding Dropbox/Daniel Dosen" ]; then
+    ln -sfnv "$HOME/makerboarding Dropbox/Daniel Dosen" ~/dropboxm
+  elif [ -d "$HOME/Library/CloudStorage/Dropbox-makerboarding" ]; then
+    ln -sfnv "$HOME/Library/CloudStorage/Dropbox-makerboarding" ~/dropboxm
+  fi
+fi
 
 # project b database utils
 [ ! -d "$HOME/.postgres" ] && mkdir ~/.postgres

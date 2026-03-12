@@ -23,17 +23,24 @@ source $HOME/.zsh_customizations/vim_aliases.sh
 
 export CORS_ORIGN='*'
 
-# # Detect Dropbox Personal and Business locations
-if [[ -d "$HOME/Dropbox (Personal)" ]]; then
-  export DROPBOX_PERSONAL="$HOME/Dropbox (Personal)"
-elif [[ -d "$HOME/Library/CloudStorage/Dropbox-Personal" ]]; then
-  export DROPBOX_PERSONAL="$HOME/Library/CloudStorage/Dropbox-Personal"
+# Machine-specific config (copy .machine.env.template to ~/.machine.env)
+[[ -f "$HOME/.machine.env" ]] && source "$HOME/.machine.env"
+
+# Fallback Dropbox detection if .zshrc.local doesn't set them
+if [[ -z "$DROPBOX_PERSONAL" ]]; then
+  if [[ -d "$HOME/Dropbox (Personal)" ]]; then
+    export DROPBOX_PERSONAL="$HOME/Dropbox (Personal)"
+  elif [[ -d "$HOME/Library/CloudStorage/Dropbox-Personal" ]]; then
+    export DROPBOX_PERSONAL="$HOME/Library/CloudStorage/Dropbox-Personal"
+  fi
 fi
 
-if [[ -d "$HOME/makerboarding Dropbox" ]]; then
-  export DROPBOX_BUSINESS="$HOME/makerboarding Dropbox"
-elif [[ -d "$HOME/Library/CloudStorage/Dropbox-makerboarding" ]]; then
-  export DROPBOX_BUSINESS="$HOME/Library/CloudStorage/Dropbox-makerboarding"
+if [[ -z "$DROPBOX_BUSINESS" ]]; then
+  if [[ -d "$HOME/makerboarding Dropbox" ]]; then
+    export DROPBOX_BUSINESS="$HOME/makerboarding Dropbox"
+  elif [[ -d "$HOME/Library/CloudStorage/Dropbox-makerboarding" ]]; then
+    export DROPBOX_BUSINESS="$HOME/Library/CloudStorage/Dropbox-makerboarding"
+  fi
 fi
 
 alias zshconfig="vim ~/.zshrc"

@@ -39,6 +39,7 @@ node_modules
 .claude-theme
 .config/smug/smug.log
 **/.nvimlog
+.machine.env
 
 # opencode runtime/sensitive files
 .config/opencode/node_modules
