@@ -33,7 +33,7 @@ where gmax_fractions.race_id = races.id
 and races.track_code in ('SA', 'DMR', 'CD')
 group by track_code;
 
--- races where there are calls with a length < 0
+- races where there are calls with a length < 0
 select distinct races.id, races.date, races.track_code, races.race_number, races.pp3_distance
 from races, starts, egps_calls
 where races.id = starts.race_id
@@ -80,7 +80,7 @@ select * from egps_calls where start_id = 573043;
 select * from egps_calls where start_id = 566075;
 
 select * from egps_calls where start_id = 571743;
-select * from egps_calls where start_id = 546015;
+select * from egps_calls where start_id = 670995;
 
 select distinct count(id), interval_type from gmax_calls
 group by interval_type

@@ -62,7 +62,7 @@ SELECT
 FROM starts
 INNER JOIN races ON races.id = starts.race_id
 INNER JOIN horses ON horses.id = starts.horse_id
-WHERE horses.name = 'WITH LOVE'
+WHERE horses.name = 'VRONAWAY'
 ORDER BY races.date DESC;
 
 the og..

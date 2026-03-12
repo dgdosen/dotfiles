@@ -1,5 +1,6 @@
 select * from race_facts order by updated_at desc limit 100;
-
+select * from class_rating_dimensions;
+select * from class_dimensions;
 select count(id), sex_restriction_dimension_id from race_facts
 group by sex_restriction_dimension_id;
 
