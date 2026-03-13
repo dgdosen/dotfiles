@@ -11,7 +11,7 @@ return {
     -- }
   },
 
-  'nvim-treesitter/playground',
+  -- 'nvim-treesitter/playground',
 
   -- Fuzzy Finder (files, lsp, etc)
   {
