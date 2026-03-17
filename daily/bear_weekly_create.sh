@@ -18,6 +18,9 @@ fi
 
 echo "running bear_weekly_create"
 
+# Refresh auth token before calling bcli
+bear-token-agent --once || { echo "Token refresh failed"; exit 1; }
+
 # Daily notes
 counter=1
 while [ $counter -le 7 ]; do

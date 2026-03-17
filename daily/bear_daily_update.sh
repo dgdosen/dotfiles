@@ -18,6 +18,9 @@ fi
 
 echo "running bear_daily_update"
 
+# Refresh auth token before calling bcli
+bear-token-agent --once || { echo "Token refresh failed"; exit 1; }
+
 # Find today's note by title
 NOTE_ID=$(bcli search "$TODAY" --json | jq -r '.[] | select(.title == "'"$TODAY"'") | .id' | head -1)
 
