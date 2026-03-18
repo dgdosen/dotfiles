@@ -1,2 +1,2 @@
-select * from audits limit 10;
+s4elect * from audits limit 10;
 UPDATE

@@ -3,9 +3,9 @@ select * from starts where id = 629192;
 select * from pp_starts;
 
 -- starts for a race
-select starts.id, horses.id as horse_id, horses.name, program_number, pp2_program_number from starts, horses
+select starts.id, horses.id as horse_id, horses.name, program_number, pp2_program_number, is_scratched from starts, horses
   where starts.horse_id = horses.id and race_id in (
-  select id from races where date = '2025-05-26' and track_code = 'SA' and race_number = 6
+  select id from races where date = '2026-03-13' and track_code = 'SA' and race_number = 4
 )
 
 select * from starts where race_id = 162067;
@@ -62,7 +62,7 @@ SELECT
 FROM starts
 INNER JOIN races ON races.id = starts.race_id
 INNER JOIN horses ON horses.id = starts.horse_id
-WHERE horses.name = 'VRONAWAY'
+WHERE horses.name = 'LYNDEE''S DREAM'
 ORDER BY races.date DESC;
 
 the og..

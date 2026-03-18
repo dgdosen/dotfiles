@@ -1,10 +1,13 @@
 -- about distance issues...
-
 select id from races where date = '2026-01-09' and race_number = 7 and track_code = 'SA';
 
 -- races dates in a year
 select  distinct (track_code, date) from races where track_code in ('SA', 'DMR', 'CD')
 and races.date >= '2024-01-01' and date <= '2024-12-31';
+
+-- races for a date
+select * from races where track_code in ('SA', 'DMR', 'CD')
+and races.date = '2026-02-21';
 
 -- races with starts (horse names) for track_code
 selct races.track_code, races.date, races.race_number, starts.pp2_program_number, horses.name

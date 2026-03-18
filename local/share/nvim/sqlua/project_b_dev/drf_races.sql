@@ -1,4 +1,12 @@
-select * from drf_races limit 100;
+select * from drf_races 
+where track_code = 'SA'
+order by date desc, updated_at desc
+limit 100;
+
+update drf_races
+set condition = ''
+where track_code = 'SA'
+and date = '2026-03-15';
 
 select * from drf_calls limit 100;
 
