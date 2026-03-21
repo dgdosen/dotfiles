@@ -44,3 +44,13 @@ windows:
           - ""
       - commands:
           - ""
+  - name: drf_scrape
+    root: ~/dev/project_b_drf_scrape_cli/
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
