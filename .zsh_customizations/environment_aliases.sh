@@ -55,6 +55,7 @@ brewup() {
   mas upgrade
   xattr -d com.apple.quarantine $(which claude) 2>/dev/null
   xattr -d com.apple.quarantine $(which mosh-server) 2>/dev/null
+  xattr -d com.apple.quarantine "/Applications/Google Chrome.app" 2>/dev/null
 }
 
 armify() {
