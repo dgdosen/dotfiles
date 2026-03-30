@@ -17,7 +17,6 @@ return {
       require('setup/comment')
     end,
   },
-  'JoosepAlviste/nvim-ts-context-commentstring',
 
   -- surround
   {
