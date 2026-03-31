@@ -6,18 +6,38 @@ git clone git@github.com:dgdosen/dotfiles.git $HOME/.dotfiles
 # Alacritty (not available via Homebrew cask - deprecated due to Gatekeeper)
 git clone https://github.com/alacritty/alacritty.git $HOME/dev/alacritty
 
+git clone git@github.com:makerboarding/project_b_ai_handicapping.git $HOME/dev/project_b_ai_handicapping
 git clone git@github.com:makerboarding/project_b.git $HOME/dev/project_b_api
+git clone git@github.com:makerboarding/project_b_audit.git $HOME/dev/project_b_audit
+git clone git@github.com:makerboarding/project_b_brisnet_scrape_cli.git $HOME/dev/project_b_brisnet_scrape_cli
 git clone git@github.com:makerboarding/project_b_data.git $HOME/dev/project_b_data
 git clone git@github.com:makerboarding/project_b_data_2023.git $HOME/dev/project_b_data_2023
-git clone git@github.com:makerboarding/project_b_start_query.git $HOME/dev/project_b_start_query
+git clone git@github.com:makerboarding/project_b_debut.git $HOME/dev/project_b_debut
+git clone git@github.com:makerboarding/project_b_drf_deubut_scrape_cli.git $HOME/dev/project_b_drf_debut_scrape_cli
+git clone git@github.com:makerboarding/project_b_drf_scrape_cli.git $HOME/dev/project_b_drf_scrape_cli
+git clone git@github.com:makerboarding/project_b_entity_matching.git $HOME/dev/project_b_entity_matching
+# git clone git@github.com:makerboarding/project_b_equibase_api.git $HOME/dev/project_b_equibase_api
+git clone git@github.com:makerboarding/project_b_equibase_data.git $HOME/dev/project_b_equibase_data
+git clone git@github.com:makerboarding/project_b_equibase_program_scrape_cli.git $HOME/dev/project_b_equibase_program_scrape_cli
+git clone git@github.com:makerboarding/project_b_equibase_results_scrape_cli.git $HOME/dev/project_b_equibase_results_scrape_cli
+git clone git@github.com:makerboarding/project_b_equibase_scrape_cli.git $HOME/dev/project_b_equibase_scrape_cli
+# git clone git@github.com:makerboarding/project_b_generic_matching.git $HOME/dev/project_b_generic_matching
+git clone git@github.com:makerboarding/project_b_gmax_scrape_cli.git $HOME/dev/project_b_gmax_scrape_cli
+git clone git@github.com:makerboarding/project_b_hooks.git $HOME/dev/project_b_hooks
+# git clone git@github.com:makerboarding/project_b_matching.git $HOME/dev/project_b_matching
+git clone git@github.com:makerboarding/project_b_pars.git $HOME/dev/project_b_pars
+git clone git@github.com:makerboarding/project_b_pdf_parsing_cli.git $HOME/dev/project_b_pdf_parsing_cli
+git clone git@github.com:makerboarding/project_b_progresssive_data.git $HOME/dev/project_b_progressive_data
 git clone git@github.com:makerboarding/project_b_query.git $HOME/dev/project_b_query
 git clone git@github.com:makerboarding/project_b_racing_form.git $HOME/dev/project_b_racing_form
-git clone git@github.com:makerboarding/project_b_debut.git $HOME/dev/project_b_debut
-git clone git@github.com:makerboarding/project_b_hooks.git $HOME/dev/project_b_hooks
-git clone git@github.com:makerboarding/project_b_pars.git $HOME/dev/project_b_pars
-git clone git@github.com:makerboarding/project_b_generic_matching.git $HOME/dev/project_b_generic_matching
-git clone git@github.com:makerboarding/project_b_matching.git $HOME/dev/project_b_matching
 git clone git@github.com:makerboarding/project_b_sidekick.git $HOME/dev/project_b_sidekick
+git clone git@github.com:makerboarding/project_b_slack_notifier.git $HOME/dev/project_b_slack_notifier
+git clone git@github.com:makerboarding/project_b_start_query.git $HOME/dev/project_b_start_query
+git clone git@github.com:makerboarding/project_b_trackmaster_fetch_cli.git $HOME/dev/project_b_trackmaster_fetch_cli
+git clone git@github.com:makerboarding/project_b_trip_notes.git $HOME/dev/project_b_trip_notes
+git clone git@github.com:makerboarding/project_b_tui.git $HOME/dev/project_b_tui
+git clone git@github.com:makerboarding/project_b_twin_spires_scrape_cli.git $HOME/dev/project_b_twin_spires_scrape_cli
+git clone git@github.com:makerboarding/project_b_unified_pars.git $HOME/dev/project_b_unified_pars
 
 git clone git@github.com:sessuru-admin/sessuru_material.git $HOME/dev/sessuru_material
 git clone git@github.com:sessuru-admin/sessuru_server.git $HOME/dev/sessuru_server

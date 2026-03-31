@@ -54,3 +54,13 @@ windows:
           - ""
       - commands:
           - ""
+  - name: progressive_pdf_scrape
+    root: ~/dev/project_b_pdf_parsing_cli/
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
