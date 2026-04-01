@@ -27,7 +27,7 @@ git clone git@github.com:makerboarding/project_b_hooks.git $HOME/dev/project_b_h
 # git clone git@github.com:makerboarding/project_b_matching.git $HOME/dev/project_b_matching
 git clone git@github.com:makerboarding/project_b_pars.git $HOME/dev/project_b_pars
 git clone git@github.com:makerboarding/project_b_pdf_parsing_cli.git $HOME/dev/project_b_pdf_parsing_cli
-# git clone git@github.com:makerboarding/project_b_progresssive_data.git $HOME/dev/project_b_progressive_data
+git clone git@github.com:makerboarding/project_b_progresssive_data.git $HOME/dev/project_b_progressive_data
 git clone git@github.com:makerboarding/project_b_query.git $HOME/dev/project_b_query
 git clone git@github.com:makerboarding/project_b_racing_form.git $HOME/dev/project_b_racing_form
 git clone git@github.com:makerboarding/project_b_sidekick.git $HOME/dev/project_b_sidekick
