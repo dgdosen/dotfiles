@@ -13,9 +13,9 @@ git clone git@github.com:makerboarding/project_b_brisnet_scrape_cli.git $HOME/de
 git clone git@github.com:makerboarding/project_b_data.git $HOME/dev/project_b_data
 git clone git@github.com:makerboarding/project_b_data_2023.git $HOME/dev/project_b_data_2023
 git clone git@github.com:makerboarding/project_b_debut.git $HOME/dev/project_b_debut
-git clone git@github.com:makerboarding/project_b_drf_deubut_scrape_cli.git $HOME/dev/project_b_drf_debut_scrape_cli
+git clone git@github.com:makerboarding/project_b_drf_debut_scrape_cli.git $HOME/dev/project_b_drf_debut_scrape_cli
 git clone git@github.com:makerboarding/project_b_drf_scrape_cli.git $HOME/dev/project_b_drf_scrape_cli
-git clone git@github.com:makerboarding/project_b_entity_matching.git $HOME/dev/project_b_entity_matching
+git clone git@github.com:makerboarding/project_b_entity_mapping.git $HOME/dev/project_b_entity_mapping
 # git clone git@github.com:makerboarding/project_b_equibase_api.git $HOME/dev/project_b_equibase_api
 git clone git@github.com:makerboarding/project_b_equibase_data.git $HOME/dev/project_b_equibase_data
 git clone git@github.com:makerboarding/project_b_equibase_program_scrape_cli.git $HOME/dev/project_b_equibase_program_scrape_cli
@@ -27,23 +27,22 @@ git clone git@github.com:makerboarding/project_b_hooks.git $HOME/dev/project_b_h
 # git clone git@github.com:makerboarding/project_b_matching.git $HOME/dev/project_b_matching
 git clone git@github.com:makerboarding/project_b_pars.git $HOME/dev/project_b_pars
 git clone git@github.com:makerboarding/project_b_pdf_parsing_cli.git $HOME/dev/project_b_pdf_parsing_cli
-git clone git@github.com:makerboarding/project_b_progresssive_data.git $HOME/dev/project_b_progressive_data
+# git clone git@github.com:makerboarding/project_b_progresssive_data.git $HOME/dev/project_b_progressive_data
 git clone git@github.com:makerboarding/project_b_query.git $HOME/dev/project_b_query
 git clone git@github.com:makerboarding/project_b_racing_form.git $HOME/dev/project_b_racing_form
 git clone git@github.com:makerboarding/project_b_sidekick.git $HOME/dev/project_b_sidekick
 git clone git@github.com:makerboarding/project_b_slack_notifier.git $HOME/dev/project_b_slack_notifier
 git clone git@github.com:makerboarding/project_b_start_query.git $HOME/dev/project_b_start_query
 git clone git@github.com:makerboarding/project_b_trackmaster_fetch_cli.git $HOME/dev/project_b_trackmaster_fetch_cli
-git clone git@github.com:makerboarding/project_b_trip_notes.git $HOME/dev/project_b_trip_notes
 git clone git@github.com:makerboarding/project_b_tui.git $HOME/dev/project_b_tui
-git clone git@github.com:makerboarding/project_b_twin_spires_scrape_cli.git $HOME/dev/project_b_twin_spires_scrape_cli
+git clone git@github.com:makerboarding/project_b_twinspires_scrape_cli.git $HOME/dev/project_b_twinspires_scrape_cli
 git clone git@github.com:makerboarding/project_b_unified_pars.git $HOME/dev/project_b_unified_pars
 
-git clone git@github.com:sessuru-admin/sessuru_material.git $HOME/dev/sessuru_material
-git clone git@github.com:sessuru-admin/sessuru_server.git $HOME/dev/sessuru_server
-git clone git@github.com:sessuru-admin/sessuru_client.git $HOME/dev/sessuru_client
-git clone git@bitbucket.org:sessuru/sessuru_web.git $HOME/dev/sessuru_web
-git clone git@bitbucket.org:sessuru/sessuru_ios.git $HOME/dev/sessuru_ios
+# git clone git@github.com:sessuru-admin/sessuru_material.git $HOME/dev/sessuru_material
+# git clone git@github.com:sessuru-admin/sessuru_server.git $HOME/dev/sessuru_server
+# git clone git@github.com:sessuru-admin/sessuru_client.git $HOME/dev/sessuru_client
+# git clone git@bitbucket.org:sessuru/sessuru_web.git $HOME/dev/sessuru_web
+# git clone git@bitbucket.org:sessuru/sessuru_ios.git $HOME/dev/sessuru_ios
 
 [ ! -d "$HOME/dev/exercism" ] && mkdir "$HOME/dev/exercism"
 
