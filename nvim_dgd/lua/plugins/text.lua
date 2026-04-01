@@ -10,13 +10,7 @@ return {
     end,
   },
 
-  -- commenting
-  {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('setup/comment')
-    end,
-  },
+  -- commenting: using Neovim 0.12+ built-in gc/gcc
 
   -- surround
   {
