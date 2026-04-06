@@ -1,0 +1,26 @@
+# ~/.config/smug/qf.yml
+
+session: qf
+root: ~/dev/project_b_api/
+
+windows:
+  - name: qf
+    root: ~/dev/quantified-flow//
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: working_title
+    root: ~/dev/working_title//
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""

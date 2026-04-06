@@ -8,7 +8,7 @@ windows:
     root: ~/dev/project_b_equibase_scrape_cli/
     layout: main-vertical
     commands:
-      - nvim
+      - ""
     panes:
       - commands:
           - ""
@@ -18,7 +18,7 @@ windows:
     root: ~/dev/project_b_gmax_scrape_cli/
     layout: main-vertical
     commajnds:
-      - nvim
+      - ""
     panes:
       - commands:
           - ""
@@ -28,7 +28,7 @@ windows:
     root: ~/dev/project_b_equibase_program_scrape_cli/
     layout: main-vertical
     commands:
-      - nvim
+      - ""
     panes:
       - commands:
           - ""
@@ -38,7 +38,7 @@ windows:
     root: ~/dev/project_b_equibase_results_scrape_cli/
     layout: main-vertical
     commands:
-      - nvim
+      - ""
     panes:
       - commands:
           - ""
@@ -48,7 +48,7 @@ windows:
     root: ~/dev/project_b_drf_scrape_cli/
     layout: main-vertical
     commands:
-      - nvim
+      - ""
     panes:
       - commands:
           - ""
@@ -58,7 +58,17 @@ windows:
     root: ~/dev/project_b_pdf_parsing_cli/
     layout: main-vertical
     commands:
-      - nvim
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: harrington_nt_scrape
+    root: ~/dev/project_b_harrington_scrape_cli
+    layout: main-vertical
+    commands:
+      - ""
     panes:
       - commands:
           - ""
