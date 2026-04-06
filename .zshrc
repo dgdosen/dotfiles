@@ -179,14 +179,8 @@ unset __conda_setup
 export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
-# Only source Powerlevel10k if not already sourced
-source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme
-# [[ ! $P10K_SOURCED ]] && source $ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme && export P10K_SOURCED=1
-export LDFLAGS="-L$(brew --prefix gsl)/lib"
-export CPPFLAGS="-I$(brew --prefix gsl)/include"
-export PKG_CONFIG_PATH="$(brew --prefix gsl)/lib/pkgconfig"
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Only source Powerlevel10k if not already sourced and file exists
+[[ -f "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme" ]] && source "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Terminal color support
