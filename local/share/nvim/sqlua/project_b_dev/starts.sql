@@ -5,7 +5,7 @@ select * from pp_starts;
 -- starts for a race
 select starts.id, horses.id as horse_id, horses.name, program_number, pp2_program_number, is_scratched from starts, horses
   where starts.horse_id = horses.id and race_id in (
-  select id from races where date = '2026-03-13' and track_code = 'SA' and race_number = 4
+  select id from races where date = '2026-04-05' and track_code = 'SA' and race_number = 1
 )
 
 select * from starts where race_id = 162067;
@@ -19,25 +19,7 @@ select starts.id, horses.id as horse_id, horses.name, program_number, pp2_progra
   where starts.horse_id = horses.id
   and starts.race_id = 152373
 order by pp2_program_number;
-
-
--- churchill down starts?
-select horses.name, starts.id, races.date, races.race_number from starts, horses, races
-where races.id = starts.race_id
-and horses.id = starts.horse_id
-and races.track_code = 'CD'
-order by races.date desc limit 10;
-
-select distinct official_finish_position from starts;
-
--- horses/start for race_id
-select starts.race_id, starts.*, horses.id as horse_id, horses.name, program_number, post_position from starts, horses
-  where starts.horse_id = horses.id
-  and starts.race_id in (
-    select id from races
-    where date = '2025-06-15'
-    and track_code = 'SA'
-    and race_number = 2
+    and race_number = 5
   )
 order by race_id, program_number;
 
@@ -62,7 +44,7 @@ SELECT
 FROM starts
 INNER JOIN races ON races.id = starts.race_id
 INNER JOIN horses ON horses.id = starts.horse_id
-WHERE horses.name = 'LYNDEE''S DREAM'
+WHERE horses.name = 'TAPALO'
 ORDER BY races.date DESC;
 
 the og..

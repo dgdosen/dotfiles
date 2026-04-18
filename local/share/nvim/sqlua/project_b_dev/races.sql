@@ -10,17 +10,20 @@ select * from races where track_code in ('SA', 'DMR', 'CD')
 and races.date = '2026-02-21';
 
 -- races with starts (horse names) for track_code
-selct races.track_code, races.date, races.race_number, starts.pp2_program_number, horses.name
+select races.track_code, races.date, races.race_number, starts.pp2_program_number, starts.id,horses.name
 from races, starts, horses
 where races.id = starts.race_id
 and starts.horse_id = horses.id
-and races.track_code = 'LRC';
+and races.track_code = 'SA'
+and races.date = '2026-04-05'
+and races.race_number = 5;
 
 SELECT
   r.track_code,
   r.date,
   r.race_number,
   s.pp2_program_number,
+  s.id,
   h.name
 FROM races r
 JOIN starts s ON s.race_id = r.id
