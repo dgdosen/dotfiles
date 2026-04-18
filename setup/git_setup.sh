@@ -38,6 +38,8 @@ git clone git@github.com:makerboarding/project_b_tui.git $HOME/dev/project_b_tui
 git clone git@github.com:makerboarding/project_b_twinspires_scrape_cli.git $HOME/dev/project_b_twinspires_scrape_cli
 git clone git@github.com:makerboarding/project_b_unified_pars.git $HOME/dev/project_b_unified_pars
 
+git clone git@github.com:quantifiedflow/quantified_status.git $HOME/dev/quantified_status
+
 # git clone git@github.com:sessuru-admin/sessuru_material.git $HOME/dev/sessuru_material
 # git clone git@github.com:sessuru-admin/sessuru_server.git $HOME/dev/sessuru_server
 # git clone git@github.com:sessuru-admin/sessuru_client.git $HOME/dev/sessuru_client
