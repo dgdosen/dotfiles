@@ -75,6 +75,7 @@ wk.add({
   { "<leader>tl", ":ToggleAlternate<cr>",                                                  desc = "[t]oggle a[l]ternate" },
   { "<leader>to", ":TypescriptOrganizeImports<cr>",                                        desc = "[t]ypescript [o]rganize" },
   { "<leader>tr", ":TypescriptRemoveUnused<cr>",                                           desc = "[t]ypescript [r]emove unused" },
+  { "<leader>v",  group = "[v]imwiki ..." },
   { "<leader>w",  ":w<cr>",                                                                desc = "[w]rite/save" },
   { "<leader>z",  group = "[z]en ..." },
   { "<leader>zt", ":Twilight<cr>",                                                         desc = "toggle [t]wilight" },

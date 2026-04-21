@@ -2,24 +2,27 @@ return {
   -- VimWiki for note taking
   {
     'vimwiki/vimwiki',
-    config = function()
-      -- VimWiki configuration consolidated from ftdetect and setup files
+    init = function()
+      -- VimWiki globals MUST be set before the plugin loads, so use init (not config).
       vim.g.vimwiki_list = {
         {
-          path = '/Users/dgdosen/dev/zettel_dialing_in_lean/',
+          path = '/Users/dgdosen/dev/handicapping_wiki/',
           syntax = 'markdown',
           ext = '.md',
           auto_tags = 1,
           auto_toc = 1
         },
         {
-          path = '/Users/dgdosen/dev/zettel/',
+          path = '/Users/dgdosen/dev/electricity_wiki/',
           syntax = 'markdown',
           ext = '.md',
           auto_tags = 1,
           auto_toc = 1
         }
       }
+
+      -- Remap the <leader>w… prefix (which collides with save) to <leader>v…
+      vim.g.vimwiki_map_prefix = '<Leader>v'
 
       -- Additional VimWiki configurations
       vim.g.vimwiki_ext2syntax = { ['.md'] = 'markdown' }
