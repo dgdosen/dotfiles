@@ -25,6 +25,19 @@
                         ]
                     },
                     {
+                        "description": "Disable Print Screen key (all modifier combinations)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "print_screen",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
                         "manipulators": [
                             {
@@ -39,21 +52,45 @@
                         ]
                     },
                     {
-                        "description": "Disable Command-Shift-3",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "3",
-                                    "modifiers": {
-                                        "mandatory": ["command", "shift"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "key_code": "vk_none" }],
-                                "type": "basic"
+                      "description": "Disable Command-Shift-3",
+                      "manipulators": [
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "3",
+                            "modifiers": {
+                              "mandatory": ["command", "shift"],
+                              "optional": ["any"]
                             }
-                        ]
+                          },
+                          "to": [
+                            {
+                              "key_code": "vk_none"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "description": "Disable print_screen even with modifiers",
+                      "manipulators": [
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "print_screen",
+                            "modifiers": {
+                              "optional": ["any"]
+                            }
+                          },
+                          "to": [
+                            {
+                              "key_code": "vk_none"
+                            }
+                          ]
+                        }
+                      ]
                     }
+
                 ]
             },
             "fn_function_keys": [
