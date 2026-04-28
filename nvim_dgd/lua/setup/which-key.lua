@@ -30,6 +30,7 @@ wk.setup {
 
 wk.add({
   { "<leader>Q",  ":wq<cr>",                                                               desc = "[Q]uit and save" },
+  { "<leader>a",  group = "[a]I/Claude ..." },
   { "<leader>b",  group = "[b]uffer ..." },
   { "<leader>k",  group = "spell chec[k] ..." },
   { "<leader>ka", "1z=",                                                                   desc = "spell chec[k] [a]ccept first" },
