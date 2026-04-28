@@ -5,7 +5,7 @@ select * from pp_starts;
 -- starts for a race
 select starts.id, horses.id as horse_id, horses.name, program_number, pp2_program_number, is_scratched from starts, horses
   where starts.horse_id = horses.id and race_id in (
-  select id from races where date = '2026-04-05' and track_code = 'SA' and race_number = 1
+  select id from races where date = '2026-04-25' and track_code = 'SA' and race_number = 3
 )
 
 select * from starts where race_id = 162067;
@@ -165,3 +165,5 @@ and races.id in (
   and date = '2025-01-17'
 )
 
+-- scrattches?
+select * from starts order by updated_at desc limit 100;

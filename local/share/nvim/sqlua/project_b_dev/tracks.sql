@@ -17,4 +17,5 @@ select * from locations;
 
 delete from tracks where id = 481
 
+update tracks set equibase_scratch_track_name = 'CHURCHILL DOWNS' where track_code = 'CD'
 

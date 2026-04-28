@@ -21,3 +21,6 @@ where data_source_type = 'egps'
 and modification_type = 'automatically_adjusted'
 and rating_type = 'beyer_race'
 limit 100;
+
+select * from start_handicapping_facts;
+
