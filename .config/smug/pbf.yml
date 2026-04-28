@@ -74,3 +74,13 @@ windows:
           - ""
       - commands:
           - ""
+  - name: twinspires_scrape
+    root: ~/dev/project_b_twinspires_scrape_cli
+    layout: main-vertical
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""

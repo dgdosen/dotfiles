@@ -6,7 +6,8 @@ root: ~/dev/project_b_api/
 windows:
   - name: api
     root: ~/dev/project_b_api/
-    layout: main-horizontal
+    layout: "f212,427x101,0,0[427x70,0,0{233x70,0,0,1,193x70,234,0,22},427x30,0,71{214x30,0,71,3,212x30,215,71,2}]"
+    # layout: main-horizontal
     commands:
       - nvim
     panes:
@@ -16,7 +17,8 @@ windows:
           - nvim
   - name: run
     root: ~/dev/project_b_api/
-    layout: main-horizontal
+    # layout: main-horizontal
+    layout: "f926,427x101,0,0[427x61,0,0,4,427x39,0,62{214x39,0,62,6,212x39,215,62,5}]"
     commands:
       - nvim
     panes:
@@ -26,7 +28,8 @@ windows:
           - bundle exec sidekiq -C config/sidekiq.yml
   - name: sql
     root: ~/dev/project_b_api/
-    layout: main-horizontal
+    layout: "7dc3,427x101,0,0[427x70,0,0,7,427x30,0,71{215x30,0,71,9,211x30,216,71,8}]"
+    # layout: main-horizontal
     commands:
       - nvim
     panes:
@@ -36,11 +39,23 @@ windows:
           - ""
   - name: racing_form
     root: ~/dev/project_b_racing_form/
-    layout: main-vertical
+    # layout: main-vertical
+    layout: "6892,427x101,0,0{252x101,0,0,10,174x101,253,0[174x51,253,0,12,174x49,253,52,11]}"
     commands:
       - nvim
     panes:
       - commands:
           - yarn dev
+      - commands:
+          - ""
+  - name: tui
+    root: ~/dev/project_b_tui/
+    # layout: main-vertical
+    layout: "ba6d,427x101,0,0[427x65,0,0,20,427x35,0,66{213x35,0,66,28,213x35,214,66,60}]"
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
       - commands:
           - ""
