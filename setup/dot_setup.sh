@@ -64,6 +64,9 @@ ln -sfnv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 ln -sfnv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config/fish/functions/fish_user_key_bindings.fish
 ln -sfnv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 
+# bearcli (link Bear.app's CLI into ~/.local/bin)
+[ ! -L "$HOME/.local/bin/bearcli" ] && ln -sfnv /Applications/Bear.app/Contents/MacOS/bearcli "$HOME/.local/bin/bearcli"
+
 # project b dropbox
 if [ ! -L "$HOME/dropboxm" ]; then
   if [ -d "$HOME/makerboarding Dropbox/Daniel Dosen" ]; then
