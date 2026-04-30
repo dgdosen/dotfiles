@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 export PATH="$HOME/.local/bin:$PATH"
 
-# Create 7 daily notes + 1 weekly note in Bear via bcli
-# Replaces bear_weekly_create which used bear_export_sync.py
+# Create 7 daily notes + 1 weekly note in Bear via bearcli
 
 LOG_FILE=~/.cron_support/bear_weekly_create.txt
 TODAY=$(date +%Y-%m-%d)
@@ -18,20 +17,17 @@ fi
 
 echo "running bear_weekly_create"
 
-# Refresh auth token before calling bcli
-bear-token-agent --once || { echo "Token refresh failed"; exit 1; }
-
 # Daily notes
 counter=1
 while [ $counter -le 7 ]; do
   TEMPLATE_DATE=$(date -v+${counter}d +"%Y-%m-%d")
-  cat ~/.dotfiles/templates/tasks.md | bcli create "${TEMPLATE_DATE}" --stdin
+  cat ~/.dotfiles/templates/tasks.md | bearcli create "${TEMPLATE_DATE}" --if-not-exists
   ((counter++))
 done
 
 # Weekly note
 WEEKLY_DATE=$(date -v+1d +"%Y-%m-%d")
-cat ~/.dotfiles/templates/weekly.md | bcli create "${WEEKLY_DATE}-Weekly" --stdin
+cat ~/.dotfiles/templates/weekly.md | bearcli create "${WEEKLY_DATE}-Weekly" --if-not-exists
 
 if [ $? -eq 0 ]; then
   echo "bear_weekly_create completed successfully"
