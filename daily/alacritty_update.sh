@@ -1,10 +1,10 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 set -euo pipefail
 
 # Config
 REPO="$HOME/dev/alacritty"
-INSTALL_DIR="$HOME/Applications"     # change to /Applications if you prefer (then use sudo on copy)
-TRACK="release"                      # "release" for latest tag, or "master" to follow the master branch
+INSTALL_DIR="/Applications"          # admin-writable on macOS, no sudo needed
+TRACK="master"                       # "release" for latest tag, or "master" to follow the master branch
 DO_RUST_UPDATE="auto"               # "auto" = do nothing unless build fails; "always" = rustup update stable first
 DEFAULT_BRANCH="master"             # Alacritty uses "master" as default branch
 
@@ -32,19 +32,22 @@ latest_release_tag() {
 }
 
 build_and_install() {
-  # macOS app bundle build
-  make app
+  # macOS app bundle build.
+  # Env vars work around a global gitconfig insteadOf rewrite that forces SSH
+  # for github.com and breaks libgit2 fetches of the x11-clipboard dep.
+  CARGO_NET_GIT_FETCH_WITH_CLI=true GIT_CONFIG_GLOBAL=/dev/null make app
   local src="target/release/osx/Alacritty.app"
   [[ -d "$src" ]] || { echo "Build succeeded but app bundle not found at $src"; exit 1; }
   mkdir -p "$INSTALL_DIR"
   rm -rf "$INSTALL_DIR/Alacritty.app"
   cp -R "$src" "$INSTALL_DIR/"
 
-  # Symlink the binary to /usr/local/bin for CLI access
+  # Symlink the binary into ~/.local/bin for CLI access (personal, no sudo, no Homebrew confusion).
   local bin_path="$INSTALL_DIR/Alacritty.app/Contents/MacOS/alacritty"
   if [[ -f "$bin_path" ]]; then
-    sudo ln -sf "$bin_path" /usr/local/bin/alacritty
-    echo "Symlinked alacritty to /usr/local/bin/alacritty"
+    mkdir -p "$HOME/.local/bin"
+    ln -sf "$bin_path" "$HOME/.local/bin/alacritty"
+    echo "Symlinked alacritty to $HOME/.local/bin/alacritty"
   fi
   touch ~/.cron_support/alacrity_update.txt
 
