@@ -74,8 +74,8 @@ windows:
           - ""
       - commands:
           - ""
-  - name: twinspires_scrape
-    root: ~/dev/project_b_twinspires_scrape_cli
+  - name: twinspires_odds_scrape
+    root: ~/dev/project_b_twinspires_odds_scrape_cli
     layout: main-vertical
     commands:
       - ""
