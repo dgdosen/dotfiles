@@ -1,0 +1,36 @@
+# ~/.config/smug/pbf.yml
+
+session: ts
+root: ~/dev/project_b_twinspires_odds_scrape_cli/
+
+windows:
+  - name: ts_odds_cli
+    root: ~/dev/project_b_twinspires_odds_scrape_cli/
+    layout: main-vertical
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: ts_data_cli
+    root: ~/dev/project_b_twinspires_data_scrape_cli/
+    layout: main-vertical
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: ts_data
+    root: ~/dev/project_b_twinspires_data/
+    layout: main-vertical
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
