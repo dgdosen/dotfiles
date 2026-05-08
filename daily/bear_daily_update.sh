@@ -17,7 +17,10 @@ fi
 
 echo "running bear_daily_update"
 
-bearcli edit --title "$TODAY" --at "updated prep" --replace "updated ${TODAY}"
+# Collapse Bear's auto-inserted blank line between title and body. No-op if absent.
+bearcli edit --title "$TODAY" --find "# ${TODAY}\n\n" --replace "# ${TODAY}\n" 2>/dev/null || true
+
+bearcli edit --title "$TODAY" --find "updated prep" --replace "updated ${TODAY}"
 
 if [ $? -eq 0 ]; then
   echo "bear_daily_update completed successfully"
