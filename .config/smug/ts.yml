@@ -34,3 +34,23 @@ windows:
           - ""
       - commands:
           - ""
+  - name: tmracingdata
+    root: ~/dev/project_b_tmracingdata/
+    layout: main-vertical
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: tmracingdata_cli
+    root: ~/dev/project_b_tmracingdata_scrape_cli/
+    layout: main-vertical
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
