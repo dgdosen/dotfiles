@@ -14,7 +14,6 @@ return {
       'rafamadriz/friendly-snippets',
       -- 'delphinus/cmp-ctags',
       'quangnguyen30192/cmp-nvim-tags',
-      -- 'zbirenbaum/copilot-cmp',
       'onsails/lspkind-nvim',
       'kristijanhusak/vim-dadbod-completion',
       -- -- if you want the sources is available for some file types
@@ -29,3 +28,4 @@ return {
     end,
   },
 }
+

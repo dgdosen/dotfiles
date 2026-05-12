@@ -15,16 +15,6 @@ require 'luasnip'.filetype_extend("ruby", { "rails" })
 require 'luasnip'.filetype_extend("typescript", { "ts" })
 
 
--- LSPKind & Highlight Configuration
-lspkind.init({
-  symbol_map = {
-    Copilot = "",
-  },
-})
-
--- Set Copilot highlight color
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#98971A" })
-
 -- Define completion source menu labels
 local source_menu = {
   buffer = "[buf]",
@@ -34,7 +24,6 @@ local source_menu = {
   path = "[path]",
   luasnip = "[snip]",
   gh_issues = "[issues]",
-  copilot = "[cp]",
   tags = '[tags]'
 }
 
@@ -46,10 +35,6 @@ local formatting_config = {
     ellipsis_char = '...',
     menu = source_menu,
     before = function(entry, vim_item)
-      -- Customize the appearance of different sources
-      if entry.source.name == 'copilot' then
-        vim_item.kind_hl_group = 'CmpItemKindCopilot'
-      end
       return vim_item
     end,
   })
@@ -97,12 +82,10 @@ cmp.setup {
   sources = cmp.config.sources({
     -- High priority: LSP and snippets
     { name = 'nvim_lsp', priority = 1000 },
-    { name = 'luasnip', priority = 750 },
+    { name = 'luasnip',  priority = 750 },
   }, {
-    -- Medium priority: AI assistance and tags
-    { name = 'copilot', priority = 600 },
-    { 
-      name = 'tags', 
+    {
+      name = 'tags',
       priority = 500,
       option = {
         complete_defer = 100,
@@ -114,8 +97,8 @@ cmp.setup {
     },
   }, {
     -- Lower priority: buffer text and paths
-    { name = 'buffer', keyword_length = 4, priority = 300 },
-    { name = 'path', priority = 250 },
+    { name = 'buffer',     keyword_length = 4, priority = 300 },
+    { name = 'path',       priority = 250 },
     { name = 'treesitter', priority = 200 },
   }),
   formatting = formatting_config,
@@ -140,7 +123,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 
--- Zsh file completion setup  
+-- Zsh file completion setup
 local zsh_augroup = vim.api.nvim_create_augroup("CmpZsh", { clear = true })
 
 vim.api.nvim_create_autocmd('FileType', {
