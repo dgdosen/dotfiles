@@ -1,5 +1,6 @@
-delete from odds_for_starts ;
-
+select * from odds_for_starts
+order by updated_at desc
+limit 100;
 
 select * from odds_for_starts
 -- where start_odds_code = 'morning line'

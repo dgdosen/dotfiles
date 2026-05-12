@@ -44,7 +44,7 @@ SELECT
 FROM starts
 INNER JOIN races ON races.id = starts.race_id
 INNER JOIN horses ON horses.id = starts.horse_id
-WHERE horses.name = 'TAPALO'
+WHERE horses.name = 'SISTER MOON'
 ORDER BY races.date DESC;
 
 the og..
@@ -71,7 +71,7 @@ select starts.id as start_id, starts.is_scratched, races.id as race_id, races.da
 where
 starts.id in (
   select id from  starts where trainer_id in (
-    select id from trainers where name = 'DAMATO PHILIP'
+    select id from trainers where name = 'HEADLEY BRUCE'
   )
 )
 and starts.id = calls.start_id
