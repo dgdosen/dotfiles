@@ -64,6 +64,10 @@ ln -sfnv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 ln -sfnv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config/fish/functions/fish_user_key_bindings.fish
 ln -sfnv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 
+# claude code
+[ ! -d "$HOME/.claude/scripts" ] && mkdir -p ~/.claude/scripts
+ln -sfnv ~/.dotfiles/.claude/scripts/notify.sh ~/.claude/scripts/notify.sh
+
 # ssh
 [ ! -d "$HOME/.ssh" ] && mkdir -p ~/.ssh && chmod 700 ~/.ssh
 ln -sfnv ~/.dotfiles/.ssh/config ~/.ssh/config
