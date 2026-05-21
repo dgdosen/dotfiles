@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
-set -e
 source ~/.zshrc
+set -e
 cd $HOME/dev/project_b_progressive_breeding_scrape_cli
 
 pnpm build
