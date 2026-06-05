@@ -3,22 +3,26 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.agidevelopment.bear_daily_update</string>
+    <string>com.agidevelopment.bear_seed</string>
+      <!-- Monthly seed: creates daily/weekly/monthly/quarterly notes for a -->
+      <!-- rolling ~6-month window. Runs on the 1st, just before bear_update. -->
       <key>ProgramArguments</key>
       <array>
-        <string>/Users/dgdosen/.dotfiles/daily/bear_daily_update.sh</string>
+        <string>/Users/dgdosen/.dotfiles/daily/bear_seed.sh</string>
       </array>
       <key>StartCalendarInterval</key>
       <dict>
+        <key>Day</key>
+        <integer>1</integer>
         <key>Hour</key>
         <integer>3</integer>
         <key>Minute</key>
-        <integer>15</integer>
+        <integer>5</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/log/bear_daily_update.out</string>
+    <string>/Users/dgdosen/log/bear_seed.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/log/bear_daily_update.err</string>
+    <string>/Users/dgdosen/log/bear_seed.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>

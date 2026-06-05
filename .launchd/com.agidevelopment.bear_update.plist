@@ -3,24 +3,23 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>com.agidevelopment.bear_weekly_create</string>
+    <string>com.agidevelopment.bear_update</string>
+      <!-- Daily touch: bumps today's daily + the current week/month/quarter notes -->
       <key>ProgramArguments</key>
       <array>
-        <string>/Users/dgdosen/.dotfiles/daily/bear_weekly_create.sh</string>
+        <string>/Users/dgdosen/.dotfiles/daily/bear_update.sh</string>
       </array>
       <key>StartCalendarInterval</key>
       <dict>
         <key>Hour</key>
-        <integer>21</integer>
+        <integer>3</integer>
         <key>Minute</key>
-        <integer>45</integer>
-        <key>Weekday</key>
-        <integer>6</integer>
+        <integer>15</integer>
       </dict>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/log/bear_weekly_create.out</string>
+    <string>/Users/dgdosen/log/bear_update.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/log/bear_weekly_create.err</string>
+    <string>/Users/dgdosen/log/bear_update.err</string>
     <key>SessionCreate</key>
     <true/>
   </dict>
