@@ -2,9 +2,12 @@
 # Usage: notify.sh "title" "message"
 TITLE="${1:-Claude Code}"
 MESSAGE="${2:-done}"
+ICON="$HOME/.dotfiles/.claude/scripts/claude-icon.png"
 
 ACTIVATE_ARGS=()
 EXECUTE_ARGS=()
+ICON_ARGS=()
+[ -f "$ICON" ] && ICON_ARGS=(-appIcon "$ICON")
 
 if [ -n "$TMUX" ] && [ -n "$TMUX_PANE" ]; then
   CONTEXT=$(tmux display-message -p -t "$TMUX_PANE" '#S · #I:#W')
@@ -30,6 +33,7 @@ fi
   -subtitle "$CONTEXT" \
   -message "$MESSAGE" \
   -group "claude:$CONTEXT" \
+  "${ICON_ARGS[@]}" \
   "${ACTIVATE_ARGS[@]}" \
   "${EXECUTE_ARGS[@]}" \
   >/dev/null
