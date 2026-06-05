@@ -59,3 +59,14 @@ windows:
           - ""
       - commands:
           - ""
+  - name: pars
+    root: ~/dev/project_b_unified_pars
+    # layout: main-vertical
+    layout: "ba6d,427x101,0,0[427x65,0,0,20,427x35,0,66{213x35,0,66,28,213x35,214,66,60}]"
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
