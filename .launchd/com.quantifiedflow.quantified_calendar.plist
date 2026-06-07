@@ -12,5 +12,9 @@
     <integer>1800</integer>
     <key>RunAtLoad</key>
     <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/quantified_calendar.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/quantified_calendar.err</string>
 </dict>
 </plist>
