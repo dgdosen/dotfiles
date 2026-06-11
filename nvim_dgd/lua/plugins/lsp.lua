@@ -11,7 +11,6 @@ return {
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
       -- 'j-hui/fidget.nvim',
-      'jose-elias-alvarez/typescript.nvim',
       'b0o/schemastore.nvim',
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
@@ -30,6 +29,22 @@ return {
         end,
       })
       vim.lsp.enable("sourcekit")
+    end,
+  },
+
+  -- TypeScript/JavaScript LSP. Native tsserver client; replaces the
+  -- archived jose-elias-alvarez/typescript.nvim. Provides :TSTools* commands
+  -- (see <leader>t* maps in setup/which-key.lua). Shares the standard LSP
+  -- on_attach so TS buffers get the same gd/gr/K/rename/code-action maps.
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp' },
+    ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+    opts = function()
+      return {
+        on_attach = require('setup.lsp_on_attach'),
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      }
     end,
   },
 

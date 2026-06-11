@@ -1,52 +1,10 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 -- LSP settings.
---  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- In this case, we create a function that lets us more easily define mappings specific
-  -- for LSP related items. It sets the mode, buffer and description for us each time.
-  local nmap = function(keys, func, desc)
-    if desc then
-      desc = 'LSP: ' .. desc
-    end
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-  end
-
-  nmap('<leader>rn', vim.lsp.buf.rename, '[r]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[c]ode [a]ction')
-
-  nmap('gd', vim.lsp.buf.definition, '[g]oto [d]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[g]oto [r]eferences')
-  nmap('gI', vim.lsp.buf.implementation, '[g]oto [I]mplementation')
-  nmap('<leader>D', vim.lsp.buf.type_definition, 'type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[d]ocument [s]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[w]orkspace [s]ymbols')
-
-  -- See `:help K` for why this keymap
-  nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
-  -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')
-  nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-  nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-  nmap('<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, '[W]orkspace [L]ist Folders')
-
-  nmap("<leader>lf", function()
-    vim.lsp.buf.format({ async = true })
-  end, 'null-[L]s [F]ormat')
-
-  -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
-end
+--  on_attach runs when an LSP connects to a buffer; it wires the buffer-local
+--  keymaps. Extracted to setup/lsp_on_attach.lua so typescript-tools.nvim
+--  (which sets itself up independently of this servers loop) shares the maps.
+local on_attach = require('setup.lsp_on_attach')
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
