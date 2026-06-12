@@ -69,14 +69,13 @@ if [[ "`uname`" == "Darwin" ]]
 then
   # echo 'darwin oh-my-zsh'
   # NOTE: removing zsh-syntax-highlighting and zsh-autosuggestions here - as they're loaded via homebrew
-  plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases )
-  # plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-syntax-highlighting zsh-autosuggestions )
+  plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux vi-mode common-aliases )
+  # plugins=(git git-extras lol powify dgdosen brew docker capistrano gem zeus tmux vi-mode common-aliases zsh-syntax-highlighting zsh-autosuggestions )
 else
   # echo 'linux oh-my-zsh'
-  plugins=(git git-extras lol powify dgdosen docker capistrano gem zeus tmux tmuxinator vi-mode common-aliases zsh-syntax-highlighting)
+  plugins=(git git-extras lol powify dgdosen docker capistrano gem zeus tmux vi-mode common-aliases zsh-syntax-highlighting)
 fi
 
-source ~/.bin/tmuxinator.zsh
 export DISABLE_AUTO_TITLE=true
 
 
@@ -133,8 +132,8 @@ export DIGITALOCEAN_ENABLE_BETA=1
 export REGION=us-east1
 export MACHINE_TYPE=n1-standard-1
 
-# Setting ag as the default source for fzf
-export FZF_DEFAULT_COMMAND='ag -g ""'
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 # calc time since last commit
 # export SINCE_LAST_COMMIT="$(prompt_grb_scm_time_since_commit)"

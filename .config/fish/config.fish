@@ -17,8 +17,6 @@ set -gx EDITOR nvim
 alias cc clear
 alias gh github
 alias tkss 'tmux kill-session -t'
-# why isn't this alias loaded in comletions?
-alias mux tmuxinator
 
 # cd
 function c

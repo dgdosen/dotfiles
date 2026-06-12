@@ -70,14 +70,6 @@ fzffd() {
  cd "$dir"
 }
 
-fzfag() {
-  local dir
-  dir=$(ag --hiden ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-
-}
-
 fzfcd() {
     if [[ "$#" != 0 ]]; then
         builtin cd "$@";

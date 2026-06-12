@@ -2,12 +2,11 @@
 # - link files based on all files?
 # - link files based on folders and environment!
 
-# bin (for tmuxinator?)
+# bin
 [ ! -L "$HOME/.bin" ] && ln -sfnv ~/.dotfiles/.bin ~/.bin
 
 # dotfiles
 ln -sfnv ~/.dotfiles/.ackrc  ~/.ackrc
-ln -sfnv ~/.dotfiles/.agignore  ~/.agignore
 ln -sfnv ~/.dotfiles/.androidrc  ~/.androidrc
 ln -sfnv ~/.dotfiles/.bash_profile  ~/.bash_profile
 ln -sfnv ~/.dotfiles/.bashrc  ~/.bashrc
@@ -31,7 +30,6 @@ ln -sfnv "$DB_SOURCE" "$HOME/.local/share/db_ui"
 [ ! -L "$HOME/.tmux" ] && ln -sfnv ~/.dotfiles/.tmux ~/.tmux
 # ln -sfnv ~/.dotfiles/.tmux-theme-gruvbox.conf ~/.tmux-theme-gruvbox.conf
 ln -sfnv ~/.dotfiles/.tmux.conf ~/.tmux.conf
-[ ! -L "$HOME/.tmuxinator" ] && ln -sfnv ~/.dotfiles/.tmuxinator ~/.tmuxinator
 
 # vim/nvim
 [ ! -L "$HOME/.vim" ] && ln -sfnv ~/.dotfiles/.vim ~/.vim
