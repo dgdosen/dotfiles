@@ -7,7 +7,8 @@ and races.date >= '2024-01-01' and date <= '2024-12-31';
 
 -- races for a date
 select * from races where track_code in ('SA', 'DMR', 'CD')
-and races.date = '2026-02-21';
+and races.date = '2026-03-20';
+
 
 -- races with starts (horse names) for track_code
 select races.track_code, races.date, races.race_number, starts.pp2_program_number, starts.id,horses.name

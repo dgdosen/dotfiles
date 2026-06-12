@@ -36,3 +36,5 @@ ORDER BY track_id, race_date, race_number;
 
 select program_description, results_description, track_condition from equibase_races
 where id in (7, 200)
+
+select * from equibase_calls;

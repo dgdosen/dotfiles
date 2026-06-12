@@ -1,10 +1,40 @@
-select * from breeding_ratings order by date(updated_at) desc limit 1000;
+select * from breeding_ratings
+where date(updated_at) >= '2026-03-22'
+order by date(updated_at) desc, horse_id limit 1000;
+
+select * from breeding_ratings limit 1001;
+select distinct status from breeding_ratings;
+select distinct crop_number from breeding_ratings;
+
+update breeding_ratings
+set crop_number = null
+where date(updated_at) >'2026-03-22';
+
+delete from breeding_ratings
+where date(updated_at) = '2026-03-23';
+
+SELECT
+    br.*,
+    h.name AS horse_name
+  FROM breeding_ratings br
+  JOIN horses h ON h.id = br.horse_id
+  WHERE date(br.updated_at) > '2026-03-22'
+  ORDER BY br.horse_id, br.updated_at DESC
+  LIMIT 1000;
+
+
+
+-- breeding ratings by year and source
+select count(id), year from breeding_ratings
+group by year
+order by year;
+
 
 select distinct status from breeding_ratings order by status;
 
 select * from breed
 
-select * from breeding_ratings 
+select * from breeding_ratings
 where horse_id = 24230
 and year = 2025
 order by date(updated_at) desc, date(created_at) ;
@@ -30,7 +60,7 @@ select count(horse_id) from breeding_ratings;
 select * from breeding_ratings where horse_id is null;
 
 select * from breeding_ratings where horse_id in (
-  select id from horses where name = 'ACCLAMATION'
+  select id from horses where name = 'ALWAYS DREAMING'
 );
 
 select * from horses where name = 'SIR PERCY';
