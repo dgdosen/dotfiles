@@ -1,8 +1,7 @@
-# Shared/default Homebrew bundle — the fallback package set for any machine.
-# Setup prefers a per-host file (Brewfile-$(scutil --get LocalHostName)) and falls
-# back to THIS file when none exists. Main working Mac (dg-mba-m5) uses
-# Brewfile-dg-mba-m5; other machines have Brewfile-bighead/-hendricks/-manistee.
-# See setup/README.md "Install everything via Brewfile".
+# Homebrew bundle for dg-mba-m5 — MAIN working Mac (Apple Silicon, AI + dev).
+# Selected automatically by host name (scutil --get LocalHostName); the generic
+# Brewfile is the shared fallback. Keep THIS file as the source of truth for this
+# machine. Container/k8s stack: orbstack (engine + built-in k3s), kind, k3d-optional.
 tap "gcenx/wine"
 tap "hamed-elfayome/claude-usage"
 tap "jzelinskie/duckdns"

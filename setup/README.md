@@ -27,13 +27,22 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 ## 5. Install everything via Brewfile
 
-Sign into the Mac App Store first, then:
+Sign into the Mac App Store first, then run the host-aware bundle. It uses a
+per-machine file (`Brewfile-<LocalHostName>`) if one exists, otherwise the shared
+`Brewfile`:
 
 ```
-brew bundle --file=~/.dotfiles/.brew/Brewfile
+host=$(scutil --get LocalHostName)
+file=~/.dotfiles/.brew/Brewfile-$host
+[ -f "$file" ] || file=~/.dotfiles/.brew/Brewfile
+brew bundle --file="$file"
 ```
 
 This installs CLI tools, casks, VS Code extensions, Mac App Store apps, and cargo packages.
+
+Per-machine files: `Brewfile-dg-mba-m5` (main Mac), `Brewfile-bighead`,
+`Brewfile-hendricks`, `Brewfile-manistee`. The generic `Brewfile` is the shared
+fallback for any host without its own file.
 
 ## 6. Create machine-specific config
 
