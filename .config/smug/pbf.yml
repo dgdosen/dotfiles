@@ -2,7 +2,6 @@
 
 session: pbf
 root: ~/dev/project_b_equibase_scrape_cli/
-
 windows:
   - name: egps
     root: ~/dev/project_b_equibase_scrape_cli/
@@ -76,6 +75,16 @@ windows:
           - ""
   - name: twinspires_odds_scrape
     root: ~/dev/project_b_twinspires_odds_scrape_cli
+    layout: main-vertical
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: twinspires_data_scrape
+    root: ~/dev/project_b_twinspires_data_scrape_cli
     layout: main-vertical
     commands:
       - ""
