@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.quantifiedflow.quantified_so_serve</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/dgdosen/.dotfiles/daily/quantified_so_serve.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/quantified_so_serve.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/quantified_so_serve.err</string>
+</dict>
+</plist>
