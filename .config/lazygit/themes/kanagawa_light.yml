@@ -1,0 +1,22 @@
+# === KANAGAWA LOTUS (LIGHT) ===
+activeBorderColor:
+  - "#4d699b" # kanagawa blue
+  - bold
+inactiveBorderColor:
+  - "#a09cac" # kanagawa grey
+optionsTextColor:
+  - "#4d699b" # kanagawa blue
+selectedLineBgColor:
+  - "#dcd5ac" # kanagawa lotusWhite1
+selectedRangeBgColor:
+  - "#dcd5ac" # kanagawa lotusWhite1
+cherryPickedCommitBgColor:
+  - "#624c83" # kanagawa purple
+cherryPickedCommitFgColor:
+  - "#4d699b" # kanagawa blue
+unstagedChangesColor:
+  - "#c84053" # kanagawa red
+defaultFgColor:
+  - "#545464" # kanagawa fg
+searchingActiveBorderColor:
+  - "#de9800" # kanagawa yellow

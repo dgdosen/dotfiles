@@ -24,6 +24,10 @@ local function load_theme()
         ["everforest-dark"] = "everforest",
         ["everforest_light"] = "everforest",
         ["everforest-light"] = "everforest",
+        ["kanagawa_dark"] = "kanagawa-wave",
+        ["kanagawa-dark"] = "kanagawa-wave",
+        ["kanagawa_light"] = "kanagawa-lotus",
+        ["kanagawa-light"] = "kanagawa-lotus",
       }
 
       local colorscheme = theme_map[theme] or theme

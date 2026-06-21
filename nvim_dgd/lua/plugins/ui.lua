@@ -74,6 +74,21 @@ return {
     end
   },
 
+  {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+    config = function()
+      require("kanagawa").setup({
+        transparent = true,
+        theme = "wave",
+        background = {
+          dark = "wave",
+          light = "lotus",
+        },
+      })
+    end
+  },
+
   -- { 'shaunsingh/nord.nvim' },
   -- { 'folke/tokyonight.nvim' },
 

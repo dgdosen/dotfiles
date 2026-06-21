@@ -1,0 +1,22 @@
+# === KANAGAWA WAVE (DARK) ===
+activeBorderColor:
+  - "#7e9cd8" # kanagawa blue
+  - bold
+inactiveBorderColor:
+  - "#727169" # kanagawa grey
+optionsTextColor:
+  - "#7e9cd8" # kanagawa blue
+selectedLineBgColor:
+  - "#54546d" # kanagawa sumiInk4
+selectedRangeBgColor:
+  - "#54546d" # kanagawa sumiInk4
+cherryPickedCommitBgColor:
+  - "#957fb8" # kanagawa purple
+cherryPickedCommitFgColor:
+  - "#7e9cd8" # kanagawa blue
+unstagedChangesColor:
+  - "#c34043" # kanagawa red
+defaultFgColor:
+  - "#dcd7ba" # kanagawa fg
+searchingActiveBorderColor:
+  - "#e6c384" # kanagawa yellow
