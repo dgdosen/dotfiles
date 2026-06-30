@@ -1,0 +1,36 @@
+# ~/.config/smug/ai.yml
+
+session: hchoa
+root: ~/dev/accountingtrak_hchoa/
+
+windows:
+  - name: hc_hoa
+    root: ~/dev/accountingtrak_hchoa/
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: receipts
+    root: ~/dev/accountingtrak_cash_receipts/
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: bank_rec
+    root: ~/dev/accountingtrak_bank_rec/
+    layout: main-vertical
+    commands:
+      - nvim
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
