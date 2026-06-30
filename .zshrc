@@ -20,6 +20,7 @@ source $HOME/.zsh_customizations/fetch_daily.sh
 source $HOME/.zsh_customizations/project_b_aliases.sh
 source $HOME/.zsh_customizations/prouductivity_aliases.sh
 source $HOME/.zsh_customizations/vim_aliases.sh
+source $HOME/.zsh_customizations/mosh.sh
 
 export CORS_ORIGN='*'
 

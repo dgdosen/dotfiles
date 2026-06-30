@@ -1,16 +1,103 @@
-# i recommend setting up the following alias first
-alias firepower='sudo /usr/libexec/ApplicationFirewall/socketfilterfw'
+# mosh firewall helper
+#
+# WHY THIS EXISTS
+# ---------------
+# macOS's application firewall keys its allow/block rules on the *resolved*
+# binary path. Homebrew installs each mosh version into a fresh dir:
+#     /opt/homebrew/Cellar/mosh/<version>/bin/mosh-server
+# so every `brew upgrade mosh` produces a brand-new path the firewall treats as
+# an unknown app and BLOCKS by default. The ssh handshake still works (TCP 22),
+# but mosh's UDP traffic gets dropped -> connections just hang. Classic symptom:
+# "mosh won't activate" even though ssh + keys are fine.
+#
+# Symlinks don't help: the firewall canonicalizes /opt/homebrew/bin/mosh-server
+# down to the versioned Cellar path, so you can't pre-allow a stable path. Each
+# upgrade also leaves a stale firewall entry pointing at the now-deleted old
+# version (harmless clutter).
+#
+# mosh_firewall_sync() re-allows the CURRENT mosh-server/-client binaries and
+# prunes stale entries for versions no longer on disk. It's called at the end of
+# brewup() (see environment_aliases.sh).
+#
+# It is careful about sudo:
+#   * It only escalates when a change is actually needed (state reads need no
+#     sudo), so normal `brewup` runs with mosh already in sync won't prompt.
+#   * It is TTY-aware: interactively it uses plain `sudo` (prompts once);
+#     unattended (the nightly launchd brewup) it uses `sudo -n` and skips
+#     silently instead of hanging forever on a password prompt with no terminal.
+#
+# Manual fallback if you ever want to do it by hand:
+#     alias firepower='sudo /usr/libexec/ApplicationFirewall/socketfilterfw'
+#     firepower --add       "$(readlink -f "$(command -v mosh-server)")"
+#     firepower --unblockapp "$(readlink -f "$(command -v mosh-server)")"
 
-# temporarily shut firewall off
-firepower --setglobalstate off
+mosh_firewall_sync() {
+  local fw=/usr/libexec/ApplicationFirewall/socketfilterfw
+  [[ -x "$fw" ]] || return 0                                  # macOS only
+  command -v mosh-server >/dev/null 2>&1 || return 0          # mosh installed?
 
-# add symlinked location to firewall
-firepower --add $(which mosh-server)
-firepower --unblockapp $(which mosh-server)
+  # Firewall off -> nothing to allow.
+  "$fw" --getglobalstate 2>/dev/null | grep -q enabled || return 0
 
-# add homebrew location to firewall
-firepower --add $(brew --prefix)/Cellar/mosh/1.4.0/bin/mosh-server
-firepower --unblockapp $(brew --prefix)/Cellar/mosh/1.4.0/bin/mosh-server
+  # Resolve current binaries (follow homebrew symlinks to real Cellar paths).
+  local server client
+  server=$(readlink -f "$(command -v mosh-server)" 2>/dev/null)
+  client=$(readlink -f "$(command -v mosh-client)" 2>/dev/null)
 
-# re-enable firewall
-firepower --setglobalstate on
+  local listing
+  listing=$("$fw" --listapps 2>/dev/null)
+
+  # --- Decide what needs doing, WITHOUT sudo (listapps reads are unprivileged) ---
+
+  # Stale: firewall entries for mosh Cellar binaries that no longer exist on disk.
+  local -a to_remove=()
+  local path
+  while IFS= read -r path; do
+    [[ -n "$path" && ! -e "$path" ]] && to_remove+=("$path")
+  done < <(print -r -- "$listing" \
+             | grep -oE '/[^ ]*/Cellar/mosh/[^ ]*/bin/mosh-(server|client)')
+
+  # Allowed? entry for $1 exists in $listing and its status line says "Allow".
+  # NB: awk's `exit` runs the END block first, so we set a flag in the match and
+  # decide the exit code once in END (an `exit 0` mid-rule would otherwise be
+  # overridden by an `exit 1` in END).
+  _mosh_fw_allowed() {
+    print -r -- "$listing" \
+      | awk -v b="$1" 'index($0,b){getline; if ($0 ~ /Allow/) f=1} END{exit f?0:1}'
+  }
+
+  local needs_allow=0
+  [[ -n "$server" ]] && ! _mosh_fw_allowed "$server" && needs_allow=1
+  [[ -n "$client" ]] && ! _mosh_fw_allowed "$client" && needs_allow=1
+
+  (( ${#to_remove} == 0 && needs_allow == 0 )) && return 0    # already in sync
+
+  # --- Something to do: choose sudo mode (TTY-aware so cron never hangs) ---
+  local -a SUDO
+  if [[ -t 0 ]]; then
+    SUDO=(sudo)
+    echo "🔧 mosh: syncing firewall rules (may prompt for your password)…"
+  else
+    SUDO=(sudo -n)                                            # unattended
+  fi
+
+  # Confirm we can sudo; in -n mode this fails fast rather than hanging.
+  if ! "${SUDO[@]}" -v 2>/dev/null; then
+    [[ -t 0 ]] && echo "⚠️  mosh: firewall sync skipped (sudo unavailable)."
+    return 0
+  fi
+
+  local p
+  for p in "${to_remove[@]}"; do
+    echo "  🗑️  mosh: removing stale firewall entry -> $p"
+    "${SUDO[@]}" "$fw" --remove "$p" >/dev/null 2>&1
+  done
+  if (( needs_allow )); then
+    for p in "$server" "$client"; do
+      [[ -n "$p" ]] || continue
+      "${SUDO[@]}" "$fw" --add       "$p" >/dev/null 2>&1
+      "${SUDO[@]}" "$fw" --unblockapp "$p" >/dev/null 2>&1
+    done
+    echo "  ✅ mosh: allowed current binaries through firewall"
+  fi
+}

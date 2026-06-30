@@ -56,6 +56,10 @@ brewup() {
   xattr -d com.apple.quarantine $(which claude) 2>/dev/null
   xattr -d com.apple.quarantine $(which mosh-server) 2>/dev/null
   xattr -d com.apple.quarantine "/Applications/Google Chrome.app" 2>/dev/null
+  # Re-allow the (possibly upgraded) mosh-server through the macOS app firewall
+  # and prune stale entries. Defined in mosh.sh; no-op if nothing changed.
+  # TTY-aware: prompts interactively, skips silently under the nightly launchd run.
+  command -v mosh_firewall_sync >/dev/null 2>&1 && mosh_firewall_sync
 }
 
 armify() {
