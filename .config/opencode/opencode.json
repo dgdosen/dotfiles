@@ -14,6 +14,23 @@
           "tools": true
         }
       }
+    },
+    "mlx": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "MLX (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8080/v1"
+      },
+      "models": {
+        "mlx-community/Qwen3-Coder-30B-A3B-Instruct-4bit": {
+          "name": "Qwen3 Coder 30B A3B MLX",
+          "tools": true
+        },
+        "mlx-community/Llama-3.2-3B-Instruct-4bit": {
+          "name": "Llama 3.2 3B MLX",
+          "tools": true
+        }
+      }
     }
   }
 }
