@@ -28,7 +28,12 @@ else
   CONTEXT="$(basename "$PWD")"
 fi
 
-/opt/homebrew/bin/terminal-notifier \
+# Try terminal-notifier first (rich: custom icon + click-to-switch-tmux).
+# Under tmux it often can't reach NotificationCenter because the tmux server
+# lives in the "Background" launchd domain, not "Aqua" — in that case fall
+# back to osascript, which dispatches via AppleEvents and works from any
+# session. Always exit 0 so the Stop hook never reports a failure.
+if ! /opt/homebrew/bin/terminal-notifier \
   -title "$TITLE" \
   -subtitle "$CONTEXT" \
   -message "$MESSAGE" \
@@ -36,4 +41,11 @@ fi
   "${ICON_ARGS[@]}" \
   "${ACTIVATE_ARGS[@]}" \
   "${EXECUTE_ARGS[@]}" \
-  >/dev/null
+  >/dev/null 2>&1
+then
+  # Escape backslashes and double quotes for safe embedding in AppleScript.
+  esc() { printf '%s' "$1" | sed 's/\\/\\\\/g; s/"/\\"/g'; }
+  osascript -e "display notification \"$(esc "$MESSAGE")\" with title \"$(esc "$TITLE")\" subtitle \"$(esc "$CONTEXT")\"" >/dev/null 2>&1
+fi
+
+exit 0
