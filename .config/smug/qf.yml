@@ -14,8 +14,38 @@ windows:
           - ""
       - commands:
           - ""
+  - name: q_so
+    root: ~/dev/quantified_so/
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          -
+      - commands:
+          -
+  - name: q_census
+    root: ~/dev/quantified_worktree_census/
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          -
+      - commands:
+          -
+  - name: q_ca
+    root: ~/dev/quantified_calendar/
+    layout: main-horizontal
+    commands:
+      - nvim
+    panes:
+      - commands:
+          -
+      - commands:
+          -
   - name: working_title
-    root: ~/dev/working_title//
+    root: ~/dev/working_title/
     layout: main-horizontal
     commands:
       - nvim
