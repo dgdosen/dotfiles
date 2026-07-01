@@ -14,19 +14,23 @@ vim.o.relativenumber = true
 -- ? not working on linux
 vim.o.cursorline = true
 
--- clipboard (OSC 52 for copy, native pbpaste for paste to avoid timeout)
-vim.o.clipboard = 'unnamedplus'
+-- clipboard (OSC 52 for copy, native pbpaste for local paste)
+local is_remote = vim.env.SSH_CONNECTION or vim.env.SSH_TTY or vim.env.MOSH_IP or vim.env.MOSH_PORT
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
   },
-  paste = {
+  paste = is_remote and {} or {
     ['+'] = function() return vim.fn.systemlist('pbpaste') end,
     ['*'] = function() return vim.fn.systemlist('pbpaste') end,
   },
 }
+
+if not is_remote then
+  vim.o.clipboard = 'unnamedplus'
+end
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
