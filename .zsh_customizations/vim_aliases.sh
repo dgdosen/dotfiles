@@ -44,7 +44,9 @@ nvim_lua() {
 
 nvim_up() {
   nvim --headless '+Lazy! sync' +qa
-  nvim --headless '+MasonUpdateAll' +qa
+  # MasonUpdate refreshes the package registry. (There is no MasonUpdateAll in
+  # mason.nvim; that command errored every run with E492. To upgrade installed
+  # packages, open :Mason and press U, or add mason-tool-installer.)
   nvim --headless '+MasonUpdate' +qa
 }
 
