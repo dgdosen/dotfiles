@@ -39,6 +39,11 @@ vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[s]earch [k]eymaps'
 vim.keymap.set('n', '<leader>sf', function()
   builtin.find_files { hidden = true }
 end, { desc = '[s]earch [f]iles' })
+-- Full sweep: also ignore .gitignore, so gitignored paths (node_modules, build
+-- dirs, etc.) show up too. Counterpart to <leader>sG for grep.
+vim.keymap.set('n', '<leader>sF', function()
+  builtin.find_files { hidden = true, no_ignore = true }
+end, { desc = '[s]earch [F]iles (incl. gitignored)' })
 vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[s]earch Telescope [s]ymbols' })
 vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[s]earch current [w]ord' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[s]earch by [g]rep' })
