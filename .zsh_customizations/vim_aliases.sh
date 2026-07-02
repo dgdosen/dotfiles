@@ -44,6 +44,7 @@ nvim_lua() {
 
 nvim_up() {
   nvim --headless '+Lazy! sync' +qa
+  nvim --headless -c "TSUpdate" +qa
   # Update Mason packages. `+MasonUpdate +qa` never worked headless: Mason's
   # installs are async and +qa quit before they finished (silent no-op). The
   # old `+MasonUpdateAll` also errored (E492 — not a real command). This script

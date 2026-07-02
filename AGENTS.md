@@ -35,11 +35,13 @@ Common maintenance commands
 - Nightly maintenance: `daily/nightly_update.sh`
 
 Neovim maintenance helpers
-- Zsh function `nvimup` is defined in `.zsh_customizations/environment_aliases.sh`.
+- Zsh function `nvim_up` is defined in `.zsh_customizations/vim_aliases.sh`.
 - If not in a zsh session, run headless directly:
   - `nvim --headless -c "Lazy! sync" +qa`
   - `nvim --headless -c "TSUpdate" +qa`
-  - `nvim --headless -c "MasonUpdateAll" +qa`
+  - `nvim --headless -c "luafile $HOME/.config/nvim/mason_update.lua" -c qa`
+    (Mason installs are async; `mason_update.lua` blocks until they finish.
+    `MasonUpdate`/`MasonUpdateAll` headless with `+qa` do not work — see the script.)
 
 Submodules
 - Zsh helpers `gsm` and `gsp` are in `.zsh_customizations/git_aliases.sh`.

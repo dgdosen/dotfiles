@@ -6,21 +6,8 @@ tm() {
   ~/.dotfiles/.zsh_customizations/tmux-sessionizer.sh
 }
 
-# clean up nvim
-nvimup() {
-
-  FOO=$PWD
-  cd ~/.dotfiles
-  nvim --headless -c "Lazy! sync" +qa
-  echo " -- Lazy Updated"
-  nvim --headless -c "TSUpdate" +qa
-  echo " -- TreeSitter Updated"
-  nvim --headless -c "MasonUpdateAll"
-  # nvim --headless -c 'UpdateRemotePlugins' +qa
-  echo " -- Mason Updated"
-  cd $FOO
-}
-
+# nvim maintenance lives in `nvim_up` (.zsh_customizations/vim_aliases.sh):
+# Lazy sync + TSUpdate + Mason update. The old `nvimup` duplicate was removed.
 
 # clean up dotfile submodules
 dotup() {
