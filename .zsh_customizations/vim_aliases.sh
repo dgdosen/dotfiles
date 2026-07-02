@@ -44,10 +44,12 @@ nvim_lua() {
 
 nvim_up() {
   nvim --headless '+Lazy! sync' +qa
-  # MasonUpdate refreshes the package registry. (There is no MasonUpdateAll in
-  # mason.nvim; that command errored every run with E492. To upgrade installed
-  # packages, open :Mason and press U, or add mason-tool-installer.)
-  nvim --headless '+MasonUpdate' +qa
+  # Update Mason packages. `+MasonUpdate +qa` never worked headless: Mason's
+  # installs are async and +qa quit before they finished (silent no-op). The
+  # old `+MasonUpdateAll` also errored (E492 — not a real command). This script
+  # refreshes the registry and reinstalls installed packages, blocking until the
+  # async jobs actually complete. See ~/.config/nvim/mason_update.lua.
+  nvim --headless -c "luafile $HOME/.config/nvim/mason_update.lua" -c qa
 }
 
 # nvim_up() {
