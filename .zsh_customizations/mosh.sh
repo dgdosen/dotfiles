@@ -31,6 +31,38 @@
 #     firepower --add       "$(readlink -f "$(command -v mosh-server)")"
 #     firepower --unblockapp "$(readlink -f "$(command -v mosh-server)")"
 
+# mosh keepalive wrapper
+# ----------------------
+# WHY THIS EXISTS
+# mosh rides a single UDP flow and, when the session is idle, sends only a
+# sparse heartbeat. That trickle is not enough to keep a laptop *remote* awake:
+# once idle, the remote either sleeps (on battery: pmset sleep=1, womp=0 so it
+# won't even wake for UDP) or its Wi-Fi radio drops to power-save and starts
+# dropping the inbound UDP -> the session freezes "after a while."
+#
+# The classic tell: the session stays alive as long as you *also* have an ssh
+# connection open to the same host, because ssh's TCP keepalives hold the remote
+# awake. Close the ssh session and mosh dies with it.
+#
+# Fix: have mosh launch its server under `caffeinate -dis`, so mosh-server
+# itself holds a power assertion (d=display, i=idle, s=system) for exactly the
+# life of the session and releases it on exit. The remote never goes idle, so
+# neither system sleep nor Wi-Fi power-save can starve the UDP flow. caffeinate
+# lives at /usr/bin/caffeinate (always present) and resolves mosh-server via the
+# same PATH the default `mosh` invocation already uses.
+#
+# Caveat: a laptop remote with the lid physically closed on battery and no
+# external power/display will still clamshell-sleep — nothing but power fixes
+# that.
+mosh() {
+  # Respect an explicit --server the caller passed; only inject our default.
+  local a
+  for a in "$@"; do
+    [[ $a == --server=* || $a == --server ]] && { command mosh "$@"; return }
+  done
+  command mosh --server="caffeinate -dis mosh-server" "$@"
+}
+
 mosh_firewall_sync() {
   local fw=/usr/libexec/ApplicationFirewall/socketfilterfw
   [[ -x "$fw" ]] || return 0                                  # macOS only
