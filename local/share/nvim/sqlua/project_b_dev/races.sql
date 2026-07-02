@@ -11,13 +11,13 @@ and races.date = '2026-03-20';
 
 
 -- races with starts (horse names) for track_code
-select races.track_code, races.date, races.race_number, starts.pp2_program_number, starts.id,horses.name
+select races.track_code, races.drf_long_class, races.date, races.track_condition_code, races.all_source_surface_code, races.race_number, starts.pp2_program_number, starts.post_position, starts.id,horses.name
 from races, starts, horses
 where races.id = starts.race_id
 and starts.horse_id = horses.id
 and races.track_code = 'SA'
-and races.date = '2026-04-05'
-and races.race_number = 5;
+and races.date = '2026-06-12'
+and races.race_number = 4;
 
 SELECT
   r.track_code,

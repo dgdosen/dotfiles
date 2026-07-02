@@ -25,30 +25,7 @@ update postings set debit_amount  = 1140 where id = 7895;
 select * from customers;
 select * from accounts;
 
--- cash receipts and posting transactons and accounts?
-select
--- invoices.payment_applied,
--- invoices.number,
-customer_payments.amount,
-customer_payments.id,
-customer_payments.customer_id,
-customer_payments.debit_financial_account_id,
-customer_payments.credit_financial_account_id,
-customer_payments.updated_at,
-accounts.name,
-accounts.description,
-posting_transactions.id,
-posting_transactions.posting_date,
-postings.memo
-from customer_payments, posting_transactions, postings, customers, accounts, customer_payment_items
-where customer_payments.id = posting_transactions.transactionable_id
-and posting_transactions.transactionable_type = 'CustomerPayment'
-and posting_transactions.id = postings.posting_transaction_id
-and customer_payment_items.customer_payment_id = customer_payments.id
-and accounts.name = 'Tom Damico'
-and customer_payments.customer_id = customers.id
-and accounts.id = customers.account_id
-order by posting_transactions.id desc;
+
 
 -- detail behind a cashrecipt
 select * from customer_payments, customer_payment_items

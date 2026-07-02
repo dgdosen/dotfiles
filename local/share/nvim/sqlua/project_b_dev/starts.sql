@@ -44,8 +44,29 @@ SELECT
 FROM starts
 INNER JOIN races ON races.id = starts.race_id
 INNER JOIN horses ON horses.id = starts.horse_id
-WHERE horses.name = 'SISTER MOON'
+WHERE horses.name = 'THE PADRE'
 ORDER BY races.date DESC;
+
+/* start detail - paul uses*/
+SELECT
+    races.date,
+    races.track_code,
+    races.race_number,
+    races.drf_long_class,
+    races.distance,
+    races.new_surface_code,
+    races.track_condition_code,
+    starts.post_position,
+    horses.name
+FROM races
+    INNER JOIN starts  ON races.id = starts.race_id
+    INNER JOIN horses  ON starts.horse_id = horses.id
+WHERE races.date = DATE '2026-06-12'
+    AND races.track_code = 'SA'
+    AND races.race_number = 4
+ORDER BY
+    races.race_number,
+    starts.post_position;
 
 the og..
 select starts.id as start_id, races.id as race_id, races.date, races.race_number, races.track_code, races.distance, races.all_source_surface_code, races.race_number, starts.program_number, starts.post_position, starts.pp3_post_position, starts.drf_beyer from races, starts
