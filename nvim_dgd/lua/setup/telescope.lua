@@ -32,18 +32,12 @@ end, { desc = '[/] fuzzily search in current buffer]' })
 local builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[s]earch [h]elp' })
 vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[s]earch [k]eymaps' })
--- hidden = true so dot-folders in this dotfiles repo (.config, .zsh_customizations,
--- etc.) are searchable. Still respects .gitignore (no_ignore stays false), so
--- gitignored junk like node_modules is NOT surfaced. Use <leader>sG-style
--- no_ignore only for the rare full sweep.
-vim.keymap.set('n', '<leader>sf', function()
-  builtin.find_files { hidden = true }
-end, { desc = '[s]earch [f]iles' })
--- Full sweep: also ignore .gitignore, so gitignored paths (node_modules, build
--- dirs, etc.) show up too. Counterpart to <leader>sG for grep.
+vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[s]earch [f]iles' })
+-- On-demand wider search: hidden dot-folders (.config, .zsh_customizations, etc.)
+-- plus gitignored paths (node_modules, build dirs). Counterpart to <leader>sG.
 vim.keymap.set('n', '<leader>sF', function()
   builtin.find_files { hidden = true, no_ignore = true }
-end, { desc = '[s]earch [F]iles (incl. gitignored)' })
+end, { desc = '[s]earch [F]iles (incl. hidden + gitignored)' })
 vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[s]earch Telescope [s]ymbols' })
 vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[s]earch current [w]ord' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[s]earch by [g]rep' })
