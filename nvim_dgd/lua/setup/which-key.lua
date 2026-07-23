@@ -71,11 +71,14 @@ wk.add({
   { "<leader>s",  group = "[s]earch ..." },
   { "<leader>sy", group = "rub[y] ..." },
   { "<leader>t",  group = "[t]ypescript and toggle ..." },
-  { "<leader>ta", ":TSToolsAddMissingImports<cr>",                                         desc = "[t]ypescript [a]dd missing imports" },
-  { "<leader>td", ":TSToolsGoToSourceDefinition<cr>",                                      desc = "[t]ypescript source [d]efinition" },
+  -- ts_ls code-action equivalents of the old :TSTools* commands. apply=true
+  -- runs the action without the picker; the *.ts action kinds are what
+  -- typescript-language-server advertises.
+  { "<leader>ta", function() vim.lsp.buf.code_action({ context = { only = { "source.addMissingImports.ts" } }, apply = true }) end, desc = "[t]ypescript [a]dd missing imports" },
+  { "<leader>td", vim.lsp.buf.definition,                                                  desc = "[t]ypescript source [d]efinition" },
   { "<leader>tl", ":ToggleAlternate<cr>",                                                  desc = "[t]oggle a[l]ternate" },
-  { "<leader>to", ":TSToolsOrganizeImports<cr>",                                           desc = "[t]ypescript [o]rganize" },
-  { "<leader>tr", ":TSToolsRemoveUnusedImports<cr>",                                       desc = "[t]ypescript [r]emove unused" },
+  { "<leader>to", function() vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true }) end,      desc = "[t]ypescript [o]rganize" },
+  { "<leader>tr", function() vim.lsp.buf.code_action({ context = { only = { "source.removeUnused.ts" } }, apply = true }) end,      desc = "[t]ypescript [r]emove unused" },
   { "<leader>v",  group = "[v]imwiki ..." },
   { "<leader>w",  ":w<cr>",                                                                desc = "[w]rite/save" },
   { "<leader>z",  group = "[z]en ..." },

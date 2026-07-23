@@ -12,7 +12,7 @@ windows:
       - nvim
     panes:
       - commands:
-          - bundle exec guard -nc
+          - bin/spec-watch
       - commands:
           - nvim
   - name: run

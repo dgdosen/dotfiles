@@ -14,13 +14,20 @@ vim.o.relativenumber = true
 -- ? not working on linux
 vim.o.cursorline = true
 
--- clipboard (OSC 52 for copy, native pbpaste for local paste)
+-- clipboard: native pbcopy/pbpaste when local, OSC 52 only when remote.
+-- OSC 52 copy is fragile locally — tmux/terminals cap the escape-sequence
+-- payload (~74-100KB), so large yanks (e.g. big DBUI/SQL result grids inside a
+-- tmux pane) silently fail to reach the system clipboard. pbcopy has no such
+-- cap, so copy now mirrors paste: native locally, OSC 52 only over SSH/mosh.
 local is_remote = vim.env.SSH_CONNECTION or vim.env.SSH_TTY or vim.env.MOSH_IP or vim.env.MOSH_PORT
 vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
+  name = is_remote and 'OSC 52' or 'pbcopy',
+  copy = is_remote and {
     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
     ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  } or {
+    ['+'] = function(lines) vim.fn.system('pbcopy', table.concat(lines, '\n')) end,
+    ['*'] = function(lines) vim.fn.system('pbcopy', table.concat(lines, '\n')) end,
   },
   paste = is_remote and {} or {
     ['+'] = function() return vim.fn.systemlist('pbpaste') end,

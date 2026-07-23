@@ -135,7 +135,8 @@ Key.on('o', ['ctrl', 'cmd', 'alt'], resizeToFraction(1, 3, 2, 3, 0, 1, 1, 1));
 
 // center - inner 1/2 width, full height
 Key.on('m', ['ctrl', 'cmd', 'alt'], resizeToFraction(1, 4, 1, 2, 0, 1, 1, 1));
-Key.on('n', ['ctrl', 'cmd', 'alt'], resizeToFraction(1, 6, 2, 3, 0, 1, 1, 1));
+// center - inner 3/4 width (1/8 margin each side), full height
+Key.on('n', ['ctrl', 'cmd', 'alt'], resizeToFraction(1, 8, 3, 4, 0, 1, 1, 1));
 
 
 // fill

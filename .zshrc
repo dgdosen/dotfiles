@@ -80,6 +80,11 @@ fi
 export DISABLE_AUTO_TITLE=true
 
 
+# Run oh-my-zsh's periodic self-update (a `git fetch` to github.com) in the
+# background instead of blocking startup — the default mode prompts/fetches
+# inline and was intermittently hanging new Alacritty windows.
+zstyle ':omz:update' mode background
+
 source $ZSH/oh-my-zsh.sh
 # source ~/.zsh/func/zsh_git_timer.sh
 

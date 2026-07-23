@@ -32,21 +32,12 @@ return {
     end,
   },
 
-  -- TypeScript/JavaScript LSP. Native tsserver client; replaces the
-  -- archived jose-elias-alvarez/typescript.nvim. Provides :TSTools* commands
-  -- (see <leader>t* maps in setup/which-key.lua). Shares the standard LSP
-  -- on_attach so TS buffers get the same gd/gr/K/rename/code-action maps.
-  {
-    'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp' },
-    ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
-    opts = function()
-      return {
-        on_attach = require('setup.lsp_on_attach'),
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
-      }
-    end,
-  },
+  -- TypeScript/JavaScript LSP is handled by Mason-managed ts_ls
+  -- (typescript-language-server), configured in setup/lsp.lua's `servers`
+  -- table. Replaced the former pmizio/typescript-tools.nvim so the server is
+  -- installed/managed by Mason rather than a global npm tsserver. The old
+  -- :TSTools* commands are gone; <leader>t* now maps to ts_ls code actions
+  -- (see setup/which-key.lua).
 
   -- Useful status updates for LSP
   {

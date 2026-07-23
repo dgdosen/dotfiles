@@ -2,8 +2,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 -- LSP settings.
 --  on_attach runs when an LSP connects to a buffer; it wires the buffer-local
---  keymaps. Extracted to setup/lsp_on_attach.lua so typescript-tools.nvim
---  (which sets itself up independently of this servers loop) shares the maps.
+--  keymaps. Lives in setup/lsp_on_attach.lua and is applied to every server in
+--  the `servers` loop below (ts_ls included).
 local on_attach = require('setup.lsp_on_attach')
 
 -- Enable the following language servers
@@ -22,6 +22,9 @@ local servers = {
   --   cmd = {"solargraph", "stdio"}
   -- },
   svelte = {},
+  -- TypeScript/JavaScript. Mason installs it as `typescript-language-server`;
+  -- lspconfig/mason-lspconfig name is `ts_ls`. Empty table = default settings.
+  ts_ls = {},
   -- gopls = {},
   -- pyright = {},
   rust_analyzer = {
