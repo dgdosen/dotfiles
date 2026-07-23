@@ -55,3 +55,9 @@ update postings set credit_amount = 380, memo = 'Customer Payment - Reclassified
 update postings set debit_amount = 380, memo = 'Customer Payment - Reclassified to 2025-05-23' where id = 7896;
 
 select * from postings where posting_transaction_id = 1199;
+
+
+select * from postings where memo = 'Customer Payment'
+and posting_transaction_id = 3680
+order by posting_transaction_id desc;
+

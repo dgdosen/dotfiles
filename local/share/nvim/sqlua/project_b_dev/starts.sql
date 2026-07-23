@@ -28,26 +28,26 @@ select starts.race_id, horses.id as horse_id, horses.name, program_number, post_
   and starts.race_id = 164685
 order by race_id, program_number;
 
-/* horse history */
-SELECT
-  starts.id AS start_id,
-  races.id AS race_id,
-  races.date,
-  races.race_number,
-  races.track_code,
-  races.distance,
-  races.all_source_surface_code,
-  starts.program_number,
-  starts.post_position,
-  starts.pp3_post_position,
-  starts.drf_beyer
-FROM starts
-INNER JOIN races ON races.id = starts.race_id
-INNER JOIN horses ON horses.id = starts.horse_id
-WHERE horses.name = 'THE PADRE'
-ORDER BY races.date DESC;
-
-/* start detail - paul uses*/
+  /* horse history */
+  SELECT
+    starts.id AS start_id,
+    races.id AS race_id,
+    races.date,
+    races.race_number,
+    races.track_code,
+    races.distance,
+    races.all_source_surface_code,
+    starts.program_number,
+    starts.post_position,
+    starts.pp3_post_position,
+    drf_starts.beyer AS drf_beyer
+  FROM starts
+  INNER JOIN races ON races.id = starts.race_id
+  INNER JOIN horses ON horses.id = starts.horse_id
+  LEFT OUTER JOIN drf_starts ON drf_starts.start_id = starts.id
+  WHERE horses.name = 'NYLIE'
+  ORDER BY races.date DESC;
+uu/* start detail - paul uses*/
 SELECT
     races.date,
     races.track_code,

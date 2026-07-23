@@ -20,6 +20,5 @@ from invoices, customers, accounts
 where invoices.customer_id = customers.id
 and accounts.id = customers.account_id
 order by invoices.number desc;
--- order by posting_transactions.updated_at desc;
 
 select * from invoices,
