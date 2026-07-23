@@ -59,14 +59,16 @@ ensure_podman() {
 # file, a bad edit, or a dev/prod mix-up BEFORE anything is scraped — critical
 # because these scrapers retire their source files afterwards either way, so
 # work posted to the wrong database is simply gone.
-# Usage: assert_prod_env <label> <env-file>
+# The API-root key defaults to API_ROOT; pass a third arg for repos that name it
+# differently (e.g. REACT_APP_API_ROOT).
+# Usage: assert_prod_env <label> <env-file> [api-root-key]
 assert_prod_env() {
-    local label="$1" envfile="$2" root
+    local label="$1" envfile="$2" key="${3:-API_ROOT}" root
     if [ ! -f "$envfile" ]; then
         echo "[$label] ✗ env-file not found: $envfile"
         return 1
     fi
-    root=$(env_val API_ROOT "$envfile")
+    root=$(env_val "$key" "$envfile")
     case "$root" in
         *"$EXPECTED_API_HOST"*)
             echo "[$label] target API: $root"
