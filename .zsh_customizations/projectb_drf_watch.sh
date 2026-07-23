@@ -2,7 +2,8 @@
 # Script to log files arriving in the DRF dropoff folder
 # NOTE: this shouldn't be needed - use this to debug any DRF issues.
 
-WATCH_DIR="/Users/dgdosen/dropboxm/joined_shares/project_b_share/documents/dropoff_drf_zips/to_be_processed"
+# Canonical share anchor: ~/project_b_share symlink (was ~/dropboxm/joined_shares/...).
+WATCH_DIR="$HOME/project_b_share/documents/dropoff_drf_zips/to_be_processed"
 LOG_FILE="/Users/dgdosen/log/projectb_drf.log"
 
 # Process all files in the queue directory

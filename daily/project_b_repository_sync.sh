@@ -1,6 +1,8 @@
 #!/bin/bash
 
-DROPBOX_BASE="/Users/dgdosen/makerboarding Dropbox/Daniel Dosen/joined_shares/project_b_share/repositories"
+# Canonical share anchor: ~/project_b_share symlink (was a hardcoded
+# "makerboarding Dropbox/Daniel Dosen/..." base that differs per machine).
+DROPBOX_BASE="$HOME/project_b_share/repositories"
 
 # Add repos here as needed
 rsync -av --delete \

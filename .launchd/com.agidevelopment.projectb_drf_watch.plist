@@ -11,9 +11,11 @@
         <string>/Users/dgdosen/.dotfiles/.zsh_customizations/projectb_drf_watch.sh</string>
     </array>
 
+    <!-- WatchPath via the canonical ~/project_b_share symlink. Literal path,
+         not $HOME — launchd does not expand env vars in plist strings. -->
     <key>WatchPaths</key>
     <array>
-        <string>/Users/dgdosen/dropboxm/joined_shares/project_b_share/documents/dropoff_drf_zips/to_be_processed</string>
+        <string>/Users/dgdosen/project_b_share/documents/dropoff_drf_zips/to_be_processed</string>
     </array>
 
     <key>StandardOutPath</key>

@@ -73,13 +73,23 @@ ln -sfnv ~/.dotfiles/.ssh/config ~/.ssh/config
 # bearcli (link Bear.app's CLI into ~/.local/bin)
 [ ! -L "$HOME/.local/bin/bearcli" ] && ln -sfnv /Applications/Bear.app/Contents/MacOS/bearcli "$HOME/.local/bin/bearcli"
 
-# project b dropbox
-if [ ! -L "$HOME/dropboxm" ]; then
-  if [ -d "$HOME/makerboarding Dropbox/Daniel Dosen" ]; then
-    ln -sfnv "$HOME/makerboarding Dropbox/Daniel Dosen" ~/dropboxm
-  elif [ -d "$HOME/Library/CloudStorage/Dropbox-makerboarding" ]; then
-    ln -sfnv "$HOME/Library/CloudStorage/Dropbox-makerboarding" ~/dropboxm
-  fi
+# project b share
+# Canonical anchor used by every project_b script: ~/project_b_share. All those
+# scripts reference $HOME/project_b_share (machine-independent); this is the ONE
+# place that knows the real Dropbox path — which varies by machine and Dropbox
+# install layout (classic "makerboarding Dropbox" vs macOS CloudStorage, with or
+# without the "Daniel Dosen" account subfolder). Probe the known locations and
+# link the first that exists. Replaces the former ~/dropboxm link.
+if [ ! -L "$HOME/project_b_share" ]; then
+  for pb in \
+    "$HOME/Library/CloudStorage/Dropbox-makerboarding/Daniel Dosen/joined_shares/project_b_share" \
+    "$HOME/makerboarding Dropbox/Daniel Dosen/joined_shares/project_b_share" \
+    "$HOME/Library/CloudStorage/Dropbox-makerboarding/joined_shares/project_b_share"; do
+    if [ -d "$pb" ]; then
+      ln -sfnv "$pb" "$HOME/project_b_share"
+      break
+    fi
+  done
 fi
 
 # project b database utils
