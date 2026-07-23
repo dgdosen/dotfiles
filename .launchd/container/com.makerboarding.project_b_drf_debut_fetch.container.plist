@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- Container variant of com.makerboarding.project_b_drf_debut_fetch.
+         Distinct label (.container suffix) so it never collides with the
+         native agent's label — the native drf_debut script has NO lock, so
+         the two must never be loaded on the same machine at once. -->
+    <key>Label</key>
+    <string>com.makerboarding.project_b_drf_debut_fetch.container</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/dgdosen/.dotfiles/daily/container/project_b_drf_debut_fetch.container.sh</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>7</integer>
+      <key>Minute</key>
+      <integer>10</integer>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/project_b_drf_debut_fetch.container.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/project_b_drf_debut_fetch.container.error.log</string>
+  </dict>
+</plist>

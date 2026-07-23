@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- Container (PRODUCTION) variant of com.makerboarding.project_b_twinspires_scrape.
+         The native agent posts odds to DEV; this one posts to PROD. Distinct
+         .container label so the two never collide and both can run at once
+         (they target different environments, so this is intentional here). -->
+    <key>Label</key>
+    <string>com.makerboarding.project_b_twinspires_scrape.container</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/dgdosen/.dotfiles/daily/container/project_b_twinspires_scrape.container.sh</string>
+    </array>
+    <!-- Match the native odds job's 60s cadence; the script's lock prevents
+         overlapping fires from piling up. -->
+    <key>StartInterval</key>
+    <integer>60</integer>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/project_b_twinspires_odds_scrape_cli.container.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/project_b_twinspires_odds_scrape_cli.container.err</string>
+  </dict>
+</plist>

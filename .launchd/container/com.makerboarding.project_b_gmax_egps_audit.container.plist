@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Container variant of com.makerboarding.project_b_gmax_egps_audit.
+         Distinct label (.container suffix) so it never collides with the
+         native agent's label. Do not load both native and container on the
+         same machine — they use separate lockfiles and would double-process
+         (and double-post to production). -->
+    <key>Label</key>
+    <string>com.makerboarding.project_b_gmax_egps_audit.container</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/dgdosen/.dotfiles/daily/container/project_b_gmax_egps_audit.container.sh</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>1</integer>
+            <key>Minute</key>
+            <integer>30</integer>
+        </dict>
+        <dict>
+            <key>Hour</key>
+            <integer>9</integer>
+            <key>Minute</key>
+            <integer>30</integer>
+        </dict>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/project_b_gmax_egps_audit.container.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/project_b_gmax_egps_audit.container.error.log</string>
+
+    <!-- gmax+egps can run 3 challenge-retry passes each with 300s sleeps. -->
+    <key>TimeOut</key>
+    <integer>10800</integer>
+
+    <!-- Never auto-run on load: loading must not trigger a production scrape. -->
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>

@@ -15,23 +15,9 @@
 #   GMAX_AUDITS=/share/state/test_run ./project_b_gmax_egps_audit.container.sh
 
 source ~/.zshrc
+source "${0:A:h}/_lib.sh"   # acquire_lock, ensure_podman, assert_prod_env, run_container, env_val
 
-# Lock file to prevent multiple instances
-LOCKFILE="$HOME/.cron_support/project_b_gmax_egps_audit.lock"
-
-if [ -f "$LOCKFILE" ]; then
-    OLD_PID=$(cat "$LOCKFILE" 2>/dev/null)
-    if [ -n "$OLD_PID" ] && kill -0 "$OLD_PID" 2>/dev/null; then
-        echo "Another instance is already running (PID $OLD_PID). Exiting."
-        exit 0
-    else
-        echo "Removing stale lock file (PID $OLD_PID no longer running)."
-        rm -f "$LOCKFILE"
-    fi
-fi
-
-echo $$ > "$LOCKFILE"
-trap "rm -f $LOCKFILE" EXIT INT TERM
+acquire_lock "$HOME/.cron_support/project_b_gmax_egps_audit.lock"
 
 # ---------------------------------------------------------------- config ----
 
@@ -43,8 +29,6 @@ GMAX_REPO="$HOME/dev/project_b_gmax_scrape_cli"
 # the races would be gone without ever reaching production.
 # To run against dev, invoke podman directly with --env-file .env.container.
 GMAX_ENV_FILE="$GMAX_REPO/.env.container.prod"
-EXPECTED_API_HOST="projectb.makerboarding.com"
-SHARE_HOST="${SHARE_HOST:-$HOME/project_b_share}"
 
 EGPS_IMAGE="${EGPS_IMAGE:-localhost/project_b_equibase_scrape_cli:bun}"
 EGPS_REPO="$HOME/dev/project_b_equibase_scrape_cli"
@@ -64,61 +48,16 @@ CHALLENGE_RETRY_DELAY="${CHALLENGE_RETRY_DELAY:-300}"
 
 # ------------------------------------------------------------- functions ----
 
-# podman's VM does not survive a reboot, and `podman machine list` reports
-# LastUp as "Never" afterwards. Without this, cron fails silently after every
-# restart.
-ensure_podman() {
-    local state
-    state=$(podman machine info --format '{{.Host.MachineState}}' 2>/dev/null)
-    if [ "$state" != "Running" ]; then
-        echo "[PODMAN] machine not running (state: ${state:-unknown}) — starting..."
-        podman machine start || return 1
-    fi
-    podman info >/dev/null 2>&1
-}
-
 # Run the gmax CLI in a throwaway container. Args pass through to commander.
 # Returns the container's exit code; CHALLENGE_EXIT means a human must clear a
 # CAPTCHA before any further gmax work can succeed.
 gmax_run() {
-    podman run --rm \
-        --env-file "$GMAX_ENV_FILE" \
-        -v "$SHARE_HOST:/share:rw" \
-        "$GMAX_IMAGE" "$@"
+    run_container "$GMAX_IMAGE" "$GMAX_ENV_FILE" "$@"
 }
 
 # Same, for the equibase GPS scraper.
 egps_run() {
-    podman run --rm \
-        --env-file "$EGPS_ENV_FILE" \
-        -v "$SHARE_HOST:/share:rw" \
-        "$EGPS_IMAGE" "$@"
-}
-
-# Refuse to run if an env-file does not point at production. Catches a wrong
-# file, a bad edit, or a dev/prod mix-up BEFORE anything is scraped — critical
-# because the source files are retired afterwards either way, so races posted to
-# the wrong database are simply gone.
-# Usage: assert_prod_env <LABEL> <env-file>
-assert_prod_env() {
-    local label="$1" envfile="$2" root
-    if [ ! -f "$envfile" ]; then
-        echo "[$label] ✗ env-file not found: $envfile"
-        return 1
-    fi
-    root=$(grep -E '^API_ROOT=' "$envfile" | head -1 | cut -d= -f2- | tr -d '"')
-    case "$root" in
-        *"$EXPECTED_API_HOST"*)
-            echo "[$label] target API: $root"
-            return 0
-            ;;
-        *)
-            echo "[$label] ✗ REFUSING TO RUN: $envfile points at '$root',"
-            echo "[$label]   which is not $EXPECTED_API_HOST. This script is production-only."
-            echo "[$label]   Source files left untouched."
-            return 1
-            ;;
-    esac
+    run_container "$EGPS_IMAGE" "$EGPS_ENV_FILE" "$@"
 }
 
 # ------------------------------------------------------------------ main ----
