@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- Container variant of com.makerboarding.project_b_equibase_results_scrape.
+         Distinct .container label so it never collides with the native agent's
+         label — do not load both native and container on the same machine. -->
+    <key>Label</key>
+    <string>com.makerboarding.project_b_equibase_results_scrape.container</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/dgdosen/.dotfiles/daily/container/project_b_equibase_results_scrape.container.sh</string>
+    </array>
+    <!-- Daily 20:00, matching the native results agent. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>20</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/project_b_equibase_results_scrape.container.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/project_b_equibase_results_scrape.container.error.log</string>
+  </dict>
+</plist>
