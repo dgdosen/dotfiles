@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- Container variant of com.makerboarding.project_b_bris_fetch. Distinct
+         .container label so it never collides with the native agent's label —
+         do not load both native and container on the same machine. -->
+    <key>Label</key>
+    <string>com.makerboarding.project_b_bris_fetch.container</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/dgdosen/.dotfiles/daily/container/project_b_bris_fetch.container.sh</string>
+    </array>
+    <!-- Twice daily, matching the native agent (06:00 and 18:00). -->
+    <key>StartCalendarInterval</key>
+    <array>
+      <dict>
+        <key>Hour</key>
+        <integer>6</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+      </dict>
+      <dict>
+        <key>Hour</key>
+        <integer>18</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+      </dict>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/project_b_bris_fetch.container.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/project_b_bris_fetch.container.error.log</string>
+  </dict>
+</plist>
