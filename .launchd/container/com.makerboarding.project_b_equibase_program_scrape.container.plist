@@ -11,11 +11,13 @@
     <array>
       <string>/Users/dgdosen/.dotfiles/daily/container/project_b_equibase_program_scrape.container.sh</string>
     </array>
-    <!-- Daily 18:00, matching the native program agent. -->
+    <!-- Daily 20:00 — deliberately AFTER the results agent (18:00). This is the
+         long job (25+ min); running it second means it cannot overrun into the
+         results slot and starve that Chromium launch. -->
     <key>StartCalendarInterval</key>
     <dict>
       <key>Hour</key>
-      <integer>18</integer>
+      <integer>20</integer>
       <key>Minute</key>
       <integer>0</integer>
     </dict>

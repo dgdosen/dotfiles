@@ -11,11 +11,14 @@
     <array>
       <string>/Users/dgdosen/.dotfiles/daily/container/project_b_equibase_results_scrape.container.sh</string>
     </array>
-    <!-- Daily 20:00, matching the native results agent. -->
+    <!-- Daily 18:00 — deliberately BEFORE the program agent (20:00). Results is
+         the short job; program can run 25+ min. Running program first risked it
+         overrunning into the results slot, where a second Chromium in the podman
+         VM fails to launch ("Timed out waiting for the WS endpoint URL"). -->
     <key>StartCalendarInterval</key>
     <dict>
       <key>Hour</key>
-      <integer>20</integer>
+      <integer>18</integer>
       <key>Minute</key>
       <integer>0</integer>
     </dict>
