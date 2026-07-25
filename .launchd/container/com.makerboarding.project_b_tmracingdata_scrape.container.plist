@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- Container variant of com.makerboarding.project_b_tmracingdata_scrape.
+         Distinct label (.container suffix) so it never collides with the native
+         agent's label — the native tmracingdata script has NO lock, so the two
+         must never be loaded on the same machine at once. The native plist is
+         NOT symlinked into ~/Library/LaunchAgents; this one replaces it. -->
+    <key>Label</key>
+    <string>com.makerboarding.project_b_tmracingdata_scrape.container</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/dgdosen/.dotfiles/daily/container/project_b_tmracingdata_scrape.container.sh</string>
+    </array>
+    <!-- 19:15, matching the native plist this replaces. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>19</integer>
+      <key>Minute</key>
+      <integer>15</integer>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/project_b_tmracingdata_scrape.container.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/project_b_tmracingdata_scrape.container.error.log</string>
+  </dict>
+</plist>

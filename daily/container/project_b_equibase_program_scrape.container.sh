@@ -8,8 +8,9 @@
 # Like twinspires_data it writes per-track JSON into a mounted git repo, but this
 # one COMMITS AND PUSHES to a real remote every run (and `pull --rebase`s first),
 # so it also mounts an SSH key and sets GIT_SSH_COMMAND. `fetch-all` then POSTs
-# the entries to the prod API. Uses its own podman run (not _lib.sh run_container):
-# it mounts /data_repo (not /share) and needs the git identity + key.
+# the entries to the prod API. Calls podman_run_bounded with its own argument
+# list rather than _lib.sh's run_container: it mounts /data_repo (not /share) and
+# needs the git identity + key. Same timeout/reap protection either way.
 
 source ~/.zshrc
 source "${0:A:h}/_lib.sh"   # acquire_lock, ensure_podman, assert_prod_env
@@ -30,6 +31,14 @@ EQB_ENV_FILE="$EQB_CLI_REPO/.env.container.prod"
 # network access.
 EQB_DATA_REPO="$HOME/dev/project_b_equibase_data"
 SSH_KEY="$HOME/.ssh/id_ed25519"
+
+# Bound the container run (see podman_run_bounded in _lib.sh). By far the longest
+# job in the fleet: the 2026-07-24 run took 4h02m of genuine work (20:00 -> 00:02)
+# scraping every entrant. 8 hours is double the only complete run on record and
+# still lands by 04:00 for a 20:00 start, well clear of the next night. Very
+# deliberately loose: truncating this one loses a whole night of entries, and the
+# bound exists to catch an infinite hang, not to fit the distribution.
+CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-28800}"
 
 GIT_NAME="$(git -C "$EQB_DATA_REPO" config user.name 2>/dev/null || echo 'Daniel Dosen')"
 GIT_EMAIL="$(git -C "$EQB_DATA_REPO" config user.email 2>/dev/null || echo 'dgdosen@gmail.com')"
@@ -60,7 +69,7 @@ fi
 echo "[EQB_PROGRAM] data repo: $EQB_DATA_REPO (commit+push as $GIT_NAME <$GIT_EMAIL>)"
 
 # fetch-all: scrape entries -> /data_repo/entries -> git add/commit/PUSH -> POST.
-podman run --rm \
+podman_run_bounded \
     --env-file "$EQB_ENV_FILE" \
     -v "$EQB_DATA_REPO:/data_repo:rw" \
     -e GIT_AUTHOR_NAME="$GIT_NAME"    -e GIT_AUTHOR_EMAIL="$GIT_EMAIL" \

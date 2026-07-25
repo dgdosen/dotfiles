@@ -46,6 +46,16 @@ CHALLENGE_EXIT=2
 # to do so; retrying instantly just burns three identical failures.
 CHALLENGE_RETRY_DELAY="${CHALLENGE_RETRY_DELAY:-300}"
 
+# Bound each container run (see podman_run_bounded in _lib.sh). PER INVOCATION,
+# and this script makes eight of them (3 passes + 1 final `-r`, twice over), so
+# it does NOT bound the script as a whole.
+#
+# Sized off the `-r` final passes, which are the only expensive ones: the three
+# numbered passes finish in ~1s each against an empty queue, while a final pass
+# has been observed at 31 and 46 minutes of real scraping. 90 minutes is ~2x the
+# worst observed and leaves the honest work alone.
+CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-5400}"
+
 # ------------------------------------------------------------- functions ----
 
 # Run the gmax CLI in a throwaway container. Args pass through to commander.

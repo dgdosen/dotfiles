@@ -42,6 +42,13 @@ BRIS_ENV_FILE="$BRIS_CLI_REPO/.env.container.prod"
 BRIS_DATA_REPO="$HOME/dev/project_b_data_2023"
 SSH_KEY="$HOME/.ssh/id_ed25519"
 
+# Bound the container run (see podman_run_bounded in _lib.sh). Observed 60-73s,
+# but a git push of the ~750MB data repo can stall on the network far longer than
+# that, so 1 hour rather than a tight multiple of the happy path. Worth having
+# despite the short run: a wedged container leaves the durable /data_git mount
+# mid-sequence, exactly the state reconcile_data_repo then has to clean up.
+CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-3600}"
+
 # ------------------------------------------------------------- functions ----
 
 # Reconcile a prior partial run before launching the container. A failed push
@@ -107,7 +114,7 @@ echo "[BRIS] data repo: $BRIS_DATA_REPO -> /data_git (headful Chromium under Xvf
 # Download folder stays inside the container (transient zips), so /data_git and
 # the SSH key are the only mounts. The image entrypoint wraps `bun src/index.ts`
 # in Xvfb; no subcommand args are needed (native runs plain `bun src/index.ts`).
-podman run --rm \
+podman_run_bounded \
     --env-file "$BRIS_ENV_FILE" \
     -v "$BRIS_DATA_REPO:/data_git:rw" \
     -v "$SSH_KEY:/root/.ssh/id_ed25519:ro" \

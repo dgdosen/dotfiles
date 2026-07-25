@@ -5,8 +5,8 @@
 #
 #   data -> project_b_twinspires_data_scrape_cli:bun
 #
-# Different from the odds container in two ways (hence its own podman run rather
-# than _lib.sh's run_container):
+# Different from the odds container in two ways (hence podman_run_bounded with
+# its own argument list rather than _lib.sh's run_container):
 #   1. It writes per-track JSON into a mounted GIT WORKING TREE and commits it
 #      locally (NEVER pushes) — so it mounts that repo at /data_repo, not /share.
 #   2. A container inherits no git identity, and the commit fails without one, so
@@ -30,6 +30,14 @@ DATA_ENV_FILE="$DATA_CLI_REPO/.env.container"
 
 # Git working tree the per-track JSON is written into and committed (never pushed).
 DATA_OUTPUT_REPO="$HOME/dev/project_b_twinspires_data"
+
+# Bound the container run (see podman_run_bounded in _lib.sh). Sized from a LIVE
+# card, not from the logs: the nightly's 8-10s runs fire at 07:00 against an empty
+# card and are wildly unrepresentative. A mid-day run on 2026-07-25 took ~13
+# MINUTES to write and commit 11 races for one track. 1 hour keeps ~4.5x headroom
+# over that; a 15-minute bound derived from the overnight logs would have started
+# truncating real cards.
+CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-3600}"
 
 # In-container commits need an identity (a container inherits none). Prefer the
 # output repo's own git config so commits match its history; fall back to the
@@ -58,7 +66,7 @@ fi
 echo "[DATA] output repo: $DATA_OUTPUT_REPO (commit identity: $GIT_NAME <$GIT_EMAIL>)"
 
 # fetch-all: scrape -> write per-track JSON into /data_repo -> git add/commit (local).
-podman run --rm \
+podman_run_bounded \
     --env-file "$DATA_ENV_FILE" \
     -v "$DATA_OUTPUT_REPO:/data_repo:rw" \
     -e GIT_AUTHOR_NAME="$GIT_NAME"    -e GIT_AUTHOR_EMAIL="$GIT_EMAIL" \

@@ -23,6 +23,11 @@ acquire_lock "$HOME/.cron_support/project_b_drf_debut_fetch.lock"
 DRF_DEBUT_IMAGE="${DRF_DEBUT_IMAGE:-localhost/project_b_drf_debut_scrape_cli:bun}"
 DRF_DEBUT_REPO="$HOME/dev/project_b_drf_debut_scrape_cli"
 
+# Bound the container run (see podman_run_bounded in _lib.sh). A healthy run is ~10
+# seconds; 10 minutes is pure headroom. Without this a hung browser inside the
+# container stalls the job indefinitely and the next morning's run just piles on.
+CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-600}"
+
 # PRODUCTION ONLY, deliberately not overridable: this scraper is also run against
 # dev (.env.container.dev -> local Rails), and a nightly that quietly wrote to the
 # wrong place would still look successful.

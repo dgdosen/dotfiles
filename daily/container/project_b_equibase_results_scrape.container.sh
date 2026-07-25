@@ -30,6 +30,13 @@ EQB_ENV_FILE="$EQB_CLI_REPO/.env.container.prod"
 EQB_DATA_REPO="$HOME/dev/project_b_equibase_data"
 SSH_KEY="$HOME/.ssh/id_ed25519"
 
+# Bound the container run (see podman_run_bounded in _lib.sh). Observed 8-69s,
+# but that window is only a few evening runs and the 8s one clearly did no work,
+# so treat it as a floor rather than a range: a heavy Saturday of charts to
+# download, pdftotext and push could be far longer. 1 hour is deliberately loose
+# — this bound is here to catch an infinite hang, not to fit the distribution.
+CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-3600}"
+
 GIT_NAME="$(git -C "$EQB_DATA_REPO" config user.name 2>/dev/null || echo 'Daniel Dosen')"
 GIT_EMAIL="$(git -C "$EQB_DATA_REPO" config user.email 2>/dev/null || echo 'dgdosen@gmail.com')"
 
@@ -72,7 +79,7 @@ echo "[EQB_RESULTS] data repo: $EQB_DATA_REPO (commit+push as $GIT_NAME <$GIT_EM
 
 # fetch-all: download chart PDFs -> /share -> pdftotext -> parse -> /data_repo
 #            -> git add/commit/PUSH -> POST.
-podman run --rm \
+podman_run_bounded \
     --env-file "$EQB_ENV_FILE" \
     -v "$EQB_DATA_REPO:/data_repo:rw" \
     -v "$SHARE_HOST:/share:rw" \

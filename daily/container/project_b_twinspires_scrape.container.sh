@@ -28,6 +28,13 @@ TWINSPIRES_REPO="$HOME/dev/project_b_twinspires_odds_scrape_cli"
 # silently posted to the wrong API would be invisible, hence the prod assertion.
 TWINSPIRES_ENV_FILE="$TWINSPIRES_REPO/.env.container.prod"
 
+# Bound the container run (see podman_run_bounded in _lib.sh). The tightest bound
+# in the fleet, because this fires every 60s and the lock makes each new fire exit
+# 0 while one is still running: a single wedged container therefore halts ALL odds
+# collection until a human notices, rather than costing one run. 10 minutes is
+# still ~10x the budget of a normal fire.
+CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-600}"
+
 # ------------------------------------------------------------------ main ----
 
 if ! ensure_podman; then

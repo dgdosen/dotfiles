@@ -33,6 +33,13 @@ DRF_ENV_FILE="$DRF_REPO/.env.container.prod"
 # with PROJECT_B_DOWNLOAD_FOLDER in the env-file (container-side /share/...).
 DOWNLOAD_DIR_HOST="$HOME/project_b_share/documents/dropoff_drf_zips/to_be_processed"
 
+# Bound each container run (see podman_run_bounded in _lib.sh). This applies per
+# invocation, not to the pair: scrape_drf_data is the long pole at roughly 30-38
+# min of the 32-40 min total, and download_drf_files then takes a minute or two.
+# 1 hour would be only ~1.5x the observed scrape, which is too close given how
+# much these runtimes swing with the size of the day's card — 2 hours instead.
+CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-7200}"
+
 # ------------------------------------------------------------- functions ----
 
 # The download folder must resolve inside the mount, or Chrome writes into the
