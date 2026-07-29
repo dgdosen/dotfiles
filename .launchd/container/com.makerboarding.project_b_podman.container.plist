@@ -2,9 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <!-- Ensures the podman machine is running at login, well before any
-         container job fires.  Without this, the first job of the day
-         cold-starts the VM and risks ERR_NETWORK_CHANGED races. -->
+    <!-- Ensures the podman machine is running before any container job fires.
+         RunAtLoad covers login; the 05:50 interval pre-warms the VM before the
+         earliest scraper (bris at 06:00) so no job has to cold-start the VM and
+         risk ERR_NETWORK_CHANGED races from the network flap. `podman machine
+         start` is a no-op when already running (exits 0). -->
     <key>Label</key>
     <string>com.makerboarding.project_b_podman.container</string>
     <key>ProgramArguments</key>
@@ -15,6 +17,13 @@
     </array>
     <key>RunAtLoad</key>
     <true/>
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>5</integer>
+      <key>Minute</key>
+      <integer>50</integer>
+    </dict>
     <key>StandardOutPath</key>
     <string>/Users/dgdosen/log/project_b_podman.container.log</string>
     <key>StandardErrorPath</key>
