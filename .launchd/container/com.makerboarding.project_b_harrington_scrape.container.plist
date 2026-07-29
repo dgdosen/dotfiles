@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- Container variant of the harrington workout scraper.
+         Scrapes nationalturf.com, parses, and POSTs to the prod API.
+         10 PM local time (CDT). -->
+    <key>Label</key>
+    <string>com.makerboarding.project_b_harrington_scrape.container</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/dgdosen/.dotfiles/daily/container/project_b_harrington_scrape.container.sh</string>
+    </array>
+    <!-- 22:00 local (10 PM CDT / 8 PM PDT). -->
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>22</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/project_b_harrington_scrape.container.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/project_b_harrington_scrape.container.error.log</string>
+  </dict>
+</plist>

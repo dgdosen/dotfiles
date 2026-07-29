@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- Ensures the podman machine is running at login, well before any
+         container job fires.  Without this, the first job of the day
+         cold-starts the VM and risks ERR_NETWORK_CHANGED races. -->
+    <key>Label</key>
+    <string>com.makerboarding.project_b_podman.container</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/opt/homebrew/bin/podman</string>
+      <string>machine</string>
+      <string>start</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/project_b_podman.container.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/project_b_podman.container.error.log</string>
+  </dict>
+</plist>
