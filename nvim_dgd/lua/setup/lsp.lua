@@ -25,6 +25,9 @@ local servers = {
   -- TypeScript/JavaScript. Mason installs it as `typescript-language-server`;
   -- lspconfig/mason-lspconfig name is `ts_ls`. Empty table = default settings.
   ts_ls = {},
+  -- TS 7 native Go language server (tsc --lsp); runs alongside ts_ls for
+  -- projects still on TS 5/6.
+  tsgo = {},
   -- gopls = {},
   -- pyright = {},
   rust_analyzer = {
