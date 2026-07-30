@@ -5,6 +5,10 @@
 #
 # Runs twice daily via Launch Agent (morning + evening).
 # Morning run captures overnight results; evening run catches the day's jobs.
+#
+# Lives in daily/container/ alongside the jobs it monitors, but unlike its
+# neighbours it runs on the HOST, not inside podman -- hence no .container
+# suffix and no sourcing of _lib.sh. It needs host launchctl and podman.
 
 export PATH="$HOME/.local/bin:$PATH"
 
