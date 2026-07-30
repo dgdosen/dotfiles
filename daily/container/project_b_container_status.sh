@@ -10,7 +10,9 @@
 # neighbours it runs on the HOST, not inside podman -- hence no .container
 # suffix and no sourcing of _lib.sh. It needs host launchctl and podman.
 
-export PATH="$HOME/.local/bin:$PATH"
+# /opt/homebrew/bin is not on launchd's default PATH -- claude and timeout
+# both live there, so this is load-bearing under the Launch Agent.
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:$PATH"
 
 TODAY=$(date +%Y_%m_%d)
 TODAY_ISO=$(date +%Y-%m-%d)
@@ -18,6 +20,44 @@ NOW=$(date "+%Y-%m-%d %H:%M")
 TITLE="project_b_status_${TODAY}"
 LOG_DIR="$HOME/log"
 SHARE="$HOME/project_b_share"
+
+# ── Claude investigation config ──────────────────────────────────────────────
+
+# Headless Claude Code ("claude -p") is how a script spawns an agent: it reads
+# the prompt, works the tools it is allowed, prints its answer, exits.
+# Absent or unauthenticated -> the block below is skipped and the note is
+# still written; the investigation is strictly additive.
+CLAUDE_BIN="${CLAUDE_BIN:-/opt/homebrew/bin/claude}"
+TIMEOUT_BIN="${TIMEOUT_BIN:-/opt/homebrew/bin/timeout}"
+CLAUDE_TIMEOUT="${CLAUDE_TIMEOUT:-10m}"   # hard cap; launchd job must not wedge
+
+read -r -d '' CLAUDE_PROMPT <<'PROMPT'
+You are triaging a nightly health report for the project_b data pipeline on
+macOS. The report is on stdin: Launch Agents that exited non-zero, plus the
+last 10 lines of each one's stdout and stderr.
+
+For each failure, work out WHY it failed. Logs live in ~/log and are named
+project_b_<agent>.log and project_b_<agent>.error.log -- read further back than
+the 10 lines quoted if the cause is upstream of them. Jobs whose label ends in
+.container run inside podman; check whether the podman machine was up at the
+time. Distinguish a job that failed from one that never started.
+
+Separate transient failures (network timeout, site down, podman not yet up)
+from real ones (bad credentials, schema change, code error, disk full). Check
+whether the same failure appears on previous days in the log -- a recurring
+failure matters more than a one-off.
+
+You are read-only. Do not restart agents or change anything; recommend, and a
+human will act.
+
+Reply in Bear-flavoured markdown, no blank lines between elements, under 300
+words. The script has already written the "## Investigation" heading -- start
+your reply directly with the first "###" line and add no heading above it.
+One "### <agent>" section per failure, each with: cause (state plainly
+when you are inferring rather than confirming), transient or real, recurring or
+new, and the one action you would take. If the logs do not support a
+conclusion, say what is missing instead of guessing.
+PROMPT
 
 # ── Gather launchctl status ──────────────────────────────────────────────────
 
@@ -261,3 +301,39 @@ bearcli create "$TITLE" --tags "project_b/status" --if-not-exists >/dev/null 2>&
 printf '%b' "\n---\n${report}" | bearcli append --title "$TITLE"
 
 echo "project_b_container_status: note written (${TITLE}) at ${NOW}"
+
+# ── Investigate failures with Claude ─────────────────────────────────────────
+
+# Only on failures: a clean run costs nothing and leaves the note quiet.
+# The agent is read-only by construction -- it diagnoses and recommends, it
+# never restarts an agent or touches podman. Widen --allowedTools with care;
+# this runs unattended twice a day.
+if (( ${#failures[@]} > 0 )) && [[ -x "$CLAUDE_BIN" ]]; then
+    echo "project_b_container_status: ${#failures[@]} failure(s), invoking claude"
+
+    # The report we just wrote is the agent's starting context: it already has
+    # the exit codes and the log tails, so the agent spends its turns digging
+    # rather than rediscovering.
+    investigation=$(printf '%b' "$report" | "$TIMEOUT_BIN" "$CLAUDE_TIMEOUT" "$CLAUDE_BIN" \
+        -p "$CLAUDE_PROMPT" \
+        --allowedTools \
+            "Read" "Grep" "Glob" \
+            "Bash(tail:*)" "Bash(head:*)" "Bash(grep:*)" "Bash(ls:*)" "Bash(cat:*)" \
+            "Bash(wc:*)" "Bash(stat:*)" "Bash(launchctl list:*)" \
+            "Bash(launchctl print:*)" "Bash(podman ps:*)" "Bash(podman logs:*)" \
+            "Bash(podman machine info:*)" "Bash(podman machine list:*)" \
+        --add-dir "$LOG_DIR" \
+        2>>"${LOG_DIR}/project_b_container_status.error.log")
+    claude_rc=$?
+
+    if (( claude_rc == 124 )); then
+        investigation="Investigation timed out after ${CLAUDE_TIMEOUT}."
+    elif (( claude_rc != 0 )); then
+        investigation="Investigation failed (claude exit ${claude_rc}); see error log."
+    elif [[ -z "$investigation" ]]; then
+        investigation="Investigation returned no output."
+    fi
+
+    printf '%b' "## Investigation\n${investigation}\n" | bearcli append --title "$TITLE"
+    echo "project_b_container_status: investigation appended (claude exit ${claude_rc})"
+fi
