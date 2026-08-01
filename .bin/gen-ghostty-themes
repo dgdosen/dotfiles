@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+"""Generate Ghostty theme files from the Alacritty theme TOMLs.
+
+Alacritty's theme files are the source of truth for terminal colors in this
+repo (kitty/ghostty mirror them). Re-run this after editing anything under
+.config/alacritty/themes/ so Ghostty stays in sync:
+
+    .bin/gen-ghostty-themes
+
+Alacritty -> Ghostty key mapping:
+  colors.primary.background/foreground -> background / foreground
+  colors.cursor.cursor/text            -> cursor-color / cursor-text
+  colors.selection.background/text     -> selection-background / selection-foreground
+  colors.normal.*                      -> palette 0-7
+  colors.bright.*                      -> palette 8-15
+  colors.indexed_colors[]              -> palette <index>
+"""
+
+import pathlib
+import tomllib
+
+DOTFILES = pathlib.Path(__file__).resolve().parent.parent
+SRC = DOTFILES / ".config/alacritty/themes"
+DST = DOTFILES / ".config/ghostty/themes"
+
+ANSI = ["black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"]
+
+
+def hexval(v):
+    """Normalize Alacritty's "#rrggbb" / "0xrrggbb" forms to Ghostty's "#rrggbb"."""
+    v = v.strip()
+    for prefix in ("#", "0x", "0X"):
+        if v.startswith(prefix):
+            v = v[len(prefix):]
+            break
+    return "#" + v
+
+
+def convert(path):
+    data = tomllib.loads(path.read_text())
+    colors = data.get("colors", {})
+    out = [f"# Generated from {path.name} by .bin/gen-ghostty-themes -- do not edit by hand"]
+
+    primary = colors.get("primary", {})
+    if "background" in primary:
+        out.append(f"background = {hexval(primary['background'])}")
+    if "foreground" in primary:
+        out.append(f"foreground = {hexval(primary['foreground'])}")
+
+    cursor = colors.get("cursor", {})
+    if "cursor" in cursor:
+        out.append(f"cursor-color = {hexval(cursor['cursor'])}")
+    if "text" in cursor:
+        out.append(f"cursor-text = {hexval(cursor['text'])}")
+
+    selection = colors.get("selection", {})
+    if "background" in selection:
+        out.append(f"selection-background = {hexval(selection['background'])}")
+    if "text" in selection:
+        out.append(f"selection-foreground = {hexval(selection['text'])}")
+
+    out.append("")
+    for offset, group in ((0, "normal"), (8, "bright")):
+        for i, name in enumerate(ANSI):
+            val = colors.get(group, {}).get(name)
+            if val:
+                out.append(f"palette = {offset + i}={hexval(val)}")
+
+    for entry in colors.get("indexed_colors", []):
+        out.append(f"palette = {entry['index']}={hexval(entry['color'])}")
+
+    return "\n".join(out) + "\n"
+
+
+def main():
+    DST.mkdir(parents=True, exist_ok=True)
+    for path in sorted(SRC.glob("*.toml")):
+        target = DST / (path.stem + ".conf")
+        target.write_text(convert(path))
+        print(f"  {target.relative_to(DOTFILES)}")
+
+
+if __name__ == "__main__":
+    main()

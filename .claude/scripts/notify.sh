@@ -9,20 +9,27 @@ EXECUTE_ARGS=()
 ICON_ARGS=()
 [ -f "$ICON" ] && ICON_ARGS=(-appIcon "$ICON")
 
+# Which terminal hosts this tmux pane. Ghostty exports TERM_PROGRAM=ghostty
+# (inherited by panes it spawns); Alacritty sets nothing, so it's the default.
+case "${TERM_PROGRAM:-}" in
+  ghostty) TERM_BUNDLE="com.mitchellh.ghostty" ;;
+  *)       TERM_BUNDLE="org.alacritty" ;;
+esac
+
 if [ -n "$TMUX" ] && [ -n "$TMUX_PANE" ]; then
   CONTEXT=$(tmux display-message -p -t "$TMUX_PANE" '#S · #I:#W')
   SESSION=$(tmux display-message -p -t "$TMUX_PANE" '#S')
   WINDOW_IDX=$(tmux display-message -p -t "$TMUX_PANE" '#I')
 
   FRONT_BUNDLE=$(osascript -e 'id of application (path to frontmost application as text)' 2>/dev/null)
-  if [ "$FRONT_BUNDLE" = "org.alacritty" ]; then
+  if [ "$FRONT_BUNDLE" = "$TERM_BUNDLE" ]; then
     if /opt/homebrew/bin/tmux list-clients -t "$SESSION" -F '#{client_window}' 2>/dev/null \
         | grep -qx "$WINDOW_IDX"; then
       exit 0
     fi
   fi
 
-  ACTIVATE_ARGS=(-activate org.alacritty)
+  ACTIVATE_ARGS=(-activate "$TERM_BUNDLE")
   EXECUTE_ARGS=(-execute "/opt/homebrew/bin/tmux switch-client -t '${SESSION}:${WINDOW_IDX}' || /opt/homebrew/bin/tmux attach -t '${SESSION}'")
 else
   CONTEXT="$(basename "$PWD")"

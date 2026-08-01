@@ -52,6 +52,7 @@ ln -sfnv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 [ ! -d "$HOME/.config/fish/functions" ] && mkdir ~/.config/fish/functions
 [ ! -d "$HOME/.config/karabiner" ] && mkdir ~/.config/karabiner
 [ ! -L "$HOME/.config/alacritty" ] && ln -sfnv ~/.dotfiles/.config/alacritty ~/.config/alacritty
+[ ! -L "$HOME/.config/ghostty" ] && ln -sfnv ~/.dotfiles/.config/ghostty ~/.config/ghostty
 [ ! -L "$HOME/.config/git" ] && ln -sfnv ~/.dotfiles/.config/git ~/.config/git
 [ ! -L "$HOME/.config/nvim" ] && ln -sfnv ~/.dotfiles/nvim_dgd ~/.config/nvim
 [ ! -L "$HOME/.config/smug" ] && ln -sfnv ~/.dotfiles/.config/smug ~/.config/smug

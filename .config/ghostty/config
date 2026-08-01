@@ -1,0 +1,98 @@
+# Ghostty Terminal Configuration
+# Mirrored from the Alacritty config (.config/alacritty/alacritty.toml).
+# Colors live in themes/ and are generated from the Alacritty themes by
+# .bin/gen-ghostty-themes; switch with `.bin/switch-theme <name>`.
+
+# Font Configuration
+font-family = SauceCodePro Nerd Font
+font-family-bold = SauceCodePro Nerd Font
+font-family-italic = SauceCodePro Nerd Font
+font-family-bold-italic = SauceCodePro Nerd Font
+font-style = Regular
+font-style-bold = Bold
+font-style-italic = Italic
+font-style-bold-italic = Bold Italic
+
+font-size = 12.75
+
+# No equivalent of Alacritty's [font.offset] y = 1 is set here: adjust-cell-height
+# changes line spacing, not the baseline. Use adjust-font-baseline if text ever
+# needs nudging. Box-drawing glyphs are always drawn by Ghostty itself, so
+# Alacritty's builtin_box_drawing has no counterpart to configure.
+
+# Cursor Configuration
+# (Ghostty already hollows the cursor when unfocused, matching Alacritty's
+# unfocused_hollow.)
+cursor-style = block
+cursor-style-blink = false
+
+# Scrollback: Ghostty budgets bytes rather than lines, and its 10MB default
+# already exceeds the 20000 lines Alacritty was configured for.
+mouse-scroll-multiplier = 3
+
+# Terminal bell
+# (Ghostty has no audible bell on macOS by default)
+
+# Window layout
+window-padding-x = 5
+window-padding-y = 5
+# Alacritty's dynamic_padding: spread leftover pixels evenly instead of
+# piling them on the right/bottom edge.
+window-padding-balance = true
+background-opacity = 1.0
+
+# Window decorations — closest match to Alacritty's decorations = "Buttonless"
+macos-titlebar-style = hidden
+
+# No "Close Window?" prompt, matching Alacritty. Safe here because tmux owns the
+# real sessions — closing a window detaches, it doesn't kill the tmux server.
+confirm-close-surface = false
+
+# Dock / Cmd+Tab icon — tinted to Catppuccin Mocha so it's easy to tell apart
+# from Alacritty when app-switching. Screen color is a bottom→top gradient
+# (base → blue). Frame options: aluminum, beige, plastic, chrome.
+# Requires a full quit + relaunch to take effect; a config reload won't do it.
+macos-icon = custom-style
+macos-icon-frame = aluminum
+macos-icon-ghost-color = #cdd6f4
+macos-icon-screen-color = #1e1e2e,#89b4fa
+
+# Environment variables (matches Alacritty's [env] block)
+term = xterm-256color
+env = COLORTERM=truecolor
+
+# OSC 52 clipboard access, matching Alacritty's osc52 = "CopyPaste"
+clipboard-read = allow
+clipboard-write = allow
+
+# Shell integration on, but trimmed: it's what reports the cwd (OSC 7) so new
+# windows open where the last one was. The cursor and title features are off
+# because p10k owns the cursor shape and tmux owns the window title.
+shell-integration = detect
+shell-integration-features = no-cursor,no-title
+
+# Requires shell-integration above — without it Ghostty can't know the cwd.
+window-inherit-working-directory = true
+
+# Keyboard shortcuts (mirrors Alacritty's [[keyboard.bindings]])
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = shift+insert=paste_from_selection
+
+# Font sizes
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
+
+# Scrolling
+keybind = page_up=scroll_page_up
+keybind = page_down=scroll_page_down
+keybind = shift+home=scroll_to_top
+keybind = shift+end=scroll_to_bottom
+
+# Shift+Enter sends CSI u so nvim/claude can distinguish it from plain Enter
+keybind = shift+enter=text:\x1b[13;2u
+
+# Theme switching via symlink (matching the Alacritty/kitty pattern)
+config-file = current-theme.conf

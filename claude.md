@@ -5,6 +5,7 @@
 Switched themes across terminal environment:
 - **Alacritty**: `.config/alacritty`
 - **Kitty**: `.config/kitty`
+- **Ghostty**: `.config/ghostty` (themes generated from the Alacritty ones by `.bin/gen-ghostty-themes`)
 - **Neovim**: `nvim_dgd/`
 - **Tmux**: `.tmux.conf`
 - **Powerlevel10k**: `.p10k.zsh`

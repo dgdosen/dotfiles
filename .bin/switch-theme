@@ -77,6 +77,17 @@ else
   echo "    → Warning: Kitty theme not found: $KITTY_THEME"
 fi
 
+# Update Ghostty
+echo "  ✓ Ghostty"
+GHOSTTY_THEME="${DOTFILES}/.config/ghostty/themes/${THEME}.conf"
+if [ -f "$GHOSTTY_THEME" ]; then
+  ln -sf "themes/${THEME}.conf" "${DOTFILES}/.config/ghostty/current-theme.conf"
+  # Ghostty does not watch its config; reload with Cmd+Shift+, in open windows.
+  echo "    → Press Cmd+Shift+, in Ghostty to reload"
+else
+  echo "    → Warning: Ghostty theme not found: $GHOSTTY_THEME"
+fi
+
 # Update Neovim
 echo "  ✓ Neovim"
 echo "${THEME}" > "${DOTFILES}/.nvim-theme"
@@ -215,4 +226,4 @@ esac
 
 echo ""
 echo "Theme switched successfully!"
-echo "Note: Alacritty and Kitty reload automatically. New shells will use the new theme."
+echo "Note: Alacritty and Kitty reload automatically; Ghostty needs Cmd+Shift+,. New shells will use the new theme."
