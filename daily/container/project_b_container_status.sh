@@ -32,6 +32,12 @@ STATUS_DATA_DIR="${STATUS_DATA_DIR:-$HOME/dev/project_b_status/data}"
 RUN_JSON="${STATUS_DATA_DIR}/$(date +%Y-%m-%d-%H%M).json"
 JQ_BIN="${JQ_BIN:-/opt/homebrew/bin/jq}"
 
+# /usr/bin/git, not the homebrew one: it ships with the OS and is always
+# present, which matters for a job that runs unattended.
+GIT_BIN="${GIT_BIN:-/usr/bin/git}"
+STATUS_REPO="${STATUS_REPO:-$HOME/dev/project_b_status}"
+COMMIT_RECORDS="${COMMIT_RECORDS:-1}"   # set 0 to write records without committing
+
 # ── Claude investigation config ──────────────────────────────────────────────
 
 # Headless Claude Code ("claude -p") is how a script spawns an agent: it reads
@@ -479,3 +485,60 @@ emit_record() {
 }
 
 emit_record || echo "project_b_container_status: JSON record failed (note was still written)"
+
+# ── Commit the records ───────────────────────────────────────────────────────
+
+# Is HEAD still local? Amending a commit that has been pushed means a force
+# push to fix, so the batching below refuses to rewrite anything published.
+# No upstream configured at all counts as local.
+head_is_unpushed() {
+    local upstream
+    upstream=$("$GIT_BIN" -C "$STATUS_REPO" rev-parse --abbrev-ref \
+        --symbolic-full-name '@{upstream}' 2>/dev/null) || return 0
+    [[ -z "$upstream" ]] && return 0
+    # HEAD already contained in the upstream branch => published.
+    "$GIT_BIN" -C "$STATUS_REPO" merge-base --is-ancestor HEAD "$upstream" 2>/dev/null && return 1
+    return 0
+}
+
+# Commit today's records, batched to one commit per day.
+#
+# Two runs a day committing separately is ~700 commits a year, which makes the
+# log useless to read. So the evening run folds into the morning's commit
+# rather than adding its own. Records are append-only, so nothing is lost by
+# squashing them -- the record files themselves carry the per-run timestamps.
+#
+# This only ever commits; it does not push. A Launch Agent has no ssh-agent,
+# so `git push` over SSH fails here even though the identical command works in
+# an interactive shell. Pushing is left to a manual push or the nightly
+# dotfiles sweep. To push from here instead, give the job a deploy key with an
+# explicit IdentityFile via GIT_SSH_COMMAND in the plist environment.
+commit_records() {
+    (( COMMIT_RECORDS )) || return 0
+    [[ -x "$GIT_BIN" ]] || { echo "project_b_container_status: no git at ${GIT_BIN}, not committing"; return 1; }
+    [[ -d "${STATUS_REPO}/.git" ]] || { echo "project_b_container_status: ${STATUS_REPO} is not a git repo, not committing"; return 1; }
+
+    # Stage data/ only. Never sweep up work in progress elsewhere in the repo.
+    "$GIT_BIN" -C "$STATUS_REPO" add -- data || return 1
+
+    if "$GIT_BIN" -C "$STATUS_REPO" diff --cached --quiet -- data; then
+        echo "project_b_container_status: no record changes to commit"
+        return 0
+    fi
+
+    local subject="status records ${TODAY_ISO}"
+    local head_subject
+    head_subject=$("$GIT_BIN" -C "$STATUS_REPO" log -1 --format=%s 2>/dev/null)
+
+    # The pathspec form restricts the commit to data/, so anything the user
+    # happened to have staged elsewhere is left staged and uncommitted.
+    if [[ "$head_subject" == "$subject" ]] && head_is_unpushed; then
+        "$GIT_BIN" -C "$STATUS_REPO" commit --amend --no-edit --only -- data >/dev/null || return 1
+        echo "project_b_container_status: records folded into today's commit (${subject})"
+    else
+        "$GIT_BIN" -C "$STATUS_REPO" commit -m "$subject" --only -- data >/dev/null || return 1
+        echo "project_b_container_status: records committed (${subject})"
+    fi
+}
+
+commit_records || echo "project_b_container_status: commit failed (records were still written)"

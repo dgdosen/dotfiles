@@ -38,3 +38,25 @@ select program_description, results_description, track_condition from equibase_r
 where id in (7, 200)
 
 select * from equibase_calls;
+
+select count(*) from races as race_count;
+select count(*) from starts as start_count;
+select count(*) from workouts as workout_count;
+
+select count(*) from equibase_races as equibase_race_count;
+select count(*) from equibase_starts as equibase_start_count;
+-- select count(*) from equibase_workouts;
+
+select count(*) from drf_races as drf_race_count;
+select count(*) from drf_starts as drf_start_count;
+select count(*) from drf_workouts as drf_workout_count;
+
+select count(*) from twinspires_races;
+select count(*) from twinspires_starts;
+select count(*) from twinspires_workouts;
+
+select count(*) from thoroughmanager_races;
+select count(*) from thoroughmanager_starts;
+select count(*) from thoroughmanager_workouts;
+
+select * from twinspires_races;

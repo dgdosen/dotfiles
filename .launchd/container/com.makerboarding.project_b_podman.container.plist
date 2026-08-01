@@ -5,15 +5,16 @@
     <!-- Ensures the podman machine is running before any container job fires.
          RunAtLoad covers login; the 05:50 interval pre-warms the VM before the
          earliest scraper (bris at 06:00) so no job has to cold-start the VM and
-         risk ERR_NETWORK_CHANGED races from the network flap. `podman machine
-         start` is a no-op when already running (exits 0). -->
+         risk ERR_NETWORK_CHANGED races from the network flap.
+         Calls a guard script rather than `podman machine start` directly: start
+         exits 125 on an already-running machine, so the bare command reported a
+         daily false failure. The script checks state first and only reports
+         non-zero on a real start failure. -->
     <key>Label</key>
     <string>com.makerboarding.project_b_podman.container</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/opt/homebrew/bin/podman</string>
-      <string>machine</string>
-      <string>start</string>
+      <string>/Users/dgdosen/.dotfiles/daily/container/project_b_podman.container.sh</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
