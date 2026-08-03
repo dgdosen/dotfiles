@@ -40,6 +40,18 @@ DOWNLOAD_DIR_HOST="$HOME/project_b_share/documents/dropoff_drf_zips/to_be_proces
 # much these runtimes swing with the size of the day's card — 2 hours instead.
 CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-7200}"
 
+# Pilot for the idle watchdog (see _podman_idle_watchdog in _lib.sh). This is the
+# first script to opt in: it runs long enough to be worth bounding and logs per
+# track, so silence here is a real signal rather than an artifact of a quiet CLI.
+#
+# 30 min is deliberately loose. Nothing is being caught yet — the goal is the
+# "max idle gap this run" line the watchdog prints on EVERY run, which is the
+# calibration data the logs cannot supply (they carry no per-line timestamps, so
+# there is no way to recover from history how long a healthy run goes quiet).
+# Once a week or so of real runs have reported their gaps, tighten this to the
+# observed max plus margin, and only then roll the watchdog to other scripts.
+IDLE_LIMIT="${IDLE_LIMIT:-1800}"
+
 # ------------------------------------------------------------- functions ----
 
 # The download folder must resolve inside the mount, or Chrome writes into the

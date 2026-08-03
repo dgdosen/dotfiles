@@ -34,10 +34,20 @@ DATA_OUTPUT_REPO="$HOME/dev/project_b_twinspires_data"
 # Bound the container run (see podman_run_bounded in _lib.sh). Sized from a LIVE
 # card, not from the logs: the nightly's 8-10s runs fire at 07:00 against an empty
 # card and are wildly unrepresentative. A mid-day run on 2026-07-25 took ~13
-# MINUTES to write and commit 11 races for one track. 1 hour keeps ~4.5x headroom
-# over that; a 15-minute bound derived from the overnight logs would have started
-# truncating real cards.
-CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-3600}"
+# MINUTES to write and commit 11 races for one track.
+#
+# Raised 3600 -> 14400 on 2026-08-03. The 1-hour bound was sized for the
+# one-track era and silently stopped being enough the moment the track list
+# grew: every scheduled run from 2026-07-30 on was SIGKILLed mid-card (exit
+# 137) — 23 files on 07-30, 24 on 07-31, 41 on 08-01, 16 on 08-03 — each one
+# truncating a real card without saying so. Throughput swings widely with the
+# site's pace (41 files in the hour on 08-01 vs 16 on 08-03), so this needs
+# real headroom rather than a tight fit: 4 hours covers ~4 tracks at the WORST
+# observed rate. Starting at 07:00, even a full run lands well before noon.
+#
+# If this starts getting killed again, the track list has grown again — raise
+# it, don't shrink the work.
+CONTAINER_TIMEOUT="${CONTAINER_TIMEOUT:-14400}"
 
 # In-container commits need an identity (a container inherits none). Prefer the
 # output repo's own git config so commits match its history; fall back to the

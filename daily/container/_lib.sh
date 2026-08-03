@@ -115,9 +115,68 @@ assert_prod_env() {
 # inside the drf_debut container, so the CLI never exited and `podman run` sat
 # wedged for three hours while the launch agent waited on it.
 # Usage: podman_run_bounded <podman-run-args...>
+# Idle watchdog. CONTAINER_TIMEOUT is a wall-clock bound, which cannot tell a
+# wedged run from a slow one: on 2026-08-03 twinspires_data was SIGKILLed at
+# 3600s while it was actively writing a race file every ~90s. Silence is the
+# better signal for "hung", so watch how long it has been since the container
+# last said anything.
+#
+# The heartbeat needs no plumbing: under launchd this script's stdout IS
+# ~/log/<agent>.container.log, `podman run` inherits that fd, and every line the
+# container prints advances the file's mtime. So the watchdog stats its own
+# stdout. Run by hand into a pipe there is no file to stat, and rather than
+# invent a signal we fall back to CONTAINER_TIMEOUT alone — the launchd case is
+# the unattended one that matters, and a manual run has a human watching it.
+#
+# Resolve the path with lsof; do NOT stat /dev/fd/1 directly. On macOS that
+# stats the device node, whose mtime tracks the clock rather than the file: it
+# advanced 3s across 3s of complete silence, so measured idle was always ~0 and
+# an earlier version of this watchdog could never fire.
+#
+# It reports max idle on EVERY run, not only when it fires. The logs carry no
+# per-line timestamps, so there is no way to recover from history how long any
+# scraper legitimately goes quiet — which means IDLE_LIMIT cannot be derived up
+# front. Start generous, collect the real numbers, then tighten per script.
+#
+# Deliberately does not print to stdout except when reaping: anything it wrote
+# would touch the very file it watches and reset the idle clock.
+IDLE_LIMIT="${IDLE_LIMIT:-1800}"
+
+_podman_idle_watchdog() {
+    local name="$1" hb="$2" marker="$3" limit="$4" maxfile="$5"
+    local mt idle max=0
+
+    while [ -e "$marker" ]; do
+        sleep 30
+        [ -e "$marker" ] || break
+        mt=$(stat -f %m "$hb" 2>/dev/null) || continue
+        idle=$(( $(date +%s) - mt ))
+        [ "$idle" -gt "$max" ] && max=$idle
+        if [ "$idle" -gt "$limit" ]; then
+            # Removing the container makes the blocked `podman run` return, so
+            # the caller unwinds normally instead of waiting out the wall clock.
+            print -r -- "[PODMAN] ✗ no output for ${idle}s (IDLE_LIMIT=${limit}s) — reaping '$name' as hung."
+            podman rm -f "$name" >/dev/null 2>&1
+            break
+        fi
+    done
+    print -r -- "$max" > "$maxfile" 2>/dev/null
+}
+
 podman_run_bounded() {
     local -a wrapper
     local name="run_$$" t rc
+    local hb="" marker="" maxfile="" wd="" maxidle=""
+
+    hb=$(lsof -a -p $$ -d 1 -F n 2>/dev/null | sed -n 's/^n//p' | head -1)
+    if [ -n "$hb" ] && [ -f "$hb" ]; then
+        marker="${TMPDIR:-/tmp}/podman_hb_marker_$$"
+        maxfile="${TMPDIR:-/tmp}/podman_hb_max_$$"
+        : > "$marker"
+        : > "$maxfile"
+        _podman_idle_watchdog "$name" "$hb" "$marker" "$IDLE_LIMIT" "$maxfile" &
+        wd=$!
+    fi
 
     if [ -n "$CONTAINER_TIMEOUT" ]; then
         t=$(command -v timeout || command -v gtimeout)
@@ -135,6 +194,16 @@ podman_run_bounded() {
 
     "${wrapper[@]}" podman run --rm --name "$name" "$@"
     rc=$?
+
+    # Stop the watchdog first: it reaps by name, and the reap below is allowed to
+    # find a genuine leak rather than race a watchdog that is still polling.
+    if [ -n "$wd" ]; then
+        rm -f "$marker"
+        wait "$wd" 2>/dev/null
+        maxidle=$(cat "$maxfile" 2>/dev/null)
+        rm -f "$maxfile"
+        [ -n "$maxidle" ] && echo "[PODMAN] max idle gap this run: ${maxidle}s (IDLE_LIMIT=${IDLE_LIMIT}s)"
+    fi
 
     # Reap by NAME rather than by exit code. timeout(1) reports 124 when SIGTERM
     # was enough but 137 when it had to follow up with SIGKILL (which is what
