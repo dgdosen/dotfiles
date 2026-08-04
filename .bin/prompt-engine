@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# Prompt engine switcher: choose between powerlevel10k and starship.
+# Usage: prompt-engine [p10k|starship]
+#   with no argument, prints the currently selected engine
+#
+# Writes ~/.dotfiles/.prompt-engine, which .zshrc reads at startup.
+# PROMPT_ENGINE in the environment overrides the file, so a one-off trial is:
+#   PROMPT_ENGINE=starship zsh
+
+set -e
+
+DOTFILES="${HOME}/.dotfiles"
+ENGINE_FILE="${DOTFILES}/.prompt-engine"
+
+current() {
+  if [ -f "$ENGINE_FILE" ]; then
+    cat "$ENGINE_FILE"
+  else
+    echo "p10k"
+  fi
+}
+
+ENGINE="$1"
+
+if [ -z "$ENGINE" ]; then
+  echo "Current prompt engine: $(current)"
+  [ -n "$PROMPT_ENGINE" ] && echo "  (this shell is running: ${PROMPT_ENGINE})"
+  echo ""
+  echo "Usage: prompt-engine [p10k|starship]"
+  exit 0
+fi
+
+case "$ENGINE" in
+  p10k|powerlevel10k|p9k) ENGINE="p10k" ;;
+  starship|ss)            ENGINE="starship" ;;
+  *)
+    echo "Error: unknown prompt engine '$ENGINE' (expected p10k or starship)" >&2
+    exit 1
+    ;;
+esac
+
+if [ "$ENGINE" = "starship" ] && ! command -v starship >/dev/null 2>&1; then
+  echo "Error: starship is not installed or not on PATH" >&2
+  echo "  install it with: brew install starship" >&2
+  exit 1
+fi
+
+echo "$ENGINE" > "$ENGINE_FILE"
+echo "Prompt engine set to: $ENGINE"
+echo "  → run 'exec zsh' to load it in this shell"

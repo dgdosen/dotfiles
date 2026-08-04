@@ -1,5 +1,16 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p11k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# Which prompt engine to load: p10k (default) or starship.
+# Switch with `prompt-engine starship` / `prompt-engine p10k`.
+# PROMPT_ENGINE in the environment wins, so you can try one for a single shell:
+#   PROMPT_ENGINE=starship zsh
+if [[ -z "$PROMPT_ENGINE" && -r ~/.dotfiles/.prompt-engine ]]; then
+  PROMPT_ENGINE="$(<~/.dotfiles/.prompt-engine)"
+fi
+typeset -g PROMPT_ENGINE="${PROMPT_ENGINE:-p10k}"
+
+if [[ "$PROMPT_ENGINE" == p10k ]]; then
+  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p11k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
 fi
 
 date
@@ -158,7 +169,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 test -r /Users/dgdosen/.opam/opam-init/init.zsh && . /Users/dgdosen/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ "$PROMPT_ENGINE" == p10k ]]; then
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
 
 
 # source platform specific zsh path
@@ -184,8 +197,13 @@ unset __conda_setup
 export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
-# Only source Powerlevel10k if not already sourced and file exists
-[[ -f "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme" ]] && source "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme"
+# Prompt engine: exactly one of these takes the prompt.
+if [[ "$PROMPT_ENGINE" == starship ]]; then
+  command -v starship >/dev/null && eval "$(starship init zsh)"
+else
+  # Only source Powerlevel10k if not already sourced and file exists
+  [[ -f "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme" ]] && source "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme"
+fi
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Terminal color support

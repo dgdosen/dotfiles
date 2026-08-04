@@ -125,3 +125,11 @@ bindkey '^ ' autosuggest-accept
 
 # vim key bindings to edit the command line
 bindkey -v
+
+# Wrap .bin/prompt-engine so switching reloads the shell in place.
+# Without this the script writes the file but the running shell keeps its prompt.
+function prompt-engine {
+  command prompt-engine "$@" || return $?
+  [[ -n "$1" ]] && exec zsh
+}
+

@@ -1,0 +1,222 @@
+# Starship config approximating the powerlevel10k setup in ~/.p10k.zsh.
+#
+# Single-line prompt: os icon, directory, git, then the prompt character.
+# Command duration, jobs and language versions sit in the right prompt.
+#
+# Colours come from the [palettes] blocks below and match .p10k-themes/*.zsh
+# and the tmux window list. Switch palette with the `palette` key.
+#
+# NOTE: powerline separators are written as  /  escapes rather than
+# literal glyphs. TOML basic strings ("..." and """...""") interpret these;
+# literal strings ('...') do NOT, so keep these in double quotes. The same goes
+# for the os and language symbols: starship's defaults for several of these are
+# colour emoji (🍎, 💎), which ignore segment styling, so they are set
+# explicitly to monochrome Nerd Font glyphs. Every codepoint used here was
+# checked against SauceCodePro NF's cmap.
+
+palette = "catppuccin_mocha"
+
+add_newline = true
+
+format = """
+[\ue0b2](fg:overlay)\
+$os\
+$username\
+[\ue0b0](fg:overlay bg:blue)\
+$directory\
+${custom.git_none}\
+${custom.git_clean}\
+${custom.git_dirty}\
+${custom.git_conflicted} """
+
+right_format = """
+$cmd_duration\
+$jobs\
+$nodejs\
+$python\
+$ruby\
+$golang\
+$rust\
+$java\
+$conda\
+$kubernetes\
+$aws"""
+
+# ── left side ─────────────────────────────────────────────────────────────────
+
+[os]
+disabled = false
+style = "bg:overlay fg:black"
+format = "[ $symbol ]($style)"
+
+# starship's built-in default is the 🍎 emoji, which renders in colour and
+# ignores the segment styling. U+F179 is the monochrome Nerd Font apple.
+[os.symbols]
+Macos = ""
+
+[directory]
+style = "bg:blue fg:black"
+format = "[ $path ]($style)"
+truncation_length = 4
+truncation_symbol = "…/"
+truncate_to_repo = true
+
+[username]
+disabled = true
+
+[git_branch]
+disabled = true
+style = "bg:green fg:black"
+format = "[ $symbol $branch ]($style)"
+
+# NOTE: starship cannot recolour a segment's *background* by dirty state the way
+# p10k does (clean=green / modified=yellow / conflicted=red). The background
+# stays green and state is shown with symbols instead.
+[git_status]
+disabled = true
+style = "bg:green fg:black"
+format = "[($all_status$ahead_behind)]($style)"
+conflicted = "✖${count} "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+untracked = "?${count} "
+stashed = "≡${count} "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+
+
+# ── git, coloured by working-tree state ──────────────────────────────────────
+# starship has no conditional styling, so there is one module per state with a
+# hardcoded colour and a mutually exclusive `when` guard. Exactly one fires.
+# These replace the built-in $git_branch/$git_status, whose backgrounds cannot
+# vary; the segment contents come from .bin/starship-git.
+
+[custom.git_none]
+description = "cwd outside any git work tree - just closes the blue segment"
+command = "true"
+when = "starship-git --is none"
+shell = ["bash", "--noprofile", "--norc"]
+format = "[\ue0b0](fg:blue)"
+
+[custom.git_clean]
+description = "work tree with no changes"
+command = "starship-git --info"
+when = "starship-git --is clean"
+shell = ["bash", "--noprofile", "--norc"]
+format = "[\ue0b0](fg:blue bg:green)[\ue0a0$output ](bg:green fg:black)[\ue0b0](fg:green)"
+
+[custom.git_dirty]
+description = "work tree with staged, modified or untracked files"
+command = "starship-git --info"
+when = "starship-git --is dirty"
+shell = ["bash", "--noprofile", "--norc"]
+format = "[\ue0b0](fg:blue bg:yellow)[\ue0a0$output ](bg:yellow fg:black)[\ue0b0](fg:yellow)"
+
+[custom.git_conflicted]
+description = "work tree with unmerged paths"
+command = "starship-git --info"
+when = "starship-git --is conflicted"
+shell = ["bash", "--noprofile", "--norc"]
+format = "[\ue0b0](fg:blue bg:red)[\ue0a0$output ](bg:red fg:black)[\ue0b0](fg:red)"
+
+# ── right side ────────────────────────────────────────────────────────────────
+
+[cmd_duration]
+min_time = 2_000
+style = "fg:yellow"
+format = "[ $duration ]($style)"
+
+[jobs]
+style = "fg:red"
+symbol = "\uf013"
+format = "[ $symbol$number ]($style)"
+
+[nodejs]
+style = "fg:green"
+symbol = "\ue718 "
+format = "[ $symbol$version ]($style)"
+
+[python]
+style = "fg:blue"
+symbol = "\ue235 "
+format = "[ $symbol$version ]($style)"
+
+[ruby]
+style = "fg:red"
+symbol = "\ue791 "
+format = "[ $symbol$version ]($style)"
+
+[golang]
+style = "fg:blue"
+symbol = "\ue65e "
+format = "[ $symbol$version ]($style)"
+
+[rust]
+style = "fg:peach"
+symbol = "\ue7a8 "
+format = "[ $symbol$version ]($style)"
+
+[java]
+style = "fg:overlay"
+symbol = "\ue256 "
+format = "[ $symbol$version ]($style)"
+
+[conda]
+style = "fg:green"
+symbol = "\ue715 "
+format = "[ $symbol$environment ]($style)"
+
+[kubernetes]
+disabled = true
+style = "fg:blue"
+format = "[ $symbol$context ]($style)"
+
+[aws]
+style = "fg:peach"
+symbol = "\uf270 "
+format = "[ $symbol$profile ]($style)"
+
+# ── prompt character ─────────────────────────────────────────────────────────
+# Disabled: the prompt ends at the closing chevron, with the cursor immediately
+# after the coloured segments. NOTE this also removes the vi-mode indicator that
+# p10k showed via its vi_mode segment -- there is no longer any visual cue for
+# normal vs insert mode.
+[character]
+disabled = true
+
+# ── palettes ──────────────────────────────────────────────────────────────────
+# Colours lifted from .p10k-themes/*.zsh so the prompt matches the rest of the
+# terminal. `frame` is the dim rule colour p10k drew the ╭─╯ box with.
+
+[palettes.catppuccin_mocha]
+black = "#000000"
+overlay = "#6c7086"
+frame = "#6c7086"
+blue = "#89b4fa"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+red = "#f38ba8"
+peach = "#fab387"
+
+[palettes.catppuccin_macchiato]
+black = "#000000"
+overlay = "#6e738d"
+frame = "#6e738d"
+blue = "#8aadf4"
+green = "#a6da95"
+yellow = "#eed49f"
+red = "#ed8796"
+peach = "#f5a97f"
+
+[palettes.catppuccin_latte]
+black = "#000000"
+overlay = "#9ca0b0"
+frame = "#9ca0b0"
+blue = "#1e66f5"
+green = "#40a02b"
+yellow = "#df8e1d"
+red = "#d20f39"
+peach = "#fe640b"

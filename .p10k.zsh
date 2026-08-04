@@ -1581,3 +1581,90 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
   # Available themes: gruvbox_dark, gruvbox_light, catppuccin-mocha, catppuccin-latte
 
   [[ -f ~/.dotfiles/.p10k-theme ]] && source ~/.dotfiles/.p10k-theme
+
+  ################################################################################
+  # LANGUAGE VERSION ICONS
+  ################################################################################
+  # p10k's built-in nerdfont-complete icons for these segments are inconsistent
+  # (some are emoji, some are generic). These are the monochrome Nerd Font
+  # glyphs, so they inherit each segment's foreground colour instead of
+  # rendering in their own. Every codepoint here was checked against
+  # SauceCodePro NF's cmap.
+
+  # ruby  \ue791
+  typeset -g POWERLEVEL9K_RBENV_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_ASDF_RUBY_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_RVM_VISUAL_IDENTIFIER_EXPANSION=''
+
+  # node  \ue718
+  typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_NODENV_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_NVM_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_ASDF_NODEJS_VISUAL_IDENTIFIER_EXPANSION=''
+
+  # python  \ue235
+  typeset -g POWERLEVEL9K_PYENV_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_ASDF_PYTHON_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_VIRTUALENV_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_ANACONDA_VISUAL_IDENTIFIER_EXPANSION=''
+
+  # go  \ue65e
+  typeset -g POWERLEVEL9K_GO_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_GOENV_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_ASDF_GOLANG_VISUAL_IDENTIFIER_EXPANSION=''
+
+  # rust  \ue7a8
+  typeset -g POWERLEVEL9K_RUST_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_ASDF_RUST_VISUAL_IDENTIFIER_EXPANSION=''
+
+  # java  \ue256
+  typeset -g POWERLEVEL9K_JAVA_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_JENV_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_ASDF_JAVA_VISUAL_IDENTIFIER_EXPANSION=''
+
+  ################################################################################
+  # RIGHT PROMPT: FLAT STYLE
+  ################################################################################
+  # The right prompt drops powerline blocks entirely: no separators, no segment
+  # backgrounds, just coloured glyphs and text on the terminal background. The
+  # left prompt keeps its powerline blocks.
+  #
+  # Colours are not hardcoded here. Each segment's foreground is promoted from
+  # whatever background the active theme gave it (.p10k-themes/*.zsh, loaded
+  # just above), so this follows `switch-theme` automatically. Segments the
+  # theme says nothing about fall back to its grey.
+
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
+  typeset -g POWERLEVEL9K_RIGHT_PROMPT_LAST_SEGMENT_END_SYMBOL=
+  typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=
+  typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=' '
+  typeset -g POWERLEVEL9K_RIGHT_RIGHT_WHITESPACE=' '
+
+  () {
+    local fallback=${POWERLEVEL9K_OS_ICON_BACKGROUND:-244}
+    local seg bg fg
+    local -a right_segments=(
+      COMMAND_EXECUTION_TIME BACKGROUND_JOBS DIRENV
+      ASDF ASDF_RUBY ASDF_PYTHON ASDF_GOLANG ASDF_NODEJS ASDF_RUST
+      ASDF_DOTNET_CORE ASDF_FLUTTER ASDF_LUA ASDF_JAVA ASDF_PERL
+      ASDF_ERLANG ASDF_ELIXIR ASDF_POSTGRES ASDF_PHP ASDF_HASKELL
+      VIRTUALENV ANACONDA PYENV GOENV NODENV NVM NODEENV
+      NODE_VERSION GO_VERSION RUST_VERSION PHP_VERSION JAVA_VERSION
+      LARAVEL_VERSION RBENV RVM FVM LUAENV JENV PLENV PHPENV
+      HASKELL_STACK KUBECONTEXT TERRAFORM AWS AWS_EB_ENV AZURE
+      GCLOUD GOOGLE_APP_CRED CONTEXT NORDVPN RANGER NNN VIM_SHELL
+      MIDNIGHT_COMMANDER NIX_SHELL TODO TIMEWARRIOR TASKWARRIOR TIME
+    )
+    for seg in $right_segments; do
+      bg="POWERLEVEL9K_${seg}_BACKGROUND"
+      fg="POWERLEVEL9K_${seg}_FOREGROUND"
+      # Promote the theme's background colour to the foreground, so the glyph
+      # carries the colour the block used to carry.
+      if [[ -n ${(P)bg} ]]; then
+        typeset -g $fg=${(P)bg}
+      else
+        typeset -g $fg=$fallback
+      fi
+      typeset -g $bg=
+    done
+  }

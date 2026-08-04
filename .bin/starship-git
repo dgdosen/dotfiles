@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+
+# Helper for starship's prompt: reports git working-tree state and renders the
+# git segment, so that segment can be coloured by state the way powerlevel10k
+# coloured its vcs segment (clean=green / modified=yellow / conflicted=red).
+#
+# starship has no conditional styling — a module's `style` is fixed — so the
+# prompt declares one [custom.git_*] module per state, each with a hardcoded
+# colour and a mutually exclusive `when` guard calling this script. This also
+# replaces the built-in $git_branch/$git_status modules, whose backgrounds
+# cannot vary.
+#
+# Usage:
+#   starship-git --is clean|dirty|conflicted|none   exit 0 if that state holds
+#   starship-git --info                             print the segment contents
+#   starship-git --state                            print the state name
+#
+# States:
+#   none        not inside a git work tree
+#   conflicted  unmerged paths present
+#   dirty       staged, modified and/or untracked files
+#   clean       inside a work tree, nothing to report
+
+set -u
+
+in_repo() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1
+}
+
+state() {
+  in_repo || { echo none; return; }
+  local s
+  s="$(git status --porcelain 2>/dev/null)"
+  if printf '%s\n' "$s" | grep -qE '^(DD|AU|UD|UA|DU|AA|UU) '; then
+    echo conflicted
+  elif [ -n "$s" ]; then
+    echo dirty
+  else
+    echo clean
+  fi
+}
+
+# Branch (or short SHA when detached) plus counts, using the same symbols the
+# [git_status] module was configured with.
+info() {
+  in_repo || return 0
+
+  local branch
+  branch="$(git symbolic-ref --short HEAD 2>/dev/null)" \
+    || branch="$(git rev-parse --short HEAD 2>/dev/null)"
+
+  local out=" ${branch}"
+
+  local porcelain
+  porcelain="$(git status --porcelain 2>/dev/null)"
+
+  local conflicted staged modified untracked stashed
+  conflicted="$(printf '%s\n' "$porcelain" | grep -cE '^(DD|AU|UD|UA|DU|AA|UU) ')"
+  staged="$(printf '%s\n'   "$porcelain" | grep -cE '^[MADRC]')"
+  modified="$(printf '%s\n' "$porcelain" | grep -cE '^.[MD]')"
+  untracked="$(printf '%s\n' "$porcelain" | grep -c '^??')"
+  stashed="$(git stash list 2>/dev/null | grep -c .)"
+
+  # Divergence from upstream, when one is configured.
+  local ahead=0 behind=0 counts
+  if counts="$(git rev-list --left-right --count '@{upstream}...HEAD' 2>/dev/null)"; then
+    behind="${counts%%[[:space:]]*}"
+    ahead="${counts##*[[:space:]]}"
+  fi
+
+  [ "$conflicted" -gt 0 ] && out="${out} ✖${conflicted}"
+  [ "$stashed"    -gt 0 ] && out="${out} ≡${stashed}"
+  [ "$staged"     -gt 0 ] && out="${out} +${staged}"
+  [ "$modified"   -gt 0 ] && out="${out} !${modified}"
+  [ "$untracked"  -gt 0 ] && out="${out} ?${untracked}"
+  [ "$ahead"      -gt 0 ] && out="${out} ⇡${ahead}"
+  [ "$behind"     -gt 0 ] && out="${out} ⇣${behind}"
+
+  printf '%s' "$out"
+}
+
+case "${1:---info}" in
+  --is)    [ "${2:-}" = "$(state)" ] ;;
+  --info)  info ;;
+  --state) state ;;
+  *)
+    echo "usage: starship-git [--is STATE|--info|--state]" >&2
+    exit 2
+    ;;
+esac

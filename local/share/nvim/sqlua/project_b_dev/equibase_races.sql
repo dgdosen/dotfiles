@@ -55,7 +55,7 @@ select count(*) from twinspires_races;
 select count(*) from twinspires_starts;
 select count(*) from twinspires_workouts;
 
-select count(*) from thoroughmanager_races;
+iiikselect count(*) from thoroughmanager_races;
 select count(*) from thoroughmanager_starts;
 select count(*) from thoroughmanager_workouts;
 
