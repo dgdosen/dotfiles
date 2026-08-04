@@ -192,7 +192,16 @@ podman_run_bounded() {
     # refuse to start with a duplicate name.
     podman container exists "$name" 2>/dev/null && podman rm -f "$name" >/dev/null 2>&1
 
-    "${wrapper[@]}" podman run --rm --name "$name" "$@"
+    # --init injects catatonit as PID 1 so orphaned processes get reaped. Without
+    # it the CLI's own `bun` is PID 1, and bun does not reap: Chromium's renderers
+    # and crashpad handlers outlive their parent, reparent to PID 1, and pile up
+    # as zombies. Measured on 2026-08-03 during an equibase_program run — 123
+    # zombies (91 chromium, 34 chrome_crashpad) in 95 minutes, accumulating at a
+    # steady 4/min, with the VM at 54MB free and no swap, kswapd0 burning 87% CPU
+    # and vfkit eating 6.4 of the host's 10 cores. The scrapers close their
+    # browsers correctly (every puppeteer.launch is paired with a `finally {
+    # await browser.close() }`); the leak is grandchildren, not browsers.
+    "${wrapper[@]}" podman run --rm --init --name "$name" "$@"
     rc=$?
 
     # Stop the watchdog first: it reaps by name, and the reap below is allowed to
