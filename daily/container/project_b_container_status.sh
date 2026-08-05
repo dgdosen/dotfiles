@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 #
 # Health check for all com.makerboarding.* Launch Agents.
-# Gathers launchctl status, tails logs for failures, and writes a Bear note.
+# Gathers launchctl status, tails logs for failures, writes a JSON record every
+# run, and writes a Bear note only when something failed.
 #
 # Runs twice daily via Launch Agent (morning + evening).
 # Morning run captures overnight results; evening run catches the day's jobs.
@@ -338,12 +339,20 @@ done
 
 # ── Write Bear note ──────────────────────────────────────────────────────────
 
-# Always create-if-missing then append. Avoids edit conflicts when the note
-# already has content from an earlier run or a manual check.
-bearcli create "$TITLE" --tags "project_b/status" --if-not-exists >/dev/null 2>&1
-printf '%b' "\n---\n${report}" | bearcli append --title "$TITLE"
+# Only on failures. A clean run has nothing worth reading, and a note every
+# night trains you to ignore the tag -- the JSON record below still captures
+# healthy runs, and the dashboard is the place to look at them.
+#
+# Create-if-missing then append. Avoids edit conflicts when the note already
+# has content from an earlier run or a manual check.
+if (( ${#failures[@]} > 0 )); then
+    bearcli create "$TITLE" --tags "project_b/status" --if-not-exists >/dev/null 2>&1
+    printf '%b' "\n---\n${report}" | bearcli append --title "$TITLE"
 
-echo "project_b_container_status: note written (${TITLE}) at ${NOW}"
+    echo "project_b_container_status: note written (${TITLE}) at ${NOW}"
+else
+    echo "project_b_container_status: clean run, no note written at ${NOW}"
+fi
 
 # ── Investigate failures with Claude ─────────────────────────────────────────
 
@@ -395,8 +404,8 @@ fi
 # backslashes and control characters that would otherwise produce invalid
 # JSON. This is the one place in the pipeline worth being strict about.
 #
-# Everything here is best-effort. The Bear note is already written by this
-# point, so a missing jq or an unwritable repo costs a record, not a run.
+# Everything here is best-effort. Any Bear note for this run is already written
+# by this point, so a missing jq or an unwritable repo costs a record, not a run.
 emit_record() {
     [[ -x "$JQ_BIN" ]] || { echo "project_b_container_status: no jq at ${JQ_BIN}, skipping JSON"; return 1; }
     mkdir -p "$STATUS_DATA_DIR" || return 1
