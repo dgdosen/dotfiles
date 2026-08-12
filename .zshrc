@@ -253,3 +253,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# setting default 'smug project b root'
+export SMUG_PROJECT_B_ROOT="$HOME/dev/project_b_api"

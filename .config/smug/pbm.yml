@@ -1,0 +1,39 @@
+# ~/.config/smug/pbm.yml
+
+session: pbm
+root: ~/dev/project_b_status/
+
+windows:
+  - name: status
+    root: ~/dev/project_b_status/
+    # layout: main-vertical
+    layout: "ba6d,427x101,0,0[427x65,0,0,20,427x35,0,66{213x35,0,66,28,213x35,214,66,60}]"
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: tui
+    root: ~/dev/project_b_tui/
+    # layout: main-vertical
+    layout: "ba6d,427x101,0,0[427x65,0,0,20,427x35,0,66{213x35,0,66,28,213x35,214,66,60}]"
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: audit
+    root: ~/dev/project_b_audit
+    # layout: main-vertical
+    layout: "ba6d,427x101,0,0[427x65,0,0,20,427x35,0,66{213x35,0,66,28,213x35,214,66,60}]"
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
