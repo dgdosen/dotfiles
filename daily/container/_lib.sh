@@ -60,14 +60,137 @@ acquire_lock() {
 # podman's VM does not survive a reboot, and `podman machine list` then reports
 # LastUp as "Never" even though it has run before. Without this, cron fails
 # silently after every restart. Returns non-zero if podman cannot be brought up.
+#
+# The definition of "up" here is `podman info` answering, NOT MachineState
+# reading Running. Three failure modes forced that distinction, all of them
+# visible in project_b_status's records between 2026-08-02 and 2026-08-11, and
+# together they account for 107 of the 136 failures on record:
+#
+#   1. Starting is not Stopped. bris and equibase_results both fire at 18:00
+#      against one shared VM. On 2026-08-11 the second read state "Starting",
+#      treated it as down, and called `podman machine start` anyway — exit 125,
+#      "already running" — so a healthy pipeline logged "podman unavailable —
+#      skipping. Nothing was scraped." Wait a transition out; do not race it.
+#
+#   2. Running is not reachable. From 2026-08-06 to 08-10 MachineState read
+#      Running in every status record while every socket call returned
+#      "connection refused" or "ssh: handshake failed: EOF" — vfkit alive, guest
+#      dead. Ten agents failed for four days and nothing ever retried, because
+#      the only question asked was the one the VM was lying about. A
+#      Running-but-unreachable machine needs a stop/start, not a start.
+#
+#   3. A start that returns is not a socket that answers. A cold applehv boot
+#      takes ~30s, so every check below is a bounded poll rather than one try.
+: "${PODMAN_WAIT:=180}"   # seconds to wait for the socket to answer
+: "${PODMAN_POLL:=5}"     # seconds between polls
+
+# The only definition of "up" the scrapers care about.
+_podman_reachable() { podman info >/dev/null 2>&1 }
+
+_podman_state() { podman machine info --format '{{.Host.MachineState}}' 2>/dev/null }
+
+# Poll until the socket answers or the budget runs out.
+_podman_wait_reachable() {
+    local deadline=$(( $(date +%s) + $1 ))
+    while :; do
+        _podman_reachable && return 0
+        [ "$(date +%s)" -ge "$deadline" ] && return 1
+        sleep "$PODMAN_POLL"
+    done
+}
+
+# `podman machine start` is not idempotent — it exits 125 on an already-running
+# machine (the same non-idempotence project_b_podman.container.sh guards). When
+# a concurrent job wins the race that is success, not failure: the caller's next
+# question is whether the socket answers, which it asks regardless.
+_podman_start() {
+    local out
+    out=$(podman machine start 2>&1) && return 0
+    if print -r -- "$out" | grep -qi 'already running'; then
+        echo "[PODMAN] another job started it first."
+        return 0
+    fi
+    print -r -- "$out"
+    return 1
+}
+
+# Force a wedged VM down and back up — the recovery for failure mode 2.
+#
+# Serialized on an atomic mkdir: 14 agents share this VM and concurrent firings
+# are the whole problem, so two jobs must never stop it out from under each
+# other. A loser does not queue for the lock, it waits for the winner's RESULT,
+# which is the thing it actually wanted. A recycle killed partway leaves the
+# directory behind, so a lock older than two full budgets is reclaimed.
+#
+# `podman machine stop` can itself hang on a guest that is not answering, so it
+# is bounded; a stop that times out still leaves the start able to take over.
+# Deliberately never `podman machine rm` — that destroys the VM and every image
+# with it, turning a five-minute recovery into a full fleet rebuild.
+_podman_recycle() {
+    local lock="${TMPDIR:-/tmp}/podman_recycle.lock" age t rc
+    if ! mkdir "$lock" 2>/dev/null; then
+        age=$(( $(date +%s) - $(stat -f %m "$lock" 2>/dev/null || date +%s) ))
+        if [ "$age" -gt $(( PODMAN_WAIT * 2 )) ]; then
+            echo "[PODMAN] ! stale recycle lock (${age}s old) — reclaiming."
+            rmdir "$lock" 2>/dev/null
+            mkdir "$lock" 2>/dev/null || { _podman_wait_reachable "$PODMAN_WAIT"; return $? }
+        else
+            echo "[PODMAN] another job is already recycling the VM — waiting for it."
+            _podman_wait_reachable "$PODMAN_WAIT"
+            return $?
+        fi
+    fi
+    print -r -- $$ > "$lock/pid" 2>/dev/null
+
+    echo "[PODMAN] stopping the machine..."
+    t=$(command -v timeout || command -v gtimeout)
+    if [ -n "$t" ]; then
+        "$t" 120 podman machine stop >/dev/null 2>&1 \
+            || echo "[PODMAN] ! stop did not return cleanly — starting anyway."
+    else
+        podman machine stop >/dev/null 2>&1
+    fi
+
+    if _podman_start; then
+        _podman_wait_reachable "$PODMAN_WAIT"
+        rc=$?
+    else
+        rc=1
+    fi
+    rm -f "$lock/pid" 2>/dev/null
+    rmdir "$lock" 2>/dev/null
+    return $rc
+}
+
 ensure_podman() {
     local state
-    state=$(podman machine info --format '{{.Host.MachineState}}' 2>/dev/null)
-    if [ "$state" != "Running" ]; then
-        echo "[PODMAN] machine not running (state: ${state:-unknown}) — starting..."
-        podman machine start || return 1
+    state=$(_podman_state)
+
+    # Someone else is mid-start. Wait for their result rather than racing it.
+    if [ "$state" = "Starting" ]; then
+        echo "[PODMAN] machine is Starting (another job got here first) — waiting up to ${PODMAN_WAIT}s."
+        _podman_wait_reachable "$PODMAN_WAIT" && return 0
+        state=$(_podman_state)
+        echo "[PODMAN] ! still unreachable after the wait (state: ${state:-unknown})."
     fi
-    podman info >/dev/null 2>&1
+
+    if [ "$state" = "Running" ]; then
+        _podman_reachable && return 0
+        echo "[PODMAN] ! machine reports Running but the socket does not answer — recycling."
+        _podman_recycle && { echo "[PODMAN] ✓ reachable after recycle."; return 0 }
+        echo "[PODMAN] ✗ recycle did not bring podman back (state: $(_podman_state))."
+        return 1
+    fi
+
+    echo "[PODMAN] machine not running (state: ${state:-unknown}) — starting..."
+    if _podman_start && _podman_wait_reachable "$PODMAN_WAIT"; then
+        return 0
+    fi
+
+    echo "[PODMAN] ! start did not yield a working socket — recycling once."
+    _podman_recycle && { echo "[PODMAN] ✓ reachable after recycle."; return 0 }
+    echo "[PODMAN] ✗ podman is not reachable (state: $(_podman_state))."
+    return 1
 }
 
 # Refuse to run if an env-file does not point at production. Catches a wrong
