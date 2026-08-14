@@ -120,22 +120,16 @@ Key.on('f', ['ctrl', 'cmd', 'alt'], resizeToFraction(0, 5, 2, 5, 2, 3, 1, 3));
   )
 );
 
-// three columns, 42/29/29 (hundredths): y = left 42%, i = middle 29%, p = right 29%
-[
-  [0, 42],  // y: x at 0/100, width 42/100
-  [42, 29], // i: x at 42/100, width 29/100
-  [71, 29], // p: x at 71/100, width 29/100
-].forEach(([x, width], index) =>
-  Key.on(
-    ['y', 'i', 'p'][index],
-    ['ctrl', 'cmd', 'alt'],
-    resizeToFraction(x, 100, width, 100, 0, 1, 1, 1),
-  ),
-);
+// left 42% column, split vertically like d/f: y = top 2/3, u = bottom 1/3
+Key.on('y', ['ctrl', 'cmd', 'alt'], resizeToFraction(0, 100, 42, 100, 0, 3, 2, 3));
+Key.on('u', ['ctrl', 'cmd', 'alt'], resizeToFraction(0, 100, 42, 100, 2, 3, 1, 3));
 
-// merged pairs of the 42/29/29 columns
-Key.on('u', ['ctrl', 'cmd', 'alt'], resizeToFraction(0, 100, 71, 100, 0, 1, 1, 1));  // y+i = left 71%
-Key.on('o', ['ctrl', 'cmd', 'alt'], resizeToFraction(42, 100, 58, 100, 0, 1, 1, 1)); // i+p = right 58%
+// middle / right columns of the 42/29/29 split, full height
+Key.on('i', ['ctrl', 'cmd', 'alt'], resizeToFraction(42, 100, 29, 100, 0, 1, 1, 1));
+Key.on('p', ['ctrl', 'cmd', 'alt'], resizeToFraction(71, 100, 29, 100, 0, 1, 1, 1));
+
+// merged right pair (i+p) = right 58%
+Key.on('o', ['ctrl', 'cmd', 'alt'], resizeToFraction(42, 100, 58, 100, 0, 1, 1, 1));
 
 // center - inner 1/2 width, full height
 Key.on('m', ['ctrl', 'cmd', 'alt'], resizeToFraction(1, 4, 1, 2, 0, 1, 1, 1));
