@@ -120,18 +120,22 @@ Key.on('f', ['ctrl', 'cmd', 'alt'], resizeToFraction(0, 5, 2, 5, 2, 3, 1, 3));
   )
 );
 
-// thirds
-['y', 'i', 'p'].forEach((key, index) =>
+// three columns, 42/29/29 (hundredths): y = left 42%, i = middle 29%, p = right 29%
+[
+  [0, 42],  // y: x at 0/100, width 42/100
+  [42, 29], // i: x at 42/100, width 29/100
+  [71, 29], // p: x at 71/100, width 29/100
+].forEach(([x, width], index) =>
   Key.on(
-    key,
+    ['y', 'i', 'p'][index],
     ['ctrl', 'cmd', 'alt'],
-    resizeToFraction(index, 3, 1, 3, 0, 1, 1, 1),
+    resizeToFraction(x, 100, width, 100, 0, 1, 1, 1),
   ),
 );
 
-// two-thirds
-Key.on('u', ['ctrl', 'cmd', 'alt'], resizeToFraction(0, 3, 2, 3, 0, 1, 1, 1));
-Key.on('o', ['ctrl', 'cmd', 'alt'], resizeToFraction(1, 3, 2, 3, 0, 1, 1, 1));
+// merged pairs of the 42/29/29 columns
+Key.on('u', ['ctrl', 'cmd', 'alt'], resizeToFraction(0, 100, 71, 100, 0, 1, 1, 1));  // y+i = left 71%
+Key.on('o', ['ctrl', 'cmd', 'alt'], resizeToFraction(42, 100, 58, 100, 0, 1, 1, 1)); // i+p = right 58%
 
 // center - inner 1/2 width, full height
 Key.on('m', ['ctrl', 'cmd', 'alt'], resizeToFraction(1, 4, 1, 2, 0, 1, 1, 1));
