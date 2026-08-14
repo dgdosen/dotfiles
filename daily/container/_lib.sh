@@ -13,6 +13,13 @@
 # truth so they cannot drift. Job-specific logic (download verification, the
 # gmax/egps bot-challenge retry loop) stays in the scripts that own it.
 
+# Per-service on/off switches. Lives one level up because the native scripts
+# need it too and have no _lib.sh: this is the only scaffolding both modes
+# share. Sourcing it here means every container launcher gets `job_enabled`
+# without a second source line. $0 at the top level of a sourced file is that
+# file's own path, so this resolves relative to _lib.sh regardless of cwd.
+source "${0:A:h}/../_jobs.sh"
+
 # Defaults, overridable from the environment or before sourcing (`:=` only
 # assigns when unset, so an env override from cron/manual still wins).
 : "${EXPECTED_API_HOST:=projectb.makerboarding.com}"

@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 source ~/.zshrc
+source "${0:A:h}/_jobs.sh"
+job_enabled "$0" PROJECT_B_DB || exit 0
 echo - updating project b data
 DB_NAME="project_b_development"
 DB_USER="postgres"

@@ -16,6 +16,7 @@
 
 source ~/.zshrc
 source "${0:A:h}/_lib.sh"   # acquire_lock, ensure_podman, assert_prod_env, run_container, env_val
+job_enabled "$0" PROJECT_B_DRF_FETCH || exit 0
 
 acquire_lock "$HOME/.cron_support/project_b_drf_fetch.container.lock"
 

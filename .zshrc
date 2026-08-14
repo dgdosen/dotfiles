@@ -8,7 +8,7 @@ fi
 typeset -g PROMPT_ENGINE="${PROMPT_ENGINE:-p10k}"
 
 if [[ "$PROMPT_ENGINE" == p10k ]]; then
-  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p11k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
   fi
 fi

@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 source ~/.zshrc
+source "${0:A:h}/_jobs.sh"
+job_enabled "$0" PROJECT_B_DW_DB || exit 0
 echo - updating project b data
 
 # Replace 'your_database_name' and 'your_username' with actual database name and username

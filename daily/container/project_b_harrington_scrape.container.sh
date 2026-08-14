@@ -19,6 +19,7 @@
 
 source ~/.zshrc
 source "${0:A:h}/_lib.sh"   # acquire_lock, ensure_podman, assert_prod_env, podman_run_bounded, env_val, SHARE_HOST
+job_enabled "$0" PROJECT_B_HARRINGTON_SCRAPE || exit 0
 
 acquire_lock "$HOME/.cron_support/project_b_harrington_scrape.container.lock"
 

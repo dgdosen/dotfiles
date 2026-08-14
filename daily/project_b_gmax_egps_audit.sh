@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 source ~/.zshrc
+source "${0:A:h}/_jobs.sh"
+job_enabled "$0" PROJECT_B_GMAX_EGPS_AUDIT || exit 0
 
 # Lock file to prevent multiple instances
 LOCKFILE="$HOME/.cron_support/project_b_gmax_egps_audit.lock"

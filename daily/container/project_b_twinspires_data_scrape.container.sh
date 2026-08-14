@@ -19,6 +19,7 @@
 
 source ~/.zshrc
 source "${0:A:h}/_lib.sh"   # acquire_lock, ensure_podman
+job_enabled "$0" PROJECT_B_TWINSPIRES_DATA_SCRAPE || exit 0
 
 acquire_lock "$HOME/.cron_support/project_b_twinspires_data_scrape.container.lock"
 

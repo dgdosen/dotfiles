@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 source ~/.zshrc
+source "${0:A:h}/_jobs.sh"
+job_enabled "$0" PROJECT_B_HARRINGTON_SCRAPE || exit 0
 
 # Only run after 7 PM Pacific, regardless of local timezone
 PACIFIC_HOUR=$(TZ=America/Los_Angeles date +%H)

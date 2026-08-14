@@ -14,6 +14,7 @@
 
 source ~/.zshrc
 source "${0:A:h}/_lib.sh"   # acquire_lock, ensure_podman, assert_prod_env, env_val, SHARE_HOST
+job_enabled "$0" PROJECT_B_EQUIBASE_RESULTS_SCRAPE || exit 0
 
 acquire_lock "$HOME/.cron_support/project_b_equibase_results_scrape.container.lock"
 

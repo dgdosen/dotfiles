@@ -24,6 +24,7 @@
 
 source ~/.zshrc
 source "${0:A:h}/_lib.sh"   # acquire_lock, ensure_podman, assert_prod_env, env_val, SHARE_HOST
+job_enabled "$0" PROJECT_B_BRIS_FETCH || exit 0
 
 acquire_lock "$HOME/.cron_support/project_b_bris_fetch.container.lock"
 

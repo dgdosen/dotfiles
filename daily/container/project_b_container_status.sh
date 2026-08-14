@@ -146,6 +146,38 @@ file_count() {
     ls -1 "$dir" 2>/dev/null | wc -l | tr -d ' '
 }
 
+# The script an agent actually runs, read from the installed plist.
+#
+# The plist is the ONLY thing that decides native vs container — PROJECT_B_MODE
+# asserts, it does not dispatch — and that decision is otherwise invisible:
+# answering "which mode is this machine in" means walking symlinks by hand. The
+# mode belongs in the record for the same reason the image ref does: so a red
+# streak can be correlated with a change instead of guessed at.
+#
+# ProgramArguments:0 is usually the script, but a plist may put an interpreter
+# there (/bin/bash, /usr/bin/env), so take the first argument that looks like a
+# script and fall back to :Program.
+agent_program() {
+    local label="$1" plist p i
+    # Separate statement on purpose: zsh declares every name in a `local` before
+    # assigning any of them, so "${label}" referenced inside the same `local`
+    # would expand to the freshly-emptied local, not to $1.
+    plist="$HOME/Library/LaunchAgents/${label}.plist"
+    [[ -f "$plist" ]] || return
+    for i in 0 1 2; do
+        p=$(/usr/libexec/PlistBuddy -c "Print :ProgramArguments:$i" "$plist" 2>/dev/null) || continue
+        [[ "$p" == *.sh ]] && { print -r -- "$p"; return }
+    done
+    /usr/libexec/PlistBuddy -c "Print :Program" "$plist" 2>/dev/null
+}
+
+# container | native, derived from the script path above.
+agent_mode() {
+    local prog="$1"
+    [[ -z "$prog" ]] && return
+    [[ "${prog:t}" == *.container.sh ]] && print -r -- container || print -r -- native
+}
+
 # Count files modified today in a directory.
 today_file_count() {
     local dir="$1"
@@ -413,12 +445,14 @@ emit_record() {
     local tmp_agents
     tmp_agents=$(mktemp) || return 1
 
-    local short st ec pid out rt_json exit_json pid_json
+    local short st ec pid out rt_json exit_json pid_json prog mode
     for short in "${(@ko)agent_status}"; do
         st="${agent_status[$short]}"
         ec="${agent_short_exit[$short]}"
         pid="${agent_short_pid[$short]}"
         out=$(agent_output "$short")
+        prog=$(agent_program "${agent_label[$short]}")
+        mode=$(agent_mode "$prog")
 
         # "-" is launchctl's placeholder, not a value. null it out.
         exit_json="null"
@@ -438,12 +472,16 @@ emit_record() {
             --arg output  "$out" \
             --arg so      "${agent_stdout[$short]}" \
             --arg se      "${agent_stderr[$short]}" \
+            --arg script  "$prog" \
+            --arg mode    "$mode" \
             --argjson exit_code "$exit_json" \
             --argjson pid       "$pid_json" \
             --argjson run_times "$rt_json" \
             '{
                name: $name, label: $label, status: $status,
                exit: $exit_code, pid: $pid, run_times: $run_times,
+               mode:        (if $mode   == "" then null else $mode   end),
+               script:      (if $script == "" then null else $script end),
                output:      (if $output == "" then null else $output end),
                stdout_tail: (if $so     == "" then null else $so     end),
                stderr_tail: (if $se     == "" then null else $se     end)
