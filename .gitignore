@@ -49,4 +49,5 @@ node_modules
 .config/opencode/*.bak
 .config/opencode/*.tmp
 .config/opencode/antigravity-accounts.json
+.config/opencode/service-*.json
 .config/opencode/antigravity-logs/

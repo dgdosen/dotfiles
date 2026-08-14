@@ -39,24 +39,30 @@ where id in (7, 200)
 
 select * from equibase_calls;
 
-select count(*) from races as race_count;
-select count(*) from starts as start_count;
-select count(*) from workouts as workout_count;
+select count(*) as race_count from races;
+select count(*) as start_cont from starts;
+select count(*) as workout_count from workouts;
 
-select count(*) from equibase_races as equibase_race_count;
-select count(*) from equibase_starts as equibase_start_count;
+select count(*) as equibase_race_count from equibase_races;
+select count(*) as equibase_start_count from equibase_starts ;
 -- select count(*) from equibase_workouts;
 
-select count(*) from drf_races as drf_race_count;
-select count(*) from drf_starts as drf_start_count;
-select count(*) from drf_workouts as drf_workout_count;
+select count(*) as drf_race_count from drf_races;
+select count(*) as drf_start_count from drf_starts;
+select count(*) as drf_workout_count from drf_workouts;
 
-select count(*) from twinspires_races;
-select count(*) from twinspires_starts;
-select count(*) from twinspires_workouts;
+select count(*) as twinspires_race_count from twinspires_races;
+select count(*) as twinspires_start_count from twinspires_starts;
+select count(*) as twinspires_workout_count from twinspires_workouts;
 
-iiikselect count(*) from thoroughmanager_races;
-select count(*) from thoroughmanager_starts;
+select count(*) as tm_race_count from thoroughmanager_races;
+select count(*) as tm_start_count from thoroughmanager_starts;
+select count(*) as tm_workout_count from thoroughmanager_workouts;
+
+select distinct track_code from thoroughmanager_races;
 select count(*) from thoroughmanager_workouts;
+select track_code, count(track_code) as workout_count from thoroughmanager_workouts
+group by track_code order by workout_count desc;
+
 
 select * from twinspires_races;
