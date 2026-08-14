@@ -29,7 +29,10 @@ vim.g.clipboard = {
     ['+'] = function(lines) vim.fn.system('pbcopy', table.concat(lines, '\n')) end,
     ['*'] = function(lines) vim.fn.system('pbcopy', table.concat(lines, '\n')) end,
   },
-  paste = is_remote and {} or {
+  paste = is_remote and {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  } or {
     ['+'] = function() return vim.fn.systemlist('pbpaste') end,
     ['*'] = function() return vim.fn.systemlist('pbpaste') end,
   },
