@@ -5,9 +5,8 @@ job_enabled "$0" PROJECT_B_TMRACINGDATA_SCRAPE || exit 0
 set -e
 cd $HOME/dev/project_b_tmracingdata_scrape_cli
 
-pnpm build
+bun src/index.ts fetch-all
 
-pnpm dev fetch-all
-pnpm dev process
+bun src/index.ts process
 
 touch ~/.cron_support/cron_project_b_tmracingdata_scrape.txt

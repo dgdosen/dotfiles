@@ -21,16 +21,22 @@ if [[ -f "$SENTINEL" ]]; then
   fi
 fi
 
+# Past the guards — from here any failure should fail the job, leaving the
+# sentinel unstamped so the 21:15 run retries.
+set -e
 cd $HOME/dev/project_b_harrington_scrape_cli
+har() { bun src/index.ts "$@" }
 
-# Skip if archive file already exists for tomorrow
-if ! pnpm start check-archive; then
+if ! har check-archive; then
+  echo "Tomorrow's archive already present — skipping"
   exit 0
 fi
 
-# Only fetch if SA has races scheduled tomorrow
-if pnpm start check-schedule SA; then
-  pnpm start fetch
+# Exit 1 means "no races" or "check failed" — indistinguishable, so retry either way
+if ! har check-schedule DMR; then
+  echo "No DMR races tomorrow, or the check failed — 21:15 will retry"
+  exit 0
 fi
 
+har fetch
 touch "$SENTINEL"
