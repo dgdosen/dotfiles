@@ -32,11 +32,5 @@ if ! har check-archive; then
   exit 0
 fi
 
-# Exit 1 means "no races" or "check failed" — indistinguishable, so retry either way
-if ! har check-schedule DMR; then
-  echo "No DMR races tomorrow, or the check failed — 21:15 will retry"
-  exit 0
-fi
-
 har fetch
 touch "$SENTINEL"
