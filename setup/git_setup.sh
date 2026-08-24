@@ -1,4 +1,11 @@
-# intial clone of daily fetched repositories
+# Initial clone of the daily-fetched repositories.
+#
+# This is first-run bootstrap only. Ongoing freshness for the makerboarding
+# project_b repos is ~/.project_b/jobs/project_b_repo_sync.sh
+# (com.makerboarding.project_b_repo_sync, nightly at 02:30), which clones any
+# that are missing and fast-forwards the rest. Its repo table is derived from
+# the makerboarding lines below PLUS every repo a com.makerboarding.* launch
+# agent reads or writes — so adding a clone here means adding it there too.
 
 [ ! -d "$HOME/dev" ] && mkdir "$HOME/dev"
 git clone git@github.com:dgdosen/dotfiles.git $HOME/.dotfiles
@@ -35,6 +42,11 @@ git clone git@github.com:makerboarding/project_b_slack_notifier.git $HOME/dev/pr
 git clone git@github.com:makerboarding/project_b_start_query.git $HOME/dev/project_b_start_query
 git clone git@github.com:makerboarding/project_b_trackmaster_fetch_cli.git $HOME/dev/project_b_trackmaster_fetch_cli
 git clone git@github.com:makerboarding/project_b_tui.git $HOME/dev/project_b_tui
+# Renamed to project_b_twinspires_odds_scrape_cli (repo id 298726269). The old
+# name still clones — GitHub keeps rename redirects forever — so leaving this
+# line in produced a SECOND working tree of the same repo on every fresh
+# machine, at a path no launch agent reads. The jobs use the _odds_ path below.
+# git clone git@github.com:makerboarding/project_b_twinspires_scrape_cli.git $HOME/dev/project_b_twinspires_scrape_cli
 git clone git@github.com:makerboarding/project_b_twinspires_odds_scrape_cli.git $HOME/dev/project_b_twinspires_odds_scrape_cli
 git clone git@github.com:makerboarding/project_b_unified_pars.git $HOME/dev/project_b_unified_pars
 

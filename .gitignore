@@ -51,3 +51,4 @@ node_modules
 .config/opencode/antigravity-accounts.json
 .config/opencode/service-*.json
 .config/opencode/antigravity-logs/
+.config/opencode/plugins/herdr-agent-state.js
