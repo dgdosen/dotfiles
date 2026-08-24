@@ -35,7 +35,7 @@ git clone git@github.com:makerboarding/project_b_slack_notifier.git $HOME/dev/pr
 git clone git@github.com:makerboarding/project_b_start_query.git $HOME/dev/project_b_start_query
 git clone git@github.com:makerboarding/project_b_trackmaster_fetch_cli.git $HOME/dev/project_b_trackmaster_fetch_cli
 git clone git@github.com:makerboarding/project_b_tui.git $HOME/dev/project_b_tui
-git clone git@github.com:makerboarding/project_b_twinspires_scrape_cli.git $HOME/dev/project_b_twinspires_scrape_cli
+git clone git@github.com:makerboarding/project_b_twinspires_odds_scrape_cli.git $HOME/dev/project_b_twinspires_odds_scrape_cli
 git clone git@github.com:makerboarding/project_b_unified_pars.git $HOME/dev/project_b_unified_pars
 
 git clone git@github.com:quantifiedflow/quantified_status.git $HOME/dev/quantified_status

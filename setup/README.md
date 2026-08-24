@@ -74,7 +74,7 @@ Clones project_b, sessuru, and exercism repos into `~/dev/`.
 sh ~/.dotfiles/setup/launchd_setup.sh
 ```
 
-Review the script first - comment out agents that should only run on a specific machine (e.g., project_b database agents).
+Review the script first and comment out agents that should only run on a specific machine.
 
 ## 10. Post-setup
 
