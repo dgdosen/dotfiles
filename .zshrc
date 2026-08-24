@@ -1,3 +1,22 @@
+# --- Truecolor (24-bit) ---------------------------------------------------
+# Set before the p10k instant-prompt block below: p10k gates its truecolor
+# path on $COLORTERM (see themes/powerlevel10k/internal/wizard.zsh).
+#
+# The terminal emulators already export COLORTERM (.config/ghostty/config,
+# .config/alacritty/alacritty.toml, .config/kitty/kitty.conf), but a tmux
+# *server* started outside one of them -- launchd, ssh, cron, `tmux new -d`
+# from a bare shell -- never inherits it, and COLORTERM is not in tmux's
+# default update-environment list, so every pane in that server silently
+# drops to 256 colors. Re-export here so the shell fixes it either way.
+export COLORTERM=truecolor
+
+# Claude Code clamps itself from truecolor down to 256 colors whenever $TMUX
+# is set -- a safe default for tmux configs that don't pass 24-bit through.
+# Ours does (.tmux.conf: terminal-overrides ",xterm-256color:Tc"), so opt out.
+# Checked for truthiness only; any non-empty value disables the clamp.
+export CLAUDE_CODE_TMUX_TRUECOLOR=1
+# --------------------------------------------------------------------------
+
 # Which prompt engine to load: p10k (default) or starship.
 # Switch with `prompt-engine starship` / `prompt-engine p10k`.
 # PROMPT_ENGINE in the environment wins, so you can try one for a single shell:
