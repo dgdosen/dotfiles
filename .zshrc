@@ -17,6 +17,9 @@ export COLORTERM=truecolor
 export CLAUDE_CODE_TMUX_TRUECOLOR=1
 # --------------------------------------------------------------------------
 
+# Claude code default mode
+export ANTHROPIC_MODEL="claude-opus-4-7"
+
 # Which prompt engine to load: p10k (default) or starship.
 # Switch with `prompt-engine starship` / `prompt-engine p10k`.
 # PROMPT_ENGINE in the environment wins, so you can try one for a single shell:
