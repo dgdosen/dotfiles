@@ -39,9 +39,9 @@ text = "#1e1e2e"
 background = "#f5e0dc"
 
 [colors.normal]
-# black = "#45475a"
+black = "#45475a"
 # black = "#4c4f69"
-black = "#000000"
+# black = "#000000"
 red = "#f38ba8"
 green = "#a6e3a1"
 yellow = "#f9e2af"
