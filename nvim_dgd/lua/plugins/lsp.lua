@@ -24,9 +24,10 @@ return {
       vim.lsp.config('sourcekit', {
         cmd = { 'sourcekit-lsp' },
         filetypes = { 'swift', 'objective-c', 'objective-cpp' },
-        root_dir = function(filename, bufnr)
-          return vim.fs.root(bufnr, { 'Package.swift', '.git' })
-        end,
+        -- root_markers, not root_dir: on nvim 0.11+ root_dir is called as
+        -- (bufnr, on_dir) and the old signature threw inside the FileType
+        -- autocmd, which also killed syntax highlighting for Swift buffers.
+        root_markers = { 'Package.swift', '.git' },
       })
       vim.lsp.enable("sourcekit")
     end,
