@@ -7,7 +7,7 @@ windows:
   - name: status
     root: ~/dev/project_b_status/
     # layout: main-vertical
-    layout: "ba6d,427x101,0,0[427x65,0,0,20,427x35,0,66{213x35,0,66,28,213x35,214,66,60}]"
+    layout: main-vertical
     commands:
       - ""
     panes:
@@ -18,7 +18,7 @@ windows:
   - name: tui
     root: ~/dev/project_b_tui/
     # layout: main-vertical
-    layout: "ba6d,427x101,0,0[427x65,0,0,20,427x35,0,66{213x35,0,66,28,213x35,214,66,60}]"
+    layout: main-vertical
     commands:
       - ""
     panes:
@@ -29,7 +29,18 @@ windows:
   - name: audit
     root: ~/dev/project_b_audit
     # layout: main-vertical
-    layout: "ba6d,427x101,0,0[427x65,0,0,20,427x35,0,66{213x35,0,66,28,213x35,214,66,60}]"
+    layout: main-vertical
+    commands:
+      - ""
+    panes:
+      - commands:
+          - ""
+      - commands:
+          - ""
+  - name: worktree-census
+    root: ~/dev/quantified_worktree_census
+    # layout: main-vertical
+    layout: main-vertical
     commands:
       - ""
     panes:
