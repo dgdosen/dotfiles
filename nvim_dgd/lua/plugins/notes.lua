@@ -26,8 +26,11 @@ return {
 
       -- Additional VimWiki configurations
       vim.g.vimwiki_ext2syntax = { ['.md'] = 'markdown' }
-      vim.g.zettel_format = "%Y-%m-%d:%H:%M-%title"
-      vim.g.zettel_options = { { front_matter = { tags = '' } } }
+      -- Only treat .md files INSIDE the wiki paths above as vimwiki; every other
+      -- .md stays filetype=markdown so vim-markdown/treesitter folding applies.
+      vim.g.vimwiki_global_ext = 0
+      -- Fold by header inside the wikis (vimwiki uses its own foldexpr)
+      vim.g.vimwiki_folding = 'expr'
     end,
   },
 
@@ -45,6 +48,7 @@ return {
         templates = home .. "/templates",
         extension = ".md",
         template_new_note = home .. "/templates/new_note.md",
+        template_new_daily = home .. "/templates/daily.md",
 
         -- UUID prefix with timestamp
         new_note_filename = "uuid-title",
@@ -52,10 +56,16 @@ return {
         uuid_sep = "-",               -- Separator between timestamp and title
       })
 
-      -- Keymaps
-      vim.keymap.set("n", "<leader>zn", function() require('telekasten').new_note() end)
-      vim.keymap.set("n", "<leader>zd", function() require('telekasten').goto_today() end)
-      vim.keymap.set("n", "<leader>zf", function() require('telekasten').find_notes() end)
+      -- Keymaps: <leader>n ([n]otes). <leader>z is taken by ZenMode/Twilight in which-key.
+      local tk = function(fn) return function() require('telekasten')[fn]() end end
+      vim.keymap.set("n", "<leader>nn", tk('new_note'),       { desc = "[n]ew note" })
+      vim.keymap.set("n", "<leader>nd", tk('goto_today'),     { desc = "to[d]ay's daily note" })
+      vim.keymap.set("n", "<leader>nf", tk('find_notes'),     { desc = "[f]ind notes by title" })
+      vim.keymap.set("n", "<leader>ng", tk('search_notes'),   { desc = "[g]rep note contents" })
+      vim.keymap.set("n", "<leader>nl", tk('insert_link'),    { desc = "insert [l]ink" })
+      vim.keymap.set("n", "<leader>nb", tk('show_backlinks'), { desc = "show [b]acklinks" })
+      vim.keymap.set("n", "<leader>nt", tk('show_tags'),      { desc = "show [t]ags" })
+      vim.keymap.set("n", "<leader>np", tk('panel'),          { desc = "command [p]anel" })
     end
   },
 

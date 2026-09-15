@@ -188,8 +188,10 @@ vim.api.nvim_set_keymap('n', '<leader>g', ':lua show_popup()<CR>', { noremap = t
 -- chatgpt/shellbot
 vim.cmd("command! ChatGPT lua require'chatgpt'.chatgpt()")
 
--- keep folds open by default
-vim.opt.foldenable = false
+-- keep folds open by default (folding enabled, but all folds start open)
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 -- diagnostics
 vim.diagnostic.config({

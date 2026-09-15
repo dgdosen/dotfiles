@@ -12,7 +12,7 @@ wk.setup {
       text_objects = false,
       windows = false,
       nav = false,
-      z = false,
+      z = true, -- fold (zM/zR/zo/zc/za...), scroll (zz/zt/zb) and spell (z=) hints
       g = false
     }
   }
@@ -59,6 +59,8 @@ wk.add({
   { "<leader>ms", ":MarkdownPreviewStop<cr>",                                               desc = "markdown preview [s]top" },
   { "<leader>mt", ":MarkdownPreviewToggle<cr>",                                             desc = "markdown preview [t]oggle" },
   { "<leader>mx", ":%!xmllint --format -<CR>",                                             desc = "[x]ml format" },
+  -- <leader>n* mappings themselves live in plugins/notes.lua (telekasten config)
+  { "<leader>n",  group = "[n]otes/telekasten ..." },
   { "<leader>p",  group = "[p]lugins ..." },
   { "<leader>pS", ":Lazy health<cr>",                                                      desc = "[S]? health" },
   { "<leader>pc", ":Lazy clean<cr>",                                                       desc = "[c]lean plugins" },
@@ -84,6 +86,27 @@ wk.add({
   { "<leader>z",  group = "[z]en ..." },
   { "<leader>zt", ":Twilight<cr>",                                                         desc = "toggle [t]wilight" },
   { "<leader>zz", ":ZenMode<cr>",                                                          desc = "toggle [z]en Mode" },
+
+  -- Fold hints: override the generic `z` preset text with the mnemonics.
+  -- (desc-only entries label existing built-in keys; no mapping is created)
+  { "zM", desc = "fold [M]ore: close ALL folds" },
+  { "zR", desc = "fold [R]educe: open ALL folds" },
+  { "zm", desc = "fold [m]ore: close one level" },
+  { "zr", desc = "fold [r]educe: open one level" },
+  { "zc", desc = "[c]lose fold under cursor" },
+  { "zo", desc = "[o]pen fold under cursor" },
+  { "za", desc = "[a]lternate/toggle fold under cursor" },
+  { "zC", desc = "[C]lose fold under cursor recursively" },
+  { "zO", desc = "[O]pen fold under cursor recursively" },
+  { "zA", desc = "[A]lternate/toggle fold recursively" },
+  { "zj", desc = "[j] down to next fold" },
+  { "zk", desc = "[k] up to previous fold" },
+  { "zv", desc = "[v]iew: open folds to reveal cursor" },
+  { "zx", desc = "reset folds to foldlevel (e[x]pand cursor)" },
+  { "zi", desc = "toggle fold[i]ng on/off ([i]nvert)" },
+  { "zf", desc = "create [f]old (motion / visual)" },
+  { "zd", desc = "[d]elete fold under cursor" },
+  { "zE", desc = "[E]liminate all manual folds" },
 })
 
 
