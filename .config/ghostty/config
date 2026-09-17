@@ -34,15 +34,15 @@ mouse-scroll-multiplier = 3
 # (Ghostty has no audible bell on macOS by default)
 
 # Window layout
-window-padding-x = 5
-window-padding-y = 5
+# window-padding-x = 5
+# window-padding-y = 5
 # Alacritty's dynamic_padding: spread leftover pixels evenly instead of
 # piling them on the right/bottom edge.
-window-padding-balance = true
+# window-padding-balance = true
 background-opacity = 1.0
 
 # Window decorations — closest match to Alacritty's decorations = "Buttonless"
-macos-titlebar-style = hidden
+# macos-titlebar-style = hidden
 
 # No "Close Window?" prompt, matching Alacritty. Safe here because tmux owns the
 # real sessions — closing a window detaches, it doesn't kill the tmux server.
