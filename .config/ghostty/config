@@ -43,6 +43,10 @@ background-opacity = 1.0
 
 # Window decorations — closest match to Alacritty's decorations = "Buttonless"
 # macos-titlebar-style = hidden
+# shell-integration-features = no-title
+# title = " "
+window-title-font-family = Source Code Pro
+
 
 # No "Close Window?" prompt, matching Alacritty. Safe here because tmux owns the
 # real sessions — closing a window detaches, it doesn't kill the tmux server.

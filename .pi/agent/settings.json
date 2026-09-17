@@ -1,0 +1,10 @@
+{
+  "lastChangelogVersion": "0.85.1",
+  "theme": "light/dark",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.5",
+  "tuiMode": "regular",
+  "packages": [
+    "npm:pi-web-search"
+  ]
+}
