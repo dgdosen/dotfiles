@@ -66,6 +66,11 @@ return {
       vim.keymap.set("n", "<leader>nb", tk('show_backlinks'), { desc = "show [b]acklinks" })
       vim.keymap.set("n", "<leader>nt", tk('show_tags'),      { desc = "show [t]ags" })
       vim.keymap.set("n", "<leader>np", tk('panel'),          { desc = "command [p]anel" })
+
+      -- Zettelbox: draft in ~/dev/zettelbox, flush to Bear.app, delete local file.
+      local zbox = require("setup/zettelbox")
+      vim.keymap.set("n", "<leader>nz", zbox.new_draft,   { desc = "new [z]ettelbox draft" })
+      vim.keymap.set("n", "<leader>nB", zbox.send_to_bear,{ desc = "send zettelbox → [B]ear" })
     end
   },
 

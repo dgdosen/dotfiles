@@ -5,9 +5,11 @@ local ts = require('nvim-treesitter')
 
 ts.setup({})
 
--- Parsers to keep installed. Neovim itself bundles c, lua, vim, vimdoc,
--- query and markdown. Installing needs the `tree-sitter` CLI and a C compiler.
-local parsers = { 'swift', 'typescript', 'tsx', 'javascript', 'ruby', 'xml', 'json', 'yaml', 'bash', 'markdown_inline' }
+-- Parsers to keep installed. Neovim bundles c, lua, vim, vimdoc, query.
+-- `markdown` is NOT bundled on this install — required by Twilight and by our
+-- markdown fold autocmd, so keep it explicit. Installing needs the
+-- `tree-sitter` CLI and a C compiler.
+local parsers = { 'swift', 'typescript', 'tsx', 'javascript', 'ruby', 'xml', 'json', 'yaml', 'bash', 'markdown', 'markdown_inline' }
 
 local installed = {}
 for _, name in ipairs(ts.get_installed()) do installed[name] = true end
