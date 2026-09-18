@@ -58,6 +58,10 @@ ln -sfnv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 [ ! -L "$HOME/.config/smug" ] && ln -sfnv ~/.dotfiles/.config/smug ~/.config/smug
 [ ! -L "$HOME/.config/lazygit" ] && ln -sfnv ~/.dotfiles/.config/lazygit ~/.config/lazygit
 [ ! -L "$HOME/.config/opencode" ] && ln -sfnv ~/.dotfiles/.config/opencode ~/.config/opencode
+ln -sfnv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+ln -sfnv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+ln -sfnv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config/fish/functions/fish_user_key_bindings.fish
+ln -sfnv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 
 # pi coding agent (~/.pi/agent). The authored config lives in ~/.dotfiles/.pi/agent
 # and is linked item-by-item rather than as a whole directory, because pi keeps
@@ -78,16 +82,13 @@ for item in settings.json AGENTS.md keybindings.json extensions skills prompts t
 done
 # Extensions are NOT auto-installed from settings.json's `packages` at startup,
 # so install any that are missing; guarded on the install dir so re-runs are no-ops.
+# stdin is redirected so `pi install` can never consume the rest of the list.
 if command -v pi >/dev/null && command -v jq >/dev/null; then
   jq -r '.packages[]? // empty' ~/.pi/agent/settings.json | while read -r pkg; do
     name="${pkg#npm:}"
-    [ -d "$HOME/.pi/agent/npm/node_modules/$name" ] || pi install "$pkg"
+    [ -d "$HOME/.pi/agent/npm/node_modules/$name" ] || pi install "$pkg" </dev/null
   done
 fi
-ln -sfnv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-ln -sfnv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
-ln -sfnv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config/fish/functions/fish_user_key_bindings.fish
-ln -sfnv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
 
 # claude code
 [ ! -d "$HOME/.claude/scripts" ] && mkdir -p ~/.claude/scripts

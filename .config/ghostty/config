@@ -13,7 +13,7 @@ font-style-bold = Bold
 font-style-italic = Italic
 font-style-bold-italic = Bold Italic
 
-font-size = 12.75
+font-size = 12.00
 
 # No equivalent of Alacritty's [font.offset] y = 1 is set here: adjust-cell-height
 # changes line spacing, not the baseline. Use adjust-font-baseline if text ever
