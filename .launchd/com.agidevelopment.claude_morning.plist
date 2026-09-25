@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.agidevelopment.claude_morning</string>
+    <!-- Fires at 05:00 to open the day's Claude usage window early -->
+    <!-- (5-hour window => spent by ~10am). Side effect: writes a short -->
+    <!-- daily briefing to ~/log/claude_morning_briefing.md. -->
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Users/dgdosen/.dotfiles/daily/claude_morning_kickoff.sh</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>5</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+    </dict>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/claude_morning.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/claude_morning.err</string>
+    <key>SessionCreate</key>
+    <true/>
+  </dict>
+</plist>
