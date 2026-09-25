@@ -6,6 +6,7 @@
   "tuiMode": "regular",
   "packages": [
     "npm:pi-web-search",
-    "npm:@narumitw/pi-btw"
+    "npm:@narumitw/pi-btw",
+    "npm:@narumitw/pi-worktree"
   ]
 }
