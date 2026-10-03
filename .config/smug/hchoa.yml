@@ -18,7 +18,7 @@ windows:
     root: ~/dev/accountingtrak_cash_receipts/
     layout: main-vertical
     commands:
-      - nvim
+      - ""
     panes:
       - commands:
           - ""
@@ -28,7 +28,7 @@ windows:
     root: ~/dev/accountingtrak_bank_rec/
     layout: main-vertical
     commands:
-      - nvim
+      - ""
     panes:
       - commands:
           - ""

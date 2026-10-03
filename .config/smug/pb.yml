@@ -14,7 +14,7 @@ windows:
       - commands:
           - bin/spec-watch
       - commands:
-          - nvim
+          - ""
       - commands:
           - ""
   - name: run
@@ -22,7 +22,7 @@ windows:
     # layout: main-horizontal
     layout: "f926,427x101,0,0[427x61,0,0,4,427x39,0,62{214x39,0,62,6,212x39,215,62,5}]"
     commands:
-      - nvim
+      - ""
     panes:
       - commands:
           - bundle exec rails s
@@ -33,7 +33,7 @@ windows:
     layout: "7dc3,427x101,0,0[427x70,0,0,7,427x30,0,71{215x30,0,71,9,211x30,216,71,8}]"
     # layout: main-horizontal
     commands:
-      - nvim
+      - ""
     panes:
       - commands:
           - ""
@@ -44,7 +44,7 @@ windows:
     # layout: main-vertical
     layout: "6892,427x101,0,0{252x101,0,0,10,174x101,253,0[174x51,253,0,12,174x49,253,52,11]}"
     commands:
-      - nvim
+      - ""
     panes:
       - commands:
           - yarn dev
