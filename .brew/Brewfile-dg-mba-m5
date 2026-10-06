@@ -1,193 +1,340 @@
 # Homebrew bundle for dg-mba-m5 — MAIN working Mac (Apple Silicon, AI + dev).
 # Selected automatically by host name (scutil --get LocalHostName); the generic
 # Brewfile is the shared fallback. Keep THIS file as the source of truth for this
-# machine. Container/k8s stack: orbstack (engine + built-in k3s), kind, k3d-optional.
-tap "gcenx/wine"
-tap "hamed-elfayome/claude-usage"
-tap "jzelinskie/duckdns"
-tap "koekeishiya/formulae"
-tap "mongodb/brew"
-tap "oven-sh/bun"
-tap "romkatv/powerlevel10k"
-tap "surrealdb/tap"
-tap "teamookla/speedtest"
+# machine. Container/k8s stack: orbstack (engine + built-in k3s), kind, minikube.
+#
+# Regenerated 2026-10-06 from `brew bundle dump --describe` after a cleanup pass:
+#   - removed: novelty/fetch toys (cowsay, figlet, toilet, screenfetch, onefetch),
+#     embedded/hardware tools (dfu-*, open-ocd, lsusb, powerman, plotutils),
+#     redundant tools (ack, the_silver_searcher, starship, fish, htop, git-gui),
+#     casks evernote, iterm2, github, keybase.
+#   - removed yabai/skhd (and the asmvik/koekeishiya taps + yabairc/skhdrc).
+#   - intentionally NOT listed (still installed; pulled in as deps when needed):
+#     libiconv, libxml2, libtermkey, libxkbcommon, zlib, bison, gpatch, gsl,
+#     shared-mime-info, openssl@3.
+#   - App Store apps no longer installed (iWork, iMovie, Affinity, iStat, …) dropped.
+# To refresh: dump to a temp file and diff against this one rather than
+# overwriting, so the curation above isn't lost.
+tap "anomalyco/tap", trusted: { formulae: ["opencode-v2"] }
+tap "can1357/tap"
+tap "manaflow-ai/cmux"
+tap "oven-sh/bun", trusted: true
+tap "romkatv/powerlevel10k", trusted: true
+tap "teamookla/speedtest", trusted: true
 tap "warrensbox/tap"
-brew "ack"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# Software library to render fonts
 brew "freetype"
+# GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
+# XML-based font configuration API for X Windows
 brew "fontconfig"
+# Core application library for C
 brew "glib"
+# X.Org: Interface to the X Window System protocol
 brew "libxcb"
+# Vector graphics library with cross-device output support
 brew "cairo"
+# Development kit for the Java programming language
 brew "openjdk"
+# Programming Language for Network Distributed Applications
 brew "ballerina"
+# Library for command-line editing
 brew "readline"
+# Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-brew "coreutils"
+# Bash Automated Testing System
 brew "bats-core"
-brew "bison"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Multi-platform, multi-architecture disassembly framework
 brew "capstone"
+# Decentralized dependency manager for Cocoa
 brew "carthage"
+# Cross-platform make
 brew "cmake"
+# Command-line interface for SQLite
 brew "sqlite", link: true
+# Fix common misspellings in source code and text files
 brew "codespell"
-brew "cowsay"
-brew "dfu-programmer"
-brew "dfu-util"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Utility to configure multi-display resolutions and arrangements
 brew "displayplacer"
+# Lightweight DNS forwarder and DHCP server
 brew "dnsmasq"
+# Command-line tool for DigitalOcean
 brew "doctl"
-brew "elixir"
-brew "elixir-ls"
-brew "node"
-brew "eslint"
-brew "exercism"
-brew "faas-cli"
-brew "fastfetch"
-brew "fd"
-brew "x265"
-brew "figlet"
-brew "fish"
-brew "fzf"
-brew "mpfr"
-brew "gcc"
-brew "gemini-cli"
-brew "gh"
-brew "openjpeg"
-brew "tesseract"
-brew "gist"
-brew "libiconv"
-brew "git"
-brew "git-gui"
-brew "git-lfs"
-brew "gnu-sed"
-brew "libgpg-error"
-brew "go"
-brew "gpatch"
-brew "gsl"
-brew "helm"
-brew "htop"
-brew "httpie"
-brew "hugo"
-brew "shared-mime-info"
-brew "imagemagick"
-brew "qpdf"
-brew "jq"
-brew "kafka"
-brew "kind"
-brew "lazydocker"
-brew "lazygit"
-brew "leiningen"
-brew "libffi"
-brew "libpq"
-brew "libtermkey"
-brew "libxkbcommon"
-brew "libxml2"
+# YAML Parser
 brew "libyaml"
+# Functional metaprogramming aware language built on Erlang VM
+brew "elixir"
+# Language Server and Debugger for Elixir
+brew "elixir-ls"
+# Portable Foreign Function Interface library
+brew "libffi"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# AST-based pattern checker for JavaScript
+brew "eslint"
+# Command-line tool to interact with exercism.io
+brew "exercism"
+# CLI for templating and/or deploying FaaS functions
+brew "faas-cli"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# H.265/HEVC encoder
+brew "x265"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# C library for multiple-precision floating-point computations
+brew "mpfr"
+# GNU compiler collection
+brew "gcc"
+# GitHub command-line tool
+brew "gh"
+# Library for JPEG-2000 image manipulation
+brew "openjpeg"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
+# Command-line utility for uploading Gists
+brew "gist"
+# Distributed revision control system
+brew "git"
+# Git extension for versioning large files
+brew "git-lfs"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# Common error values for all GnuPG components
+brew "libgpg-error"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Kubernetes package manager
+brew "helm"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# Configurable static site generator
+brew "hugo"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Tools for and transforming and inspecting PDF files
+brew "qpdf"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Open-source distributed event streaming platform
+brew "kafka"
+# Run local Kubernetes cluster in Docker
+brew "kind"
+# Lazier way to manage everything docker
+brew "lazydocker"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Build tool for Clojure
+brew "leiningen"
+# Postgres C API library
+brew "libpq"
+# Command-line utility to interact with linkerd
 brew "linkerd"
+# LLM inference in C/C++
+brew "llama.cpp"
+# Rotates, compresses, and mails system logs
 brew "logrotate", restart_service: :changed
-brew "lsusb"
+# Powerful, lightweight programming language
 brew "lua"
+# Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit"
+# Package manager for the Lua programming language
 brew "luarocks"
-brew "lunchy"
+# Bare libuv bindings for lua
 brew "luv"
+# Text-to-HTML conversion tool
 brew "markdown"
+# Mac App Store command-line interface
 brew "mas"
+# High performance, distributed memory object caching system
 brew "memcached"
+# Fast and user friendly build system
 brew "meson"
+# Run a Kubernetes cluster locally
 brew "minikube"
+# Protocol buffers (Google's data interchange format)
 brew "protobuf"
+# Remote terminal application
 brew "mosh"
+# Netwide Assembler (NASM) is an 80x86 assembler
 brew "nasm"
-brew "neovim"
-brew "pkgconf"
-brew "node-build"
-brew "nodenv"
-brew "ocaml"
-brew "ocrmypdf"
-brew "onefetch"
-brew "opam"
-brew "open-ocd"
-brew "plotutils"
-brew "pnpm"
-brew "poppler"
-brew "postgresql@14"
-brew "postgresql@18", restart_service: :changed
-brew "powerlevel10k"
-brew "powerman"
-brew "prettier"
-brew "protoc-gen-grpc-swift"
-brew "pv"
-brew "pyenv"
-brew "pygments"
-brew "qemu"
-brew "rbenv"
-brew "reattach-to-user-namespace"
-brew "redis", restart_service: :changed
-brew "ripgrep"
-brew "screenfetch"
-brew "smartmontools"
-brew "smug"
-brew "sox"
-brew "speedtest-cli"
-brew "subversion"
-brew "swi-prolog"
-brew "temporal"
-brew "terminal-notifier"
-brew "tmux"
-brew "toilet"
-brew "tree"
+# Incremental parsing library
 brew "tree-sitter"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Install NodeJS versions
+brew "node-build"
+# Node.js version manager
+brew "nodenv"
+# General purpose programming language in the ML family
+brew "ocaml"
+# Adds an OCR text layer to scanned PDF files
+brew "ocrmypdf"
+# OCaml package manager
+brew "opam"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Tool for managing OCI containers and pods
+brew "podman"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Object-relational database system
+brew "postgresql@18", restart_service: :changed
+# Theme for zsh
+brew "powerlevel10k"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
+# Protoc plugin for generating gRPC Swift stubs
+brew "protoc-gen-grpc-swift"
+# Monitor data's progress through a pipe
+brew "pv"
+# Python version management
+brew "pyenv"
+# Generic syntax highlighter
+brew "pygments"
+# Generic machine emulator and virtualizer
+brew "qemu"
+# Ruby version manager
+brew "rbenv"
+# Reattach process (e.g., tmux) to background
+brew "reattach-to-user-namespace"
+# Persistent key-value database, with built-in net interface
+brew "redis", restart_service: :changed
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# SMART hard drive monitoring
+brew "smartmontools"
+# Automate your tmux workflow
+brew "smug"
+# SOund eXchange: universal sound sample translator
+brew "sox"
+# Version control system designed to be a better CVS
+brew "subversion"
+# ISO/Edinburgh-style Prolog interpreter
+brew "swi-prolog"
+# Command-line interface for running and interacting with Temporal Server and UI
+brew "temporal"
+# Send macOS User Notifications from the command-line
+brew "terminal-notifier"
+# Terminal multiplexer
+brew "tmux"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Maintained ctags implementation
 brew "universal-ctags"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Internet file retriever
 brew "wget"
+# JavaScript package manager
 brew "yarn"
+# Programming language designed for robustness, optimality, and clarity
 brew "zig"
-brew "zlib"
+# UNIX shell (command interpreter)
 brew "zsh"
+# Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-brew "jzelinskie/duckdns/duckdns"
-brew "koekeishiya/formulae/skhd"
-brew "koekeishiya/formulae/yabai"
+# Coding agent with the IDE wired in
+brew "can1357/tap/omp", trusted: true
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
-brew "warrensbox/tap/tfswitch"
+# Command-line interface for 1Password
 cask "1password-cli"
+# Application uninstaller
 cask "appcleaner"
-cask "betterdisplay"
-cask "chromedriver"
+# Anthropic's official Claude AI desktop app
 cask "claude"
-cask "claude-code"
-cask "hamed-elfayome/claude-usage/claude-usage-tracker"
+# Terminal-based AI coding assistant
+cask "claude-code@latest"
+# Ghostty-based terminal with vertical tabs and notifications for AI coding agents
+cask "cmux"
+# Tool to show live information about the batteries in various devices
 cask "coconutbattery"
+# OpenAI's coding agent that runs in your terminal
 cask "codex"
-cask "evernote"
 cask "font-hack-nerd-font"
 cask "font-mononoki-nerd-font"
 cask "font-sauce-code-pro-nerd-font"
-cask "font-source-code-pro"
+# GIT client
 cask "fork"
+# Tool to measure the computer system's performance
 cask "geekbench"
-cask "github"
-cask "github-copilot-for-xcode"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Web browser
 cask "google-chrome"
-cask "iterm2"
+# Homebrew's official GUI
+cask "homebrew-app"
+# Keyboard customiser
 cask "karabiner-elements"
-# Container/VM engine + built-in k8s (Docker Desktop replacement). Ships its own
-# `docker`/`kubectl`; backs kind/minikube/helm. Replaced the old `podman` formula
-# and the untracked standalone `docker` CLI (2026-06).
-cask "orbstack"
+# Tool to prevent the system from going into sleep mode
 cask "keepingyouawake"
+# Voice-to-text transcription and paste tool
+cask "kitlangton-hex"
+# Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# AI usage tracker for Cursor, Claude Code, Codex, Copilot and more
+cask "openusage"
+# Replacement for Docker Desktop
+# Container/VM engine + built-in k8s (Docker Desktop replacement). Ships its own
+# `docker`/`kubectl`; backs kind/minikube/helm. podman formula is still kept alongside.
+cask "orbstack"
+# Window and app manager scriptable with JavaScript
 cask "phoenix"
+# Peer to peer Bitorrent client
 cask "qbittorrent"
+# Mesh VPN client (standalone build via brew, not the App Store version)
+cask "tailscale-app"
+# The tfswitch command lets you switch between terraform versions.
+cask "warrensbox/tap/tfswitch", trusted: true
+# Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
 cask "vlc"
-cask "wkhtmltopdf"
+# Video communication and virtual meeting platform
 cask "zoom"
+# Collect, organise, cite, and share research sources
 cask "zotero"
+mas "1Password for Safari", id: 1569813296
+mas "Bear", id: 1091189122
+mas "Blackmagic Disk Speed Test", id: 425264550
+mas "Developer", id: 640199958
+mas "Flow", id: 1423210932
+mas "GarageBand", id: 682658836
+mas "iA Writer", id: 775737590
+mas "Linearity Curve", id: 1219074514
+mas "Magnet", id: 441258766
+mas "Marked 2", id: 890031187
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft Word", id: 462054704
+mas "myPoint Light S", id: 518658487
+mas "Reeder", id: 1529448980
+mas "Slack", id: 803453959
+mas "Swift Playground", id: 1496833156
+mas "Telegram", id: 747648890
+mas "TestFlight", id: 899247664
+mas "Trello", id: 1278508951
+mas "Windows App", id: 1295203466
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
 vscode "1yib.rust-bundle"
 vscode "anthropic.claude-code"
 vscode "anweber.httpbook"
@@ -222,6 +369,7 @@ vscode "ms-azuretools.vscode-docker"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
 vscode "ms-ossdata.vscode-pgsql"
 vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.cmake-tools"
 vscode "ms-vscode.cpp-devtools"
 vscode "ms-vscode.cpptools"
 vscode "ms-vscode.cpptools-extension-pack"
@@ -234,52 +382,12 @@ vscode "peterj.proto"
 vscode "quillaja.goasm"
 vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
+vscode "serayuzgur.crates"
 vscode "shopify.ruby-lsp"
 vscode "sumneko.lua"
 vscode "svelte.svelte-vscode"
 vscode "swiftlang.swift-vscode"
 vscode "twxs.cmake"
 vscode "wso2.wso2-platform"
-mas "1Password for Safari", id: 1569813296
-mas "Affinity Designer 2", id: 1616831348
-mas "Affinity Photo 2", id: 1616822987
-mas "AnkiApp", id: 689185915
-mas "Bear", id: 1091189122
-mas "Bitwarden", id: 1352778147
-mas "Blackmagic Disk Speed Test", id: 425264550
-mas "Copilot", id: 6738511300
-mas "Developer", id: 640199958
-mas "Display Menu", id: 549083868
-mas "Flow", id: 1423210932
-mas "GarageBand", id: 682658836
-mas "iA Writer", id: 775737590
-mas "iMovie", id: 408981434
-mas "iStat Menus", id: 1319778037
-mas "Keynote", id: 409183694
-mas "Kindle Classic", id: 405399194
-mas "Kyoku 2", id: 1484406208
-mas "Linearity Curve", id: 1219074514
-mas "Logoist 4", id: 1493005285
-mas "Magnet", id: 441258766
-mas "Marked 2", id: 890031187
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft Word", id: 462054704
-mas "MonitorControlLite", id: 1595464182
-mas "myPoint Light S", id: 518658487
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Reeder", id: 1529448980
-mas "Skitch", id: 425955336
-mas "Slack", id: 803453959
-mas "SQLiteExplorer", id: 1616792360
-mas "SQLPro for SQLite", id: 586001240
-mas "Surfshark", id: 1437809329
-mas "Swift Playground", id: 1496833156
-mas "Tailscale", id: 1475387142
-mas "TestFlight", id: 899247664
-mas "Trello", id: 1278508951
-mas "Windows App", id: 1295203466
-mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
-cargo "cargo-update"
-cargo "tree-sitter-cli"
+uv "huggingface-hub"
+uv "mlx-lm"
