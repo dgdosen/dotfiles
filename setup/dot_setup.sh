@@ -5,8 +5,11 @@
 # bin
 [ ! -L "$HOME/.bin" ] && ln -sfnv ~/.dotfiles/.bin ~/.bin
 
+# Parent dirs that don't exist on a fresh Mac; the sqlua/db_ui and bearcli links
+# below fail without them.
+mkdir -p ~/.local/bin ~/.local/share/nvim
+
 # dotfiles
-ln -sfnv ~/.dotfiles/.ackrc  ~/.ackrc
 ln -sfnv ~/.dotfiles/.androidrc  ~/.androidrc
 ln -sfnv ~/.dotfiles/.bash_profile  ~/.bash_profile
 ln -sfnv ~/.dotfiles/.bashrc  ~/.bashrc
@@ -42,14 +45,12 @@ ln -sfnv ~/.dotfiles/.vimrc ~/.vimrc
 [ ! -L "$HOME/.zsh_customizations" ] && ln -sfnv ~/.dotfiles/.zsh_customizations ~/.zsh_customizations
 ln -sfnv ~/.dotfiles/.zshrc ~/.zshrc
 
-# testing
+# launchd jobs touch marker files here. Do NOT create dotfiles_primary in it on
+# a new machine — only the one machine that commits submodule bumps gets that.
 [ ! -d "$HOME/.cron_support" ] && mkdir ~/.cron_support
-ln -sfnv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 
 # config files
 [ ! -d "$HOME/.config" ] && mkdir ~/.config
-[ ! -d "$HOME/.config/fish" ] && mkdir ~/.config/fish
-[ ! -d "$HOME/.config/fish/functions" ] && mkdir ~/.config/fish/functions
 [ ! -d "$HOME/.config/karabiner" ] && mkdir ~/.config/karabiner
 [ ! -L "$HOME/.config/alacritty" ] && ln -sfnv ~/.dotfiles/.config/alacritty ~/.config/alacritty
 [ ! -L "$HOME/.config/ghostty" ] && ln -sfnv ~/.dotfiles/.config/ghostty ~/.config/ghostty
@@ -59,9 +60,7 @@ ln -sfnv ~/.dotfiles/foobar.txt ~/.cron_support/foobar.txt
 [ ! -L "$HOME/.config/lazygit" ] && ln -sfnv ~/.dotfiles/.config/lazygit ~/.config/lazygit
 [ ! -L "$HOME/.config/opencode" ] && ln -sfnv ~/.dotfiles/.config/opencode ~/.config/opencode
 ln -sfnv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-ln -sfnv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
-ln -sfnv ~/.dotfiles/.config/fish/functions/fish_user_key_bindigs.fish ~/.config/fish/functions/fish_user_key_bindings.fish
-ln -sfnv ~/.dotfiles/.config/fish/fish_variables ~/.config/fish/fish_variables
+# fish + ack links dropped 2026-10-06 (both uninstalled; configs left in repo).
 
 # pi coding agent (~/.pi/agent). The authored config lives in ~/.dotfiles/.pi/agent
 # and is linked item-by-item rather than as a whole directory, because pi keeps
