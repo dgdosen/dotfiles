@@ -91,6 +91,10 @@ sh ~/.dotfiles/setup/dot_setup.sh
 
 Creates all symlinks for zsh, tmux, nvim, alacritty, lazygit, git, karabiner, etc.
 
+`~/project_b_share` is only linked if the Dropbox share already exists, and it's
+skipped silently otherwise. On a new machine Dropbox usually hasn't synced yet,
+so after it has (see Post-setup), re-run this script — it's safe to repeat.
+
 ## 9. Clone project repos
 
 ```
@@ -115,6 +119,11 @@ dg-mba-m5). Without it, the dotupdate job just pulls.
 
 - **Neovim**: Open nvim and lazy.nvim will auto-install plugins
 - **Tmux**: first start clones TPM + installs plugins; `prefix + I` re-runs the install
+- **Theme**: `switch-theme <name>` (e.g. `catppuccin-mocha`). Until it's run,
+  tmux falls back to catppuccin-mocha because `.tmux-theme` doesn't exist yet
+- **Dropbox**: sign in to the makerboarding account, wait for
+  `joined_shares/project_b_share` to sync, mark it **Make available offline**,
+  then re-run `dot_setup.sh` to create `~/project_b_share`
 - **Shell**: Restart terminal for zsh/p10k to take effect
 - **Ruby**: `rbenv install <version>`
 - **Node**: `nodenv install <version>`
