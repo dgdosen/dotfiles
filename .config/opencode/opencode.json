@@ -15,6 +15,40 @@
           "tools": true
         }
       }
+    },
+    "ds4": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "DwarfStar",
+      "options": {
+        "baseURL": "{env:DS4_BASE_URL}",
+        "apiKey": "ds4-local"
+      },
+      "models": {
+        "qwen3.8-flash-next": {
+          "name": "Qwen3.8 Flash Next (ds4)",
+          "tools": true,
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          }
+        },
+        "qwen3.8-flash-next-chat": {
+          "name": "Qwen3.8 Flash Next (ds4, no thinking)",
+          "tools": true,
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          }
+        },
+        "qwen3.8-flash-next-reasoner": {
+          "name": "Qwen3.8 Flash Next (ds4, reasoner)",
+          "tools": true,
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          }
+        }
+      }
     }
   }
 }

@@ -76,13 +76,15 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)"
 
 eval "$(rbenv init -)"
 
+# ds4 LLM for opencode: localhost on the Mac Studio, the tailnet URL everywhere else
+if [[ $(hostname -s) == dg-ms-m5m ]]; then
+  export DS4_BASE_URL="http://127.0.0.1:8000/v1"
+else
+  export DS4_BASE_URL="https://dg-ms-m5m.hornbill-nessie.ts.net:8443/v1"
+fi
+
 # - note these should be different on linux
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source ~/.zsh_customizations/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# gsl library flags
-export LDFLAGS="-L$(brew --prefix gsl)/lib"
-export CPPFLAGS="-I$(brew --prefix gsl)/include"
-export PKG_CONFIG_PATH="$(brew --prefix gsl)/lib/pkgconfig"
