@@ -24,9 +24,14 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--- smash jk to escape
--- vim.keymap.set("i", "kj", "<esc>")
--- vim.keymap.set("i", "jk", "<esc>")
+-- smash jk to escape: the 65% keyboard puts Esc on a layer with `/~, and
+-- Karabiner's double-tap-caps trick doesn't work with the board's firmware.
+-- Either order works. The second key has to land within timeoutlen
+-- (300ms, set in setup/which-key.lua). Insert mode only, so terminal
+-- buffers like Claude Code aren't affected.
+-- Built-in fallback that needs no mapping: <C-[> is Esc (caps = ctrl).
+vim.keymap.set("i", "jk", "<Esc>", { desc = "escape (jk smash)" })
+vim.keymap.set("i", "kj", "<Esc>", { desc = "escape (kj smash)" })
 
 -- block q: command-line window
 vim.api.nvim_create_autocmd('CmdwinEnter', {
