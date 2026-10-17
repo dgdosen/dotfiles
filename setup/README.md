@@ -101,7 +101,8 @@ so after it has (see Post-setup), re-run this script — it's safe to repeat.
 sh ~/.dotfiles/setup/git_setup.sh
 ```
 
-Clones project_b, sessuru, and exercism repos into `~/dev/`.
+Clones the non-project_b repos (alacritty, quantified_status, exercism) into
+`~/dev/`. The project_b repos are cloned by `~/.project_b`'s `repo_sync` job, not here.
 
 ## 10. Set up launchd agents
 

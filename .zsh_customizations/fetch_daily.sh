@@ -1,10 +1,15 @@
 # Interactive helper: fetch the repos that are NOT covered by a scheduled job.
 #
-# Everything project_b used to be listed here, one `cd X; git fetch` per repo.
-# That moved to ~/.project_b/jobs/project_b_repo_sync.sh
+# Nothing project_b lives here — not the repo list, and not a call into it.
+# Every project_b working tree is owned by ~/.project_b/jobs/project_b_repo_sync.sh
 # (com.makerboarding.project_b_repo_sync, nightly at 02:30), which clones what
-# is missing, fast-forwards what is safe, and reports what it skipped — none of
-# which this could do. Duplicating the list here would only let the two drift.
+# is missing, fast-forwards what is safe, and reports what it skipped. To sync
+# the fleet by hand, run that script directly.
+#
+# This used to end by calling that script when invoked interactively. Removed
+# 2026-10-17 so ~/.project_b is the single owner of the project_b repos: a
+# dotfiles function reaching into another repo's job script was a second entry
+# point that could drift from — or outlive — the job it wrapped.
 #
 # Note what was quietly removed rather than migrated: sessuru_server,
 # sessuru_client, project_b_matching and project_b_generic_matching were all
@@ -12,7 +17,7 @@
 # every run failed the `cd` and then fetched the *previous* repo a second time.
 
 fetchthegits() {
-  local start=$PWD repo
+  local repo
   local -a repos=(
     ~/.dotfiles
     ~/dev/alacritty
@@ -26,14 +31,4 @@ fetchthegits() {
       echo "${repo:t}: not a git repo, skipped"
     fi
   done
-
-  # The project_b fleet, same code path the launch agent uses — but only when a
-  # human typed this. daily/cronfetch.sh sources ~/.zshrc and calls fetchthegits
-  # from a NON-interactive shell at 01:06, and com.makerboarding.project_b_repo_sync
-  # already runs at 02:30; without this guard the fleet would sync twice a night.
-  if [[ -o interactive ]] && [ -x ~/.project_b/jobs/project_b_repo_sync.sh ]; then
-    ~/.project_b/jobs/project_b_repo_sync.sh
-  fi
-
-  cd "$start"
 }
