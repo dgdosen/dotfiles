@@ -6,7 +6,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "dg-ms-m5m",
       "options": {
-        "baseURL": "{env:DG-MS-M5M_BASE_URL}",
+        "baseURL": "{env:DG_MS_M5M_BASE_URL}",
         "apiKey": "ds4-local"
       },
       "models": {

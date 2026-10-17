@@ -78,9 +78,9 @@ eval "$(rbenv init -)"
 
 # ds4 LLM for opencode: localhost on the Mac Studio, the tailnet URL everywhere else
 if [[ $(hostname -s) == dg-ms-m5m ]]; then
-  export DG-MS-M5M_BASE_URL="http://127.0.0.1:8000/v1"
+  export DG_MS_M5M_BASE_URL="http://127.0.0.1:8000/v1"
 else
-  export DG-MS-M5M_BASE_URL="https://dg-ms-m5m.hornbill-nessie.ts.net:8443/v1"
+  export DG_MS_M5M_BASE_URL="https://dg-ms-m5m.hornbill-nessie.ts.net:8443/v1"
 fi
 
 # - note these should be different on linux
