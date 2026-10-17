@@ -2,46 +2,32 @@
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": true,
   "provider": {
-    "mlx": {
+    "local-dg-ms-m5m": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "MLX Local",
+      "name": "dg-ms-m5m",
       "options": {
-        "baseURL": "http://127.0.0.1:8080/v1",
-        "apiKey": "local"
-      },
-      "models": {
-        "mlx-community/Qwen3.6-35B-A3B-4bit": {
-          "name": "Qwen3.6 35B A3B",
-          "tools": true
-        }
-      }
-    },
-    "ds4": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "DwarfStar",
-      "options": {
-        "baseURL": "{env:DS4_BASE_URL}",
+        "baseURL": "{env:DG-MS-M5M_BASE_URL}",
         "apiKey": "ds4-local"
       },
       "models": {
         "qwen3.8-flash-next": {
-          "name": "Qwen3.8 Flash Next (ds4)",
+          "name": "Qwen3.8 Flash Next (oMLX)",
           "tools": true,
           "limit": {
             "context": 262144,
             "output": 262144
           }
         },
-        "qwen3.8-flash-next-chat": {
-          "name": "Qwen3.8 Flash Next (ds4, no thinking)",
+        "qwen3.8-flash-next:chat": {
+          "name": "Qwen3.8 Flash Next (oMLX, no thinking)",
           "tools": true,
           "limit": {
             "context": 262144,
             "output": 262144
           }
         },
-        "qwen3.8-flash-next-reasoner": {
-          "name": "Qwen3.8 Flash Next (ds4, reasoner)",
+        "qwen3.8-flash-next:reasoner": {
+          "name": "Qwen3.8 Flash Next (oMLX, reasoner)",
           "tools": true,
           "limit": {
             "context": 262144,

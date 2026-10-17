@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.agidevelopment.omlx_serve</string>
+    <!-- Always-on local LLM server (oMLX + Qwen3.8 Flash Next). Mac Studio only. -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/dgdosen/.dotfiles/daily/omlx_serve.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <!-- Model load takes ~40s; don't restart-loop faster than this on a crash. -->
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+    <!-- Serves interactive requests; keep it out of background throttling. -->
+    <key>ProcessType</key>
+    <string>Interactive</string>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/omlx_serve.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/omlx_serve.err</string>
+</dict>
+</plist>
