@@ -110,10 +110,13 @@ mosh_firewall_sync() {
   # --- Decide what needs doing, WITHOUT sudo (listapps reads are unprivileged) ---
 
   # Stale: firewall entries for mosh Cellar binaries that no longer exist on disk.
+  # NB: the loop var must NOT be named `path` — in zsh, `path` is a special
+  # array tied to $PATH, and `local path` would blank PATH for the rest of the
+  # function, silently breaking bare `sudo` (command not found) below.
   local -a to_remove=()
-  local path
-  while IFS= read -r path; do
-    [[ -n "$path" && ! -e "$path" ]] && to_remove+=("$path")
+  local entry
+  while IFS= read -r entry; do
+    [[ -n "$entry" && ! -e "$entry" ]] && to_remove+=("$entry")
   done < <(print -r -- "$listing" \
              | /usr/bin/grep -oE '/[^ ]*/Cellar/mosh/[^ ]*/bin/mosh-(server|client)')
 
