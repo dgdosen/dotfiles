@@ -88,3 +88,11 @@ fi
 # source ~/.zsh_customizations/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# gsl library flags
+export LDFLAGS="-L$(brew --prefix gsl)/lib"
+export CPPFLAGS="-I$(brew --prefix gsl)/include"
+export PKG_CONFIG_PATH="$(brew --prefix gsl)/lib/pkgconfig"
+
+# claude code against local Qwen on Mac Studio (ds4)
+alias claude-local='claude --settings ~/.claude/local-qwen.json --strict-mcp-config'

@@ -119,6 +119,24 @@ if [ ! -L "$HOME/project_b_share" ]; then
   done
 fi
 
+# personal documents
+# Canonical anchor for the personal Dropbox "_my.documents" root: ~/personal_dropbox_share.
+# Same idea as ~/project_b_share above — scripts reference $HOME/personal_dropbox_share and
+# this probe is the ONE place that knows the real path, which varies by Dropbox
+# install (macOS CloudStorage vs classic "Dropbox (Personal)"). Replaces the
+# former ~/pdropbox link.
+if [ ! -L "$HOME/personal_dropbox_share" ]; then
+  for md in \
+    "$HOME/Library/CloudStorage/Dropbox-Personal/_my.documents" \
+    "$HOME/Dropbox (Personal)/_my.documents" \
+    "$HOME/Dropbox/_my.documents"; do
+    if [ -d "$md" ]; then
+      ln -sfnv "$md" "$HOME/personal_dropbox_share"
+      break
+    fi
+  done
+fi
+
 # project b database utils
 [ ! -d "$HOME/.postgres" ] && mkdir ~/.postgres
 # ln -sfnv ~/.dotfiles/.postgres/postgres_project_b_reset.sh ~/.postgres/postgres_project_b_reset.sh
