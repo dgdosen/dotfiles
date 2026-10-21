@@ -6,7 +6,7 @@
     <string>com.quantifiedflow.span</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/dgdosen/.dotfiles/daily/span.sh</string>
+        <string>/Users/dgdosen/.dotfiles/daily/qf_span.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>1800</integer>
