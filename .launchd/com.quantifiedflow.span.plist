@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.quantifiedflow.quantified_calendar</string>
+    <string>com.quantifiedflow.span</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/dgdosen/.dotfiles/daily/quantified_calendar.sh</string>
+        <string>/Users/dgdosen/.dotfiles/daily/span.sh</string>
     </array>
     <key>StartInterval</key>
     <integer>1800</integer>
     <key>RunAtLoad</key>
     <true/>
     <key>StandardOutPath</key>
-    <string>/Users/dgdosen/log/quantified_calendar.out</string>
+    <string>/Users/dgdosen/log/span.out</string>
     <key>StandardErrorPath</key>
-    <string>/Users/dgdosen/log/quantified_calendar.err</string>
+    <string>/Users/dgdosen/log/span.err</string>
 </dict>
 </plist>
