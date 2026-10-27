@@ -1,4 +1,4 @@
-s1elect * from track_geometry_dimensions order by id;
+select * from track_geometry_dimensions order by id;
 
 select count(*) from track_geometry_dimensions;
 

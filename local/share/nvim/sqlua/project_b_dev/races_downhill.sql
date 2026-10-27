@@ -3,3 +3,4 @@ select id, date, track_code, all_source_surface_code, distance, race_number, abo
 and track_code = 'SA' and all_source_surface_code = 'T'
 order by date, race_number
 
+

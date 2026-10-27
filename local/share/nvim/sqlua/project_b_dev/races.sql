@@ -11,7 +11,7 @@ and races.date = '2026-03-20';
 
 
 -- races with starts (horse names) for track_code
-select races.track_code, races.drf_long_class, races.date, races.track_condition_code, races.all_source_surface_code, races.race_number, starts.pp2_program_number, starts.post_position, starts.id,horses.name
+select races.track_code, races.drf_long_class, races.date, races.all_source_surface_code, races.race_number, starts.pp2_program_number, starts.post_position, starts.id,horses.name
 from races, starts, horses
 where races.id = starts.race_id
 and starts.horse_id = horses.id
@@ -55,6 +55,27 @@ from races
 where pp3_distance in (1430, -1430) and track_code = 'SA'
 group by is_about_distance, about_distance_code, pp1_distance, pp3_distance
 order by is_about_distance, about_distance_code, pp1_distance, pp3_distance;
+
+-- find the other lengths on the downhill course/about_distance_code
+select pp1_distance, count (id) from races
+where about_distance_code = 'A'
+and track_code = 'SA'
+group by pp1_distance
+
+-- finding dhc via geomtry
+select pp1_distance, pp3_distance, track_geometry_id from races where 
+track_geometry_id in (5,6)
+
+select distinct track_geometry_id from races;:
+
+select * from track_geometries;
+
+select is_about_distance, about_distance_code, pp1_distance, pp3_distance, count(id)
+from races
+where pp3_distance in (1430, -1430) and track_code = 'SA'
+group by is_about_distance, about_distance_code, pp1_distance, pp3_distance
+order by is_about_distance, about_distance_code, pp1_distance, pp3_distance;
+
 
 select id, distance, is_about_distance, about_distance_code, pp1_distance, pp3_distance
 from races
@@ -494,7 +515,7 @@ order by track_code, race_number desc;
 
 
 select * from races where date = '2019-12-29' and race_number = 8
-select * from starts where race_id = 116011 and horse_id in (
+select * from startabout_distance_code, s where race_id = 116011 and horse_id in (
   select id from horses where name = 'MADAME BOURBON'
 )
 
@@ -503,6 +524,13 @@ select distinct sex_restriction_code, drf_race_sex from races;
 
 select * from races where track_code = 'SA' and distance = '1760' and date >= '2019-01-01' and date <= '2019-01-31'
 and all_source_surface_code = 'T' and track_condition_code = 'GD'
+
+-- 
+select id, track_code, date, race_number, about_distance_code, distance, temp_rail_distance from races 
+where track_code = 'SA' 
+and about_distance_code = 'A'
+and distance = 1430
+order by date desc;
 
 select id, track_code, date, race_number, distance, temp_rail_distance from races where track_code = 'DMR' and distance = 1760
 and temp_rail_distance = '24'

@@ -45,9 +45,10 @@ order by race_id, program_number;
   INNER JOIN races ON races.id = starts.race_id
   INNER JOIN horses ON horses.id = starts.horse_id
   LEFT OUTER JOIN drf_starts ON drf_starts.start_id = starts.id
-  WHERE horses.name = 'NYLIE'
+  WHERE horses.name = 'SNIPSNIPPITYSNIP'
   ORDER BY races.date DESC;
-uu/* start detail - paul uses*/
+
+  /* start detail - paul uses*/
 SELECT
     races.date,
     races.track_code,
