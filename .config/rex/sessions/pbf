@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Rex version of ~/.config/smug/pbf.yml (Project B scrapers). Run: rexs pbf
+# One main-vertical tab per scraper repo: main pane left, two stacked on the right.
+source "$(dirname "$0")/lib.sh"
+
+session pbf
+
+# tab label            repo under ~/dev
+while read -r label repo; do
+  tab "$label" ~/dev/"$repo"
+  split "$main" right 40
+  split "$pane" below 50
+done <<'EOF'
+egps                   project_b_equibase_scrape_cli
+gmax                   project_b_gmax_scrape_cli
+eq_program             project_b_equibase_program_scrape_cli
+eq_results             project_b_equibase_results_scrape_cli
+drf_scrape             project_b_drf_scrape_cli
+progressive_breeding   project_b_progressive_breeding_scrape_cli
+harrington_nt_scrape   project_b_harrington_scrape_cli
+twinspires_odds        project_b_twinspires_odds_scrape_cli
+twinspires_data        project_b_twinspires_data_scrape_cli
+EOF
+
+finish

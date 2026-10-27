@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# rexs NAME: open (or switch to) a Rex session defined in ~/.config/rex/sessions/NAME.
+# Rex counterpart of `smug start NAME`. With no NAME, lists available sessions.
+dir="$HOME/.config/rex/sessions"
+
+if [[ $# -eq 0 ]]; then
+  echo "usage: rexs NAME"
+  echo "sessions:"
+  find "$dir" -maxdepth 1 -type f -perm -u+x -exec basename {} \; | sort | sed 's/^/  /'
+  exit 1
+fi
+
+script="$dir/$1"
+[[ -x "$script" ]] || { echo "rexs: no session script $script" >&2; exit 1; }
+exec "$script"

@@ -58,6 +58,7 @@ ln -sfnv ~/.dotfiles/.zshrc ~/.zshrc
 [ ! -L "$HOME/.config/nvim" ] && ln -sfnv ~/.dotfiles/nvim_dgd ~/.config/nvim
 [ ! -L "$HOME/.config/smug" ] && ln -sfnv ~/.dotfiles/.config/smug ~/.config/smug
 [ ! -L "$HOME/.config/lazygit" ] && ln -sfnv ~/.dotfiles/.config/lazygit ~/.config/lazygit
+[ ! -L "$HOME/.config/rex" ] && ln -sfnv ~/.dotfiles/.config/rex ~/.config/rex  # Rex terminal: init.lua keymaps
 [ ! -L "$HOME/.config/opencode" ] && ln -sfnv ~/.dotfiles/.config/opencode ~/.config/opencode
 ln -sfnv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 # fish + ack links dropped 2026-10-06 (both uninstalled; configs left in repo).

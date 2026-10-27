@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Rex version of ~/.config/smug/ai.yml. Run: rexs ai
+# Each tab is smug's main-vertical: main pane left, two stacked on the right.
+source "$(dirname "$0")/lib.sh"
+
+session ai
+
+tab handicapping ~/dev/project_b_ai_handicapping nvim
+split "$main" right 40
+split "$pane" below 50
+
+tab dq ~/dev/project_b_ai_handicapping_data_quality
+split "$main" right 40
+split "$pane" below 50
+
+finish

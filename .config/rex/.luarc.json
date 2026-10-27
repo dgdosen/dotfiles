@@ -1,0 +1,4 @@
+{
+  "$comment": "lua_ls settings for Rex's init.lua: `rex` is injected by Rex at load time, so declare it to silence 'Undefined global rex'.",
+  "diagnostics.globals": ["rex"]
+}

@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# Rex version of ~/.config/smug/pb.yml (Project B). Run: rexs pb
+# Ratios approximate the tmux layout strings in pb.yml.
+source "$(dirname "$0")/lib.sh"
+
+PB="${SMUG_PROJECT_B_ROOT:-$HOME/dev/project_b_api}"
+
+session pb
+
+# top 70%: nvim | spec-watch; bottom 30%: two shells
+tab api "$PB" nvim
+split "$main" below 30; bottom=$pane
+split "$main" right 45 bin/spec-watch
+split "$bottom" right 50
+
+# top 60%: shell; bottom 40%: rails | sidekiq
+tab run "$PB"
+split "$main" below 40 "bundle exec rails s"
+split "$pane" right 50 "bundle exec sidekiq -C config/sidekiq.yml"
+
+# top 70%: shell; bottom 30%: two shells
+tab sql "$PB"
+split "$main" below 30
+split "$pane" right 50
+
+# left 60%: shell; right 40%: yarn dev over a shell
+tab racing_form ~/dev/project_b_racing_form
+split "$main" right 40 "yarn dev"
+split "$pane" below 50
+
+# top 65%: shell; bottom 35%: two shells
+tab pars ~/dev/project_b_unified_pars
+split "$main" below 35
+split "$pane" right 50
+
+finish
