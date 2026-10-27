@@ -35,7 +35,7 @@ windows:
       - commands:
           -
   - name: q_ca
-    root: ~/dev/quantified_calendar/
+    root: ~/dev/qf_span/
     layout: main-horizontal
     commands:
       - nvim
