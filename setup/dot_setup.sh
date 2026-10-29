@@ -68,10 +68,12 @@ ln -sfnv ~/.dotfiles/.config/karabiner/karabiner.json ~/.config/karabiner/karabi
 # auth.json (credentials), trust.json, sessions/, npm/ and models-store.json in
 # the same directory; per-item links keep that state local by construction.
 # pi writes settings.json in place (writeFileSync), so that symlink survives.
+# models.json holds hand-written custom providers (e.g. the Tailscale-hosted Qwen
+# on the Mac Studio); its apiKey is a dummy placeholder, so it's safe to track.
 # If a real (non-link) file/dir already occupies a target path, warn instead of
 # letting `ln` nest the link inside it; merge it into the repo copy and re-run.
 mkdir -p ~/.pi/agent
-for item in settings.json AGENTS.md keybindings.json extensions skills prompts themes; do
+for item in settings.json models.json AGENTS.md keybindings.json extensions skills prompts themes; do
   src=~/.dotfiles/.pi/agent/$item
   dst=~/.pi/agent/$item
   if [ -L "$dst" ] || [ ! -e "$dst" ]; then

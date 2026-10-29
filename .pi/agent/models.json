@@ -1,0 +1,35 @@
+{
+  "providers": {
+    "db-ms-m5m-ds4": {
+      "baseUrl": "https://dg-ms-m5m.hornbill-nessie.ts.net:8443/v1",
+      "api": "openai-completions",
+      "apiKey": "dsv4-local",
+      "compat": {
+        "supportsStore": false,
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": true,
+        "supportsUsageInStreaming": true,
+        "maxTokensField": "max_tokens",
+        "supportsStrictMode": false,
+        "thinkingFormat": "deepseek",
+        "requiresReasoningContentOnAssistantMessages": true
+      },
+      "models": [
+        {
+          "id": "qwen3.8-flash-next",
+          "name": "Qwen3.8 Flash (Mac Studio)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 262144,
+          "maxTokens": 16384,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        }
+      ]
+    }
+  }
+}
