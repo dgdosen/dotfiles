@@ -7,11 +7,11 @@ PB="${SMUG_PROJECT_B_ROOT:-$HOME/dev/project_b_api}"
 
 session pb
 
-# top 70%: nvim | spec-watch; bottom 30%: two shells
+# top 70%: nvim | shell; bottom 30%: shell | spec-watch
 tab api "$PB" nvim
 split "$main" below 30; bottom=$pane
-split "$main" right 45 bin/spec-watch
-split "$bottom" right 50
+split "$main" right 45
+split "$bottom" right 50 bin/spec-watch
 
 # top 60%: shell; bottom 40%: rails | sidekiq
 tab run "$PB"
