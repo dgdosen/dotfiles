@@ -1,0 +1,22 @@
+# === MERINO LIGHT ===
+activeBorderColor:
+  - "#0969da" # merino blue
+  - bold
+inactiveBorderColor:
+  - "#8c959f" # merino grey
+optionsTextColor:
+  - "#0969da" # merino blue
+selectedLineBgColor:
+  - "#ddf4ff" # merino blue tint (stays visible on white)
+selectedRangeBgColor:
+  - "#ddf4ff" # merino blue tint
+cherryPickedCommitBgColor:
+  - "#8250df" # merino purple
+cherryPickedCommitFgColor:
+  - "#0969da" # merino blue
+unstagedChangesColor:
+  - "#cf222e" # merino red
+defaultFgColor:
+  - "#1f2328" # merino fg
+searchingActiveBorderColor:
+  - "#9d5c00" # merino yellow

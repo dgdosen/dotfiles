@@ -1,0 +1,38 @@
+# Colors (Merino Dark)
+# Copied from Rex's built-in "merino-dark" theme (Rex.app themes.json);
+# same palette as GitHub Dark Default.
+
+# Default colors
+[colors.primary]
+background = '#0d1117'
+foreground = '#e6edf3'
+
+[colors.cursor]
+cursor = '#2f81f7'
+text   = '#eff8ff'
+
+[colors.selection]
+background = '#e6edf3'
+text       = '#0d1117'
+
+# Normal colors
+[colors.normal]
+black   = '#484f58'
+red     = '#ff7b72'
+green   = '#3fb950'
+yellow  = '#d29922'
+blue    = '#58a6ff'
+magenta = '#bc8cff'
+cyan    = '#39c5cf'
+white   = '#b1bac4'
+
+# Bright colors
+[colors.bright]
+black   = '#6e7681'
+red     = '#ffa198'
+green   = '#56d364'
+yellow  = '#e3b341'
+blue    = '#79c0ff'
+magenta = '#d2a8ff'
+cyan    = '#56d4dd'
+white   = '#ffffff'

@@ -14,6 +14,8 @@
 #   - everforest-light (everforest_light)
 #   - kanagawa-dark (kanagawa_dark)
 #   - kanagawa-light (kanagawa_light)
+#   - merino-dark (merino_dark)      Rex's built-in Merino Dark (GitHub dark palette)
+#   - merino-light (merino_light)    Rex's built-in Merino Light (GitHub light palette)
 
 set -e
 
@@ -36,6 +38,8 @@ if [ -z "$THEME" ]; then
   echo "  - everforest-light"
   echo "  - kanagawa-dark"
   echo "  - kanagawa-light"
+  echo "  - merino-dark"
+  echo "  - merino-light"
   exit 1
 fi
 
@@ -47,6 +51,8 @@ case "$THEME" in
   everforest-light) THEME="everforest_light" ;;
   kanagawa-dark) THEME="kanagawa_dark" ;;
   kanagawa-light) THEME="kanagawa_light" ;;
+  merino-dark) THEME="merino_dark" ;;
+  merino-light) THEME="merino_light" ;;
 esac
 
 # Validate theme exists
@@ -116,12 +122,18 @@ case "$THEME" in
   kanagawa_light)
     NVIM_COLORSCHEME="kanagawa-lotus"
     ;;
+  merino_dark)
+    NVIM_COLORSCHEME="github_dark_default"
+    ;;
+  merino_light)
+    NVIM_COLORSCHEME="github_light_default"
+    ;;
 esac
 
 # Send colorscheme command to running nvim instances in tmux
 if command -v tmux &> /dev/null && tmux list-panes -a -F '#{pane_id} #{pane_current_command}' 2>/dev/null | grep -q nvim; then
   # Set background for gruvbox and everforest
-  if [[ "$THEME" == "gruvbox_light" || "$THEME" == "everforest_light" || "$THEME" == "kanagawa_light" ]]; then
+  if [[ "$THEME" == "gruvbox_light" || "$THEME" == "everforest_light" || "$THEME" == "kanagawa_light" || "$THEME" == "merino_light" ]]; then
     tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | grep nvim | awk '{print $1}' | while read pane; do
       tmux send-keys -t "$pane" Escape
       tmux send-keys -t "$pane" ":set background=light" Enter
@@ -169,6 +181,12 @@ case "$THEME" in
   kanagawa_light)
     TMUX_THEME="kanagawa-light"
     ;;
+  merino_dark)
+    TMUX_THEME="merino-dark"
+    ;;
+  merino_light)
+    TMUX_THEME="merino-light"
+    ;;
 esac
 
 echo "set -g @theme \"${TMUX_THEME}\"" > "${DOTFILES}/.tmux-theme"
@@ -214,11 +232,11 @@ fi
 # Update Claude Code theme preference
 echo "  ✓ Claude Code"
 case "$THEME" in
-  gruvbox_light|catppuccin-latte|everforest_light|kanagawa_light)
+  gruvbox_light|catppuccin-latte|everforest_light|kanagawa_light|merino_light)
     export CLAUDE_CODE_THEME="light"
     echo "export CLAUDE_CODE_THEME=light" > "${DOTFILES}/.claude-theme"
     ;;
-  gruvbox_dark|catppuccin-mocha|catppuccin-macchiato|everforest_dark|kanagawa_dark)
+  gruvbox_dark|catppuccin-mocha|catppuccin-macchiato|everforest_dark|kanagawa_dark|merino_dark)
     export CLAUDE_CODE_THEME="dark"
     echo "export CLAUDE_CODE_THEME=dark" > "${DOTFILES}/.claude-theme"
     ;;

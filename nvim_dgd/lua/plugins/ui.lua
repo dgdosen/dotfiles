@@ -89,6 +89,21 @@ return {
     end
   },
 
+  -- merino_dark/merino_light (Rex's built-in themes) use GitHub's palettes,
+  -- so they map to github_dark_default / github_light_default
+  {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    priority = 1000,
+    config = function()
+      require("github-theme").setup({
+        options = {
+          transparent = true,
+        },
+      })
+    end
+  },
+
   -- { 'shaunsingh/nord.nvim' },
   -- { 'folke/tokyonight.nvim' },
 

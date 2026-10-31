@@ -28,6 +28,10 @@ local function load_theme()
         ["kanagawa-dark"] = "kanagawa-wave",
         ["kanagawa_light"] = "kanagawa-lotus",
         ["kanagawa-light"] = "kanagawa-lotus",
+        ["merino_dark"] = "github_dark_default",
+        ["merino-dark"] = "github_dark_default",
+        ["merino_light"] = "github_light_default",
+        ["merino-light"] = "github_light_default",
       }
 
       local colorscheme = theme_map[theme] or theme
