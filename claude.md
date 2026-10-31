@@ -7,7 +7,7 @@ Switched themes across terminal environment:
 - **Kitty**: `.config/kitty`
 - **Ghostty**: `.config/ghostty` (themes generated from the Alacritty ones by `.bin/gen-ghostty-themes`)
 - **Neovim**: `nvim_dgd/`
-- **Tmux**: `.tmux.conf`
+- **Tmux**: `.config/tmux/tmux.conf`
 - **Powerlevel10k**: `.p10k.zsh`
 
 Recent commits show progression to truecolor support for Catppuccin Mocha theme.

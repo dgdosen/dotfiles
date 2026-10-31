@@ -15,7 +15,6 @@ ln -sfnv ~/.dotfiles/.bash_profile  ~/.bash_profile
 ln -sfnv ~/.dotfiles/.bashrc  ~/.bashrc
 ln -sfnv ~/.dotfiles/.dotrc ~/.dotrc
 ln -sfnv ~/.dotfiles/.gemrc ~/.gemrc
-ln -sfnv ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sfnv ~/.dotfiles/.p10k.zsh  ~/.p10k.zsh
 ln -sfnv ~/.dotfiles/phoenix.js  ~/.phoenix.js
 ln -sfnv ~/.dotfiles/.pomorc ~/.pomorc
@@ -29,10 +28,10 @@ DB_SOURCE="$HOME/.dotfiles/local/share/nvim/sqlua"
 ln -sfnv "$DB_SOURCE" "$HOME/.local/share/nvim/sqlua"
 ln -sfnv "$DB_SOURCE" "$HOME/.local/share/db_ui"
 
-# tmux
+# tmux. The config lives at ~/.config/tmux/tmux.conf (XDG); ~/.tmux stays
+# because TPM hardcodes ~/.tmux/plugins as its install path.
 [ ! -L "$HOME/.tmux" ] && ln -sfnv ~/.dotfiles/.tmux ~/.tmux
 # ln -sfnv ~/.dotfiles/.tmux-theme-gruvbox.conf ~/.tmux-theme-gruvbox.conf
-ln -sfnv ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
 # vim/nvim
 [ ! -L "$HOME/.vim" ] && ln -sfnv ~/.dotfiles/.vim ~/.vim
@@ -54,9 +53,12 @@ ln -sfnv ~/.dotfiles/.zshrc ~/.zshrc
 [ ! -d "$HOME/.config/karabiner" ] && mkdir ~/.config/karabiner
 [ ! -L "$HOME/.config/alacritty" ] && ln -sfnv ~/.dotfiles/.config/alacritty ~/.config/alacritty
 [ ! -L "$HOME/.config/ghostty" ] && ln -sfnv ~/.dotfiles/.config/ghostty ~/.config/ghostty
+# git: config + ignore both live under ~/.config/git. Do not re-add a
+# ~/.gitconfig link — git ignores ~/.config/git/config when ~/.gitconfig exists.
 [ ! -L "$HOME/.config/git" ] && ln -sfnv ~/.dotfiles/.config/git ~/.config/git
 [ ! -L "$HOME/.config/nvim" ] && ln -sfnv ~/.dotfiles/nvim_dgd ~/.config/nvim
 [ ! -L "$HOME/.config/smug" ] && ln -sfnv ~/.dotfiles/.config/smug ~/.config/smug
+[ ! -L "$HOME/.config/tmux" ] && ln -sfnv ~/.dotfiles/.config/tmux ~/.config/tmux
 [ ! -L "$HOME/.config/lazygit" ] && ln -sfnv ~/.dotfiles/.config/lazygit ~/.config/lazygit
 [ ! -L "$HOME/.config/rex" ] && ln -sfnv ~/.dotfiles/.config/rex ~/.config/rex  # Rex terminal: init.lua keymaps
 [ ! -L "$HOME/.config/opencode" ] && ln -sfnv ~/.dotfiles/.config/opencode ~/.config/opencode

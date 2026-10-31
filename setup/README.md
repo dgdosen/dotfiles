@@ -38,7 +38,8 @@ git submodule update --init --recursive
 ```
 
 Only powerlevel10k is a submodule. tmux plugins (TPM) are not in the repo;
-`.tmux.conf` clones TPM and installs its plugins on the first tmux start.
+`.config/tmux/tmux.conf` clones TPM and installs its plugins on the first tmux
+start.
 
 ## 4. Install Oh My Zsh
 

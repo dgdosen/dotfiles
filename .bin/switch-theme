@@ -193,7 +193,7 @@ echo "set -g @theme \"${TMUX_THEME}\"" > "${DOTFILES}/.tmux-theme"
 
 # Reload tmux config if tmux is running
 if command -v tmux &> /dev/null && tmux list-sessions &>/dev/null 2>&1; then
-  tmux source-file ~/.tmux.conf
+  tmux source-file ~/.config/tmux/tmux.conf
   echo "    → Reloaded tmux config"
 fi
 
