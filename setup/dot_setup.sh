@@ -9,6 +9,15 @@
 # below fail without them.
 mkdir -p ~/.local/bin ~/.local/share/nvim
 
+# Stale links from the pre-XDG layout. git and tmux ignore dangling symlinks and
+# fall through to ~/.config, so these are cosmetic — but only remove a link that
+# still points into ~/.dotfiles, never a real file the user put there.
+for stale in "$HOME/.gitconfig" "$HOME/.tmux.conf"; do
+  if [ -L "$stale" ] && case "$(readlink "$stale")" in "$HOME/.dotfiles/"*) true;; *) false;; esac; then
+    rm -v "$stale"
+  fi
+done
+
 # dotfiles
 ln -sfnv ~/.dotfiles/.androidrc  ~/.androidrc
 ln -sfnv ~/.dotfiles/.bash_profile  ~/.bash_profile
