@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Rex version of ~/.config/smug/hchoa.yml (AccountingTrak HOA). Run: rexs hchoa
+# Each tab is smug's main-vertical: main pane left, two stacked on the right.
+source "$(dirname "$0")/lib.sh"
+
+session hchoa
+
+tab hc_hoa ~/dev/accountingtrak_hchoa nvim
+split "$main" right 40
+split "$pane" below 50
+
+tab receipts ~/dev/accountingtrak_cash_receipts
+split "$main" right 40
+split "$pane" below 50
+
+tab bank_rec ~/dev/accountingtrak_bank_rec
+split "$main" right 40
+split "$pane" below 50
+
+finish

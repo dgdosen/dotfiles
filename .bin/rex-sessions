@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+"""rex-sessions: pick a Rex session from lazygit-style cards, one per session.
+
+Opened by prefix S as a float (~/.config/rex/floats.lua). Each card lists the
+session's tabs (▸ active) and their panes' program/dir (• focused).
+Keys: hjkl/arrows move · enter or 1-9 switch and quit · r refresh · q/esc quit.
+
+Switching asks the app to show the session (client action session.select).
+With several apps connected, $REX_CLIENT picks one, else this machine's short
+hostname, which matches the app's client label (see `rex client ls`).
+"""
+import curses, json, os, socket, subprocess
+from concurrent.futures import ThreadPoolExecutor
+
+CARD_W, MAX_LINES = 34, 12
+SHELLS = {"zsh", "-zsh", "bash", "fish", "sh", "login"}
+CLIENT = os.environ.get("REX_CLIENT") or socket.gethostname().split(".")[0]
+HERE, SELF = os.environ.get("REX_SESSION"), os.environ.get("REX_BLOCK")
+pool = ThreadPoolExecutor(16)
+
+
+def rex(*args):
+    out = subprocess.run(["rex", *args], capture_output=True, text=True, check=True).stdout
+    return json.loads(out) if out.strip() else None
+
+
+def pane(sid, b):
+    try:
+        fg = rex("block", "call", "-s", sid, "-b", b["block_id"], "process")["foreground"]
+    except Exception:
+        return b.get("label", "?")
+    name = "" if fg["name"] in SHELLS else fg["name"] + "  "
+    return name + fg.get("cwd", "").replace(os.path.expanduser("~"), "~", 1)
+
+
+def fetch():
+    cards = []
+    sessions = rex("ls", "--json")["sessions"]
+    for s in pool.map(lambda s: rex("session", "inspect", s["session_id"], "--json"), sessions):
+        lines = []
+        for w in s["windows"]:
+            active = w["window_id"] == s["active_window_id"]
+            lines.append((("▸ " if active else "  ") + w["label"], active))
+            blocks = [b for l in w["layers"] for b in l["blocks"] if b["block_id"] != SELF]
+            for b, text in zip(blocks, pool.map(lambda b: pane(s["session_id"], b), blocks)):
+                lines.append(("   " + ("•" if b["block_id"] == w["focused_block_id"] else "·") + " " + text, False))
+        cards.append({"id": s["session_id"], "label": s.get("label", "?"), "lines": lines[:MAX_LINES]})
+    return cards
+
+
+def put(scr, y, x, text, attr=0):
+    try:
+        scr.addstr(y, x, text, attr)
+    except curses.error:  # off-screen or bottom-right cell
+        pass
+
+
+def card(scr, y, x, h, w, n, c, on):
+    border = curses.color_pair(1) | curses.A_BOLD if on else curses.A_DIM
+    put(scr, y, x, "╭" + "─" * (w - 2) + "╮", border)
+    for i in range(1, h - 1):
+        text, bold = c["lines"][i - 1] if i <= len(c["lines"]) else ("", False)
+        put(scr, y + i, x, "│" + (" " + text)[: w - 2].ljust(w - 2), border)
+        put(scr, y + i, x + 1, (" " + text)[: w - 2], curses.A_BOLD if bold else 0)
+        put(scr, y + i, x + w - 1, "│", border)
+    put(scr, y + h - 1, x, "╰" + "─" * (w - 2) + "╯", border)
+    title = f"[{n + 1}] {c['label']}" + (" (here)" if c["id"] == HERE else "")
+    put(scr, y, x + 2, title[: w - 4], border if on else curses.A_BOLD)
+
+
+def draw(scr, cards, sel, msg):
+    scr.erase()
+    H, W = scr.getmaxyx()
+    cols = max(1, W // CARD_W)
+    y = 0
+    for r in range(0, len(cards), cols):
+        row = cards[r : r + cols]
+        h = max(len(c["lines"]) for c in row) + 2
+        for i, c in enumerate(row, r):
+            card(scr, y, (i - r) * (W // cols), h, W // cols, i, c, i == sel)
+        y += h
+    put(scr, H - 1, 0, f" ⏎/1-9 switch  hjkl move  r refresh  q quit  {msg}"[: W - 1], curses.color_pair(2))
+    scr.refresh()
+    return cols
+
+
+def main(scr):
+    curses.curs_set(0)
+    curses.use_default_colors()  # keep the terminal theme's colors
+    curses.init_pair(1, curses.COLOR_GREEN, -1)
+    curses.init_pair(2, curses.COLOR_CYAN, -1)
+    put(scr, 0, 1, "loading…")
+    scr.refresh()
+    cards, msg = fetch(), ""
+    sel = next((i for i, c in enumerate(cards) if c["id"] == HERE), 0)
+    while True:
+        cols = draw(scr, cards, sel, msg)
+        k = scr.getch()
+        step = {ord("h"): -1, curses.KEY_LEFT: -1, ord("l"): 1, curses.KEY_RIGHT: 1,
+                ord("k"): -cols, curses.KEY_UP: -cols, ord("j"): cols, curses.KEY_DOWN: cols}
+        pick = sel if k in (10, 13, curses.KEY_ENTER) else k - ord("1") if ord("1") <= k <= ord("9") else None
+        if k in (ord("q"), 27):
+            return
+        elif k in step:
+            sel = max(0, min(len(cards) - 1, sel + step[k]))
+        elif k == ord("r"):
+            cards = fetch()
+            sel = min(sel, len(cards) - 1)
+        elif pick is not None and pick < len(cards):
+            try:
+                rex("-C", CLIENT, "do", "session.select", f"session_id={cards[pick]['id']}")
+                return
+            except subprocess.CalledProcessError as e:
+                msg = (e.stderr.strip().splitlines() or ["switch failed"])[0]
+
+
+if __name__ == "__main__":
+    os.environ.setdefault("ESCDELAY", "25")  # make esc quit instantly
+    try:
+        curses.wrapper(main)
+    except KeyboardInterrupt:
+        pass

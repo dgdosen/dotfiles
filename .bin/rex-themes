@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+"""rex-themes: keep Rex's imported custom themes in dotfiles.
+
+Rex's init.lua only covers key bindings. Themes imported in Settings are saved
+in the app's macOS prefs (com.superlogical.rex), not ~/.config/rex, so they
+don't sync. This script copies them to and from a file in the synced config dir:
+
+  rex-themes export   prefs -> ~/.config/rex/themes.json  (commit this file)
+  rex-themes import   ~/.config/rex/themes.json -> prefs  (on other machines)
+
+Pref keys handled:
+  Workspace.customThemes  data blob holding a JSON list of themes
+  Workspace.darkThemeID   active dark theme (custom-<UUID>)
+  Workspace.lightThemeID  active light theme
+The active IDs are copied too. Theme IDs are random UUIDs created on import, so
+re-importing by hand on another machine would give different IDs.
+
+Quit Rex before running import, or the running app may overwrite the prefs.
+Rex ignores files in ~/.config/rex other than init.lua and modules it requires.
+"""
+import json, os, plistlib, subprocess, sys
+
+DOMAIN = "com.superlogical.rex"
+FILE = os.path.expanduser(os.environ.get("REX_THEMES_FILE", "~/.config/rex/themes.json"))
+ID_KEYS = {"darkThemeID": "Workspace.darkThemeID", "lightThemeID": "Workspace.lightThemeID"}
+
+
+def read_prefs():
+    out = subprocess.run(["defaults", "export", DOMAIN, "-"], capture_output=True, check=True).stdout
+    return plistlib.loads(out)
+
+
+def export():
+    p = read_prefs()
+    blob = p.get("Workspace.customThemes")
+    if not blob:
+        sys.exit("no custom themes in Rex prefs")
+    doc = {k: p.get(pk) for k, pk in ID_KEYS.items() if p.get(pk)}
+    doc["themes"] = json.loads(blob)
+    with open(FILE, "w") as f:
+        json.dump(doc, f, indent=2, sort_keys=True)  # stable, diff-friendly output
+        f.write("\n")
+    print(f"exported {len(doc['themes'])} themes -> {FILE}")
+
+
+def rex_running():
+    return subprocess.run(["pgrep", "-x", "Rex"], capture_output=True).returncode == 0
+
+
+def import_():
+    if rex_running() and "--force" not in sys.argv:
+        sys.exit("Rex is running; quit it first (or pass --force)")
+    with open(FILE) as f:
+        doc = json.load(f)
+    blob = json.dumps(doc["themes"], separators=(",", ":")).encode()
+    subprocess.run(["defaults", "write", DOMAIN, "Workspace.customThemes", "-data", blob.hex()], check=True)
+    for k, pk in ID_KEYS.items():
+        if doc.get(k):
+            subprocess.run(["defaults", "write", DOMAIN, pk, "-string", doc[k]], check=True)
+    print(f"imported {len(doc['themes'])} themes from {FILE}; start Rex to see them")
+
+
+cmds = {"export": export, "import": import_}
+if len(sys.argv) < 2 or sys.argv[1] not in cmds:
+    sys.exit(__doc__)
+cmds[sys.argv[1]]()
