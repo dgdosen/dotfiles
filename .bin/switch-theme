@@ -2,6 +2,7 @@
 
 # Theme switcher for terminal environment
 # Usage: switch-theme <theme-name>
+#        switch-theme --current   (or -q) print the active theme
 #   or set TERMINAL_THEME env variable
 #
 # Available themes:
@@ -21,11 +22,61 @@ set -e
 
 DOTFILES="${HOME}/.dotfiles"
 
+# --current / -q: print the active theme and exit. .nvim-theme holds the name
+# exactly as passed to the last switch. The p10k and Alacritty symlinks are
+# checked too; if one doesn't match (e.g. a partial switch or a hand edit),
+# a warning goes to stderr. Runs before rex_panes so it stays instant.
+# This shows the last theme switched to. Rex's own window theme is separate
+# (it follows macOS light/dark); see .bin/rex-themes.
+if [[ "$1" == "--current" || "$1" == "-q" ]]; then
+  current="$(cat "${DOTFILES}/.nvim-theme" 2>/dev/null)"
+  if [ -z "$current" ]; then
+    echo "No theme recorded (${DOTFILES}/.nvim-theme missing)" >&2
+    exit 1
+  fi
+  echo "$current"
+  for link in .p10k-theme .config/alacritty/current-theme.toml; do
+    target="$(basename "$(readlink "${DOTFILES}/${link}" 2>/dev/null)")"
+    if [ "${target%.*}" != "$current" ]; then
+      echo "  warning: ${link} -> ${target:-<missing>}" >&2
+    fi
+  done
+  exit 0
+fi
+
+# Rex: print "SESSION BLOCK PROGRAM" for every pane on this machine. PROGRAM is
+# the pane's current program (nvim, zsh, claude, ...) from `rex block call ...
+# process`, the same lookup .bin/rex-sessions uses. Panes on other hosts are
+# skipped, since they read their own machine's theme files. Prints nothing if
+# Rex isn't installed or its server isn't running (--autostart=false).
+rex_panes() {
+  command -v rex &> /dev/null || return 0
+  python3 -I - <<'PY'
+import json, subprocess
+def rex(*a):
+    r = subprocess.run(["rex", "--autostart=false", *a], capture_output=True, text=True)
+    return json.loads(r.stdout) if r.returncode == 0 and r.stdout.strip() else None
+status = rex("server", "status", "--json")
+if status:
+    for s in rex("ls", "--json")["sessions"]:
+        sid = s["session_id"]
+        for b in (rex("block", "ls", "-s", sid, "--json") or {}).get("blocks", []):
+            if b.get("host_id") != status["host_id"]:
+                continue
+            p = rex("block", "call", "-s", sid, "-b", b["block_id"], "process")
+            fg = (p or {}).get("foreground") or {}
+            if fg.get("name"):
+                print(sid, b["block_id"], fg["name"].lstrip("-"))  # "-zsh" = login shell
+PY
+}
+REX_PANES="$(rex_panes)"
+
 # Get theme from argument or env variable
 THEME="${1:-${TERMINAL_THEME}}"
 
 if [ -z "$THEME" ]; then
   echo "Usage: switch-theme <theme-name>"
+  echo "       switch-theme --current   (print the active theme)"
   echo "  or set TERMINAL_THEME environment variable"
   echo ""
   echo "Available themes:"
@@ -149,6 +200,21 @@ if command -v tmux &> /dev/null && tmux list-panes -a -F '#{pane_id} #{pane_curr
   echo "    → Updated running nvim instances"
 fi
 
+# Same for nvim running in Rex panes. Escape is its own key press so nvim
+# doesn't read Escape followed by ":" as Alt+:.
+case "$THEME" in
+  *_light|catppuccin-latte) NVIM_BG="light" ;;
+  *) NVIM_BG="dark" ;;
+esac
+n=0
+while read -r sid blk prog; do
+  [ "$prog" = "nvim" ] || continue
+  rex send-key -s "$sid" -b "$blk" escape
+  rex send -s "$sid" -b "$blk" ":set background=${NVIM_BG} | colorscheme ${NVIM_COLORSCHEME}"$'\r'
+  n=$((n + 1))
+done <<< "$REX_PANES"
+[ "$n" -gt 0 ] && echo "    → Updated $n nvim pane(s) in Rex"
+
 # Update Tmux
 echo "  ✓ Tmux"
 # Map theme names to tmux theme names
@@ -224,10 +290,23 @@ if command -v tmux &> /dev/null && tmux list-sessions &>/dev/null 2>&1; then
     tmux send-keys -t "$pane" " source ~/.p10k.zsh" Enter
   done
   echo "    → Reloaded p10k in running shells"
-else
-  # If not in tmux, remind user to reload
-  echo "    → Run 'source ~/.p10k.zsh' to apply changes"
 fi
+
+# Same for Rex panes sitting at a zsh prompt. Panes running something else
+# (claude, lazygit, ...) are left alone so nothing gets typed into them. The
+# leading space keeps the command out of zsh history. This shell is running
+# switch-theme, not zsh, so it gets skipped; hence the reminder below.
+# Ctrl+C first discards any half-typed command line (in vi insert or normal
+# mode) so the source command isn't appended to it and run as one line.
+n=0
+while read -r sid blk prog; do
+  [ "$prog" = "zsh" ] || continue
+  rex send-key -s "$sid" -b "$blk" ctrl+c
+  rex send -s "$sid" -b "$blk" " source ~/.p10k.zsh"$'\r'
+  n=$((n + 1))
+done <<< "$REX_PANES"
+[ "$n" -gt 0 ] && echo "    → Reloaded p10k in $n idle zsh pane(s) in Rex"
+echo "    → Run 'source ~/.p10k.zsh' in this shell to apply here"
 
 # Update Claude Code theme preference
 echo "  ✓ Claude Code"
