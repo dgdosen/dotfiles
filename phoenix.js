@@ -1,9 +1,12 @@
 // Constants
-const MENUBAR_HEIGHT = 25;  // macOS menubar height
-const EDGE_PADDING = 4;     // padding from screen edges
-const WINDOW_GAP = 4;       // gap between tiled windows
+// Uniform gap: applied once at every screen edge and once between adjacent windows.
+const GAP = 4;
 
 // Helper Functions
+// Slots are carved out of (visible area - GAP), then each window is shrunk by GAP,
+// so every edge (screen or neighbor) gets exactly one GAP.
+// Uses flippedVisibleFrame's x/y so the real menu bar height (39px on the notched
+// MacBook, ~25 on externals), a side Dock, and secondary monitors are all respected.
 function resizeToFraction(
   xNumerator,
   xDenominator,
@@ -18,34 +21,13 @@ function resizeToFraction(
     const window = Window.focused();
     if (window) {
       const screen = window.screen().flippedVisibleFrame();
-      const xOffset = window.screen().frame().x;
+      const usableWidth = screen.width - GAP;
+      const usableHeight = screen.height - GAP;
 
-      const x = ((screen.width / xDenominator) * xNumerator) + EDGE_PADDING;
-      const y = ((screen.height / yDenominator) * yNumerator) + MENUBAR_HEIGHT + EDGE_PADDING;
-      const width = ((screen.width / widthDenominator) * widthNumerator) - (WINDOW_GAP * 2);
-      const height = ((screen.height / heightDenominator) * heightNumerator) - (WINDOW_GAP * 2);
-
-      window.setFrame({ x, y, width, height });
-    }
-  };
-}
-
-function resizeVerticallyInPlace(
-  yNumerator,
-  yDenominator,
-  heightNumerator,
-  heightDenominator,
-) {
-  return () => {
-    const window = Window.focused();
-    if (window) {
-      const screen = window.screen().flippedVisibleFrame();
-
-      const currentFrame = window.frame();
-      const x = currentFrame.x;
-      const y = (screen.height / yDenominator) * yNumerator + MENUBAR_HEIGHT;
-      const width = currentFrame.width;
-      const height = (screen.height / heightDenominator) * heightNumerator - EDGE_PADDING;
+      const x = screen.x + GAP + (usableWidth * xNumerator) / xDenominator;
+      const y = screen.y + GAP + (usableHeight * yNumerator) / yDenominator;
+      const width = (usableWidth * widthNumerator) / widthDenominator - GAP;
+      const height = (usableHeight * heightNumerator) / heightDenominator - GAP;
 
       window.setFrame({ x, y, width, height });
     }
