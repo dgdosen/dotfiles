@@ -1,6 +1,6 @@
 // Constants
 // Uniform gap: applied once at every screen edge and once between adjacent windows.
-const GAP = 4;
+const GAP = 8;
 
 // Helper Functions
 // Slots are carved out of (visible area - GAP), then each window is shrunk by GAP,
