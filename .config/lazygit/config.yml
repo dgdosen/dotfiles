@@ -1,6 +1,6 @@
 gui:
   theme:
-    # === CATPPUCCIN-MOCHA (DARK) ===
+    # === CATPPUCCIN-MOCHA-DARK (pure black bg) ===
     activeBorderColor:
       - "#89b4fa" # catppuccin blue
       - bold

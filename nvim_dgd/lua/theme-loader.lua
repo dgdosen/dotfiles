@@ -19,6 +19,7 @@ local function load_theme()
         ["gruvbox_light"] = "gruvbox",
         ["gruvbox-light"] = "gruvbox",
         ["catppuccin-mocha"] = "catppuccin-mocha",
+        ["catppuccin-mocha-dark"] = "catppuccin-mocha-dark",
         ["catppuccin-latte"] = "catppuccin-latte",
         ["everforest_dark"] = "everforest",
         ["everforest-dark"] = "everforest",

@@ -7,6 +7,7 @@
 #
 # Available themes:
 #   - catppuccin-mocha
+#   - catppuccin-mocha-dark  Mocha on a pure black background
 #   - catppuccin-macchiato
 #   - catppuccin-latte
 #   - gruvbox-dark (gruvbox_dark)
@@ -88,6 +89,7 @@ if [ -z "$THEME" ]; then
   echo ""
   echo "Available themes:"
   echo "  - catppuccin-mocha"
+  echo "  - catppuccin-mocha-dark"
   echo "  - catppuccin-macchiato"
   echo "  - catppuccin-latte"
   echo "  - gruvbox-dark"
@@ -165,6 +167,9 @@ case "$THEME" in
   catppuccin-mocha)
     NVIM_COLORSCHEME="catppuccin-mocha"
     ;;
+  catppuccin-mocha-dark)
+    NVIM_COLORSCHEME="catppuccin-mocha-dark"
+    ;;
   catppuccin-macchiato)
     NVIM_COLORSCHEME="catppuccin-macchiato"
     ;;
@@ -235,6 +240,9 @@ case "$THEME" in
     ;;
   catppuccin-mocha)
     TMUX_THEME="catppuccin-mocha"
+    ;;
+  catppuccin-mocha-dark)
+    TMUX_THEME="catppuccin-mocha-dark"
     ;;
   catppuccin-macchiato)
     TMUX_THEME="catppuccin-macchiato"
@@ -325,7 +333,7 @@ case "$THEME" in
     export CLAUDE_CODE_THEME="light"
     echo "export CLAUDE_CODE_THEME=light" > "${DOTFILES}/.claude-theme"
     ;;
-  gruvbox_dark|catppuccin-mocha|catppuccin-macchiato|everforest_dark|kanagawa_dark|merino_dark)
+  gruvbox_dark|catppuccin-mocha|catppuccin-mocha-dark|catppuccin-macchiato|everforest_dark|kanagawa_dark|merino_dark)
     export CLAUDE_CODE_THEME="dark"
     echo "export CLAUDE_CODE_THEME=dark" > "${DOTFILES}/.claude-theme"
     ;;
