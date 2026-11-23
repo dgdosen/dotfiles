@@ -65,8 +65,15 @@ if status:
                 continue
             p = rex("block", "call", "-s", sid, "-b", b["block_id"], "process")
             fg = (p or {}).get("foreground") or {}
-            if fg.get("name"):
-                print(sid, b["block_id"], fg["name"].lstrip("-"))  # "-zsh" = login shell
+            name = fg.get("name", "").lstrip("-")  # "-zsh" = login shell
+            if not name:
+                continue
+            # A zsh nested under the pane's shell is a running script (e.g.
+            # #!/usr/bin/env zsh), not an idle prompt; Ctrl+C would kill it.
+            child = ((p or {}).get("child") or {}).get("pid")
+            if name == "zsh" and any(a.get("pid") != child for a in p.get("ancestors") or []):
+                name = "zsh-script"
+            print(sid, b["block_id"], name)
 PY
 }
 REX_PANES="$(rex_panes)"
@@ -293,7 +300,8 @@ if command -v tmux &> /dev/null && tmux list-sessions &>/dev/null 2>&1; then
 fi
 
 # Same for Rex panes sitting at a zsh prompt. Panes running something else
-# (claude, lazygit, ...) are left alone so nothing gets typed into them. The
+# (claude, lazygit, a zsh script reported as zsh-script, ...) are left alone so
+# nothing gets typed into them. The
 # leading space keeps the command out of zsh history. This shell is running
 # switch-theme, not zsh, so it gets skipped; hence the reminder below.
 # Ctrl+C first discards any half-typed command line (in vi insert or normal
@@ -302,11 +310,13 @@ n=0
 while read -r sid blk prog; do
   [ "$prog" = "zsh" ] || continue
   rex send-key -s "$sid" -b "$blk" ctrl+c
-  rex send -s "$sid" -b "$blk" " source ~/.p10k.zsh"$'\r'
+  # Oh My Posh panes only need the palette name re-exported (it is read on
+  # every render); p10k panes re-source their config.
+  rex send -s "$sid" -b "$blk" " if [[ \$PROMPT_ENGINE == omp ]]; then export POSH_PALETTE=${THEME}; else source ~/.p10k.zsh; fi"$'\r'
   n=$((n + 1))
 done <<< "$REX_PANES"
-[ "$n" -gt 0 ] && echo "    → Reloaded p10k in $n idle zsh pane(s) in Rex"
-echo "    → Run 'source ~/.p10k.zsh' in this shell to apply here"
+[ "$n" -gt 0 ] && echo "    → Reloaded the prompt in $n idle zsh pane(s) in Rex"
+echo "    → Run 'source ~/.p10k.zsh' (p10k) or 'export POSH_PALETTE=${THEME}' (omp) in this shell to apply here"
 
 # Update Claude Code theme preference
 echo "  ✓ Claude Code"

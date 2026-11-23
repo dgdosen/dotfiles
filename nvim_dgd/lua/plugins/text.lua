@@ -66,12 +66,28 @@ return {
       nvim_tmux_nav.setup {
         disable_when_zoomed = true -- defaults to false
       }
-      vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
-      vim.keymap.set('n', "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
-      vim.keymap.set('n', "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
-      vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+      -- <C-h/j/k/l>: inside tmux use tmux-navigation; otherwise rex-navigator
+      -- (below) owns them, so they cross into Rex panes at the edge.
+      if vim.env.TMUX then
+        vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+        vim.keymap.set('n', "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+        vim.keymap.set('n', "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+        vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+      end
       vim.keymap.set('n', "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
       vim.keymap.set('n', "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end
+  },
+
+  -- Rex counterpart of the above: <C-h/j/k/l> moves between Neovim splits and
+  -- hands off to the next Rex pane at the edge (via `rex do`). Rex half is
+  -- loaded in .config/rex/init.lua. Not lazy-loaded: the maps must exist when
+  -- the first ctrl+h/j/k/l arrives from Rex. Outside Rex it's plain wincmd.
+  {
+    'wassimk/rex-navigator.nvim',
+    version = '*',
+    lazy = false,
+    cond = function() return vim.env.TMUX == nil end,
+    opts = {},
   },
 }

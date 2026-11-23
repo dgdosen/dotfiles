@@ -51,6 +51,22 @@ return {
     config = function()
       require("catppuccin").setup({
         flavour = "auto", -- will be set dynamically
+        -- High-contrast Latte: stock accents darkened (lightness only) to
+        -- >= 5:1 against the #eff1f5 base, matching the terminal ANSI palette
+        -- (alacritty/kitty/ghostty/Rex "Catppuccin Latte") and
+        -- .p10k-themes/catppuccin-latte.zsh. Stock values in the comments.
+        -- Also feeds lualine (mode colours) and :terminal's ANSI colours.
+        color_overrides = {
+          latte = {
+            red    = "#cb0e37", -- #d20f39
+            green  = "#2e741f", -- #40a02b
+            yellow = "#8e5a12", -- #df8e1d
+            blue   = "#0b58f1", -- #1e66f5
+            pink   = "#ba1c90", -- #ea76cb
+            teal   = "#127278", -- #179299
+            peach  = "#b24101", -- #fe640b
+          },
+        },
         integrations = {
           treesitter = true,
           telescope = true,

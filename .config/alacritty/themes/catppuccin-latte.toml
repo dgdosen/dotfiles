@@ -1,3 +1,13 @@
+# High-contrast Catppuccin Latte: the accent colours are stock Catppuccin
+# darkened (lightness only, hue and saturation kept) to >= 5:1 contrast against
+# the #eff1f5 background. The stock accents only reached 2.3-4.8:1, so yellow,
+# green and pink text was hard to read. These values match .p10k-themes/catppuccin-latte.zsh,
+# the Rex "Catppuccin Latte" theme (.config/rex/themes.json) and the Neovim
+# color_overrides (nvim_dgd/lua/plugins/ui.lua). Was -> now:
+#   red #d20f39->#cb0e37  green #40a02b->#2e741f  yellow #df8e1d->#8e5a12
+#   blue #1e66f5->#0b58f1 pink #ea76cb->#ba1c90   teal #179299->#127278
+#   peach (index 16) #fe640b->#b24101
+
 [colors.primary]
 background = "#eff1f5"
 foreground = "#4c4f69"
@@ -18,7 +28,7 @@ background = "#6c6f85"
 
 [colors.search.focused_match]
 foreground = "#eff1f5"
-background = "#40a02b"
+background = "#2e741f"
 
 [colors.footer_bar]
 foreground = "#eff1f5"
@@ -26,7 +36,7 @@ background = "#6c6f85"
 
 [colors.hints.start]
 foreground = "#eff1f5"
-background = "#df8e1d"
+background = "#8e5a12"
 
 [colors.hints.end]
 foreground = "#eff1f5"
@@ -38,27 +48,27 @@ background = "#dc8a78"
 
 [colors.normal]
 black = "#5c5f77"
-red = "#d20f39"
-green = "#40a02b"
-yellow = "#df8e1d"
-blue = "#1e66f5"
-magenta = "#ea76cb"
-cyan = "#179299"
+red = "#cb0e37"
+green = "#2e741f"
+yellow = "#8e5a12"
+blue = "#0b58f1"
+magenta = "#ba1c90"
+cyan = "#127278"
 white = "#acb0be"
 
 [colors.bright]
 black = "#6c6f85"
-red = "#d20f39"
-green = "#40a02b"
-yellow = "#df8e1d"
-blue = "#1e66f5"
-magenta = "#ea76cb"
-cyan = "#179299"
+red = "#cb0e37"
+green = "#2e741f"
+yellow = "#8e5a12"
+blue = "#0b58f1"
+magenta = "#ba1c90"
+cyan = "#127278"
 white = "#bcc0cc"
 
 [[colors.indexed_colors]]
 index = 16
-color = "#fe640b"
+color = "#b24101"
 
 [[colors.indexed_colors]]
 index = 17

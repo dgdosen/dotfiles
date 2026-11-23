@@ -1,4 +1,7 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- Completion capabilities for EVERY server (incl. sourcekit in plugins/lsp.lua):
+-- cmp_nvim_lsp adds what nvim-cmp supports beyond Neovim's built-ins
+-- (preselect, commit characters, insertTextMode). Set once via '*' (2026-11-21).
+vim.lsp.config('*', { capabilities = require('cmp_nvim_lsp').default_capabilities() })
 
 -- LSP settings.
 --  on_attach runs when an LSP connects to a buffer; it wires the buffer-local
@@ -25,9 +28,11 @@ local servers = {
   -- TypeScript/JavaScript. Mason installs it as `typescript-language-server`;
   -- lspconfig/mason-lspconfig name is `ts_ls`. Empty table = default settings.
   ts_ls = {},
-  -- TS 7 native Go language server (tsc --lsp); runs alongside ts_ls for
-  -- projects still on TS 5/6. Renamed from `tsgo` (deprecated in Mason).
-  tsc = {},
+  -- `tsc` (TS 7 native, `tsc --lsp`) removed 2026-11-21: it ran alongside
+  -- ts_ls on every TS file (duplicate diagnostics/completions), and in
+  -- pre-7 projects it falls back to Mason's TS 7, so its errors didn't match
+  -- the project's own compiler. Most projects are TS 5.x. If more move to
+  -- TS 7, consider enabling tsc only for roots whose node_modules has TS >= 7.
   -- gopls = {},
   -- pyright = {},
   rust_analyzer = {
@@ -76,7 +81,6 @@ local servers = {
         globals = { 'vim', 'print' },
       },
       workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false,
       },
       telemetry = {
@@ -111,7 +115,6 @@ mason_lspconfig.setup()
 for server_name, server_config in pairs(servers) do
   vim.lsp.config(server_name, {
     on_attach = on_attach,
-    capabilities = capabilities,
     settings = server_config,
   })
 end

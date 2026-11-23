@@ -1,24 +1,24 @@
 gui:
   theme:
-    # === GRUVBOX-DARK (HARD) ===
+    # === CATPPUCCIN-MOCHA (DARK) ===
     activeBorderColor:
-      - "#458588" # gruvbox blue
+      - "#89b4fa" # catppuccin blue
       - bold
     inactiveBorderColor:
-      - "#928374" # gruvbox grey
+      - "#6c7086" # catppuccin grey
     optionsTextColor:
-      - "#458588" # gruvbox blue
+      - "#89b4fa" # catppuccin blue
     selectedLineBgColor:
-      - "#3c3836" # gruvbox dark1
+      - "#313244" # catppuccin surface0
     selectedRangeBgColor:
-      - "#3c3836" # gruvbox dark1
+      - "#313244" # catppuccin surface0
     cherryPickedCommitBgColor:
-      - "#b16286" # gruvbox purple
+      - "#cba6f7" # catppuccin mauve
     cherryPickedCommitFgColor:
-      - "#458588" # gruvbox blue
+      - "#89b4fa" # catppuccin blue
     unstagedChangesColor:
-      - "#cc241d" # gruvbox red
+      - "#f38ba8" # catppuccin red
     defaultFgColor:
-      - "#ebdbb2" # gruvbox light
+      - "#cdd6f4" # catppuccin text
     searchingActiveBorderColor:
-      - "#d79921" # gruvbox yellow
+      - "#f9e2af" # catppuccin yellow

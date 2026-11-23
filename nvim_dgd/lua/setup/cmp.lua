@@ -81,6 +81,8 @@ cmp.setup {
   },
   sources = cmp.config.sources({
     -- High priority: LSP and snippets
+    -- lazydev: require() paths + Neovim API fields in lua config files
+    { name = 'lazydev', group_index = 0 },
     { name = 'nvim_lsp', priority = 1000 },
     { name = 'luasnip',  priority = 750 },
   }, {

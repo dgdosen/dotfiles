@@ -22,12 +22,12 @@
 --   pane.split.down          ⇧⌘D              prefix "
 --   pane.split.left          ⇧⌘←              prefix ctrl+%  (tmux: split-window -hb, unbound)
 --   pane.split.up            ⇧⌘↑              prefix ctrl+"  (tmux: split-window -vb, unbound)
---   pane.focus.left/down/    ⌥⌘ ← ↓ ↑ →       prefix h / j / k / l
+--   pane.focus.left/down/    ⌥⌘ ← ↓ ↑ →       ctrl+h/j/k/l (rex-navigator, init.lua)
 --     up/right
 --   pane.zoom                ⌘⇧↩              prefix z
 --   pane.close               ⌘W               prefix x
 --   pane.balance             ?                prefix =
---   pane.resize              ?                prefix R, then h/j/k/l, escape exits
+--   pane.resize              ?                prefix h/j/k/l, then h/j/k/l; escape exits
 --   client.tab.new           ⌘T               prefix c
 --   client.tab.next          ⌃⇥               prefix n  (shift+right, opt-in)
 --   client.tab.previous      ⌃⇧⇥              prefix p  (shift+left, opt-in)
@@ -61,19 +61,34 @@ rex.bind("prefix/shift+'", "pane.split.down")
 rex.bind("prefix/ctrl+shift+5", "pane.split.left")
 rex.bind("prefix/ctrl+shift+'", "pane.split.up")
 
--- pane focus, vim directions
-rex.bind("prefix/h", "pane.focus.left")
-rex.bind("prefix/j", "pane.focus.down")
-rex.bind("prefix/k", "pane.focus.up")
-rex.bind("prefix/l", "pane.focus.right")
+-- prefix h/j/k/l RESIZES (changed 2026-11-21). Pane focus moved to plain
+-- ctrl+h/j/k/l via rex-navigator (see init.lua), which also crosses Neovim
+-- splits. Each press resizes one step and then holds the sticky "resize"
+-- mode (below), so more h/j/k/l keep resizing without re-pressing ctrl+a;
+-- escape exits. Native ⌥⌘ arrows still move focus directly.
+-- Fallback if the hold misbehaves: rex.bind("prefix/h", "pane.resize", { direction = "left" })
+rex.action {
+  name  = "pane_resize_hold",
+  title = "Resize Pane and Stay in Resize Mode",
+  args  = { direction = "string" },
+  run   = function(_, args)
+    rex.client.queue("pane.resize", { direction = args.direction })
+    rex.client.queue("client.mode.enter", { name = "resize" })
+  end,
+}
+rex.bind("prefix/h", "pane_resize_hold", { direction = "left" })
+rex.bind("prefix/j", "pane_resize_hold", { direction = "down" })
+rex.bind("prefix/k", "pane_resize_hold", { direction = "up" })
+rex.bind("prefix/l", "pane_resize_hold", { direction = "right" })
 
 -- pane management
 rex.bind("prefix/z", "pane.zoom")
 rex.bind("prefix/x", "pane.close")
 rex.bind("prefix/=", "pane.balance")
 
--- resize: prefix R enters a sticky "resize" mode; hjkl resize, escape exits
-rex.bind("prefix/shift+r", "client.mode.enter", { name = "resize" })
+-- sticky "resize" mode: hjkl resize, escape exits. Entered by prefix h/j/k/l
+-- (pane_resize_hold above). prefix R used to enter it too; removed 2026-11-21
+-- as redundant.
 rex.bind("resize/h", "pane.resize", { direction = "left" })
 rex.bind("resize/j", "pane.resize", { direction = "down" })
 rex.bind("resize/k", "pane.resize", { direction = "up" })

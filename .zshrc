@@ -20,14 +20,21 @@ export CLAUDE_CODE_TMUX_TRUECOLOR=1
 # Claude code default mode
 export ANTHROPIC_MODEL="claude-opus-5-5"
 
-# Which prompt engine to load: p10k (default) or starship.
-# Switch with `prompt-engine starship` / `prompt-engine p10k`.
+# Which prompt engine to load: p10k (default), starship or omp (Oh My Posh).
+# Switch with `prompt-engine omp` / `prompt-engine starship` / `prompt-engine p10k`.
 # PROMPT_ENGINE in the environment wins, so you can try one for a single shell:
 #   PROMPT_ENGINE=starship zsh
 if [[ -z "$PROMPT_ENGINE" && -r ~/.dotfiles/.prompt-engine ]]; then
   PROMPT_ENGINE="$(<~/.dotfiles/.prompt-engine)"
 fi
 typeset -g PROMPT_ENGINE="${PROMPT_ENGINE:-p10k}"
+# .prompt-engine is shared by every machine; one without oh-my-posh installed
+# falls back to p10k instead of ending up with no prompt. Checked by path too,
+# because Homebrew may not be on PATH yet this early in startup.
+if [[ "$PROMPT_ENGINE" == omp ]] && ! (( $+commands[oh-my-posh] )) \
+    && [[ ! -x /opt/homebrew/bin/oh-my-posh && ! -x /usr/local/bin/oh-my-posh ]]; then
+  PROMPT_ENGINE=p10k
+fi
 
 if [[ "$PROMPT_ENGINE" == p10k ]]; then
   if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -222,6 +229,13 @@ export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 # Prompt engine: exactly one of these takes the prompt.
 if [[ "$PROMPT_ENGINE" == starship ]]; then
   command -v starship >/dev/null && eval "$(starship init zsh)"
+elif [[ "$PROMPT_ENGINE" == omp ]]; then
+  # Oh My Posh: config in .config/oh-my-posh/config.yaml. Its palette follows
+  # the active theme: the name of the file the .p10k-theme symlink points at
+  # (catppuccin-latte, gruvbox_dark, ...) is also the palette name.
+  # switch-theme re-exports this in idle Rex panes.
+  export POSH_PALETTE="${$(readlink ~/.dotfiles/.p10k-theme):t:r}"
+  eval "$(oh-my-posh init zsh --config ~/.dotfiles/.config/oh-my-posh/config.yaml)"
 else
   # Only source Powerlevel10k if not already sourced and file exists
   [[ -f "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme" ]] && source "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme"
@@ -236,21 +250,25 @@ export FORCE_COLOR=1
 
 # configurationfor vi_mode within zsh and P10K
 # Fix vi mode detection for Powerlevel10k
-function zle-keymap-select {
-  zle reset-prompt
-}
-zle -N zle-keymap-select
+# Skipped for Oh My Posh: its init wraps zle-keymap-select and zle-line-init
+# to re-render the vimode segment, and redefining them here would undo that.
+if [[ "$PROMPT_ENGINE" != omp ]]; then
+  function zle-keymap-select {
+    zle reset-prompt
+  }
+  zle -N zle-keymap-select
 
-function zle-line-init {
-  zle reset-prompt
-}
-zle -N zle-line-init
+  function zle-line-init {
+    zle reset-prompt
+  }
+  zle -N zle-line-init
 
-# Make sure we start in insert mode
-function zle-line-finish {
-  zle reset-prompt
-}
-zle -N zle-line-finish
+  # Make sure we start in insert mode
+  function zle-line-finish {
+    zle reset-prompt
+  }
+  zle -N zle-line-finish
+fi
 export KEYTIMEOUT=1
 bindkey -M viins 'jk' vi-cmd-mode
 bindkey -M viins 'kj' vi-cmd-mode

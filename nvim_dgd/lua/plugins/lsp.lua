@@ -1,4 +1,18 @@
 return {
+  -- Neovim-API awareness for lua_ls when editing this config. lazydev.nvim
+  -- replaced the archived folke/neodev.nvim (2026-11-21); it loads library
+  -- types on demand, so lua_ls no longer needs the whole runtimepath as its
+  -- workspace.library (removed in setup/lsp.lua). No keymaps.
+  {
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {
+      library = {
+        -- vim.uv types, only when a file mentions vim.uv
+        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+      },
+    },
+  },
   -- LSP Configuration & Plugins
   {
     'neovim/nvim-lspconfig',
@@ -12,12 +26,9 @@ return {
       { 'j-hui/fidget.nvim', opts = {} },
       -- 'j-hui/fidget.nvim',
       'b0o/schemastore.nvim',
-      -- Additional lua configuration, makes nvim stuff amazing
-      'folke/neodev.nvim',
     },
     checker = { enabled = true },
     config = function()
-      require('setup/neodev')
       require('setup/lsp')
 
       -- Configure sourcekit LSP for Swift

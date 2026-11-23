@@ -22,7 +22,9 @@ return function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  -- No normal-mode <C-k> signature help (removed 2026-11-21): as a buffer-local
+  -- map it beat rex-navigator's global <C-k>, so ctrl+k couldn't move up out
+  -- of LSP buffers. Use Neovim's built-in insert-mode <C-s> instead.
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')

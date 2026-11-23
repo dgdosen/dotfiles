@@ -99,8 +99,17 @@ return {
     end,
   },
 
-  -- symbols outline
-  'simrat39/symbols-outline.nvim',
+  -- symbols outline: outline.nvim replaced the archived simrat39/symbols-outline
+  -- (2026-11-21). Command :SymbolsOutline -> :Outline; in-window keys unchanged.
+  {
+    'hedyhli/outline.nvim',
+    cmd = { 'Outline', 'OutlineOpen' },
+    keys = {
+      -- <leader>O, not <leader>o: lowercase is flash jump (setup/flash.lua)
+      { '<leader>O', '<cmd>Outline<cr>', desc = '[O]utline toggle' },
+    },
+    opts = {},
+  },
 
   -- buffer explorer
   'jlanzarotta/bufexplorer',
