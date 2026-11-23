@@ -302,7 +302,9 @@ ln -sf "${DOTFILES}/.p10k-themes/${THEME}.zsh" "${DOTFILES}/.p10k-theme"
 # Reload p10k in all running zsh shells (including current shell if in tmux)
 if command -v tmux &> /dev/null && tmux list-sessions &>/dev/null 2>&1; then
   tmux list-panes -a -F '#{pane_id} #{pane_current_command}' | grep zsh | awk '{print $1}' | while read pane; do
-    tmux send-keys -t "$pane" " source ~/.p10k.zsh" Enter
+    # clear + \e[3J (same as the `cc` function) wipes the screen and
+    # scrollback so prompts drawn in the old colors don't linger.
+    tmux send-keys -t "$pane" " source ~/.p10k.zsh; clear; printf '\e[3J'" Enter
   done
   echo "    → Reloaded p10k in running shells"
 fi
@@ -319,12 +321,14 @@ while read -r sid blk prog; do
   [ "$prog" = "zsh" ] || continue
   rex send-key -s "$sid" -b "$blk" ctrl+c
   # Oh My Posh panes only need the palette name re-exported (it is read on
-  # every render); p10k panes re-source their config.
-  rex send -s "$sid" -b "$blk" " if [[ \$PROMPT_ENGINE == omp ]]; then export POSH_PALETTE=${THEME}; else source ~/.p10k.zsh; fi"$'\r'
+  # every render); p10k panes re-source their config. Then clear the screen
+  # and scrollback (same as `cc`) so old-color prompts and the ^C line are gone.
+  rex send -s "$sid" -b "$blk" " if [[ \$PROMPT_ENGINE == omp ]]; then export POSH_PALETTE=${THEME}; else source ~/.p10k.zsh; fi; clear; printf '\e[3J'"$'\r'
   n=$((n + 1))
 done <<< "$REX_PANES"
 [ "$n" -gt 0 ] && echo "    → Reloaded the prompt in $n idle zsh pane(s) in Rex"
-echo "    → Run 'source ~/.p10k.zsh' (p10k) or 'export POSH_PALETTE=${THEME}' (omp) in this shell to apply here"
+echo "    → The switch-theme zsh wrapper (environment_aliases.sh) applies it in this shell;"
+echo "      otherwise run 'source ~/.p10k.zsh' (p10k) or 'export POSH_PALETTE=${THEME}' (omp)"
 
 # Update Claude Code theme preference
 echo "  ✓ Claude Code"

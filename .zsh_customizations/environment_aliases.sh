@@ -2,6 +2,25 @@ cc() {
   clear; printf '\e[3J'
 }
 
+# Wraps ~/.bin/switch-theme. The script runs in a subprocess, so it reloads the
+# prompt (and clears) in other idle panes but can't touch this shell. After a
+# successful switch, apply the new prompt colors and Claude theme here, then
+# `cc` so old-color prompts are gone. --current/-q, usage, and errors pass
+# through without clearing.
+switch-theme() {
+  command switch-theme "$@" || return
+  [[ "$1" == "--current" || "$1" == "-q" ]] && return
+  local theme="${$(readlink ~/.dotfiles/.p10k-theme):t:r}"
+  if [[ $PROMPT_ENGINE == omp ]]; then
+    export POSH_PALETTE="$theme"
+  else
+    source ~/.p10k.zsh
+  fi
+  [[ -f ~/.dotfiles/.claude-theme ]] && source ~/.dotfiles/.claude-theme
+  cc
+  echo "Theme: $theme"
+}
+
 tm() {
   ~/.dotfiles/.zsh_customizations/tmux-sessionizer.sh
 }
