@@ -8,8 +8,10 @@
 #   tailscale serve --https=8443 off  # stop sharing the LLM
 #
 # Services:
-#   :8443  ds4 LLM (com.agidevelopment.ds4_serve on 127.0.0.1:8000)
+#   :8443  LLM API, no auth (oMLX, com.agidevelopment.omlx_serve on 127.0.0.1:8000)
 #          https://dg-ms-m5m.hornbill-nessie.ts.net:8443/v1
+#   :8444  Open WebUI, per-user logins (com.agidevelopment.openwebui_serve on 127.0.0.1:8081)
+#          https://dg-ms-m5m.hornbill-nessie.ts.net:8444
 
 set -eu
 
@@ -17,4 +19,5 @@ TS=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 command -v tailscale >/dev/null 2>&1 && TS=tailscale
 
 "$TS" serve --bg --https=8443 http://127.0.0.1:8000
+"$TS" serve --bg --https=8444 http://127.0.0.1:8081
 "$TS" serve status

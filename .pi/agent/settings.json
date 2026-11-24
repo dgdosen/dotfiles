@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "1.3.0",
+  "lastChangelogVersion": "1.5.2",
   "theme": "light/dark",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.5",
@@ -8,5 +8,9 @@
     "npm:pi-web-search",
     "npm:@narumitw/pi-btw",
     "npm:@narumitw/pi-worktree"
-  ]
+  ],
+  "extensionChangelogVersions": {
+    "{\"source\":\"npm:@narumitw/pi-btw\",\"scope\":\"user\"}": "0.63.7",
+    "{\"source\":\"npm:@narumitw/pi-worktree\",\"scope\":\"user\"}": "0.51.9"
+  }
 }

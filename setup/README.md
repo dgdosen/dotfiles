@@ -136,4 +136,5 @@ dg-mba-m5). Without it, the dotupdate job just pulls.
 
 - Edit `~/.machine.env` for machine-specific paths (Dropbox, etc.)
 - Which launchd agents to run (some may only belong on one machine)
+- Mac Studio only: local LLM hosting (oMLX, Open WebUI, GPU wired limit); see `setup/llm-hosting.md`
 - Whether to link `~/.local/share/nvim/sqlua` database connections

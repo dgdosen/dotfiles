@@ -45,7 +45,7 @@ background-opacity = 1.0
 # macos-titlebar-style = hidden
 # shell-integration-features = no-title
 # title = " "
-window-title-font-family = Source Code Pro
+window-title-font-family = SauceCodePro Nerd Font
 
 
 # No "Close Window?" prompt, matching Alacritty. Safe here because tmux owns the

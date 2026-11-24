@@ -16,6 +16,20 @@
       },
       "models": [
         {
+          "id": "deepseek-v4.1-flash",
+          "name": "DeepSeek V4.1 Flash (Mac Studio)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 32768,
+          "maxTokens": 8192,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          }
+        },
+        {
           "id": "qwen3.8-flash-next",
           "name": "Qwen3.8 Flash (Mac Studio)",
           "reasoning": true,

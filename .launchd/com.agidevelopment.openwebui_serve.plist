@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.agidevelopment.openwebui_serve</string>
+    <!-- Open WebUI chat front end for the local LLM (oMLX on :8000). Mac Studio only. -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/dgdosen/.dotfiles/daily/openwebui_serve.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+    <key>ProcessType</key>
+    <string>Interactive</string>
+    <key>StandardOutPath</key>
+    <string>/Users/dgdosen/log/openwebui_serve.out</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/dgdosen/log/openwebui_serve.err</string>
+</dict>
+</plist>

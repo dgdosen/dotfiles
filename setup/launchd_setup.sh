@@ -41,8 +41,12 @@ install_agent com.quantifiedflow.quantified_status
 # Claude morning kickoff (opens 5-hour usage window at 05:00)
 install_agent com.agidevelopment.claude_morning
 
-# Local LLM server (Mac Studio M5 Max only; loads ~80 GiB model)
-# install_agent com.agidevelopment.ds4_serve
+# Local LLM hosting (Mac Studio M5 Max only; see setup/llm-hosting.md, which also
+# covers the root LaunchDaemon com.agidevelopment.wired_limit that has to be installed by hand)
+# install_agent com.agidevelopment.omlx_serve
+# install_agent com.agidevelopment.openwebui_serve
+# install_agent com.agidevelopment.workbench_serve
+# install_agent com.agidevelopment.ds4_serve   # old engine; don't run with omlx_serve
 
 start_agent com.agidevelopment.backup
 start_agent com.agidevelopment.brewupdate

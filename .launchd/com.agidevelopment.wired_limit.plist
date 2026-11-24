@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.agidevelopment.wired_limit</string>
+    <!-- Raise the GPU wired-memory limit at boot (it resets on reboot). Mac Studio only.
+         oMLX reads it at startup: unset costs ~10% decode (2026-10-31 bench).
+         LaunchDaemon, not an agent: needs root. Install a root-owned copy, not a symlink:
+           sudo install -o root -g wheel -m 644 ~/.dotfiles/.launchd/com.agidevelopment.wired_limit.plist /Library/LaunchDaemons/
+           sudo launchctl bootstrap system /Library/LaunchDaemons/com.agidevelopment.wired_limit.plist -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/sbin/sysctl</string>
+        <string>iogpu.wired_limit_mb=122880</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/var/log/wired_limit.log</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/wired_limit.log</string>
+</dict>
+</plist>

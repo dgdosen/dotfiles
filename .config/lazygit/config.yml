@@ -1,24 +1,24 @@
 gui:
   theme:
-    # === CATPPUCCIN-MOCHA-DARK (pure black bg) ===
+    # === CATPPUCCIN-LATTE (LIGHT) ===
     activeBorderColor:
-      - "#89b4fa" # catppuccin blue
+      - '#7287fd' # catppuccin blue
       - bold
     inactiveBorderColor:
-      - "#6c7086" # catppuccin grey
+      - '#9ca0b0' # catppuccin grey
     optionsTextColor:
-      - "#89b4fa" # catppuccin blue
+      - '#7287fd' # catppuccin blue
     selectedLineBgColor:
-      - "#313244" # catppuccin surface0
+      - '#bcc5e3' # soft blue (lighter version of catppuccin blue)
     selectedRangeBgColor:
-      - "#313244" # catppuccin surface0
+      - '#bcc5e3' # soft blue (lighter version of catppuccin blue)
     cherryPickedCommitBgColor:
-      - "#cba6f7" # catppuccin mauve
+      - '#8839ef' # catppuccin mauve
     cherryPickedCommitFgColor:
-      - "#89b4fa" # catppuccin blue
+      - '#7287fd' # catppuccin blue
     unstagedChangesColor:
-      - "#f38ba8" # catppuccin red
+      - '#d20f39' # catppuccin red
     defaultFgColor:
-      - "#cdd6f4" # catppuccin text
+      - '#4c4f69' # catppuccin text
     searchingActiveBorderColor:
-      - "#f9e2af" # catppuccin yellow
+      - '#df8e1d' # catppuccin yellow
