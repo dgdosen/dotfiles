@@ -5,7 +5,7 @@
 #   right (flat, no blocks):  command duration and language versions as
 #                             coloured text on the terminal background
 #
-# Loaded by .zshrc when the prompt engine is "omp" (`prompt-engine omp`).
+# Loaded by .zshrc when the prompt engine is "omp" (`switch-prompt omp`).
 #
 # Colours: every colour below is a palette key (p:name). The palettes at the
 # bottom are generated from .p10k-themes/*.zsh by .bin/gen-posh-palettes, so

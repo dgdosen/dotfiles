@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Prompt engine switcher: choose between powerlevel10k, starship and Oh My Posh.
-# Usage: prompt-engine [p10k|starship|omp]
+# Usage: switch-prompt [p10k|starship|omp]
 #   with no argument, prints the currently selected engine
 #
 # Writes ~/.dotfiles/.prompt-engine, which .zshrc reads at startup.
@@ -27,7 +27,7 @@ if [ -z "$ENGINE" ]; then
   echo "Current prompt engine: $(current)"
   [ -n "$PROMPT_ENGINE" ] && echo "  (this shell is running: ${PROMPT_ENGINE})"
   echo ""
-  echo "Usage: prompt-engine [p10k|starship|omp]"
+  echo "Usage: switch-prompt [p10k|starship|omp]"
   exit 0
 fi
 

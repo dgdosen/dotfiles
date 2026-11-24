@@ -5,11 +5,11 @@ cc() {
 # Wraps ~/.bin/switch-theme. The script runs in a subprocess, so it reloads the
 # prompt (and clears) in other idle panes but can't touch this shell. After a
 # successful switch, apply the new prompt colors and Claude theme here, then
-# `cc` so old-color prompts are gone. --current/-q, usage, and errors pass
-# through without clearing.
+# `cc` so old-color prompts are gone. The no-argument theme list and errors
+# pass through without clearing.
 switch-theme() {
   command switch-theme "$@" || return
-  [[ "$1" == "--current" || "$1" == "-q" ]] && return
+  [[ -z "$1" && -z "$TERMINAL_THEME" ]] && return
   local theme="${$(readlink ~/.dotfiles/.p10k-theme):t:r}"
   if [[ $PROMPT_ENGINE == omp ]]; then
     export POSH_PALETTE="$theme"
@@ -145,10 +145,10 @@ bindkey '^ ' autosuggest-accept
 # vim key bindings to edit the command line
 bindkey -v
 
-# Wrap .bin/prompt-engine so switching reloads the shell in place.
+# Wrap .bin/switch-prompt so switching reloads the shell in place.
 # Without this the script writes the file but the running shell keeps its prompt.
-function prompt-engine {
-  command prompt-engine "$@" || return $?
+function switch-prompt {
+  command switch-prompt "$@" || return $?
   [[ -n "$1" ]] && exec zsh
 }
 
