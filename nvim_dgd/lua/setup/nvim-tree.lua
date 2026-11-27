@@ -4,9 +4,9 @@ require('nvim-tree').setup {
   -- Let oil.nvim own directory buffers (oil sets default_file_explorer=true);
   -- without this both plugins fight to hijack netrw and the winner is load-order dependent.
   hijack_netrw = false,
-  -- Open the tree drawer on the right side of the layout (default is 'left').
+  -- change the side of the drawer on the right side of the layout (default is 'left').
   view = {
-    side = 'right',
+    side = 'left',
   },
   filters = {
     dotfiles = false,
