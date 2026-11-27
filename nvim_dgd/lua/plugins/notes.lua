@@ -94,6 +94,7 @@ return {
     init = function()
       vim.g.mkdp_filetypes = { 'markdown' }
       vim.g.mkdp_theme = 'automatic'
+      vim.g.mkdp_auto_close = 0 -- keep the preview open when leaving the buffer
     end,
   },
 

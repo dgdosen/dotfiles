@@ -58,6 +58,13 @@ wk.add({
   { "<leader>mp", ":MarkdownPreview<cr>",                                                   desc = "markdown [p]review" },
   { "<leader>ms", ":MarkdownPreviewStop<cr>",                                               desc = "markdown preview [s]top" },
   { "<leader>mt", ":MarkdownPreviewToggle<cr>",                                             desc = "markdown preview [t]oggle" },
+  { "<leader>ml", "<cmd>silent !open -a Lettera '%:p'<cr>",                                desc = "open in [l]ettera" },
+  { "<leader>mm", function()
+      -- mddog in a new Rex pane to the right of this one (needs `brew install qu8n/tap/mddog`)
+      local block = vim.env.REX_BLOCK
+      if not block then return vim.notify("not in a Rex pane (REX_BLOCK unset)", vim.log.levels.WARN) end
+      vim.fn.jobstart({ "rex", "split", "-b", block, "--split=right", "--", "mdd", vim.fn.expand("%:p") }, { detach = true })
+    end, desc = "view in [m]ddog (Rex pane, right)" },
   { "<leader>mx", ":%!xmllint --format -<CR>",                                             desc = "[x]ml format" },
   -- <leader>n* mappings themselves live in plugins/notes.lua (telekasten config)
   { "<leader>n",  group = "[n]otes/telekasten ..." },

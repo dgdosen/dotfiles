@@ -340,6 +340,16 @@ blocks:
           {{- if gt $unstaged 0 }} {{ "\uf06a" }} <b>{{ $unstaged }}</b>{{ end }}
           {{- if gt .Working.Untracked 0 }} {{ "\uf059" }} <b>{{ .Working.Untracked }}</b>{{ end }} {{ "" }}
 
+      # Closing arrow outside a git repo: the path block would otherwise end
+      # flat, while inside a repo the git block ends with \ue0b0. Drawn in the
+      # directory blue on the terminal background so it reads as the path
+      # block's own tail. Renders nothing (segment hidden) when git is shown.
+      - type: text
+        style: plain
+        background: transparent
+        foreground: p:dir_bg
+        template: '{{ if not (.Segments.Contains "Git") }}{{ "\ue0b0" }}{{ end }}'
+
   # ── right: flat text, no blocks ─────────────────────────────────────────────
   # p10k's flat right prompt promoted each segment's background colour to its
   # foreground; same here.

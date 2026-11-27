@@ -88,6 +88,18 @@ return {
     version = '*',
     lazy = false,
     cond = function() return vim.env.TMUX == nil end,
+    config = function(_, opts)
+      local nav = require('rex-navigator')
+      nav.setup(opts)
+      -- v0.1.0 only hands off to Rex at the edge when $REX_SESSION is set, but
+      -- Rex panes export REX_BLOCK/REX_SERVER, not REX_SESSION, so the handoff
+      -- never fired (checked 2026-11-23). `rex do` resolves the session from
+      -- REX_BLOCK fine, so treat either variable as "inside Rex". Drop this if
+      -- upstream fixes in_rex().
+      nav.in_rex = function()
+        return (vim.env.REX_SESSION or '') ~= '' or (vim.env.REX_BLOCK or '') ~= ''
+      end
+    end,
     opts = {},
   },
 }

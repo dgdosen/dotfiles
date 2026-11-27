@@ -21,7 +21,7 @@ export CLAUDE_CODE_TMUX_TRUECOLOR=1
 export ANTHROPIC_MODEL="claude-opus-5-5"
 
 # Which prompt engine to load: p10k (default), starship or omp (Oh My Posh).
-# Switch with `prompt-engine omp` / `prompt-engine starship` / `prompt-engine p10k`.
+# Switch with `switch-prompt omp` / `switch-prompt starship` / `switch-prompt p10k`.
 # PROMPT_ENGINE in the environment wins, so you can try one for a single shell:
 #   PROMPT_ENGINE=starship zsh
 if [[ -z "$PROMPT_ENGINE" && -r ~/.dotfiles/.prompt-engine ]]; then
